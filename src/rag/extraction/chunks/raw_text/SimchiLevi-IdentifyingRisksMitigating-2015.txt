@@ -1,0 +1,1258 @@
+ 
+ 
+Identifying Risks and Mitigating Disruptions in the Automotive Supply Chain 
+Author(s): David Simchi-Levi, William Schmidt, Yehua Wei, Peter Yun Zhang, Keith Combs, 
+Yao Ge, Oleg Gusikhin, Michael Sanders and  Don Zhang 
+Source: Interfaces,  Vol. 45, No. 5, Special Issue: 2014 Daniel H. Wagner Prize for Excellence 
+in Operations Research Practice (September-October 2015), pp. 375-390 
+Published by: INFORMS 
+Stable URL: https://www.jstor.org/stable/43699517 
+Accessed: 11-03-2025 18:05 UTC 
+ 
+JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide 
+range of content in a trusted digital archive. We use information technology and tools to increase productivity and 
+facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org. 
+ 
+Your use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at 
+https://about.jstor.org/terms 
+INFORMS  is collaborating with JSTOR to digitize, preserve and extend access to Interfaces 
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Interfacesinf^^SVol.45,No.5,September-October 2015,pp.375-390®
+ISSN0092-2102 (print)|ISSN1526-551X (online) http://dx.doi.org/10.1287/inte.2015.0804
+©2015INFORMS
+IdentifyingRisks andMitigating Disruptionsinthe
+AutomotiveSupplyChain
+DavidSimchi-Levi
+Department ofCivilandEnvironmental Engineering, InstituteforData,Systems, andSociety,andtheOperations Research Center,
+Massachusetts InstituteofTechnology, Cambridge, Massachusetts 02139,dslevi@mit.edu
+William Schmidt
+SamuelCurtisJohnson Graduate SchoolofManagement, CornellUniversity, Ithaca,NewYork14853,
+wschmidt@cornell.edu
+YehuaWei
+TheFuquaSchoolofBusiness, DukeUniversity, Durham, NorthCarolina 27708,yehua.wei@duke.edu
+PeterYunZhang
+InstituteforData,Systems, andSociety,Massachusetts InstituteofTechnology, Cambridge, Massachusetts 02139,
+pyzhang@mit.edu
+KeithCombs,YaoGe,OlegGusikhin, Michael Sanders,DonZhang
+FordMotorCompany, Dearborn, Michigan 48126
+1kcombs@ford.com, yge@ford.com, ogsukhi@ford.com, msande22@ford.com, xzhang35@ford.comļ
+Firmsareexposedtoavarietyoflow-probability, high-impactrisksthatcandisrupttheiroperations andsupply
+chains.Theserisksaredifficult topredictandquantify; therefore, theyaredifficult tomanage. Asaresult,
+managers maysuboptimally deploycountermeasures, leavingtheirfirmsexposedtosomerisks,whilewasting
+resources tomitigateotherrisksthatwouldnotcausesignificant damage.Inathree-year research engagement
+withFordMotorCompany, weaddressed thispractical needbydeveloping anovelrisk-exposure modelthat
+assesses theimpactofadisruption originating anywhereinafirm'ssupplychain.Ourapproachdefersthe
+needforacompanytoestimate theprobability associated withanyspecific disruptionriskuntilafterithas
+learned theeffectsuchadisruptionwillhaveonitsoperations. Asaresult,thecompany canmakemore
+informed decisions aboutwheretofocusitslimitedrisk-management resources. Wedemonstrate howFord
+appliedthismodeltoidentify previously unrecognized riskexposures, evaluate predisruption risk-mitigation
+actions,anddevelop optimal postdisruption contingency plans,including circumstances inwhichtheduration
+ofthedisruption isunknown.
+Keywords:riskmanagement; automotive; manufacturing industries; disruption; risk-exposure index.
+History:Thispaperwasrefereed.
+Manyandcompanies
+supply chainface
+risksconsiderable
+thatcanoperational
+materially andsupply chainrisksthatcanmaterially
+impactcompany performance. Giventhecomplexity
+andscopeofFordMotorCompany's operations,this
+iscertainlyitssituation. Fordmaintains morethan
+50plantsworldwide thatannually utilize35billion
+partstoproducesixmillion carsandtrucks. Ithas
+upto10tiersofsuppliers between itselfanditsraw
+materials. ItsTier1suppliers number 1,400compa-
+niesacross4,400manufacturingsites.Alengthy dis-
+ruption anywhereinthisextended supplychaincan
+havesignificant financial repercussionsforFord.Adisruptiontooneofitssecond-tier suppliers during
+the2011Thailand floodselevated theimportanceof
+thisissue.Asaresultofthisdisruption, Fordidled
+globalproductionforoneofitsmostprofitable prod-
+uctlines.
+Fordisoneofmanycompanies exposedtosuchdis-
+ruptions. Forexample, the2011floodinginThailand
+ledInteltocutitsquarterly revenuetargetby$1bil-
+lion(Tibken 2011).Driveninpartbygreaterglobal
+tradeandtheadoptionofleanoperating principles,
+manycompanies nowoperatewithglobally dispersed
+manufacturingfacilities andextended supplychains.
+375
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotiveSupplyChain
+376 Interfaces45(5),pp.375-390, ©2015INFORMS
+Normal accidenttheoryholdsthatbecause major
+disruptions areaninherentpropertyofsuchcom-
+plexandtightlycoupled systems, theyshouldbe
+considered unavoidable ornormal (Perrow 2011).It
+fallstooperations andsupplychainmanagersto
+navigatethisnewnormal. Traditional operational-
+disruption risk-assessment methods obligefirmsto
+identifytheprobability andmagnitudeofdisrup-
+tionrisksearlyintheanalysis process(Sampson and
+Smith1982,Knemeyeretal.2009);however, managers
+faceanumber ofchallengesinimplementing such
+asolution. First,itisdifficult andoftenimpossible
+formanagerstoaccurately estimate thelikelihood of
+low-probability, high-impact disruptive events(Banks
+2005,Taleb2007).Second, managers tendtomisal-
+locateresources whenfacinglow-probability events
+(Kahneman andTversky 1979,Johnson etal.1993),
+ignorerisksregardlessoftheirpotential significance
+(MarchandShapira 1987),anddistrust ordisregard
+preciseprobability estimates (Kunreuther 1976,March
+andShapira 1987).Thiscanleadtoinaction; Mitroff
+andAlpaslan (2003)foundthatmostfirmsdolittle
+toproactively prepareforsuchlow-probability, high-
+impactdisruptive events.
+Inthispaper,weapplyanewmodel,proposed
+bySimchi-Levi inMarch2012(Gilmore 2012)and
+described inSimchi-Levi etal.(2014), foranalyz-
+ingoperational-disruptionriskanddetailthedevel-
+opment andimplementationofthismodelatFord.
+Throughoutthepaper,wesharetheprimary results
+ofouranalysis usingmasked versions ofFord'soper-
+ationalandsupplychaindata.
+Literature Review
+Weleverage twostreams ofresearch inourwork.
+Thefirstareaofscholarship pertainstosupplychain
+network modeling andoptimization, whichbroadly
+consider theoptimal network structure understeady
+stateoperations (Fisher etal.1997,Gravesand
+Willems 2003)orunderthepossibilityofadisrup-
+tion(Snyderetal.2006,Pengetal.2011,Makand
+Shen2012).Closely relatedisresearch thatevaluates
+coordinationstrategies between buyersandsuppli-
+ersinthepresenceofdisruptionrisk(Tomlin 2006,
+Chopraetal.2007,Tomlin2009).Lessattention hasbeengiventoevaluatingtheimpactofadisruption
+basedontheoptimalresponseofanexisting network
+oncethatdisruption hasoccurred. Arecentexception
+isSchmitt (2011),whichevaluates response strategies
+thatminimize theservice-level impactwhendisrup-
+tionoccursonamultiechelon network forarandom
+duration. Another isMacKenzie etal.(2014),which
+evaluates theinteraction between thesupplier and
+buyerresponse strategies underarandom-duration
+disruption.
+Wemakethreeimportant contributions tothisliter-
+ature.First,wedevelop ourmodel forpractical appli-
+cationsusinglarge-scale supplychaindatafromFord.
+Second,weevaluate theoptimal contingency plans
+forsettingsinwhichthedisruption duration iseither
+knownexactlyordescribed byanuncertaintyset.
+Finally,ourmodelquantifiesthedisruption exposure
+acrossallthenodesinthecompany's supplychain
+basedoncompany-level performance impacts.
+Thesecond stream ofresearch seekstoclassify
+operational disruptions andquantifytheirimpact.
+Scholars andpractitioners generally agreethatoper-
+ationaldisruptions materially andnegatively impact
+company performance onaverage (Sheffi 2005,
+Hendricks andSinghal 2005,WorldEconomic Forum
+2013).Thereislessagreement, however, onhow
+weshouldclassify andforecast suchdisruptions
+(Kleindorfer andSaad2005,Tang2006,Wagnerand
+Bode2006,Sodhietal.2012).Researchers areonly
+beginningtounderstand whichdisruptions havethe
+greatest impactonfirmperformance. Answeringthis
+research question isimportant because itinforms
+firmsonwhichdisruptions warrantmitigationinvest-
+ments.Craigheadetal.(2007)proposethatsupply
+chaindensity, complexity, andnodecriticality con-
+tribute totheseverityofdisruptions. Tang(2006)
+theorizes thatafirm'svulnerabilitytodisruption
+depends onitssupplychainstrategies, including
+postponement strategies andinventory placement.
+Braunscheidel andSuresh(2009)identifythatafirm's
+organizational integration practices areassociated
+withthefirm'sabilitytomitigatetheconsequences
+ofdisruptions. Kleindorfer andSaad(2005)provide
+evidence thatchangestorisk-assessment andrisk-
+mitigation practices reducetheimpactofdisruptions
+inthechemicalindustry.
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotiveSupplyChain
+Interfaces45(5),pp.375-390, ©2015INFORMS 377
+Wecontribute tothisbodyofresearch byidenti-
+fyingthespecificnodesinafirm'soperations and
+supplychainthatwould, ifdisrupted,resultinthe
+greatestdamagetofirmperformance. Webelieve that
+thisresultisparticularly beneficial inanappliedset-
+tingbecause itallowsfirmstounderstand theirexpo-
+suresatspecificoperational locations andputinplace
+countermeasures thataddress thegreatest sources of
+exposure.
+Ourresearchgenerally alignswithconcepts applied
+inotherdisciplines, including estimating maximum
+foreseeable loss(i.e.,themaximum lossifallsafe-
+guardsinasystembreak)intheinsurance indus-
+tryandconductingfailureanalysis (i.e.,assessingthe
+structural resilience whenacriticalmember ofasys-
+temisremoved) instructural design.Untilnow,how-
+ever,thefieldofoperationalriskmanagement hasnot
+giventheseprinciples muchattention.
+Limitations ofthe
+LegacyRisk-Analysis Approach
+Formanycompanies, eventhosethathaveworld-class
+operations andsupplychainmanagement systems,
+proactively managing high-impact, low-probability
+disruptionrisksischallenging. Oneobstacle tocon-
+ductingamoreinsightful analysisofdisruptionrisks
+isthatoperational disruptions arebothdifficult topre-
+dictandhaveahighlyuncertain impactonperfor-
+mance.InFord'scase,thescaleanddynamic nature
+ofitssupplychainfurthercomplicatethisproblem.
+Thesefactorsincrease boththenumber ofdisrup-
+tionscenarios toconsider andthefrequencyatwhich
+weshouldevaluate thosescenarios. Asecondobsta-
+cleisdataavailability, particularly onsuppliersat
+lowertierswithin thesupplychain.Supplychain
+transparency isachallengefortheentireautomotive
+industry. Supplierstotheindustry havehistorically
+beenreluctant toprovidetheautomobile manufac-
+turerswithdetailed information abouttheirsuppliers
+andtheirsuppliers' suppliers. Asaresult,although
+manufacturers typically havegoodinformation on
+Tier1suppliers (i.e.,companiesthatsupplydirectlyto
+themanufacturer), theyhaveconsiderably lessinfor-
+mationonlower-tier suppliersinthesupplychain.Giventheselimitations, legacyrisk-management
+processesoftenfocusontrackingthestatusofonly
+ahandful ofsuppliers andpartnumbers. Thesetend
+tobesuppliersthatprovide majorassembly compo-
+nentsandrepresent alargeportionofthetotalcompo-
+nentcosts.Manylargemanufacturers recognizethat
+material exposures arelikelytobehiddenamongthe
+suppliers whoarenotincluded inthisregularreview
+process. Because ofthedifficulties inpredicting dis-
+ruptions,thedatalimitations, andthesizeoftheir
+supplychains,companiesoftencannotidentify where
+theseexposures are,muchlessquantifytheirimpact.
+Forexample, managersatFordestimate thatconduct-
+ingatraditional riskanalysisforallofFord'smore-
+than-4,000 Tier1supplier siteswouldlikelytaketwo
+orthreeyears,atwhichtimetheanalysiswouldbe
+obsolete.
+OurApproach: Risk-Exposure Index
+Recognizingthatmanagers havelimitedabilityto
+predict low-probability, high-impactrisksorcollect
+detailed dataonlowerlevelsoftheirsupplychain,
+ourapproach, initiallydescribed inSimchi-Levi etal.
+(2014),advocates integrating avulnerability-based
+analysisintosupplychainriskassessments. Insuch
+ananalysis,thefocusisonunderstandingtheimpact
+ofadisruption, regardlessofitssource.Thisdefers
+theneedtoestimate theprobability associated with
+anyspecificriskandcollectdetailed information from
+subtiersuppliersuntilafterFordhasdetermined the
+impactadisruption willhaveonitsoperations.At
+thatpoint,Fordcanmakeamoreinformed deci-
+sionaboutwheretofocusitslimitedrisk-assessment
+resources. Ourapproach suitsthegoalofanalyzing
+supplychaindisruptions because theimpactofadis-
+ruptionoftendoesnotdepend onthecauseofthe
+disruption butratheronitsduration. Inaddition,
+thepotential mitigation actions thatacompany can
+practically employinresponsetoasupplychaindis-
+ruption areoftenthesameregardlessofthespecific
+causesofthedisruption. Finally,ourapproach implic-
+itlyrecognizesthatsupplychainsareinacontinu-
+ousstateofflux.Inthefaceofsuchconstant change,
+maintaining up-to-date predictionsofthelikelihood
+ofspecific risksisnontrivial; however, giventhata
+disruption doesoccur,estimating afirm'svulnerabil-
+ityismoretractable.
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotiveSupplyChain
+378 Interfaces45(5),pp.375-390, ©2015INFORMS
+Time-to-Recover Model
+Themodelconsiders thesupplychainasagraphrep-
+resentingthemovements ofsupplier partsfromeach
+supplier facilitytoeachofafirm'sfacilities andprod-
+uctlines.Anode,alsoreferred toasastage,inthe
+graphisequivalenttoapartormanufacturing pro-
+cessataparticular supplierorFordfacility.Inputsto
+themodelincludeoperational and(or)financial mea-
+sures(e.g.,unitprofitability) andin-transit andon-site
+inventory levelsforeachnode.Ourmodelincorpo-
+ratesthetime-to-recover (TTR)ofeachnodeinthe
+supplychainnetwork, whichrepresentsthetimeit
+takesforanodetorecover tofullfunctionalityafter
+adisruption (Miklovic andWitty2010,Simchi-Levi
+etal.2014).Thisvaluecanbeuniqueateachnodein
+thefirm'ssupplychain.
+Themodeliterates overeachnodeinthegraph,
+disruptingthenodefortheduration ofitsTTRand
+calculatingthecorresponding impactonthefirm's
+performance.Itdetermines theperformance impact
+assumingthefirmresponds optimallytothedisrup-
+tionscenarios, wherethemodelsimulates theoptimal
+responses bysolvinganassociated linearoptimiza-
+tionproblem; seeAppendix Afordetails.Themodel
+canaccommodate different performance measures as
+theobjectiveforthisoptimization, includingmini-
+mizingthelostunitsofproduction, lostsales,orlost
+profitmargin. Foreachdisruption scenario, themodel
+searches onhowtoreallocate existing inventory,redi-
+rectsupplyalternatives, andidledownstream plants
+suchthatthedisruption hasthesmallest impact.The
+resulting performance impact(PI)istheimpactof
+thatdisruption scenario onthefirm'schosenperfor-
+mancemeasure duringtheTTR.Tosimplifycross-
+scenario comparisons,themodelcanalsocalculate
+arisk-exposure index(REI)(Simchi-Levi etal.2014),
+whichnormalizes thePIforeachscenario bythemax-
+imumPIoverallscenarios considered intheanalysis.
+Themodelcanaccommodate simultaneous disrup-
+tionsinmultiple supplychainnodes.Thisallows
+managementtoanalyze complex disruption scenar-
+ios,including disruptionsthataffectallthepartsfrom
+onesupplier plantordisruptionsthataffectallthe
+samepartregardlessofthesupplier. Wecanextend
+themodeltoaccount foralternative sources ofsupply
+andsupplier capacity commitments. Thisfacilitates
+anexplicitexamination ofinteractive effects,whichmayoccurwhenmultiplefirmstrytoadjusttosup-
+plydisruptionsatthesametime.Forexample,ifa
+supplier failstodeliver toonefirm,itmayhavegone
+downformultiplefirms.Suchaneventmakesother
+potentially compensating nodes(e.g.,backupsuppli-
+ers)morecongested.
+Time-to-Survive Model
+Inmanycases,accurate TTRinformation maynotbe
+available. Moreimportantly, asupplier maybeopti-
+misticwhenassessingitsTTR;thatis,asupplier may
+underestimate thetimerequiredtorecoverandhence
+mayunderestimate Ford'sexposuretoadisruption.
+Therefore, Fordisinterested inidentifying suppli-
+erswhosedisruption impactissensitive tothegiven
+TTRinformation. Forthispurpose, weintroduce the
+time-to-survive (TTS)concept, whichwedefineasthe
+maximum amount oftimethesystemcanfunction
+without performance lossifaparticular nodeisdis-
+rupted(Simchi-Levi etal.2015).Aswewillshow,
+wedetermine theTTSassociated withaspecificnode
+bysolvinganoptimization problemthattakesinto
+account thedisruptionofthisnode,inventory levels,
+andalternative sources ofsupply;seeAppendixB
+forthemodelformulation. Thefirmcandetermine
+whether amoreaccurate measure ofTTRisneces-
+sarybycomparingtheTTSvalueassociated witha
+specificnodewiththeTTRestimate ofthatnode.If
+theTTSfarexceeds theTTR,itimpliesthatalarge
+changeinTTRwillhavelittleimpactonthefirm's
+riskexposure; however, nodeswithshortTTSvalues
+requireFordtoengagethesesuppliersinadetailed
+discussion abouttheirTTRs.
+Implementation atFord
+Weimplemented ourmodelasadecision support
+system duringathree-year research engagement
+between MITandFord.Thefirstphaseoftheproject
+included theassessment ofexisting risk-management
+approaches. Inthesecondphase,weworked withthe
+Fordoptimization andinformation technology (IT)
+teamstofocusonmodeldesignandimplementa-
+tion,andtheintegrationoftheoptimization model
+andFord'sITsystem.Themodeler andoptimization
+specialists communicatedweekly,andreceived help
+fromFord'sprocurement teamtovalidate themodel's
+output.
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotiveSupplyChain
+Interfaces45(5),pp.375-390, ©2015INFORMS 379
+250-i
+200-
+toi-0Q-150-Q.3(/)
+O
+0100-
+DZ
+o--r-r,1,1,1,1,1, 1,1,l,M,«J, ^-,OT-cNcOTtLncûh^ooCTiOT-cNco^incp^oqajqooooo oocJooocšooo^T-T-T-T-T-T-T-T-T-csiooocjd o T-cmcoTtin^TTS(weeks)
+Figure1:Asignificantportionofthesuppliers haveverylowTTSvalues,thusrequiringmoreaccurateTTR
+evaluation andclosermonitoringforrisk-exposure assessment. Inaddition, somesuppliers haveveryhighTTS
+values,possiblybecauseofredundantinventorybuffers.
+Ford'sprocurementstaffusedthedecision sup-
+portsysteminthreeways:(1)strategically,toidentify
+exposuretoriskassociated withpartsandsuppliers,
+effectively prioritize andallocate resources, segment
+suppliers, anddevelop mitigation strategies; (2)tac-
+tically,totrackdailychangesinriskexposureto
+alertprocurement executives tochangesintheirrisk
+position; and(3)operationally,toidentifyeffective
+waystoallocate resources afteradisruption. Using
+themodel toconduct acomprehensive analysisof
+itsriskexposures (i.e.,thestrategic level),Fordiden-
+tifiedseveralsupplychainnodesthatwouldhave
+alargeimpactonitsoperationsifdisrupted. These
+largeexposures lieinunlikely places,suchasnon-
+strategic suppliersorpartsthatthecompany spends
+relativelylittlemoneytoprocure. Armed withthis
+information, Fordcanmakemoreinformed decisions
+onhowtodeployitsrisk-assessment resources and
+mitigatetheeffectsofadisruptiontothesenodes.
+Inthissection,wedescribe theinsights ourmodel
+providesatthestrategic, tactical,andoperational lev-
+elsforFord'srisk-analysis, procurement, andman-
+agementteams.Evaluation ofNodeCriticality withtheTTSModel
+Asdiscussed intheTime-to-Survive Modelsection,TTR
+information isnotknownaccuratelyinmanypracti-
+calsituations because ofinformationuncertainty and
+optimistic supplier assessments. Therefore, thefirst
+stepofourrisk-analysis process istoidentifythedis-
+ruptionscenarios thatwouldleadtoimmediateper-
+formance deterioration, namely,tofindnodeswith
+smallTTSvalues.Nodesthatrepresent higherexpo-
+surelevelswillhaveaTTSvaluethatislowerthan
+athreshold value, forexample, TTRplusasafety
+allowance.
+Figure1showsthatthesuppliers included inthe
+analysis havearangeofTTSvalues.Manysuppli-
+ershaveTTSvalues oflessthanoneweek.Ford's
+management canusethisinformation toconcentrate
+onthePIoflow-TTS suppliers andacquirecorre-
+sponding TTRinformation. Inaddition, byidentify-
+ingthenodeswithhighTTSvalues, thisanalysis can
+identify potential waste,causedbyexcessive protec-
+tion(strategic inventory), withinthesystem. Forsuch
+nodes,afirmmayreduce(strategic) inventory,thus
+providing significant costsavings.
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotive SupplyChain
+380 Interfaces45(5),pp.375-390, ©2015INFORMS
+Figure2:(Coloronline)Among4,534sitesexamined, 2,773siteshavezeroimpactatthetimeofanalysis and
+408haveveryhighimpact.
+Application toStrategic Decisions
+Strategically, Fordutilizes theTTRmodel toiden-
+tifytheriskexposureofpartsandsuppliers, allowing
+ittoprioritize resource allocation. Furthermore, by
+combining theriskexposureofsupplierswithother
+information, suchasthetotalspendatvarious sup-
+pliersites,Fordgainsinsights aboutpossible mitiga-
+tionstrategiesitcouldadopttowardvarioustypesof
+suppliers. Next,wedescribe theseapplicationsofthe
+modeltoFord.
+Figure2isbasedonthePIoutput(inthiscase,lost
+salesmeasured bytheimpactofvehicle-production
+volume) fromamodelrun,including allthecritical
+suppliers andFordplantsthatsupport Ford'sNorth
+American assembly plants.Asthefigureindicates, a
+significant portionofthesuppliers donotexposeFord
+toanyrisk;however, morethan400siteshavevery
+highPis.
+InFigure 3,wetakeacloserlookatthesesup-
+plierswithveryhighPisandseethatsomeofthe
+largestexposures resideinunlikely places,suchas
+theproduction and(or)procurementoflow-cost, com-
+moditizedparts.Therefore, someofthetraditionalrisk-mitigation strategies (e.g.,focusing onhigh-spend
+suppliers) mayleadtowasteful resource allocation at
+low-exposure sitesandinsufficient protectionathigh-
+exposure sites.
+Figure3suggeststhatFordshouldreduce itsexpo-
+suretoriskbysegmenting suppliers intothreecate-
+goriesdepending onthesupplier's PIandtotalspend.
+Eachsegment presents adifferent setofchallenges;
+therefore, Fordshouldusedifferent mitigationstrate-
+gies,asFigure4illustrates. First,suppliers onthe
+leftsideofthecharthavelowexposure; therefore,
+Ford'sprimary actionsinmanyofthesecasesshould
+involvesigning long-term supplycontracts andtrack-
+inginventory.
+Supplier siteswithhightotalspendandhighPI
+areatthetoprightsideofthechart.Thissegment
+includes, forexample, suppliersofseatsandinstru-
+mentpanels.Theseitemsstronglyaffectthecustomer
+experience, andtheirpricesrepresent alargeportion
+ofthetotalmanufacturingcost.Wetypicallyreferto
+themasstrategic components andtheircorrespond-
+ingsuppliers asstrategic suppliers. Formanycom-
+panies,thissegment represents 20percentoftheir
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotive SupplyChain
+Interfaces45(5),pp.375-390, ©2015INFORMS 381
+Figure3:(Coloronline)Impactofadisruptionatasuppliersite(node)onFord'slostprofitsisnotcorrelated
+withtheamountFordspendsatthesupplier. Eachcirclerepresents auniquesupplier site.
+suppliers, whichaccounts forabout80percentoftotal
+spend.Typically, eachofthesecomponents hasasin-
+glestrategic supplier. Anappropriate supplystrategy
+fortheseitemsistofocusonlong-term partnerships
+withsuppliers andimplementeffective supplycon-
+tractswhereFordcanshareriskswithsuppliers and
+trackperformance. Importantly, because ofthehigh
+totalspendwiththesesuppliers, Fordmaybeableto
+compelsomeofthesesupplierstohavebackupsup-
+plysitesindifferent regions.
+Themostchallenging suppliers arethosewhose
+totalspendislowandPIishigh(i.e.,suppliersat
+thebottomrightsideofthechart).Toensuresup-
+ply,afirmmayinvestininventory, requirethesup-
+pliertohavedualsitesindifferent regions,orapply
+adual-sourcing strategy. Unfortunately, eachofthese
+mitigation strategies maycauseaproblem. Invest-
+ingininventory maynotbeconsistent withthe
+leanstrategythecompany isapplying. Lowtotal
+spendimpliesthatthefirmisnotinagoodposi-
+tiontorequirethesuppliertohavemultiplesites.
+Inaddition, someofthesesuppliers areassociated
+withhigh-volume, low-cost, andlow-margin compo-
+nents.Forthesecomponents, competition typicallyshiftstoafewmanufacturers thatdominate themar-
+ketbecause oftheirlowercostsandsuperior qual-
+ity;asaresult,engaginginadual-sourcing strategy
+isdifficult. Inourexperience, onepossible mitigation
+strategy involves anewproduct designinwhichcom-
+ponents arestandardized, allowingthefirmtoshift
+morevolumeandmorespendtothesupplier; hence,
+thefirmwouldbeinagoodpositiontorequiredual
+sites.
+Application toTacticalDecisions
+Recallthatforsomecomponents,riskexposure is
+directly proportionaltothelevelofinventoryofthat
+componentinFord'ssupplychain.Toidentifyrisk
+exposure, pipeline inventory information isuploaded
+tothesystemonaregularbasis,andthesystemdeter-
+minestheperformance impactbycomponent any-
+whereinthesupplychain.Whenperformance impact
+isaboveaspecificlevel,procurement specialistsiniti-
+ateaprocesstounderstand thereasonandtakecor-
+rectiveaction.Inthatrespect, oursystemservesasa
+controltowerthatallowsthefirmtomonitor suppli-
+ers'performance andinventorytrendstotakeaction
+beforeproblems occur.Because thecompany takes
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotive SupplyChain
+382 Interfaces45(5),pp.375-390, ©2015INFORMS
+Figure4:(Coloronline)Thisgraphsuggests supplier segmentation anddifferentrisk-mitigation strategiesfor
+differentgroupsofsuppliers.
+actions inanticipationofapotential adverse event,
+itcanminimize thefinancial impactifsuchevents
+happen.
+Application toOperational Decisions
+Operationally, Fordsupply-risk specialists usethe
+modeltorespondtoadisruptionevent.Forexample,
+afewmonths ago,political problemsinoneregion
+motivated theprocurement departmenttoidentifythe
+high-exposure suppliersinthatregionandfindalter-
+nativesources ofsupplyforthesecomponents.
+Insuchsituations, ourTTRmodeloptimizes inven-
+toryandcapacity allocation decisions whenadis-
+ruptionoccurs(Appendix A),assumingthataccurate
+TTRinformation isavailable immediatelyafteradis-
+ruption occurs.Unfortunately, TTRmaybedifferent
+fordifferent modes ofdisruptions (e.g.,process dis-
+ruptionversustoolingdamage), andthefirmmaynot
+knowtheexactTTRvaluewhenadisruption occurs.
+Therefore, identifying robustallocations ofinventoryandcapacities undersuchuncertaintyinTTRvalues
+isimportant.
+Figure5provides astylizedexamplethatcompares
+theimpactofdifferent resource-allocationstrategies
+whenthelengthofthedisruption varies.Inthisfig-
+ure,eachcurverepresentsthefinancial impactofone
+resource-allocationstrategy. Forexample,thesolid
+curvecorrespondstotheoptimal resource-allocation
+strategyforTTR=1;weevaluate theperformance
+ofthisresource-allocationstrategyforallTTRval-
+uesbetween 0and2.Similarly,thedottedcurveis
+associated withtheoptimal resource-allocation strat-
+egywhenTTR=0.7.Figure5suggeststhatneither of
+thetwostrategies dominates; thatis,neitherstrategy
+outperformstheotheronallTTRvaluesbetween 0.7
+and1.Thisisnotalwaysthecase.Anotherstylized
+example (Figure6)showsthatthestrategy associated
+withthesolidlineoutperformsthestrategyassociated
+withthedottedline.Theformerstrategy outperforms
+allotherstrategiesforTTRvaluesbetween 0and2
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotive SupplyChain
+Interfaces45(5),pp.375-390, ©2015INFORMS 383
+Figure5:(Coloronline)Eachcurverepresentsthefinancialimpactofone
+resource-allocation decision.ThesolidcurveisoptimalforTTR=1,but
+suboptimalforTTR=0.7;thereverseistrueforthedottedline.
+Figure6;(Coloronline)Eachcurverepresentsthefinancialimpactofone
+resource-allocation decision.Thesolidcurveisoptimalforallnonnega-
+tiveTTRvalues.
+(Figure 6doesnotshowotherstrategies);thatis,the
+solidlineeithermatches ordominates theperfor-
+manceofanyotherresource-allocation strategydeter-
+minedbyusingasingleTTRvaluebetween 0and2.
+Motivated bythesedifferent cases,wedeveloped
+analgorithmthatcan(1)findadominating strategy
+ifitexists,or(2)findaPareto-optimal strategy, which
+alwaysexists.Thatis,managers canspecifytherank-
+ingofpotential TTRvalues,andthealgorithm pro-
+videsastrategythatisnotdominated byanyother
+strategy.Wedescribe thealgorithminAppendix A.
+WealsoreferthereadertoZhang(2015)foramore
+in-depth discussion.
+System Architecture
+Toallowprocurement andriskspecialiststotake
+advantageofourmodel, Forddeveloped adeci-
+sionsupport systemthatintegrates variousdatabases,
+theTTRandTTSmodels, andadata-visualizationsoftware package. Thedatasources include Ford's
+material requirements planning (MRP) system,its
+purchasing database, andsales-volume planning
+information. Figure7describes thesystemarchitec-
+tureinwhichvarious datasets,including billof
+material, partrouting, inventory levels,andplant
+vehiclevolumes areusedtomapFord'ssupply
+chain.Gusikhin andKlampfl (2012)describe thebasic
+methodologyofmappingtheFordsupply chain.
+Ouroptimization engineusestheresults togenerate
+thevarious performance impacts. Theseperformance
+measures arethenpresentedtotheusersbyTableau
+datavisualization, whichincludes ageographic map-
+pingcapability. Thus,userscanviewresultsbothin
+tabular formandinvarious graphicalformats.Fig-
+ure8provides aScreenshot ofourinterface; thesize
+ofthecirclesidentifies theperformance impactofa
+disruption tothesupplierinthatgeographic loca-
+tion.Thetwotablesatthebottom ofFigure8pro-
+videdetailed information onsuppliers andparts.For
+eachsupplier,thetableontheleftprovidesthevehicle
+affected, totalspendatthatsupplier, financialimpact,
+andproduction-volume impactifthatsupplierisdis-
+ruptedfortheduration ofitsTTR.Thetableonthe
+rightprovides allaffected partsassociated witheach
+supplier.
+Procurement andriskspecialists regularly usethe
+systemtotrackriskexposuresinrealtimeasinven-
+torylevelsfluctuate andthesupplychainstructure
+evolves. Thefrequencyofupdates reliesontheeffi-
+cientdata-integration technology developed byFord
+andthecomputational tractabilityofourlinearpro-
+gramming models(Appendices AandB).
+Realized Benefits forFord
+Fordspendsseveralmilliondollarsperyeartoproac-
+tivelymanageitsoperational andsupplychainrisk.
+TwopointsmakeclearwhyFordmustdeployitsrisk-
+management resources inthemosteffective manner
+possible. First,itmustspreadtheseresources across
+ahugeoperational footprint. Ford'soperations and
+supplychaininclude morethan4,400Tier1supplier
+sites,hundreds ofthousands oflower-tier suppliers
+(Tier2andlower),morethan50Ford-owned facili-
+ties,130,000uniqueparts,35billiontotalpartsannu-
+ally,andmorethan$80billionannuallyinexternal
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotiveSupplyChain
+384 Interfaces45(5),pp.375-390, ©2015INFORMS
+Figure7:(Coloronline)Ford'srisk-analysis frameworkintegrates databases,ourrisk-exposure model,andan
+outputvisualization tool.
+procurement costs.Second, thecostoffailurecanbe
+hugebecause supplychaindisruptions canhavea
+significant impactonFord'sabilitytomatchsupply
+withdemand. Indeed,Fordestimates thatthelostrev-
+enueassociated withadisruption canbesignificant.
+Toillustrate thispoint,recallthatin2011Toyotalost
+800,000 unitsofproduction volumeasaresultofthe
+Japanearthquake andmorethan240,000unitsofpro-
+ductionvolumeasaresultofthefloodinThailand.
+Hondafacedsimilarchallenges (Schmidt andSimchi-
+Levi2013).
+Therisk-exposure modelproduces important and
+tangible benefits forFordtohelpiteffectively iden-
+tifyandmanageitsrisks.First,Fordhasidentified
+suppliersitesthathaveamaterial impactifdis-
+rupted,butthatitdidnotrecognize ashigh-exposure
+sites.Basedonthemodelresults, 2,600Tier1sup-
+pliersiteshavenonzero vehicle-volume impact that,
+ifdisrupted, wouldadversely impactFord's rev-
+enuebyupto$2.5billion.Fordnowclassifies theseexposures ashigh-priority issuesthatrequireafor-
+malremediation analysis. Identifying thesesuppliers
+isparticularly compelling becausetheyrepresent 1,500
+additional supplier sitesthatwillnowreceivealarger
+shareofFord'srisk-management resources.Identify-
+ingandaddressing suchriskexposures directly sup-
+portsFord'scorporate strategy.
+Asecond benefitisidentifying low-exposure sup-
+pliersitesthatarecurrently receiving anexcessive
+allocation ofFord'srisk-management resources. The
+modelhasidentified over400suppliersitesthat
+Fordincludes initsrisk-monitoring program,but
+whichposeinsignificant exposuretothecompany
+ifdisrupted. Thisinformation hasallowed Fordto
+moreefficiently allocate itssupplier risk-management
+resources.
+Byreallocating theseresources, Fordisbetterable
+toprotectitselffromthehighest-impact exposures
+initsoperations andsupplychain.Forexample,the
+lostrevenueassociated withatwo-week disruptionto
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotiveSupplyChain
+Interfaces45(5),pp.375-390, ©2015INFORMS 385
+Figure8:(Coloronline)Criticalsuppliers aremappedtogeographical location.Thesizeofacircleindicates
+themagnitudeoftheimpactonFord'sperformance ifasupplier isdisrupted.Thetableviewgivesdetailed
+informationregardingthefinancial andvehicle-volume impactassociatedwiththesesuppliers.
+thenewlyclassified high-impact suppliersitesranges
+fromseveralhundred thousand dollarsto$2.5billion;
+incontrast, thelost-revenue impactassociated witha
+two-week disruptiontoeachoftheformerly classified
+high-impact suppliersitesisminimal. Inthewordsof
+Fordmanager Michael Sanders, "Thishasbeenone
+ofthekeygamechangersforus.Thisenablesusto
+focusonthesuppliersiteswhichwouldhaveahigh
+orveryhighimpactonperformanceifdisrupted, and
+letsusputallourresources andallourknowledge
+intomaking surewehaverobustplanstoprotectus
+intheeventthatsomething happens withanyoneof
+thosesites"(Simchi-Levi andSanders 2013).Finally, ourmodeldetectshidden risksinFord's
+supplychain.Forexample,itidentified alow-cost
+sensor thathashighvehicle exposure; however,
+because ofthelowtotalspend,Ford'sprocurement
+groupwasnotpayingmuchattention tothiscom-
+ponent. Followingtheriskanalysis,thecommodity
+teamacknowledgedthesourcing concentration and
+associated riskanddeveloped amitigation strategy.
+Discussion
+Firmsoperateinaconstantly changing environment
+inwhichoperational risksareincreasing.Intheauto-
+motiveindustry,fourfactorscontribute toincreasing
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotive SupplyChain
+386 Interfaces45(5),pp.375-390,©2015INFORMS
+levelsofoperational vulnerability. Thefirstfactoris
+theproliferationofglobalprograms andtherelated
+needtomaximize theoperational scaleofthesepro-
+grams.Thisresults inlessredundancy andmore
+dependence onfewersuppliers, increasingthesupply
+chain'sexposureifoneofthesesuppliersisdisrupted.
+Thesecondistheongoing consolidation inthesup-
+plybaseandthefiscalincentives tomaximize theuse
+ofsupplier resources. Thisalsoresultsingreatersup-
+plierconcentration andlessslackcapacityforthemost
+criticalsubtiermanufacturing components, including
+electrical components, rawmaterials, andchemical
+precursors. Third,manufacturers' effortstopushtheir
+Tier1suppliers towardlowercostsultimately drive
+thosesupplierstopursuesubtiersourcinginemerg-
+ingmarkets. Thisfurtherextends themanufacturers'
+supplychains,addingmoredependencies andpoten-
+tialpointsoffailure.Finally,unlikethesituation inthe
+PCindustry,intheautomotiveindustry, nocommon
+standards areapplied acrossotherequipment man-
+ufacturers (OEMs) forelectronic components; hence,
+veryfewsuppliers areavailable forthesecomponents.
+Anysupplier disruption canshutdownFord'sability
+tomatchsupplywithdemand.
+Theautomotiveindustryisnotaloneinfacing
+increased disruptionrisk.Trendstoward moreex-
+tendedsupplychainsandreduced operationalbuffers
+aregripping manyindustries. Asaresult,supply
+chainexecutives haveadualmission-tosystemati-
+callyaddress extreme risks,suchashurricanes, epi-
+demics,earthquakes,orportclosings, andtomanage
+operational risks,suchasforecast errors,sourcing
+problems, andtransportation breakdowns. Succeed-
+inginthisdualmission isdifficult because com-
+panyoperations andsupplychainsareincreasingly
+dynamic, andtheoccurrence andimpactofdisrup-
+tionsaredifficult topredict.
+Inthispaper,weprovide anewapproachfor
+supplychainriskmanagement, whichreduces the
+needtoestimate thelikelihood oflow-probability,
+high-impact events.Ourmethod focuses oneval-
+uatingafirm'svulnerability, giventhatadisrup-
+tioncouldoccuranywhere acrossitssupplychain.
+Thisapproach helpsFordstreamline andbettertar-
+getitsoperational-disruption risk-assessment process,
+deepenitsunderstandingofitsdisruption risksacross
+bothitsinternal operations andextended supplychain,andrapidlyandconsistently assessitssup-
+plychainrisk-mitigation initiatives. Fordalsotakes
+advantageofthemodel'scapabilityofrunningatvar-
+iouslevelsofdetail.Forexample,insomeapplica-
+tions,thecompany runsthemodelbyaggregating
+nodeswithinageographic region,andthendrills
+downintomoredetailbyrunningitusingmoregran-
+ularrepresentationsfornodes.
+Ourrisk-exposure modelaugmentsratherthan
+replaces traditional risk-analysis methods. Fordincor-
+porates theresults ofthemodelwithotherindicators
+thatmeasure eachsupplier's financial risk,including
+metrics forfinancial health,andsteadystateopera-
+tionalrisk,includingmetrics forservicelevelperfor-
+manceandqualitycontrolcompliance. Suppliersthat
+triggeroneormoreriskareas(i.e.,disruption,finan-
+cial,oroperational) areidentified forfollow-upwith
+Ford'ssupplier risk-management team.Byincluding
+themodelinitsbroader supplier risk-analysis pro-
+cess,Fordcanmoreconfidently andaccurately iden-
+tifytheareasinitssupplychainandoperationsto
+allocate itslimited risk-management andmitigation
+resources.
+Acknowledgments
+Weacknowledgethecontributions ofmanypeopleinFord
+Purchasing andInformation Technology (IT)fortheirsup-
+portofthisproject.Weespecially acknowledge SteveFaraci
+fromFordPurchasingforhisinvaluable contributions. We
+thankJohnKnowles andDongRuanfromFordITfortheir
+consultations andprogrammingindatacollections. Wealso
+gratefully acknowledge JohnGinder fromFordResearch
+andAdvanced Engineeringforhisleadership andstrong
+supportoftheproject.Thisworkwasfunded bytheFord-
+MITAlliance.
+Appendix A.Time-to-Recover Model
+Wefirstpresentasingle-tier (ST)supplychainmodelto
+illustrate someofthemainconcepts, andthenextenditto
+amultiple-tier (MT)modelthatencompasses morecompo-
+nents.Thebasicpremiseofbothmodels isthat,givena
+supplychainstructure (agraph)andadisruption scenario
+(interrupted nodesandedges),wedetermine howtoallo-
+catethefirm'sremaining resources tooptimizeitsabilityto
+satisfyexogenous demand. Anode(orstage)inthegraphis
+acomponentormanufacturing process ataparticular sup-
+plierorassembly site;anedgeisadirected flowofmaterials
+fromanupstream stagetoadownstream stage.Weformu-
+latebothmodelsaslinearoptimization programs. Wesum-
+marizeournotation forthesingle-tier modelinTableA.l
+andforthemultiple-tier modelinTableA.2.
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotiveSupplyChain
+Interfaces45(5),pp.375-390, ©2015INFORMS 387
+Symbol Explanation
+Superscript^ Disruption scenarion.
+stf Setofallsupplierssites(plants).
+°V Setofallfinalnodes(vehicles).
+&(n) Setofproduction edgesunderdisruption scenarion.
+t(n) TTRfordisruption scenarion.
+ci Totalproductioncapacityofnode/perunittime.
+s¡ Finishedgoodsinventoryofnode/.
+f, Profitmarginofproducty.
+djDemandfory(pertimeunit).
+Ij Lostproductionvolumeofvehicletypey.
+y¡j Amountofproductyproducedatplant/.
+TableA.1:Thistableliststheparameters andvariablesofthesingle-tier
+modelandtheirexplanations.
+IntheSTmodel, thefirmhasasetofplants(si),which
+produceasetofproducts(T).Thefirm'sobjectiveforeach
+disruption scenario istominimize theimpactofthedis-
+ruptiononitschosenperformance metric.Wecapturethis
+throughthefollowing linearprogram.
+Minimizefj^pjer
+s.t.Eyf+ř<"»>d.ř(")-Sy/ V/€T
+z:(i,;)€^")
+EyfVi'esi
+/:(i,y)ey<»>
+yf,lf>0,Vie$â,je°V
+Inthismodel,decision variabley¡pisthecumulativepro-
+duction ofyatplantiindisruption scenario n.VariableZjw)
+istheamount oflostdemand forproductyindisruption
+scenario n.Parameter/;(n)referstotheimpactofoneunit
+oflossinsalesforproducty,forexample,theprofitmargin;
+istheTTRforthisdisruption scenario,djands;arethe
+demand andinventoryforproducty,respectively. Flexibil-
+itydesign isthesetofedgesthatarestillaliveduring
+disruption scenario n.
+Theobjective function istheminimization ofthetotal
+weighted lossasaresultofthedisruption. Thefirstcon-
+straintisalower-bound constraint forthenumber ofunits
+lostforproducty,giventheproduction andinventory con-
+ditions.Thesecondconstraint isatotalcapacity constraint
+ontheassembly planti.Wecanreplacethelinearobjec-
+tivefunction withaconvexoneinamoregeneralcase,for
+example, accountingforlostmarketshareifthelossexceeds
+aspecific threshold.
+Solvingoneinstance ofthislinearprogram measures the
+impactofonedisruption scenario. Acrucialstepofusing
+thismodelistheconstruction ofthesetofdisruption sce-
+nariosofinterest. Theidentification ofthissetisaself-
+contained stepthatcanbeperformed bythebusiness exec-
+utivesandriskmanagers. Forexample, whenthefirmaimsSymbol Explanation
+25 Setofallbutthefirst-tier nodes.
+% Setofallbutthefinalnodes(vehicles).
+S?(n) Setofalldisrupted nodesfordisruptionscenarion.
+Setofallsupplierssites(plants).
+Aa Setofallnodesproducedatsupplierand(or)planta.
+°V Setofallfinalnodes(vehicles).
+VjSetofallfinalnodes(vehicles)thatareofthesametype(y).
+Jf-(i) Setofpartsrequiredtoproducenode/.
+JV+(i) Setofnodesthatrequirenode/.
+9>JkSetofallnodesthatareintheupstreamofnodeyandofpart
+typek.
+t{n) TTRfordisruption scenarion.
+u¡ Totalproductionquantityofnodes/'duringtimet(n).
+Ii Lostproductionvolumeofvehicletypey.
+yn Allocationofupstreamnode/todownstream nodeyduring
+timef(">.
+s¡ Finishedgoodsinventoryofnode/.
+rkj Numberoftypekpartsrequiredtomakeoneunitofnodey.
+fj Performance impact(e.g.,profitmargin)ofoneunitof
+producty.
+djDemandforj€pertimeunit.
+c¡ Productioncapacityofnode/perunittime.
+TableA.2:Thistableliststheparameters andvariablesofthemultiple-
+tiermodelandtheirexplanations.
+toidentifythemostcrucialnodeofthesystem,thedisrup-
+tionscenarios areconstructed asalleventsthatrelateto
+theremoval ofasinglenodefromthegraph.Thisisthe
+paradigm adoptedfortheanalysisatFord.
+Although theSTmodelexplicitly captures onlythelast
+tieroftheproduction system,itcanbeusedtoanalyze
+adisruptionatasupplierinanupstreamtier.Todoso,
+wedisrupt thenodesinthefinaltierthatdependonthe
+upstream supplier, andsolveST.Thisisreasonable ifthe
+firmhaslittlecontroloverthenodespriortothelasttier
+andifthefirmknowswhichfinal-tier nodeswillbeaffected
+bythedisruption. Theseassumptions maybetooconserva-
+tive,forexample,insituations inwhichthefirmhascontrol
+overupstream resource allocation androuting. Wepresent
+amultiple-tier modelthataddresses thismoregeneralcase.
+TheMTmodelissimilartotheSTmodel.Weinclude the
+conceptofparts,whichreferstothesetofnodesthatare
+functionally equivalentinthemanufacturing process, but
+potentially processedatadifferent plantorsuppliersite.
+Minimizefjlj
+jer
+s.t.Uj-Ey.j/hj<0,Vfc€Jf-(j),V;€2S
+ieSfjt
+Ey¡i-ui-s"v¿e^
+jeJf+(i)
+iij-0/V;€SP'"'
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotiveSupplyChain
+388 Interfaces45(5),pp.375-390, ©2015INFORMS
+VjeV
+keVj
+Iluk<cat(n), Votesi
+keAa
+iry,,>o.
+Thefirstconstraint isabill-of-materials constraint; for
+everynode;,welimittheproductionofnodej(denoted
+byuj)bythemost-scarce parentpart.Morespecifically,for
+thisnode;(e.g.,anengine),therearemultiple parentnodes
+(e.g.,componentsofanengine). Variable representsthe
+material flowfromnodeitonode;.Iftwoparentnodes,i
+andzv,representthesamephysical and(or)functional part
+(e.g.,thesametypeofboltsfromtwodifferent suppliers),
+wesaythatiandťareofthesameparttype.Weinvoke
+anadditional indexktodenote theparttypeofanode,
+anduserkjtorepresent theamount oftypekpartsrequired
+toproduce oneunitofnodej.Theratio isthenthe
+unitsofnodejthatcanbeproducedwithy¿;unitsoftypek
+partsfromnodei.Weuse&jktorepresent thesetofall
+nodesthatare(1)upstreamof;,and(2)ofparttypek.
+Hence,J2iespjk¥ij/rkjrepresentsthemaximum amount ofj
+thatcanbeproduced, giventheaggregated supplyoftypek
+materials fromupstream nodesinay
+Thesecond constraint isalsoabill-of-materials con-
+straint,whichlimitsthetotaloutflow ofnodei(J2jeß+{i) Vij)
+tobelessthanthesumofproduction {u¡)andinventory (s¿)
+atthecurrentlocation.
+Thethirdconstraint isthedisruption constraint, which
+limitstheproductionofdisrupted nodej(i.e.,w;)tobezero.
+Thefourthandfifthconstraints aresimilar tothefirstand
+secondconstraints intheSTmodel.
+InboththeSTandMTmodels,wemakethesimplify-
+ingassumptionthatprocessing leadtimesarenotsignif-
+icantrelative totheimpactofthedisruption. IntheMT
+model,wealsoassume thatthecostsofrerouting materials
+andmanufacturing changeovers arenotsignificant relative
+totheimpactofthedisruption. Theseareoftenreasonable
+assumptionsinthecontext ofhigh-impact disruptions,the
+effectofwhichdwarfs theimpactoftheseotherissues.
+TheSTandMTlinearprograms generate prescriptive
+contingency plansthatminimize theimpactofthedisrup-
+tiononthefirm'schosenperformancemetric.Undereach
+disruption scenario, theoptimization modelgenerates acor-
+responding setofoptimalvalues forthedecision variables,
+denotingthebestroutingandresource-allocation plansfor
+thatdisruption.
+Procedure forFinding ParetoEfficient Solutions
+UnderTTRUncertainty
+GivenafinitesetofnTTRvalues,(tļ,...,t„), withtxbeing
+thelargest,wecanfindaresource-allocationstrategythat
+isPareto efficient (i.e.,notdominatedbyanyotherstrat-
+egy)onthissetofTTRvalues.Thisisinspiritthesameasfindingalexicographically optimal solution inmulti-
+objective optimization (Ehrgott 2005),wherethenobjectives
+correspondtotheperformance impactunderthesenTTR
+values.Usingx=(l/t,u/t,y/t)torepresenttheresource-
+allocationstrategy, and/(x,t)and(x|Ax>b(t)}asthe
+objective function andfeasible regionoftheTTRmodel,
+respectively, weprovide theprocedureforfindingaPareto-
+efficient solutionasfollows.
+Algorithm1(Pareto-efficient resource-allocationstrategy
+algorithm)
+1:SolvetheoriginalTTRlinearoptimization model
+witht=tvandobtainresource-allocationstrategy
+x1,whichminimizes /(x,fj)overtheset
+{xIAx>b(fļ)}.
+2:Determine thestrategy x2,whichminimizes
+/(x,t2)overtheset{x|/(x,tļ)=f(x1, fļ),Ax>b(f2)}-
+3:For3<k<n, determine thestrategyxk,which
+minimizes /(x,tk)overtheset{x|/(x,t¡)=f(x'ti)foreach1<i<k-1,Ax>b(tk)}.
+Appendix B.Time-to-Survive Model
+Wedefinetime-to-survive (TTS)tobethelongest timethat
+thefirmcanlastwithout losingdemand afteradisruption
+happens. TTSforthedisruption scenario ncanbecalculated
+bysolving thefollowing linearprogram. Thismodelisa
+specialcaseoftheTTRmodelinthesensethatwecanfind
+theTTSofthenetwork bysolvinganumber ofTTRmodels
+withdifferent TTRvalues,andlookforthesmallest TTR
+valuecorrespondingtothefinancial impactbeingstrictly
+positive. ThisTTSformulation ismoreefficientbecausewe
+canfindtheTTSbysolvingasinglelinearprogram.
+Maximize
+stui-EVij/h,<0,Vke Vje2s
+•ePjk
+Ey¿, Vieil
+Uj=0,VjeSfW
+Euk-djt{n'Vjel/
+k€Vj
+J2uk^cJ{n)> Voted
+keAa
+Uj,yij,t<n)>0,
+wheretheconstraints andvariables aresimilar totheTTR
+models, exceptthat(1)isnowadecision variable (TTS),
+and(2)wedonotallowanyloss(demand isstrictlysat-
+isfiedinthefourthconstraint). Theobjective valueofeach
+optimization instance reveals theTTSoftheunderlyingdis-
+ruptionscenario.
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotiveSupplyChain
+Interfaces45(5),pp.375-390, ©2015INFORMS 389
+References
+BanksE(2005)Catastrophic Risk:Analysis andManagement (John
+Wiley&Sons,Chichester, UK).
+Braunscheidel MJ,SureshNC(2009)Theorganizationalante-
+cedentsofafirm'ssupplychainagilityforriskmitigation and
+response.J.Oper.Management 27(2):119-140.
+Chopra S,Reinhardt G,MohanU(2007)Theimportance ofdecou-
+plingrecurrent anddisruptionrisksinasupplychain.Naval
+Res.Logist.54(5):544-555.
+Craighead CW,Blackhurst J,Rungtusanatham MJ,Handfield RB
+(2007)Theseverityofsupplychaindisruptions: Designcharac-
+teristicsandmitigation capabilities. Decision Sci.38(1):131-156.
+EhrgottM(2005)Multicriteria Optimization (Springer- Verlag,Berlin).
+FisherM,Hammond J,Obermeyer W,RamanA(1997)Configur-
+ingasupplychaintoreducethecostofdemanduncertainty.
+ProductionOper.Management 6(3):211-225.
+GilmoreD(2012)Supplychain:Riskybusiness. Accessed Novem-
+ber28,2014,http://www.scdigest.com/assets/FirstThoughts/
+12-03-02.php?cid=5567.
+GravesSC,Willems SP(2003)Supplychaindesign: Safetystock
+placement andsupplychainconfiguration, deKokA,Graves
+SC,eds.HandbooksinOperationsResearch andManagementSci-
+ence,Vol.11(Elsevier, Amsterdam), 95-132.
+Gusikhin O,Klampfl E(2012)JEDI:Just-in-time execution anddis-
+tribution information support systemforautomotive stamping
+operations. Armbruster D,KempfKG,eds.Decision Policiesfor
+ProductionNetworks(Springer- Verlag,London), 119-142.
+Hendricks KB,SinghaiVR(2005)Association between supplychain
+glitches andoperating performance. ManagementSci.51(5):
+695-711.
+JohnsonEJ,HersheyJ,MeszarosJ,Kunreuther H(1993)Framing,
+probability distortions, andinsurance decisions.J.RiskUncer-
+tainty7(1):35-51.
+Kahneman D,Tversky A(1979)Prospect theory:Ananalysisof
+decision underrisk.Econometrica 47(2):263-291.
+Kleindorfer PR,SaadGH(2005)Managing disruptionrisksinsup-
+plychains. ProductionOper.Management 14(l):53-68.
+Knemeyer AM,ZinnW,ErogluC(2009)Proactive planningfor
+catastrophic eventsinsupplychains.J.Oper.Management 27(2):
+141-153.
+Kunreuther H(1976)Limitedknowledge andinsuranceprotection.
+PublicPolicy24(2):227-261.
+MacKenzie CA,BarkerK,SantosJR(2014)Modeling aseveresup-
+plychaindisruption andpost-disaster decision makingwith
+application totheJapanese earthquake andtsunami. HETrans.
+46(12):1243-1260.
+MakHY,ShenZJ(2012)Riskdiversification andriskpoolingin
+supplychaindesign.HETrans.44(8):603-621.
+MarchJG,ShapiraZ(1987)Managerial perspectives onriskand
+risktaking.Management Sci.33(11):1404-1418.
+Miklovic D,WittyR(2010)Casestudy:Ciscoaddresses supply
+chainriskmanagement. Accessed March2,2015,http://www
+.cisco.com/web/strategy/docs/manufacturing /Cisco_Case
+_Study_AMR_10-0917.pdf.Mitroff II,Alpaslan MC(2003)Preparingforevil.Harvard Bus.Rev.
+81(4):109-115.
+PengP,SnyderLV,LimA,LiuZ(2011)Reliablelogisticsnet-
+worksdesignwithfacilitydisruptions. TransportationRes.45(8):
+1190-1211.
+PerrowC(2011)NormalAccidents:LivingwithHighRiskTechnologies
+(Princeton University Press,Princeton,NJ).
+Sampson AR,SmithRL(1982)Assessing risksthroughthedeter-
+minationofrareeventprobabilities. Over.Res.30(5):839-866.
+SchmidtW,Simchi-Levi D(2013)Nissan MotorCompany:
+Building operational resiliency. Accessed March2,2015,https://mitsloan.mit.edu /LearningEdge /CaseDocs/13-149%20
+Nissan.Simchi-Levi.pdf.
+SchmittAJ(2011)Strategiesforcustomer servicelevelprotection
+undermulti-echelon supplychaindisruption risk.Transporta-tionRes.PartB45(8):1266-1283.SheffiY(2005)TheResilientEnterprise: Overcoming Vulnerability for
+Competitive Advantage (MITPress,Cambridge, MA).
+Simchi-Levi D,Sanders M(2013)NewapproachtosupplierriskmanagementatFord.Accessed March2,2015,http://
+www.sctvchannel.com/webinars/Videocast_Ford.php.
+Simchi-Levi D,SchmidtW,WeiY(2014)Fromsuperstormstofac-
+toryfires:Managing unpredictable supply-chain disruptions.
+Harvard Bus.Rev.92(l-2):96-101.
+Simchi-Levi D,WangH,WeiY(2015)Increasing supplychain
+robustness through processflexibility andinventory. Working
+paper,Massachusetts InstituteofTechnology, Cambridge, MA.
+SnyderLV,Scaparra MP,DaskinMS,ChurchRL(2006)Planningfordisruptionsinsupplychainnetworks. INFORMSTutorials
+Oper.Res.234-257.
+SodhiMS,SonBG,TangCS(2012)Researchers' perspectives on
+supplychainriskmanagement.ProductionOper.Management
+21(1):1-13.
+TalebNN(2007)TheBlackSwan:TheImpactoftheHighlyImprobable
+(Random House,Cambridge, MA).
+TangC(2006)Robuststrategiesformitigating supplychaindisrup-
+tions.Internat.J.Logist.9(l):33-45.
+TibkenS(2011)Intelcutsitsoutlook-GiantblamesThaifloodfor
+$1billiondropinsalesgoal.Accessed March2,2015,http://
+www.wsj.com/articles/SB10001424052970203518404577094200
+200314384.
+Tomlin B(2006)Onthevalueofmitigation andcontingency strate-
+giesformanaging supplychaindisruptionrisks.Management
+Sci.52(5):639-6 57.
+TomlinB(2009)Impactofsupplylearning whensuppliers areunre-
+liable.Manufacturing ServiceOper.Management ll(2):192-209.
+Wagner SM,BodeC(2006)Anempirical investigationintosup-
+plychainvulnerability. J.Purchasing SupplyManagement 12(6):
+301-312.
+WorldEconomic Forum (2013)Building resilience insupply
+chains.Accessed March2,2015,http://www3.weforum.
+org/docs/WEF_RRN_MO_BuildingResilienceSupplyChains
+_Report_2013.pdf.
+ZhangPY(2015)Supply chainriskmanagement: Theoryand
+applications. Unpublished doctoral dissertation, Massachusetts
+InstituteofTechnology, Cambridge, MA.
+DavidSimchi-Levi isaprofessorofengineering systems
+atMITandchairman ofOPSRules,anoperations analytics
+consulting company andOpalytics, acloudanalytics plat-
+form.Heisconsidered oneofthepremier thought leaders
+insupplychainmanagement andbusiness analytics. His
+research focusesondeveloping andimplementingrobust
+andefficient techniquesforoperations management. Hehas
+published widelyinprofessional journals onbothpracti-
+calandtheoretical aspectsofsupplychainandrevenue
+management.
+Professor Simchi-Levi co-authored thebooks:itMan-
+agingtheSupplyChain(McGraw-Hill 2004),theaward-
+winningitDesigning andManagingtheSupplyChain
+(McGraw-Hill 2007),anditTheLogicofLogistics, 3rdedi-
+tion(Springer 2013).HealsowroteitOperations Rules:
+Delivering Customer Valuethrough Flexible Operations
+(MITPress2011).
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 
+Simchi-Levi etal.:ManagingRisksandDisruptions inAutomotive SupplyChain
+390 Interfaces45(5),pp.375-390, ©2015INFORMS
+Professor Simchi-Levi hasconsulted andcollaborated
+extensively withprivateandpublicorganizations. Hewas
+thefounder ofLogicToolsthatprovided software solutions
+andprofessional services forsupplychainoptimization.
+LogicTools isnowpartofIBM.
+William Schmidt isanassistant professorintheOper-
+ations,Technology andInformation Management groupat
+theSamuelCurtisJohnson Graduate SchoolofManagement
+atCornell University. Hereceived hisdoctorate fromHar-
+vardBusiness Schoolin2013,Master ofBusiness Adminis-
+tration fromtheUniversityofFlorida,andBSinaerospace
+engineeringfromtheUniversityofFlorida. Beforehisdoc-
+toralstudies, Schmidt worked for12yearsasaconsultant
+andproduct manager, primarilyforElectronic DataSys-
+tems,FreeMarkets, andAriba.
+YehuaWeiisanassistant professorinthedecision sci-
+encesareaattheDukeFuquaSchoolofBusiness since2013.
+Priortothat,hereceived hisPhDinoperations research
+fromMassachusetts Institute ofTechnology. Hisprimary
+research interests lieintheareaofoperations research. More
+specifically, heisinterested inthebenefitanddesignof
+limitedresource pooling, supplychainriskmitigation, and
+decision makingunderuncertainty.
+PeterYunZhangisaPhDcandidate intheInstitute
+forData,Systems, andSociety(IDSS),Massachusetts Insti-
+tuteofTechnology. PriortojoiningIDSS,Peterreceived
+hisBachelor ofApplied Science inengineering scienceand
+Master ofApplied Science inmechanical andindustrial
+engineeringfromtheUniversityofToronto.Heisinterested
+insupplychainriskmanagement, optimization, andmore
+generally, decision makingunderuncertainty.
+KeithCombs isPurchasing Director, NorthAmerican
+Engine, Transmissions, andDriveline Components atFord
+MotorCompany whereheisresponsibleforsupply into
+allofFord'sAutomatic Transmission, Engine,andDriveline
+PlantsinNorthAmerica. Hisofficeislocated atRotunda
+CenterinDearborn, Michigan andhehasheldthisposi-
+tionsinceJune2014.Keithattended GMIEngineering and
+ManagementInstitute (nowKettering University) andgrad-
+uatedwithaBachelor ofScience inmanagementin1987.
+Helaterattended IndianaUniversity andgraduatedwitha
+Master ofBusiness Administration.
+Keithwasemployed byGeneral MotorsCorporation's
+Central Foundry Division from1982to1991.Hehelda
+number ofplantpositionswithinGM'sDefiance, Ohioand
+Bedford, Indiana facilities.Hestartedasacooperative edu-
+cationstudentandwasamanufacturing supervisor when
+hechosetoleaveGMtocomplete hiseducation andulti-
+matelypursue otherinterests. Combshasbeenemployed
+byFordMotorCompany since1991andhasheldanumber
+ofpositionswithinthePurchasing organization. Hispur-
+chaseresponsibilities haveincluded various component
+purchases (rubberandplasticparts,castandpowder metal
+aluminum /steel/ironparts,stampings, resistors, andvari-
+ousothercommodities) aswellasassemblies suchasairbag
+modules, pumps,andtorqueconverters. Combsalsohasexperienceinsupplier quality, notably directing Automo-
+tiveComponents Holdings' Supplier Quality Department
+forfiveyears.Priortohispresentassignment, Combsspent
+fouryearsdirecting material costandriskmanagement
+activities inNorthAmerica.
+YaoGehasBSandMSdegreesinmechanicalengineer-
+ing.Hecurrently leadsanalytics research atFordIT.Ge
+specializesindistributed dataprocessing, machine learning,
+andnaturallanguage processing. Previously, Geworked
+onlarge-scale search-based applications, rule-based AIsys-
+tems,aswellasenginesimulation codes.Beforejoining
+Ford,Geworkedasproduct designengineerinautomotive
+supplier industry.
+OlegGusikhin isatechnical leaderatFordResearch
+andAdvanced Engineering. Hereceived hisPhDfrom
+theSt.Petersburg Institute ofInformatics andAutoma-
+tionoftheRussian AcademyofSciences andanMBA
+fromtheRossBusiness SchoolattheUniversityofMichi-
+gan.Hehasworked atFordMotorCompanyforover
+20yearsindifferent functional areasincludinginforma-
+tiontechnology, advanced electronics manufacturing, and
+research andadvanced engineering. During histenureat
+Ford,Dr.Gusikhin hasbeeninvolved inthedesignand
+implementationofadvanced information technology and
+intelligent controls formanufacturing andvehiclesystems.
+Dr.Gusikhin isarecipientoftwoHenryFordTechnology
+Awards, 2009Institute ofIndustrial Engineers Transactions
+BestApplication PaperPrizeinScheduling andLogistics,
+and2014INFORMS DanielH.WagnerPrize.Heisanindus-
+tryvice-chair ofIFACTechnical Committee "Manufacturing
+ModelingforManagement andControl," andalecturer in
+theIndustrial andOperations Engineering departmentat
+theUniversityofMichigan.
+Michael Sandersbringsawealth ofknowledgetoFord's
+evolving Supply RiskManagement teamwithmorethan
+17yearsofpurchasing experience. Sanders isresponsible
+formonitoring, analysis, andcommunication ofpotential
+SupplyDisruption Events forNorthAmerica, aswellas
+leadfortheGlobalProduction SupplyRiskStrategy.In1995
+Sandersearnedadegreeinengineeringartswithabusiness
+cognatefromtheCollegeofEngineeringatMichigan State
+University.
+DonZhangisatechnicalexpertinGlobalData,Insights
+andAnalytics TeamatFordMotorCompany. Hehasmore
+than10yearsofexperienceatFordinsupplychainanalytics,
+costoptimization, andforecasting. Heiscurrently partofthe
+Manufacturing andPurchasing Strategy grouptodevelop
+advanced analyticmodels forbusinesses. PriortoFord,he
+worked forU.S.SteelCorporation (1994-2004) whereheheld
+thepositionsofseniorresearch engineer, associated research
+consultant, andresearch managerinsteelmaking andcasting
+technologies. HeholdsaBEandMSinphysical chemistry
+ofmetallurgyfromUniversityofScienceandTechnology
+Beijing.HeholdsaPhDdegreeinmaterials scienceand
+engineering (1993)andanMBAinoperation research and
+finance(2003)fromCarnegie MellonUniversity.
+This content downloaded from 80.31.188.149 on Tue, 11 Mar 2025 18:05:51 UTC 
+All use subject to https://about.jstor.org/terms 

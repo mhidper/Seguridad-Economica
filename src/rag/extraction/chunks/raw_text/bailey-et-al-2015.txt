@@ -1,0 +1,1072 @@
+Article
+Estimating Dynamic
+State Preferences
+from United Nations
+Voting Data
+Michael A. Bailey1,2, Anton Strezhnev3,
+and Erik Voeten1,4
+Abstract
+United Nations (UN) General Assembly votes have become the standard data
+source for measures of states preferences over foreign policy. Most papers use
+dyadic indicators of voting similarity between states. We propose a dynamic ordinal
+spatial model to estimate state ideal points from 1946 to 2012 on a single dimension
+that reflects state positions toward the US-led liberal order. We use information
+about the content of the UN’s agenda to make estimates comparable across time.
+Compared to existing measures, our estimates better separate signal from noise in
+identifying foreign policy shifts, have greater face validity, allow for better inter-
+temporal comparisons, are less sensitive to shifts in the UN’ agenda, and are strongly
+correlated with measures of liberalism. We show that the choice of preference
+measures affects conclusions about the democratic peace.
+Keywords
+international cooperation, international law, international organization, international
+institutions
+1Department of Government, Georgetown University, Washington DC, USA
+2McCourt School of Public Policy, Georgetown University, Washington, DC, USA
+3Department of Government, Harvard University, Cambridge, MA, USA
+4Edmund A. Walsh School of Foreign Service, Georgetown University, Washington, DC, USA
+Corresponding Author:
+Erik Voeten, Department of Government, Georgetown University, 301 ICC, Washington, DC 20052, USA.
+Email: ev42@georgetown.eduJournal of Conflict Resolution
+2017, Vol. 61(2) 430-456
+ªThe Author(s) 2015
+Reprints and permission:
+sagepub.com/journalsPermissions.nav
+DOI: 10.1177/0022002715595700
+journals.sagepub.com/home/jcr
+
+Foreign policy preferences play a crucial role in international relations theory. Yet,
+they are not directly observed and thus n eed to be inferred from observable beha-
+vior. Votes in the United Nations Ge neral Assembly (UNGA) have become the
+standard data source for constructing measures of state preferences, as they are
+comparable and observable actions take nb ym a n yc o u n t r i e sa ts e tp o i n t si nt i m e .
+Unfortunately, with few exceptions, s cholars have ignored methodological
+advances in the roll call literature on ho w to estimate latent preferences from
+observed votes. Moreover, existing measures fail to separate changes in the UN’s
+agenda from shifts in state preferences. C onsequently, these m easures frequently
+suggest that states change their foreign policy orientations when all that changes
+is the content of votes.
+We develop a state-of-the-art ideal point model to estimate dynamic national
+ideal points along a single dimension from 1946 to 2012. We use resolutions that
+were identical across years to serve as bridge observations to help make the prefer-
+ence estimates comparable over time. The resulting estimates consistently capture
+the position of states vis-a `-vis a US-led liberal order. During the Cold War, this was
+the East–West conflict between communist and capitalist states. Since the end of the
+Cold War, the non-Western pole has been occupied by a motley crew of states that
+have little ideological cohesion other than their opposition to the Western liberal
+order.
+Our estimates have several advantages over dyadic similarity indicators such as
+affinity or S scores (Gartzke 1998, Signorino and Ritter 1999). First, our estimates
+allow for more valid intertemporal comparisons. For example, according to S scores,
+Russia and the United States have more conflictual relations in the mid-2000s than
+the Union of Soviet Socialist Republics (USSR) and the United States ever had dur-
+ing the Cold War. By separating agenda changes from changes in preferences, we
+offer more plausible estimates of long-term shifts in this and other relationships.
+This matters given the frequent usage of UN-based preference measures in dynamic
+analyses.
+Second, our estimates are better able to distinguish signal from noise in identify-
+ing meaningful shifts in foreign policy orientations. For example, ideal points anal-
+ysis of our ideal point estimates consistently indicates that left-wing regimes in Latin
+America were systematically less favorable to the United States than right-wing
+regimes. We do not find this pattern with S scores.
+Finally, dyadic indicators can only reveal shifts in preference similarity between
+two states but not which state has shifted. Ideal point estimates allow us to assess, for
+instance, whether the Soviet Union or the United States was responsible for the two
+states moving closer or further apart. This allows researchers to examine foreign pol-
+icy orientations in monadic analyses. Moreover, we offer assessments of uncertainty
+in our point estimates.
+We first discuss how UN votes have been used in the literature. We then explain
+our estimation method and data. The following section evaluates the validity of our
+estimates. Finally, we replicate an application to the study of conflict (Gartzke 2000)Bailey et al. 431
+and find that replacing affinity measures with ideal point estimates makes the orig-
+inal findings robust to modeling the dynamics appropriately.
+Literature, Data, and Method
+The Use of UN Votes in the Literature
+Scholars have used UN votes to measure foreign policy preferences virtually since
+the institution was established (e.g., Ball 1951; Lijphart 1963; Moon 1985; Vengroff
+1976; Russett 1966). This interest shows little sign of abating. We found seventy-
+five articles published between 1998 and 2012 that used UN votes to construct mea-
+sures of national preferences.
+Many papers use UN-based preference measures as independent variables. These
+include analyses of whether foreign policy interests affect the likelihood of interstate
+disputes (e.g., Gartzke 1998; Oneal and Russett 1999; Reed et al. 2008), the severity
+of those disputes (Sweeney 2003), the occurrence of acts of terrorism (Dreher and
+Gassebner 2008), the distribution of foreign aid (e.g., Alesina and Dollar 2000), the
+lending behavior of the World Bank and International Monetary Fund (IMF, e.g.,
+Thacker 1999; Dreher and Jensen 2007), the probability of signing treaties (Koreme-
+nos 2005), and the reception of diplomatic missions (Neumayer 2008).
+Others have used UN-based measures as dependent variables to ascertain whether
+socialization through intergovernmental organizations leads to convergence in
+member state interests (Bearce and Bondanella 2007), whether leadership and
+regime changes alter foreign policy orientations (Dreher and Jensen 2013), whether
+the European Union has started to form a cohesive foreign policy (Drieskens 2010),
+whether the United States is becoming increasingly isolated on foreign policy issues
+(Voeten 2004), or whether US or Chinese foreign aid or trade successfully buys for-
+eign policy adherence (Flores-Macı ´as and Kreps 2013).
+Voting in the UN differs from some other voting bodies in that three explicit vote
+options are widely and deliberately used in the UN: yea, nay, or abstain. The infor-
+mative abstentions are an important feature of voting and virtually all studies treat a
+nay vote as a stronger signal of disapproval than an abstention.1Abstentions differ
+from absences. Absences typically do not reflect a country’s views but instead are
+due to causes such as a temporary lack of government. Absences are strongly corre-
+lated with the occurrence of civil wars and coups (Voeten 2013). In 68 percent of
+votes where a state is absent, it will also be absent on the next roll call. This suggests
+strongly that absences are not usually indications of discontent with a resolution and
+should thus not be equated with abstentions, as some scholars do (Rosas, Shomer,
+and Haptonstahl 2015).
+Most existing UN-based preference measures are based on dyadic similarity of
+vote choices. The most widely used is Signorino and Ritter’s (1999) S score.2
+S scores treat UN votes as interval-level measures of preference expression with
+abstentions halfway between a yea and a nay vote (they exclude absences).3The432 Journal of Conflict Resolution 61(2)
+S score is a Euclidean distance measure between every dyad in the UN. It is calcu-
+lated as:
+Sab¼1/C0X
+jYau/C0Ybuj
+V;
+where u¼1,...Vindexes votes, aandbrefer to two countries, and Yrefers to votes,
+taking on one of three alternatives: fyea (Y¼1), abstain ( Y¼2), and nay ( Y¼3)g.
+The S score equals 1 if two countries agree on all votes and /C01 if two countries
+maximally disagree on all resolutions.
+The core weakness of S scores and related similarity indices is that they assume a
+straightforward relationship between how often two states vote together and prefer-
+ence similarity. Yet, voting coincidence is also affected by what resolutions states
+vote on. Suppose there are ten votes and that country A and country B vote identi-
+cally on nine of them. In the next session, suppose that the countries preferences do
+not change, but there happen to be ten additional votes on the single issue that
+divided the two countries. The similarity index of the two countries would drop from
+90 percent on the first ten votes to 50 percent on all twenty votes even as their pre-
+ferences did not change.
+The S score approach differs sharply from contemporary measurement models
+used for other voting bodies, where scholars invariably use spatial models and item
+response theory (IRT) empirical methods (e.g., Poole 2005).
+Spatial models offer an explicit theory of how states translate preferences into
+votes. Two features of these models allo w them to measure preferences in a way
+that does not ebb and flow according to the composition of votes in a voting body.
+First, spatial models estimate vote cut point s that identify points along a preference
+spectrum where countries vote in a particu lar way. This makes it possible to attri-
+bute changes in similarity due to changes in agenda rather than simply assuming all
+changes in voting similarity reflect preference changes. Second, spatial models
+estimate ‘‘discrimination parameters’’ t hat tell us how well individual roll calls
+distinguish between states with differ ent ideal points along a dimension. These
+parameters effectively all ow us to weight votes by how much they reflect the main
+preference dimension. If a series of votes appear that have little to do with the main
+dimension of preferences, they will not exert much influence on ideal point esti-
+mates. This contrasts with similarity indi ces which weight all votes identically and
+will ebb and flow as these votes influenced by idiosyncratic factors come and go
+from the agenda.
+Figure 1 illustrates how spatial models account for agenda change. There are
+seven countries with ideal points y1toy7. On vote 1, the cut points gare such that
+two countries vote nay (solid triangles), two abstain (open circles), and three vote
+yea (solid squares). On vote 2, only two countries vote nay, four abstain, and two
+vote yea. On vote 3, the polarity of the vote is reversed so that the high ycountries
+are those more inclined to vote yea. The coalition is similar to that on vote 1, only for
+this vote most yeas from vote 1 have become nays and vice versa.Bailey et al. 433
+If the agenda changed from having many votes like vote 1 to many votes like vote
+2, a similarity index would indicate a major split in countries 5 and 6 and a major
+warming of relations of countries 4 and 5. But in fact, these countries could have
+completely unchanged preferences and their voting would only change due to the
+changes in the types of votes on which they expressed their views.
+Spatial models also give us tools to lessen the influence of idiosyncratic votes on
+preference estimates. An idiosyncratic vote is one that divides countries based on fac-
+tors unrelated to the main preference dimension. For example, in some years, North–
+South divisions over UN supranationalism pitted the powerful states (including the
+USSR and the United States) against developing nations (Voeten 2000). These votes
+provide no meaningful information on the position of states on a pro-anti-West dimen-
+sion. Vote 4 in Figure 1 depicts such a case as votes are poorly explained by the coun-
+tries’ ideal points: countries 1 and 4 abstain, while countries 3 and 6 vote nay and the
+rest vote yea. A similarity index such as the S score would take this vote as evidence of
+changes in preferences among countries, while a spatial model will place less weightVote 2
+1 Nay (Country 1)
+4 Abstain (Countries 2 thru 5)
+2 Yea (Countries 6 and 7)Vote 1
+2 Nay (Countries 1 and 2)
+2 Abstain (Countries 3 and 4 )
+3 Yea (Countries 5 thru 7)
+Vote 3
+2 Yea (Countries 1 and 2 )
+1 Abstain (Country 3)
+4 Nay (Countries 4 thru 7)
+Vote 4
+3 Yea (Countries 2, 5 and 7 )
+2 Abstain (Countries 1 and 4)
+2 Nay (Countries 3 and 6)
+Figure 1. Hypothetical votes for seven countries.434 Journal of Conflict Resolution 61(2)
+on such votes because they are poorly explained by ideal points. We discuss this para-
+meter in more detail when we present our model subsequently.
+While spatial models provide a structure for distinguishing agenda change from
+preference change, they do not automatically distinguish wholesale shifts in prefer-
+ences from wholesale shifts in vote parameters. For example, if all country ideal points
+(y) moved one step to the left, this is mathematically equivalent to all cut points ( g)
+moving one step to the right. Therefore, Bailey (2007, 2013) and Voeten (2004) pin
+down the location of vote cut points by using information about the location of vote
+cut points over time. By utilizing information that vote cut points on a subset of votes
+were the same from one year to the next, their models could appropriately interpret
+any change in votes on these votes would have to be due to preference change.
+With some exceptions (Voeten 2000, 2004; Reed et al. 2008; Mattes, Leeds, and Car-
+roll 2015; Andersen, Harra, and Tarp 2006), spatial theory and IRT models have not
+been applied to the UN. One reason is that standard software packages for ideal point
+estimation do not easily incorporate votes with three choices. Moreover, existing ideal
+point approaches are not dynamic and do not separate agenda from preference change.4
+Statistical Model
+Our approach is to use IRT statistical models to estimate one-dimensional prefer-
+ences that are comparable over time based on votes in the UN. The model is based
+on the multiple rater ordinal data model of Johnson and Albert (1999, 166). Let i¼
+1,...Nindex states and u¼1,...Vindex votes. States have unidimensional ‘‘ideal
+points’’ in each year ( yit).
+The vote by a country on a given resolution is a function of its ideal point, char-
+acteristics of the vote, and random error. Specifically, the spatial preference of each
+country on each vote is Zitu¼buyitþ2 iu, with 2iu*Nð0;1Þ0, which is a latent vari-
+able.buis analogous to the discrimination parameter in standard IRT models. The
+sign of buindicates the ‘‘polarity’’ of vote u: on some resolutions (such as vote 1
+in Figure 1), high yitcountries are inclined to vote yea, and buwill be positive for
+these votes. buwill be negative when high yitcountries are inclined to vote nay (such
+as vote 3 in Figure 1). The magnitude of buindicates how well vote useparates coun-
+tries with high and low ideal points. A bunear zero indicates vote uis poorly
+explained by ideal points and is associated with a muddle of yea, abstain, and nay
+voting across the ideological spectrum, as in vote 4 of Figure 1.
+Each vote has three alternatives: fyea ( Y¼1), abstain ( Y¼2), and nay ( Y¼
+3)g.The observed choice, Yitu, depends on Z itu, the latent vote-specific preference
+of country i, and cut points g1uandg2u. Formally, the conditions that determine
+which alternative a country chooses on vote uare:
+Yitu¼1i f Zitu<g1u
+Yitu¼2i f g1u<Zitu<g2u
+Yitu¼3i f Zitu>g2u:Bailey et al. 435
+Assuming normally distributed errors, the probability that nation ichooses option
+kis:
+PrðYitu¼kÞ¼Fðgku/C0buyituÞ/C0Fðgk/C01;u/C0buyituÞ;
+where Fis the normal cumulative distribution function and g0u¼/C0 1 andg3u¼1
+for all votes. We assume that absences are distributed as missing at random as in
+Clinton, Jackman, and Rivers (2004). In a possible future extension, one might
+examine more nuanced models of absences along the lines of those proposed by
+Rosas and Shomer (2008) and Rosas, Shomer, and Haptonstahl (2015).
+All ideal point models need to be identified with a normalization. We fix ideal
+points to be centered on zero with a standard deviation of 1. We implement our
+across-time bridging by imposing a restriction that resolutions with the same content
+have the same outpoints, g1andg2. The assumption is that a resolution at time thas
+the same resolution parameters as an identically phrased resolution at time tþ1.
+This is a weaker assumption than that made in studies that jointly scale legislators
+with constituents or judges, where it may not necessarily be true that an identically
+phrased proposal means the same thing to a legislator and a constituent (Lewis and
+Tausanovich 2013). Context could change too with time, which is why we limit to
+five the number of consecutive years in which the resolution parameters are fixed.
+We implement a Bayesian prior on the estimate for yitbased on yi,t/C01. The var-
+iance of this prior determines how much smoothing occurs. If variance of the prior is
+set at a very large value, then almost no smoothing occurs and we essentially esti-
+mate preferences separately for each year for each country with the preference in the
+previous period providing no information about preferences in the next period. If the
+variance of the prior is set at a very small value, then preferences change very little
+from one period to the next, meaning we essentially estimate a single ideal point for
+each country for the entire time period. As discussed in Martin and Quinn (2002,
+147), specific estimates can be sensitive to the setting of such a parameter and there
+is no consensus way to determine its value. As with Martin and Quinn, we set this
+value at a point at which the estimates do indeed move from period to period but not
+too dramatically. The advantage to this approach compared to estimating ideal point
+change as a polynomial function over time (as in Voeten 2004) is that it allows for
+discrete shifts in ideal points, for example, responding to regime change. The prior
+will soften these shifts but will not make them conform to a specific functional form
+over time.
+We use a hybrid Metropolis–Hasting/Gibbs sampler to estimate the parameters of
+the model following the process described in Johnson and Albert (1999, 135, 166)
+and Cowles (1996). The Appendix contains more details on the estimation process.
+Like all efforts to extract preference estimates from observed votes, we can only
+measure revealed preferences rather than underlying ‘‘true’’ preferences. The vote of
+a state on any given resolution may be a function not only of their unrestricted pre-
+ferences but also of other motives. Given that UNGA votes are nonbinding, we sus-
+pect that strategic voting is less prevalent than in other arenas of world politics, such436 Journal of Conflict Resolution 61(2)
+as the UN Security Council. The influence of some factors such as foreign aid could
+be modeled empirically based on the ideal points we estimate (Dreher, Nunnen-
+kamp, and Thiele 2008; Dreher and Sturm 2012; Carter and Stone 2015).
+Data
+The data come from Strezhnev and Voeten (2013) and include 4,335 divisive roll
+calls over sixty-seven sessions from January 1946 to December 2012. As in all ideal
+point estimations, we limit the analysis to resolutions adopted with a vote. About a
+quarter of all UNGA votes are adopted without a representative requesting a roll call
+(Hage and Hug 2013). Such votes provide no information for ideal point estimation.
+We analyze preferences for each country for each UN session. Sessions usually
+start in September and occasionally run into the new year. A more detailed discus-
+sion is in Voeten (2013).
+In order to identify preference change over time, we coded whether resolutions
+are identical. Resolutions are nonbinding. Even adopted resolutions do not necessa-
+rily alter the status quo. It is therefore common for consecutive sessions to vote on
+duplicate resolutions. We identified duplicates by first downloading pdf files of all
+General Assembly Resolutions from the UN website and converting the files to
+machine-readable text. We then used plagiarism detection software WCopyFind
+3.0.2 (Bloomfield 2011) to estimate the similarity between resolution texts.5Small
+changes in words can meaningfully alter political support for resolutions. We there-
+fore first selected resolutions that were plausibly identical because they returned
+high similarity scores in WCopyFind and then manually inspected them to confirm
+that no substantial differences existed.6If resolutions differ only in inconsequential
+ways (such as dates or references to past resolutions), we treated them as identical.
+This procedure led to 799 pairs of identical resolutions.
+There are some differences between the matched and unmatched resolutions.
+Based on a model with session fixed effects, the percentage of yes votes on matched
+resolutions is on average about 3 percent higher than on nonmatched votes (from an
+average of 57 to 60 percent). Matched resolutions are also somewhat more likely to
+be resolutions on colonialism and the Middle East and somewhat less likely to be
+about human rights and disarmament. Yet, these differences are modest. For exam-
+ple, human rights resolutions, the most underrepresented category, constitute 16.5
+percent of unmatched resolutions and 14.6 percent of matched resolutions.
+Most of the time, states do not alter their positions on matched resolutions: 97.2
+percent of nonmissing vote choices were the same from one year to the next. The
+United States changed somewhat more frequently than average (4.2 percent of the
+time). Yet these are very informative data points if we wish to identify changes in
+foreign policy preferences.
+We also estimated the model on the subsample of 336 votes identified as impor-
+tant by the State Department since 1983. Similarity indicators based on this subset of
+votes are often used in applied work.Bailey et al. 437
+Validity
+This section examines the validity of our ideal point estimates in four ways. First, we
+assess whether the changes in ideal points make sense, given what we know about
+post–World War II history. Second, we examine whether ideal point estimates are
+affected by changes in the agenda. Third, we explore which substantive areas most
+reflect underlying preference differences in UN voting. Fourth, we ascertain whether
+the ideal points are associated with democratization, financial liberalization, and
+government ideology in the ways scholars would expect.
+To compare ideal points to S scores, we transform ideal points into dyadic mea-
+sures by taking the absolute distance between the ideal points of two countries (mul-
+tiplied by /C01 to give both measures the same sign). The bivariate Pearson
+correlation between the distances in ideal points and the S scores is .82. This is fairly
+high but, as we shall see, the differences are consequential especially in intertem-
+poral comparisons.
+Face Validity
+Figure 2 plots the S scores and the absolute distance between the ideal points for the
+United States and the USSR/Russia. Both measures capture a dramatic change
+immediately when the Cold War ends. Yet there are important differences. First,
+S scores imply implausible intertemporal comparisons. If we believe S scores, the
+United States and the USSR had much more similar interests during several periods
+of the Cold War (mid-1950s and mid-1970s) than during most of the post–Cold War
+period with the exception of a few years in the early 1990s. Indeed, 1989, 2008, and
+2009 are the darkest years in the relationship between these two countries according
+to S scores, with an equally implausible warming of ties since. This defies common
+sense.
+Second, S scores fluctuate tremendously during the Cold War plausibly due to
+changes in the relative importance of the second dimension. In the early 1970s, the
+group of seventy-seven gained control of the UNGA’s agenda, introducing many
+new resolutions on UN supranationalism and other North–South issues on which the
+USSR and the United States took similar positions (Voeten 2000). This led to large
+increases in the number of times the two states voted together (and consequentially
+S scores) but not in their positions on the main underlying dimension of contestation,
+as correctly captured by relatively stable ideal point estimates. Similarly, in the mid-
+1950s, the Suez crisis was a particular event (with many associated votes) that pitted
+the United States against its Western allies. It did not, however, reflect a fundamen-
+tal easing of relations between the superpowers as the S scores would suggest. By
+contrast, the ideal point estimates are fairly consistent during the Cold War and accu-
+rately keep the two countries much further apart during the Cold War than at any
+point after.438 Journal of Conflict Resolution 61(2)
+Third, despite greater volatility, S scores sometimes fail to detect real shifts in prefer-
+ences. Most notably, the ideal point measure picks up on Gorbachev’s efforts to reconcile
+with the West in the mid-1980s, while S scores pick up on a change only in 1991.
+This latter point is made more clearly in Figure 3, which plots ideal point esti-
+mates for the five permanent members of the UN Security Council (P-5). It is the
+Soviet Union rather than the United States, which moves in the 1980s.
+Figure 3 also paints a broader picture of great power ideology in the post–World
+War II period. In the 1950s and early 1960s, France and the United Kingdom took a
+more extreme ‘‘Western’’ position than the United States, as they desperately clung
+to their empires. The gap between the United States and its Western allies has
+increased since the Reagan Administration, which notably departed from the Carter
+Administration. The People’s Republic of China, which did not take a UN seat until
+1971, initially canvassed with the nonaligned states near the center of the ideological
+space. Tensions with the West increased after Tiananmen square. Moreover, the col-
+lapse of the Soviet Union left China without a foe on the opposite side of the ideo-
+logical spectrum. Since the late 1990s, China has taken a much more pragmatic and
+active approach in the UN. China’s ideal point never moves as far in opposition to the
+Western liberal order as the USSR’s did during the Cold War. By contrast, S scores
+between the United States and China during the 1990s (not shown) were lower than
+those between the United States and the USSR at anytime during the Cold War.
+One concern is that spatial models (like S scores) may not be able to distinguish
+sincere preferences from strategic concerns, such as a desire to get aid or other
+-.6 -.4 -.2 0 .2
+S-Scores-5 -4 -3 -2 -1Ideal Point Similarity
+1950 1960 1970 1980 1990 2000 2010
+Year
+Ideal Point Similarity S-score
+Ideal point similarity equals absolute difference between ideal points multiplied by -1
+Figure 2. United Nations voting similarity between Russia/Union of Soviet Socialist Republics
+(USSR) and the United States.Bailey et al. 439
+concessions from powerful states in exchange for votes. Although UNGA votes are
+nonbinding and less strategic than those in venues such as the UN Security Council,
+there is evidence of strategic voting (Carter and Stone 2015). This may be especially
+pertinent on votes important to the United States, which are resolutions on which the
+US lobbies and where the correlation between US foreign aid and voting patterns is
+especially high (Wang 1999). Therefore, we also estimated ideal points based only
+on a subsample of votes on which the US state department declared it lobbied other
+Figure 3. Ideal points of the five permanent members of the UN Security Council (P-5) in the
+United Nations General Assembly (UNGA).440 Journal of Conflict Resolution 61(2)
+countries in Voting Practices in the United Nations , an annual report the state depart-
+ment has issued to Congress since 1983. The bottom panel of Figure 3 shows ideal
+point estimates for P-5 countries based on these votes. The broad patterns are the
+same, but minor differences do exist and these may be the more appropriate mea-
+sures for some analyses. The bivariate correlation between ideal points estimated
+based on important votes and all votes is .92.
+Other comparisons also reveal substantial differences between ideal points and
+S scores. Figure 4a plots the ideal point distance (multiplied by /C01 for comparability)
+between several Latin American states and the United States. Regime changes widely
+known to have affected foreign policy orientations also affected ideal point shifts.
+Cuba shifted rapidly following the 1959 revolution. Chile quickly and temporarily
+shifted away from the United States during the Allende regime but moved back after
+the 1973 coup. The fall of the Pinochet regime led to a small shift away from the West-
+ern position but not to the extent of the left-wing governments. Venezuela shifted
+away from the United States following the election of Hugo Cha ´vez. Argentina
+became much more pro-West following the election of Carlos Menem in 1989. Nicar-
+agua’s changes correspond closely to the rise and fall of Sandinista governments.
+Figure 4b shows the same data but now calculated as S scores with the United
+States. The lines also capture the main regime shifts, but they are much harder to
+distinguish from other bumps. For example, the Allende government is barely dis-
+tinguishable from other small shifts in Chile’s S scores. Moreover, the Latin Amer-
+ican states are very difficult to differentiate since 1970. For the most part, Figure 4b
+shows a uniform shift away from the United States. For example, S scores portray
+Cuba and Chile as similar to each other in foreign policy preference with a massive
+gap between Chile and the United States. According to S scores, Chile was as far
+from the United States in the 2000s as Cuba was in the late 1960s. In contrast, ideal
+points properly put Chile and Argentina quite a bit closer to the United States than
+Venezuela and Cuba.
+Agenda Change
+What explains the large differences between the ideal points and the S scores? The
+major difference in the approaches is that the ideal points are based on a model that
+explicitly addresses agenda change. Therefore, we turn to examining how much the
+two preference measures are affected by substantive content of the votes.
+Table 1 shows results from a lagged-dependent variable model in which the
+dependent variables are country ideal points (column 1) and S scores with the United
+States (column 2). The independent variables are annual issue proportions. We
+coded whether resolutions concerned colonialism, the Middle East, nuclear issues,
+disarmament, human rights, and/or economic issues (see Voeten 2013). Resolutions
+could fit into multiple categories or none.
+The results indicate that the two preference measures respond very differently to
+changes in the agenda. None of the issue proportions correlate significantly withBailey et al. 441
+ideal points (model 1). By contrast, most of the issue proportions are associated with
+statistically significant changes in S scores with the United States (model 2). Varia-
+tion in the proportion of nuclear issues is especially strongly correlated with
+S scores. To illustrate just how strongly issue proportions correlate with S scores,
+we also estimated a static model with fixed country effects and annual issue propor-
+tions. This model accounts for 36 percent of the variation within country S scores
+-5 -4 -3 -2 -1 0
+1950 1960 1970 1980 1990 2000 2010
+YearA. Ideal Point Similarity with U.S.-1 -.5 0 .5 1
+1950 1960 1970 1980 1990 2000 2010
+YearB. S-Scores Similarity with U.S.
+Venezuela Chile
+Cuba Argentina
+Nicaragua
+Figure 4. Latin American ideal points and S scores with the United States.442 Journal of Conflict Resolution 61(2)
+with the United States but only 3 percent of the variation in country ideal points
+(results available from authors). Qualitatively identical results hold with an error-
+correction model (ECM) and if we add fixed country effects. This confirms that
+a large proportion of variation in dyadic S scores has less to do with country-
+specific preference change than with changes in the UNGA’s agenda.
+In columns 3 and 4, we show results from the same model estimated on all dyads.
+Again, issue proportions correlate strongly and significantly with S scores (model 3).
+Here, we also find significant effects when we use ideal point differences as the
+dependent variable (model 4). Yet, the substantive effects are small compared to
+those on S scores. When we standardize the coefficients from the table, we find that
+none of the standardized coefficients on ideal point similarity exceeds 0.004 (the
+standardized coefficients on economic and Middle East). All but one (nuclear disar-
+mament) of the standardized coefficients on S scores exceed 0.004.
+Other analyses lead to similar conclusions. In a country fixed effect model,
+annual issue proportions explain 17 percent of the within country variation in dyadic
+S scores and just 3 percent in the variation in ideal point similarity. In an ECM with
+fixed country effects for ideal points, many of the issue proportions are no longerTable 1. Lagged-Dependent Variable Regressions of Ideal Points and S Scores on Annual
+Issue Proportions.
+(1)
+Ideal Points(2)
+S Score with
+United States(3)
+S Scores,
+all dyads(4)
+Ideal Point
+Similarity, All Dyads
+Lagged-dependent variable .982***
+(.002).870***
+(.013).880***
+(.002).965***
+(.000)
+Middle East .003
+(.041)/C0.053
+(.036)/C0.127***
+(.004)/C0.035***
+(.006)
+Nuclear .072
+(.080)/C0.764***
+(.062).020***
+(.007).058***
+(.012)
+Disarmament /C0.055
+(.049)/C0.071*
+(.037)/C0.028***
+(.005).027***
+(.008)
+Human rights .016
+(.039).189***
+(.029).051***
+(.004)/C0.031***
+(.006)
+Colonialism .005
+(.031)/C0.182***
+(.031)/C0.270***
+(.006)/C0.031***
+(.006)
+Economic /C0.020
+(.049).054
+(.052)/C0.043***
+(.006).095***
+(.009)
+Constant /C0.014
+(.011).100***
+(.014).150***
+(.002)/C0.035***
+(.002)
+Observations 8,579 8,580 645,843 632,242
+R2.969 .849 .782 .933
+Number of countries/dyads 196 195 18,874 18,874
+Note: Robust standard errors clustered on countries within parentheses.
+***p< .01. ** p< .05. * p<. 1 .Bailey et al. 443
+significant, whereas all of the issue proportions remain significant in such a speci-
+fication for S scores.
+An alternative test is to examine how sus ceptible ideal point estimates are to
+annual shocks. We estimated a regression with country fixed effects and indica-
+tor variables for each year. The year dummies explain only 4 percent of the var-
+iation in ideal points.7Thus, there is little evidence that ideal points move up
+and down due to common shocks rather than individual countries changing their
+positions.
+Year dummies explain 50 percent of the variation in S scores between the United
+States and other countries. This compares to 27 percent of the variation in ideal point
+distances with the United States (remember S scores are dyadic so we must compare
+with ideal point distances). If we examine S scores and ideal point similarities in all
+dyads (with dyad fixed effects), year dummies explain 11 %of the variation in
+S scores and 2 percent of the variation in ideal point distances. In sixty out of
+sixty-six years, all dyadic S scores significantly (at the 5 percent level) move in the
+same direction. This is again consistent with the notion that a large portion of varia-
+tion in S scores is a consequence of common shocks to the agenda rather than indi-
+vidual states changing their positions.
+Simply regressing S scores on year dummies and using the residuals as a prefer-
+ence measure would be one way to improve on existing practices. Nevertheless, this
+is an ad hoc solution, which does not address the other advantages of ideal point
+methods, and it would incorrectly adjust for instances where there are real common
+shocks to preferences, such as with the end of the Cold War.
+Substantive Content of Preferences
+We can also use variation in issue proportions over time to gain some insight into the
+substantive interpretation of the preference dimension that dominates UN voting. To
+do this, we regressed the absolute values of the estimated discrimination parameter
+buon the issue codes. To recall, the discrimination parameter is an estimate of the
+weight a resolution has, which is based on the extent to which conflict on the reso-
+lution reflects conflict along our single dimension. On average, human rights resolu-
+tions have a discrimination parameter that is higher by 0.35 (half a standard
+deviation) than the reference category (resolutions that do not fit any of the issue
+categories). Colonialism issues (0.31), economic issues (0.12), and disarmament
+issues (0.09) also have significantly higher than average discrimination parameters,
+but Middle East issues and nuclear issues do not.8
+This fits the substantive interpretation of the dimension as being about a liberal
+world order. Human rights resolutions weigh heavily, especially after the end of the
+Cold War, as they signify conflict between liberal and nonliberal states. By contrast,
+resolutions on nuclear weapons often (though not always) separate the nuclear haves
+from the have-nots. This means that all permanent members of the UN Security
+Council tend to vote on the same side. The proportion of resolutions that deal with444 Journal of Conflict Resolution 61(2)
+this issue varies considerably, from zero in some years to about 30 percent in others
+(see Voeten 2013). This may lead us to wrongly conclude that the P-5 are much
+closer one year than they are the next simply because there are more resolutions
+on nuclear issues. This may be especially problematic for applications that use
+UN votes to construct measures of great power agreement (e.g., Copelovitch 2010).
+We do not argue that conflicts over nuclear issues or the Middle East are unim-
+portant. Yet they are not always conflicts over the liberal world order. To be clear,
+we do not a priori exclude any issue areas or resolutions from our analysis. Instead,
+resolution weights are estimated based on the extent to which votes discriminate
+countries along the primary dimension of conflict. Analysts primarily interested in
+nuclear or Middle East issues should use our data and method to estimate a separate
+set of ideal points. We did so for Middle East issues and found that the resulting esti-
+mates are reasonably correlated with our first dimension estimates (Pearson correla-
+tion is .83). Yet, these estimates reflect some distinct position taking on the Middle
+East and are therefore probably more suitable for predicting votes on the admission
+of Palestine as a state or other predictive tasks with regard to the Middle East.
+Correlation with Democracy, Financial Liberalization,
+and Government Ideology
+We can also examine the validity of our ideal point measures by analyzing temporal
+variation in ideal points. Changes within a country should reflect changes in state
+characteristics rather than common shocks to the agenda. In this section, we compare
+how ideal point similarity with the United States (distance in ideal points multiplied
+by/C01 for comparability) and S scores respond to domestic changes that should the-
+oretically correlate with a Western liberal foreign policy outlook. We focus on three
+factors: democracy, financial openness, and left-wing governments.
+We estimate ECMs with fixed country effects, as we are interested in explaining
+shifts within countries. The models estimate both short- and long-term effects of
+domestic attributes (see De Boef and Keele 2008). Coefficients on lagged variables
+are short-run effects, and coefficients on changes in variables are long-run effects.
+We report separate results for each independent variable due to concerns that the
+various domestic liberalism measures are endogenous to each other and due to large
+numbers of missing values for two of our measures.
+Table 2 presents results from multiple specifications. Ideal points are the depen-
+dent variables in the three columns on the left; S scores are the dependent variables
+in the three columns on the right.
+We can compare the results in columns 1 and 4 to see the association of democ-
+racy and ideal points and S scores. These columns include Polity 4 scores (rescaled
+to a 0–1 scale), a widely used measure of democracy. Column 1 indicates that both
+lagged levels and annual changes in levels of democracy are correlated with shifts
+toward the United States. That is, there is both an immediate and a long-run link
+between countries democratizing and moving closer to the US ideal point. ColumnBailey et al. 445
+4 reports a strong and significant negative correlation with democratization and
+S scores with the United States, exactly opposite of natural expectations that demo-
+cratization is related to affinity with the Western-led world order.
+We can compare the results in columns 2 and 5 to see the association of finan-
+cial openness and ideal points and S scores . These specifications include a single
+scale that combines Quinn and Toyoda’s ( 2008) measures of current and capital
+account openness (also rescaled to the 0–1 interval). This measure is used in the
+literature on the capitalist peace (Gartzke 2007), although it is only available for
+a limited number of countries. The effects are strong. A country that shifts from
+a fully closed to a fully open economy is expected to move about 0.2 toward the
+US side of the ideal point dimension, w ith additional long-run effects implied
+by the positive and significant coefficie nt on the lagged level. We only find a weak
+correlation with S scores.
+Columns 3 and 6 assess the relationship between government ideology and close-
+ness to the United States. Column 3 shows that shifts from a non-left- to a left-wing
+government are associated with a small but significant shift away from the WesternTable 2. ECMs with Country Characteristics on Ideal Point and S score Similarity with the
+United States.
+Ideal Point Change toward
+the United StatesS score Change toward
+the United States
+(1) (2) (3) (4) (5) (6)
+Lagged dependent variable
+(lagged level)/C0.069***
+(.004)/C0.039***
+(.006)/C0.115***
+(.00506)/C0.135***
+(.006)/C0.109***
+(.009)/C0.192***
+(.00757)
+Lag polity2 (lagged level) .056***
+(.012)/C0.027***
+(.009)
+Change polity2
+(first difference).067**
+(.031)/C0.065***
+(.021)
+Lag open economy
+(lagged level).055**
+(.025)/C0.003
+(.016)
+Change open economy
+(first difference).257***
+(.068).108**
+(.043)
+Lag left (lagged level) /C0.013
+(.009).002
+(.006)
+Change left
+(first difference)/C0.045***
+(.013)/C0.016*
+(.009)
+Constant /C0.231***
+(.011)/C0.140***
+(.0186)/C0.346***
+(.0143)/C0.019***
+(.005)/C0.0109
+(.00814)/C0.071***
+(.003)
+Observations 6,391 2,852 5,037 6,588 2,969 5,034
+R2.056 .023 .097 .080 .056 .118
+Countries 165 82 173 166 82 174
+Note: Standard errors within parentheses. ECM ¼error-correction model.
+***p< .01. ** p< .05. * p<. 1 .446 Journal of Conflict Resolution 61(2)
+pole of the first dimension. Column 6 shows that this effect is only significant with
+S scores at the 10 percent level.
+We also estimated the last model on the subsample of Latin American countries, a
+group viewed to have shifted away from the United States during left-wing regimes
+and toward the United States during right-wing regimes. The difference between the
+left and right coefficient is significant at p< .001 when the dependent variable is
+either the ideal point of a Latin American country or the absolute distance with the
+United States. By contrast, the difference between left and right governments does
+not reach conventional levels of significance for S scores. Here, again the ideal point
+estimates reflect conventional wisdom about foreign policy change while the
+S scores do not.
+None of the models in Table 2 include year fixed effects. Including year fixed
+effects could change results if either (a) all countries move the same amount toward
+or away from the United States in many years or (b) the preference measures them-
+selves are moving systematically in each year due to agenda change. The ideal point
+measures are designed not to be affected by agenda change while the S scores could
+be affected by both types of year fixed effects. When we estimate the abovemen-
+tioned models and include year fixed effects, the results for the ideal point models
+are virtually unchanged. The results for the S scores change substantially, however.
+With fixed year effects, the coefficients on democracy and financial openness
+become positive and significant.9
+Using both S scores and ideal point estimates, we would conclude that countries
+become more similar to the US foreign policy position if they democratize, move
+toward an open market economy, and move away from left-wing governments. Yet,
+with S scores, these effects only become visible after factoring out common annual
+shocks due to agenda changes. Without these, sometimes the correlations point in
+the opposite direction than expected. This is a serious problem for applications in
+which S scores are independent variables that supposedly capture within-country
+variation in foreign policy positions.
+Preferences and Conflict
+To what extent does it matter whether scholars use ideal point measures or an affi-
+nity measure such as S scores? If ideal point measures contain less noise and more
+signal, then they should strengthen empirical findings if the theory is correct. To
+evaluate this, we replicate Gartzke (1998), a seminal study that popularized the use
+of UN votes as measures of state preferences. This article argues that the relative
+absence of conflict between democratic states is an artifact of the common prefer-
+ences of democratic dyads. Including a measure of UNGA voting similarity in the
+original democratic peace model from Oneal and Russett (1997), the article finds
+that affinity strongly correlates with the incidence of militarized interstate disputes
+(MIDs) and possibly explains away the effect of joint democracy. Gartzke (2000)
+updated this model in response to a critique by Oneal and Russett (1999).Bailey et al. 447
+We reestimate the logistic regression reported in table 1, model 2 of Gartzke
+(2000), attempting to match the original data set as closely as possible. The sample
+consists of all politically relevant dyads from 1950 to 1985. In addition to the prefer-
+ence similarity measure, the model includes seven covariates.10We construct all of the
+variables exactly as in Gartzke (2000), except for the original affinity scores, which we
+update to reflect corrections in the UNGA roll call data set.11Because of data revi-
+sions, the affinity measure from the original article differs from the most current S
+score implementation. It is important to make this minor adjustment to the original
+model in order to ensure that differences between the ideal point measure and S scores
+are not simply due to changes in the data being used. The dependent variable takes on
+a value of 1 if an MID occurred or was ongoing for a given dyad year and 0 otherwise.
+We first estimate the original reported regression model presented without any
+corrections to account for temporal dependence that have become standard in binary
+time series cross-sectional regressions. As reported in the original article, the esti-
+mated coefficient on the affinity score variable is negative and statistically signifi-
+cant at the a¼.05 level. However, when working with time series data, failure to
+account for temporal confounding can lead to misleading and overconfident infer-
+ences (Beck, Katz, and Tucker 1998). To adjust for this, we follow the recommen-
+dations of Carter and Signorino (2010) and include a cubic polynomial of the
+number of years since the last dyadic dispute as a set of additional controls.
+We find that after controlling for temporal dependence, affinity scores are not sta-
+tistically significantly associated with the incidence of dyadic MIDs at the .05 level,
+contrary to the findings reported in Oneal and Russett (1999) and Gartzke (2000).
+However, when we replace affinity scores with the negative absolute difference in
+the ideal points of both sides of each dyad, preference similarity becomes a statisti-
+cally significant ( p< .05) predictor of reduced dispute propensity. Figure 5 shows
+the predicted changes in MID probability that correspond to a comparable increase
+in preference similarity for the affinity and ideal point models. The estimated effects
+are on the same order of magnitude, but using ideal points increases the precision of
+the estimated effect. Substituting ideal points for S scores also appreciably improves
+model fit.12These results suggest that our proposed measure may be a more accurate
+indicator of interstate preference similarity as well as one that is more robust to mod-
+eling dynamics.
+Conclusion
+Votes in the UNGA contain valuable information about the preferences of states.
+Most political science applications that take advantage of this fact distill preference
+information via dyadic vote-agreement scores such as S scores. Unfortunately, such
+scores can move dramatically due to changes in agenda even when the underlying
+preferences do not change. They produce estimates that in some cases beggar belief,
+implying, for example, that the United States and Russia today are more at odds than
+the United States and Soviet Union ever were.448 Journal of Conflict Resolution 61(2)
+We present a spatial theory IRT model that estimates national foreign policy pre-
+ferences based on UN voting from 1946 to 2012. We identify preference change over
+time by taking advantage of the fact that the UN voted on some resolutions in mul-
+tiple years. Our estimates systematically identify widely understood foreign policy
+consequences of regime changes within countries, such as the switch toward (and
+away) from the United States when military (and left-wing) regimes take control
+in Latin American countries. Moreover, the ideal point estimates correlate in
+expected ways with democratization, financial liberalization, and government
+ideology.
+We end with two recommendations. First, scholars should be specific about what
+coefficients on similarity indicators derived from UN votes mean. Scholars should
+not refer to measures based on UN votes as assessments of ‘‘common interests’’ writ
+large. These measures have nothing to say about whether two countries agree on how
+to resolve a border conflict or regional issues. The UN deals with issues of global
+importance. Thus, measures based on UN votes are only useful if we believe, theo-
+retically, that a state’s position on global issues matters for the outcome under con-
+sideration. If measures are based on all UN votes since World War II, there is a
+relatively consistent underlying substantive dimension that dominates contestation.
+We could estimate ideal points for subsets of issues, such as the Middle East, colo-
+nialism, or votes, on which the United States has lobbied. Those could yield different
+substantive results.
+Second, scholars should approach dya dic measures such a s S scores with cau-
+tion. We have shown that these yield impla usible results, such a s the United States
+and Russia now more divided than the United States and the Soviet Union ever
+were during the Cold War. Moreover, S s cores are very sensitive to annual agenda−0.030 −0.025 −0.020 −0.015 −0.010 −0.005 0.000
+Estimated Change in Probability of MIDAffinity Scores
+No Time Polynomial
+Affinity Scores
+Time Polynomial
+Ideal Points
+Time Polynomial
+Figure 5. Estimated changes in probability of militarized interstate disputes for a given change
+in dyadic preferences. Changes in probability correspond to an increase in preference simi-
+larity from the twenty-fifth percentile to the seventy-fifth percentile. All other covariates held
+at their medians. Distributions of first differences computed using Monte Carlo simulation
+following King, Tomz, and Wittenberg (2000). Points denote the means of the simulated
+distributions. Lines denote 95 percentile intervals.Bailey et al. 449
+changes. We see little reason why the analys is of roll call votes in the UN should not
+follow the example set by roll call analysts anywhere else and utilize an explicit
+model of how actors translate their prefere nces into vote choices: the empirical spa-
+tial model. Our article has removed the barri er imposed by ordinal vote choices and
+has shown how consistent dynamic estimates can be derived using the spatial model.
+Appendix
+The likelihood is:
+Lðg;y;bÞ¼Y
+iY
+uFðgyiu/C0buyituÞ/C0Fðgyiu/C01/C0buyituÞ;
+where gyiuis the gassociated with the choice of country ion vote v. Johnson and
+Albert (1999, 163) show that the likelihood may be reexpressed in terms of the latent
+variable Z:
+Lðg;y;sÞ¼Y
+iY
+ujðZitu/C0buyituÞIðgyiu/C01/C20Zitu<gyiuÞ;
+where Iðgyiu/C01/C20Zitu<gyiuÞis an indicator function indicating that Zituis between
+the cut points bounding country i’s choice (e.g., if the country abstained, then Zitu
+is between gu1andgu2).
+The estimation process proceeds in the following steps.
+1. Set starting values
+(a) For each vote, set bu¼1 if the United States voted yea and set bu¼/C01
+if the United States voted nay. If the United States did not vote, use the
+United Kingdom as a reference point; if neither the United States nor
+the United Kingdom voted, set start value of bu¼0.
+(b) For each vote, estimate an ordered probit model with no covariates to
+generate gu. This is equivalent to assuming all countries have ideal
+points of zero and estimating an ordered probit.
+(c) Draw Zitufrom distribution centered on 0 and truncated to be
+between the outpoints bounding country i’s choice (in the interval
+ðgu;yiu/C01;gu;yiuÞ).13
+2. Sample yitfrom normal distribution with mean ðb0
+ubuÞ/C01b0
+uZituand variance
+ðb0
+ubuÞ/C01.
+3. Update the vote parameters (Johnson and Albert 1999, 136):
+(a) Sample candidate values of outpoints gjfrom a N/C16
+gðk/C01Þ
+j;s2
+MH/C17
+distri-
+bution truncated to interval/C16
+gj/C01;gðk/C01Þ
+jþ1/C17
+, where g0¼/C0 1 ;g3¼1
+ands2
+MHis set to0:05
+Cas per Johnson and Albert’s (1999, 135) rule of
+thumb for this parameter.450 Journal of Conflict Resolution 61(2)
+(b) Compute the acceptance ratio R:
+R¼Y
+iFðgyiu/C0buyituÞ/C0Fðgyiu/C01/C0buyituÞ
+Fðgyiu/C0buyituÞ/C0Fðgyiu/C01/C0buyituÞ/C21/C0Fg1/C0g2
+sMH/C16/C17
+1/C0Fg1/C0g2
+sMH/C16/C17 :
+(c) Accept the candidate values with probability R; otherwise use current
+value of gu.14
+4. Sample the latent variable Zfor each individual’s vote from conditional den-
+sity, given gandyitu, which is a normal density with mean yituwith variance
+one truncated to interval ðgyi/C01;gyiÞ.
+5. Sample from the distribution of buwith normal distribution with mean
+ðy0
+iyiÞ/C01y0
+iZituand variance ðy0
+iyiÞ/C01,w h e r e yiis a vector of ideal points of
+countries voting on a vote v. Include a prior so that no single vote has
+such a large bthat exclusively defines ideological dimension. This is
+equivalent to adding a prior on disc rimination parameter in dichotomous
+item response theory models [see Gelman et al. (1995, 254-260) on
+implementation of the prior].
+6. Repeat steps 2 through 5 for a burn in period and then run for a suffi-
+cient number of values to obtain a sample of estimates from the poster-
+ior density of the parameters. We ran a model with 20,000-iteration
+burn-in period and took every twentieth sample from the next 20,000
+iterations.
+Table A1. Government Ideology and UN Voting in Latin American Countries (Ideal Points
+and S Scores).
+Variables(1) S Scores with
+the United States(2) Ideal
+Points(3) Ideal Point Similarity
+with the United States
+Lagged dependent .831*** .894*** .877***
+Variable (.015) (.020) (.015)
+Left /C0.003 /C0.024 /C0.023
+(.007) (.017) (.017)
+Right .009 .023* .033***
+(.009) (.012) (.011)
+Constant /C0.079*** /C0.045*** /C0.401***
+(.007) (.008) (.041)
+Observations 968 968 968
+R2.763 .897 .908
+Note: Robust standard errors clustered on countries within parentheses.
+***p< .01. ** p< .05. * p<. 1 .Bailey et al. 451
+Declaration of Conflicting Interests
+The author(s) declared no potential conflicts of interest with respect to the research, author-
+ship, and/or publication of this article.
+Funding
+The author(s) received no financial support for the research, authorship, and/or publication of
+this article.
+Notes
+1. An exception is Voeten (2000) who treats both abstentions and no-votes as signals of
+disapproval.Table A2. Replication of Gartzke (2000)—Logistic Regression of Militarized Disputes on
+Affinity Scores/Ideal Point Distances.
+Variables Model 1 Model 2 Model 3
+Affinity score /C01.114*** /C00.414*
+(0.309) (0.238)
+Negative ideal /C00.373***
+Point difference (0.100)
+Lower democracy /C00.033** /C00.039*** /C00.018
+(0.015) (0.013) (0.013)
+Higher democracy 0.001 0.010 /C00.002
+(0.015) (0.012) (0.013)
+Lower growth rate /C00.046* /C00.021 /C00.029
+(0.026) (0.023) (0.022)
+Allies /C00.346 /C00.274 0.001
+(0.262) (0.207) (0.257)
+Capability ratio /C00.002** /C00.002*** /C00.002**
+(0.00075) (0.00071) (0.00073)
+Contiguity 1.864*** 1.028*** 1.159***
+(0.343) (0.287) (0.297)
+Lower dependence /C043.207** /C015.327 /C015.229
+(21.730) (14.086) (14.265)
+Constant /C03.469*** /C01.404*** /C02.216***
+(0.362) (0.373) (0.428)
+Time polynomial No Yes Yes
+Observations 18,303 18,303 18,303
+AIC 5,431.824 4,302.512 4,239.798
+Note: Robust standard errors clustered on countries within parentheses. Coefficients denote expected
+changes in log odds of militarized dispute in year t.A I C ¼Akaike information criterion.
+***p< .01. ** p< .05. * p<. 1 .452 Journal of Conflict Resolution 61(2)
+2. Other approaches include Lijphart’s (1963) index of agreement which is a proportion but
+otherwise identical to the S score, Bueno de Mesquita’s (1975) ordinal measure using
+Kendall’s tband Gartzke’s (1998, 2000) Spearman rank-order correlation coefficient.
+3. Signorino and Ritter offer a generalized version, but scholars use the one discussed here.
+4. There are two studies that do this for limited numbers of votes or time frame: Voeten
+(2004) and Mattes, Leeds, and Carroll (2015).
+5. Grimmer (2010) uses a similar approach to identify direct quotation of US Senators’ press
+releases in newspaper coverage.
+6. We adjusted the threshold at which we manually inspected resolutions based on year.
+Due to the poor printing of some of the earlier resolutions, optical character recognition
+software imperfectly translat es the documents into text, lea ding to more errors. We also
+eliminated budget and other annual resolutions that could clearly not have an identical
+interpretation across years.
+7. This is the R2from STATA’s xtreg procedure.
+8. Note that these are averages. Some Middle East resolutions separate countries along
+East–West lines very well.
+9. Results available from the authors.
+10. These covariates are the lower and higher levels of dyadic democracy (measured using
+the Polity scale), a dyadic alliance indicator, geographic contiguity, per capita economic
+growth, trade dependence, and the ratio of the stronger state’s military capability to the
+weaker state’s military capability. The exact construction of these variables is detailed
+in Oneal and Russett (1997).
+11. Due to this modification, we have 18,303 dyad-year observations in our data set com-
+pared to 17,910 reported in the study by Gartzke.
+12. A lower Akaike information criterion (AIC) is preferred. The AIC for the model with the
+ideal point measure is 4,239.8 compared to the affinity model’s AIC of 4,302.5.
+13. A draw from a Nðc;d2Þdistribution truncated to ( a,b)i s Y¼cþdF/C01Fa/C0c
+d/C0/C1
+þ/C2
+UFb/C0c
+d/C0/C1
+/C0Fa/C0c
+d/C0/C1 /C0/C1
+/C138, where Uis a random uniform variable Gelfand et al. (1990, 977).
+14. When there are no yeas, g2u¼1 , when there are no nays, g1u¼/C0 1 , and when there are
+no abstentions, g1u¼g2u.
+References
+Alesina, Alberto, and David Dollar. 2000. ‘‘Who Gives Foreign Aid to Whom and Why?’’
+Journal of Economic Growth 5 (1): 33-63.
+Andersen, Thomas Barnebeck, Thomas Harra, and Finn Tarp. 2006. ‘‘On US Politics and IMF
+Lending.’’ European Economic Review 50 (7): 1843-62.
+Bailey, Michael A. 2007. ‘‘Comparable Preference Estimates across Time and Institutions for
+the Court, Congress, and Presidency.’’ American Journal of Political Science 51 (3):
+433-48.
+Bailey, Michael A. 2013. ‘‘Is Todays Court the Most Conservative in Sixty Years? Challenges
+and Opportunities in Measuring Judicial Preferences.’’ Journal of Politics 75 (3): 821-34.
+Ball, M. Margaret. 1951. ‘‘Bloc Voting in the General Assembly.’’ International Organiza-
+tion5 (1): 3-31.Bailey et al. 453
+Bearce, David H., and Stacy Bondanella. 2007. ‘‘Intergovernmental Organizations, Socializa-
+tion, and Member-state Interest Convergence.’’ International Organization 61:703-33.
+Beck, Nathaniel, Jonathan N. Katz, and Richard Tucker. 1998. ‘‘Taking Time Seriously:
+Time-series-cross-section Analysis with a Binary Dependent Variable.’’ American Jour-
+nal of Political Science 42 (4): 1260-88.
+Bloomfield, Louis. 2011. ‘‘WCopyFind 3.0.2.’’ Software. Accessed September 1, 2011. http://
+plagiarism.bloomfieldmedia.com/z-wordpress/.
+Bueno de Mesquita, Bruce. 1975. ‘‘Measuring Systemic Polarity.’’ Journal of Conflict
+Resolution 19(2): 187-216.
+Carter, David B., and Curtis S. Signorino. 2010. ‘‘Back to the Future: Modeling Time Depen-
+dence in Binary Data.’’ Political Analysis 18 (3): 271-92.
+Carter, David B., and Randall Stone. 2015. ‘‘Democracy and Multilateralism: The Case of
+Vote Buying in the UN General Assembly.’’ International Organization 69 (1): 1-33.
+Clinton, Joshua, Simon Jackman, and Douglas Rivers. 2004. ‘‘The Statistical Analysis of Roll
+Call Data.’’ American Political Science Review 98 (2): 355-70.
+Copelovitch, Mark S. 2010. ‘‘Master or Servant? Common Agency and the Political Economy
+of IMF Lending.’’ International Studies Quarterly 54 (1): 49-77.
+Cowles, Mary Kathryn. 1996. ‘‘Accelerating Monte Carlo Markov Chain Convergence for
+Cumulative-link Generalized Linear Models.’’ Statistics and Computing 6 (2): 101-11.
+De Boef, Suzanna, and Luke Keele. 2008. ‘‘Taking Time Seriously.’’ American Journal of
+Political Science 52 (1): 184-200.
+Dreher, Axel, and Martin Gassebner. 2008. ‘‘Does Political Proximity to the U.S. Cause
+Terror?’’ Economic Letters 99 (1): 27-29.
+Dreher, Axel, and Nathan Jensen. 2007. ‘‘Ind ependent Actor or Agent? An Empirical Anal-
+ysis of the Impact of U.S. Interests on International Monetary Fund Conditions.’’ The
+J o u r n a lo fL a wa n dE c o n o m i c s 50:105-24.
+Dreher, Axel, and Nathan Jensen. 2013. ‘‘Country or Leader? Political Change and UN
+General Assembly Voting.’’ European Journal of Political Economy 29:183-96.
+Dreher, Axel, P. Nunnenkamp, and R. Thiele. 2008. ‘‘Does US Aid Buy UN General Assem-
+bly Votes? A Disaggregated Analysis.’’ Public Choice 136 (1): 139-64.
+Dreher, Axel, and Jan-Egbert Sturm. 2012. ‘‘Do the IMF and the World Bank Influence
+Voting in the UN General Assembly?’’ Public Choice 151 (1-2): 363-97.
+Drieskens, Edith. 2010. ‘‘Towards a Systematic Analysis of the EU as an Actor in the UN
+System.’’ Journal of International Organizations Studies 1 (1): 105-8.
+Flores-Macı ´as, Gustavo A., and Sarah E. Kreps. 2013. ‘‘The Foreign Policy Consequences of
+Trade: China’s Commercial Relations with Africa and Latin America, 1992–2006.’’ The
+Journal of Politics 75 (2): 357-71.
+Gartzke, Erik. 1998. ‘‘Kant We All Just Get along? Opportunity, Willingness, and the Origins
+of the Democratic Peace.’’ American Journal of Political Science 42 (1): 1-27.
+Gartzke, Erik. 2000. ‘‘Preferences and the Democratic Peace.’’ International Studies Quar-
+terly 44 (2): 191-212.
+Gartzke, Erik. 2007. ‘‘The Capitalist Peace.’’ American Journal of Political Science 51 (1):
+166-91.454 Journal of Conflict Resolution 61(2)
+Gelfand, Alan E, Susan E Hills, Amy Racine-Poon, and Adrian Smith. 1990. ‘‘Illustration of
+Bayesian inference in normal data models using Gibbs sampling.’’ Journal of the Ameri-
+can Statistical Association 85 (412): 972-985.
+Gelman, Andrew, John B. Carlin, Hal S. Stern, and Donald B. Rubin. 1995. Bayesian Data
+Analysis . Boca Raton, FL: Chapman and Hall.
+Grimmer, Justin. 2010. ‘‘A Bayesian Hierarchical Topic Model for Political Texts: Measuring
+Expressed Agendas in Senate Press Releases.’’ Political Analysis 18 (1): 1-35.
+Hage, Frank M., and Simon Hug. 2013. ‘‘Consensus Voting and Similarity Measures in IOs.’’
+Paper Presented at the 2013 EPSA Annual Meeting, Barcelona, Spain, June 2013.
+Johnson, Valen E., and James H. Albert. 1999. Ordinal Data Modeling . New York: Springer.
+King, Gary, Michael Tomz, and Jason Wittenberg. 2000. ‘‘Making the Most of Statistical
+Analyses: Improving Interpretation and Presentation.’’ American Journal of Political Sci-
+ence 44 (2): 347-61.
+Koremenos, Barbara. 2005. ‘‘Contracting around International Uncertainty.’’ American Polit-
+ical Science Review 99 (4): 549-65.
+Lewis, Jeffrey B., and Chris Tausanovich. 2013. ‘‘Has Joint Scaling Solved the Achen Objec-
+tion to Miller and Stokes?’’ In UCLA Mimeo . Accessed July 13, 2015. http://www.vander
+bilt.edu/csdi/miller-stokes/05_MillerStokes_LewisTausanovitch.pdf.
+Lijphart, Arend. 1963. ‘‘The Analysis of Bloc Voting in the General Assembly: A Critique
+and a Proposal.’’ The American Political Science Review 57 (4): 902.
+Martin, Andrew D., and Kevin M. Quinn. 2002. ‘‘Dynamic Ideal Point Estimation via Markov
+Chain Monte Carlo for the US Supreme Court, 1953–1999.’’ Political Analysis 10 (2):
+134-53.
+Mattes, Michaela, Brett Ashley Leeds, and Royce Carroll. 2015. ‘‘Leadership Turnover and
+Foreign Policy Change: Societal Interests, Domestic Institutions, and Voting in the United
+Nations.’’ International Studies Quarterly 59(2): 280-90.
+Moon, Bruce E. 1985. ‘‘Consensus or Compliance? Foreign-policy Change and External
+Dependence.’’ International Organization 39 (2): 297-329.
+Neumayer, Eric. 2008. ‘‘Distance, Power and Ideology: Diplomatic Representation in a World
+of Nation-states.’’ Area 40 (2): 228-36.
+Oneal, John R., and Bruce M. Russett. 1997. ‘‘The Classical Liberals Were Right: Democ-
+racy, Interdependence, and Conflict, 1950–1985.’’ International Studies Quarterly 41
+(2): 267-94.
+Oneal, John R., and Bruce M. Russett. 1999. ‘‘Is the Liberal Peace Just an Artifact of Cold
+War Interest? Assessing Recent Critiques.’’ International Interactions 25 (3): 213-41.
+Poole, Keith T. 2005. Spatial Models of Parliamentary Voting . Cambridge, UK: Cambridge
+University Press.
+Quinn, Dennis P., and A. Maria Toyoda. 2008. ‘‘Does Capital Account Liberalization Lead to
+Growth?’’ Review of Financial Studies 21 (3): 1403-49.
+Reed, William, David H. Clark, Timothy Nordstrom, and Wonjae Hwang. 2008. ‘‘War,
+Power, and Bargaining.’’ Journal of Politics 70 (4): 1203-16.
+Rosas, Guillermo, and Yael Shomer. 2008. ‘‘Models of Nonresponse in Legislative Politics.’’
+Legislative Studies Quarterly 33 (4): 573-601.Bailey et al. 455
+Rosas, Guillermo, Yael Shomer, and Stephen Haptonstahl. 2015. ‘‘No News Is News: Non-
+ignorable Non-response in Roll-call Data Analysis.’’ American Journal of Political Science
+59 (2): 511-28.
+Russett, Bruce M. 1966. ‘‘Discovering Voting Groups in the United Nations.’’ The American
+Political Science Review 60:327-39.
+Signorino, Curtis S., and Jeffrey M. Ritter. 1999. ‘‘Tau-b or Not Tau-b: Measuring the Simi-
+larity of Foreign Policy Positions.’’ International Studies Quarterly 43 (1): 115-44.
+Strezhnev, Anton, and Erik Voeten. 2013. ‘‘United Nations General Assembly Voting Data.’’
+Accessed July 13, 2015. http://hdl.handle.net/1902.1/12379.
+Sweeney, Kevin J. 2003. ‘‘The Severity of Interstate Disputes.’’ Journal of Conflict Resolu-
+tion47 (6): 728-50.
+Thacker, Strom. 1999. ‘‘The High Politics of IMF Lending.’’ World Politics 52 (1): 38-75.
+Vengroff, Richard. 1976. ‘‘Instability and Foreign Policy Behavior: Black Africa in the U.N.’’
+American Journal of Political Science 20 (3): 425.
+Voeten, Erik. 2000. ‘‘Clashes in the Assembly.’’ International Organization 54 (2): 185-215.
+Voeten, Erik. 2004. ‘‘Resisting the Lonely Superpower: Responses of States in the United
+Nations to U.S. Dominance.’’ Journal of Politics 66 (3): 729-54.
+Voeten, Erik. 2013. ‘‘Data and Analyses of Voting in the United Nations General Assembly.’’ In
+Routledge Handbook of International Organization , edited by B. Reinalda, 54-66. London,
+UK: Routledge.
+Wang, Te-Yu. 1999. ‘‘US Foreign Aid and UN Voting: An Analysis of Important Issues.’’
+International Studies Quarterly 43 (1): 199-210.456 Journal of Conflict Resolution 61(2)

@@ -1,0 +1,690 @@
+[
+  {
+    "text": "ORIGINAL PAPER\nOECD imports: diversiﬁcation of suppliers and quality\nsearch\nOlivier Cadot •Ce´line Carre `re •\nVanessa Strauss-Kahn\nPublished online: 20 October 2013\n/C211Kiel Institute 2013\nAbstract We posit that OECD buyers are in a continuous search for best quality\nsuppliers from developing countries. We build a simple model of adverse selectionand quality screening which captures this feature. The model predicts that diver-siﬁcation happens by ‘‘bouts’’, or temporary episodes, during which OECD buyerssearch for high-quality suppliers. Each diversiﬁcation episode is followed by aphase of re-concentration on the best performers, until those fail (which happensstochastically), triggering new search phases. The model also shows that concen-tration across origin is highly volatile, especially for goods with high-quality het-\nerogeneity. Finally, as the set of suppliers expands and buyers continue sampling,\nO. Cadot\nHEC Lausanne, Lausanne, Switzerland\nO. Cadot",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 0,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "erogeneity. Finally, as the set of suppliers expands and buyers continue sampling,\nO. Cadot\nHEC Lausanne, Lausanne, Switzerland\nO. Cadot\nCERDI, Clermont-Ferrand, France\nO. Cadot\nCEPR, London, UK\nO. Cadot\nCEPREMAP, Paris, France\nC. Carre `re\nGlobal Studies Institute, Geneva University, Geneva, Switzerland\nC. Carre `re\nFERDI, Clermont-Ferrand, France\nV. Strauss-Kahn ( &)\nESCP-Europe, Paris, Francee-mail: vstrauss-kahn@escpeurope.eu\nV. Strauss-Kahn\nCEPII, Paris, France\n123Rev World Econ (2014) 150:1–24DOI 10.1007/s10290-013-0172-3\nthe overall trend is an increased diversiﬁcation across time. We empirical explore\nthese conjectures using OECD imports over time (1963–2006) and measuring theirconcentration across 250 origin countries at the product level (1,300 products). Weprovide strong empirical evidence corroborating the model predictions.\nKeywords Import diversiﬁcation /C1International trade /C1OECD /C1Developing\ncountries /C1Suppliers search\nJEL Classiﬁcation F1/C1O11\n1 Introduction",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 1,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Keywords Import diversiﬁcation /C1International trade /C1OECD /C1Developing\ncountries /C1Suppliers search\nJEL Classiﬁcation F1/C1O11\n1 Introduction\nIn spite of the rapid growth of emerging markets, OECD markets are still, today, the\nworld’s largest (representing 66 % of the world GDP in 2011),\n1providing key\noutlets for goods exported from developing countries. How much access there is for\ndeveloping countries on OECD markets has been the subject of considerableattention from a policy angle (see e.g. Kee et al. 2009 and references therein). By\ncontrast, to our knowledge, not much has been written on the outcome—the overallevolution and composition of OECD imports. Yet, it matters whether they areopening up in the sense of letting more extra-OECD exporters in, or concentratingon a few ‘‘preferred’’ suppliers. Contestable OECD markets would make it easier forentrants to get a foothold; in contrast, if they exhibited strong incumbency",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 2,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "advantages, they could create a two-track world among extra-OECD exporters\n(between countries that make it and countries that do not).\nSo far, a rapidly expanding literature has looked at the other side of the story,\nnamely how export diversiﬁcation interacts with economic development. Klingerand Lederman ( 2004 ) and Cadot et al. ( 2011 ) focus on product diversiﬁcation and\nﬁnd that diversiﬁcation evolves with income levels in a non-monotone way withpeaks at middle income levels, a pattern similar to what Imbs and Wacziarg ( 2003 )\nfound for production. Parteka ( 2010 ) contributes to this literature by showing that\nthe diversiﬁcation of exports along the economic development path is dependent on\nthe choice of concentration measures (absolute vs. relative). Hummels and Klenow(2005 ) account for the economic signiﬁcance of the goods and show that the",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 3,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "the choice of concentration measures (absolute vs. relative). Hummels and Klenow(2005 ) account for the economic signiﬁcance of the goods and show that the\nextensive margins of exports explain up to 60 % of cross-country export variation.Other papers have looked at the extensive margin deﬁned geographically instead ofproduct-wise. The ﬁrst paper in that vein was Evenett and Venables ( 2002 ), who\nshowed that about one-third of the export growth came from the expansion ofexisting exports to new markets. On the basis of a larger sample, Brenton and\nNewfarmer ( 2007 ) found that the extensive margin accounted for only 19.6 % of\nexport growth; of that, 92 % came from the export of existing products to newmarkets. Two recent papers, Parteka and Tamberi ( 2012 ) and Jaimovich ( 2012 ), also\nlook at the import side. Parteka and Tamberi ( 2012 ), focusing on product\ndiversiﬁcation, carefully examine the evolution of import and export diversiﬁcation",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 4,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "look at the import side. Parteka and Tamberi ( 2012 ), focusing on product\ndiversiﬁcation, carefully examine the evolution of import and export diversiﬁcation\n1Data in this introduction are from the World Bank WDI database.2 O. Cadot et al.\n123\nalong the economic development path. They ﬁnd a positive correlation between\ncountries’ GDP per capita and both import and export diversiﬁcation. Jaimovich(2012 ) studies geographic import diversiﬁcation and ﬁnds evidence for an increase\nin imports source diversiﬁcation along the growth path.\nAnother strand of the trade literature, going back to the work of Hanson ( 1996 ),",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 5,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "in imports source diversiﬁcation along the growth path.\nAnother strand of the trade literature, going back to the work of Hanson ( 1996 ),\nhas emphasized the formation of regional production networks by multinationalﬁrms. According to this literature, a country’s exports may be determined by theoutsourcing decisions of multinationals based in other countries. Anecdotalevidence also suggests that it is retailers who decide which foreign suppliers (andhence countries) are included in cross-border supply chains. Thus, for producerslocated in developing countries, export opportunities are, at least partly, driven by\nthe policies of large buyers in OECD countries. If those buyers decide to",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 6,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "the policies of large buyers in OECD countries. If those buyers decide to\nconcentrate on a few suppliers in order, say, to simplify logistics or quality-controlprocesses, opportunities will be fewer for entrants at every level of productivity andtrade costs. Put differently, given the continued importance of OECD markets fordeveloping-country exports (in 2011, exports towards the OECD account for 58 %of developing countries total exports), it seems difﬁcult to understand howdeveloping-country exports evolve without looking at how OECD imports evolve.\nUnderstanding the origin and diversity of imports is also relevant for OECD\ncountries. The literature on endogenous growth (e.g., Romer 1987 ), technological\nspillovers (e.g., Coe and Helpman 1995 ; Keller 2004 ) as well as recent empirical\nworks on ﬁrm level data (e.g., Halpern and Koren 2011 ; Kasahara and Rodrigue\n2008 ; Goldberg et al. 2010 ; Bas and Strauss-Kahn forthcoming; Aristei et al. 2013 )",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 7,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "works on ﬁrm level data (e.g., Halpern and Koren 2011 ; Kasahara and Rodrigue\n2008 ; Goldberg et al. 2010 ; Bas and Strauss-Kahn forthcoming; Aristei et al. 2013 )\nshow the importance of an increase in the number and diversity of importedintermediate inputs in raising productivity as well as product and export scope.Broda and Weinstein ( 2006 ) also show that increasing imports diversity enhances\naggregate welfare though a decrease in the price index. These strands of literature\ndo not however focus on the dynamic of the geographical sources of imports. This is\nwhat we set out to do in this paper.\n2\nWe posit that OECD buyers are in a continuous search for best quality suppliers",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 8,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "what we set out to do in this paper.\n2\nWe posit that OECD buyers are in a continuous search for best quality suppliers\nfrom developing countries. Our model, a simple ﬁnite-horizon version of a classictwo-arm bandit problem where buyers screen suppliers for quality and toss them outwhen they under-perform, captures this feature. The model predicts that diversi-ﬁcation happens by ‘‘bouts’’, or temporary episodes, during which OECD buyerssearch for high-quality suppliers. Each diversiﬁcation episode is followed by a\nphase of re-concentration on the best performers, until those fail (which happens\nstochastically), triggering new search phases. Finally, the model suggests that withan increasing number of suppliers the overall trend is an increased diversiﬁcationacross time.\nWhat we have in mind is a story where OECD buyers test suppliers from",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 9,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "What we have in mind is a story where OECD buyers test suppliers from\ndifferent developing countries where least developed countries (LDCs) differ intheir exports quality. We identify a supplier as a country and believe quality of a\n2As mentioned above Jaimovich ( 2012 ) studies geographic import diversiﬁcation. We add to this paper\nby focusing on the OECD as importers and most importantly by providing and testing a model wherequality search leads to speciﬁc form of geographic import diversiﬁcation over time.OECD imports 3\n123\ntrade relationship has a country speciﬁc dimension. This conjecture is in line with a\nrecent strand of trade literature which associates a product variety to a product-country pairs (e.g., Feenstra 1994 ; Broda and Weinstein 2006 ; Goldberg et al.\n2010 ). Several arguments support the view that the probability of non-performing in",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 10,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "2010 ). Several arguments support the view that the probability of non-performing in\nexport markets differs across developing countries. First, as emphasized byHausmann and Rodrik ( 2003 ), there is an uncertainty about what a country can be\ngood at producing. Similarly, as revealed in Djankov et al. ( 2010 ), countries differ\nin their ability to export products in due time. The average delay before shippinggoods varies greatly across LDCs with an average of 47 days for African countries(and a maximum of 116 days for Central African Republic) and of 24 days for EastAsian countries. As stated in the paper, long time delays are likely to be associated\nwith more uncertainty about success of the trade relationship. Suppliers in countries\nwith long delays are of lower quality. Rauch and Watson ( 2003 ) use the ISO 9000",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 11,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "with more uncertainty about success of the trade relationship. Suppliers in countries\nwith long delays are of lower quality. Rauch and Watson ( 2003 ) use the ISO 9000\ncertiﬁcation as a measure of lower quality of management across countries andshow that the rate of ISO 9000 is much lower in LDCs than in developed countries(DCs). Quality of management may indeed be necessary to provide internationalquality and delivery standards in OECD markets. The rate of ISO 9000 variesgreatly across developing countries. Following Rauch and Watson’s ( 2003 )\nmethodology we ﬁnd for example that in 2000, China has ﬁve times more ISO\n9000 certiﬁcates per industrial workers than Morocco and 40 times more than\nBangladesh while Turkey or Brazil report about 3 times more certiﬁcates thanChina.\n3Finally, working at the country level and using different measures of\nquality, Hallak and Schott ( 2011 ) and Khandelwal ( 2010 ) ﬁnd substantial\ndifferences in exports quality across countries.",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 12,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "3Finally, working at the country level and using different measures of\nquality, Hallak and Schott ( 2011 ) and Khandelwal ( 2010 ) ﬁnd substantial\ndifferences in exports quality across countries.\nUsing a very large database of OECD imports at the 5-digit level Standard\nInternational Trade Classiﬁcation (SITC) since 1963, we test the model’s basicpredictions by looking at the evolution of unit values during re-concentration\nepisodes and at how the volatility of concentration indices varies across products\ntypes, taking the variation in unit values as a proxy for quality heterogeneity.\n4We\nﬁnd, as predicted by the model, that re-concentration, when it happens, is associatedwith a risein unit values. That is, when buyers re-concentrate, they do so on higher-",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 13,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "4We\nﬁnd, as predicted by the model, that re-concentration, when it happens, is associatedwith a risein unit values. That is, when buyers re-concentrate, they do so on higher-\npriced (and hence presumably higher-quality) suppliers rather than on the mostprice-competitive. We also ﬁnd that concentration indices are more volatile, overtime, for products whose quality (as proxied by unit values) is more heterogeneousacross suppliers. Finally, consistent with an extension of our model, we provide\nevidence of an overall diversiﬁcation in OECD import’s sources of supplies\n3The number of ISO 9000 certiﬁcates comes from the ISO Survey of ISO 9000 and ISO 14000\ncertiﬁcates—Tenth cycle provided by the International Organization of Standardization. We obtain datafor industrial employment combining data on share of industrial employment in total employment, shareof employment in population and population from the World Development Indicators (World Bank2011 ).",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 14,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "4Whether unit values are good proxies of product quality is disputable. Differences in unit value may\nreﬂect both changes in product quality and/or ﬁrms’ markups. In our context however, higher markupscould easily be associated with performing suppliers as buyers keep high unit-price suppliers only if theyare reliable. Note that unit values are still widely used in the literature discussing issues related to productquality (see for example Kugler and Verhoogen 2012 ; Manova and Zhang 2012 ).4 O. Cadot et al.\n123\n(geographically) at the product level. This is reﬂected in a decreasing concentration\nindex and a rising number of export sources over the 1963–2006 period.5\nAs in Rauch and Watson ( 2003 ), we design a model which presents a partnership\nbetween developed countries buyers and developing countries suppliers in a state of",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 15,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "As in Rauch and Watson ( 2003 ), we design a model which presents a partnership\nbetween developed countries buyers and developing countries suppliers in a state of\nuncertainty on the ability of suppliers to honor their exports. We share the sameconcern of understanding the trade relationship between DC buyers and LDCsuppliers. In Rauch and Watson’ s model, search for suppliers is costly and buyersmay start with small orders in order to test suppliers’ ability to fulﬁll theirrequirement in quality and delivery. Buyers may chose to end a relationship in favorof a newly discovered supplier. Our focus is not on the size of the transactions buton the number of transactions. DC buyers test numerous suppliers and keep only the\nperforming ones. Our views are not incompatible: when testing many suppliers,\nlikely orders are small. Our ﬁnding that buyers, when they re-concentrate, preferhigh-priced products is in line with Baldwin and Harrigan ( 2011 ). They show that",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 16,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "likely orders are small. Our ﬁnding that buyers, when they re-concentrate, preferhigh-priced products is in line with Baldwin and Harrigan ( 2011 ). They show that\nunit values are positively related to countries’ distances suggesting that high-quality/high-price products are the most competitive (as these goods can bear thehigh transportation cost implied by long distances).\n6\nThe paper is organized as follows. Section 2sets up a simple model of supplier\nscreening in the presence of adverse selection. Section 3explores empirically the\nmodel’s implications for patterns of concentration and diversiﬁcation by analyzing\nthe temporary movement and overall trend in OECD imports. Section 4concludes.\n2 A simple model of quality search\nWe know little about the forces that drive the diversiﬁcation/concentration of OECD\nbuyers on speciﬁc sets of geographic suppliers. In the spirit of Rauch and Watson(2003 ), we posit that OECD buyers, in search for quality, test suppliers and",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 17,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "buyers on speciﬁc sets of geographic suppliers. In the spirit of Rauch and Watson(2003 ), we posit that OECD buyers, in search for quality, test suppliers and\nconcentrate on the best. As the set of suppliers expands and buyers continuesampling, diversiﬁcation takes place. In order to explore this conjecture, we ﬁrstbuild a very simple, stripped-down model of quality search. This model is a ﬁnite-horizon version of a classic two-arm bandit problem in the spirit of Rothschild\n(1974 ) and Bar-Isaac ( 2003 ). As usual in reputation models (e.g., Leland 1979 ;\nTirole 1996 ), there are one type of buyers and two types of sellers with exogenous\nquality draws.\n7We then introduce additional assumptions on buyer tastes and\n5This trend in diversiﬁcation reversed itself in recent years; we show however in Sect. 3that this is\nentirely explained by the rising share of Chinese products in OECD imports. Concentration indices keepon decreasing monotonically when China is excluded.",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 18,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "entirely explained by the rising share of Chinese products in OECD imports. Concentration indices keepon decreasing monotonically when China is excluded.\n6Baldwin and Harrigan ( 2011 ) develop a general equilibrium model based on Melitz ( 2003 ) with a taste\nfor quality so that the lowest prices goods are not necessarily the most competitive.\n7As in the incomplete contract literature (see Antra `s2011 for a survey in the context of international\ntrade), there is some uncertainty about the quality of the relationship between buyers and suppliers. Ourfocus is however different. In our work, the organizational form of the transaction (outsourcing orintegration) is not the central question and termination does not incur any cost. Our model is betterunderstood as outsourcing contracts where buyers shop around for the best suppliers rather than buyersand sellers adapting contracts in order to improve the transaction.OECD imports 5\n123",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 19,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "123\nexpanding supplier pool potentially interfering with the basic quality-search\nmechanism.\n2.1 Baseline model\nIn this section we explore how supplier concentration is affected by informational\nconsiderations in the presence of a selection problem. Consider a 3-period settingwhere, in each period, a buyer needs to procure two units of a product from eitherone or two suppliers called XandY. Each supplier has the capacity to provide either\none or two units, as the buyer wishes, at a constant price. Suppliers are of unknownquality, with a per-period probability of providing a non-defective product equal to\nk\nGfor a good type and kB\\kGfor a bad type (that is, the arrival of defective\nproducts follows an independent Bernoulli process for each supplier). Any supplier\nmay fail, the probability of failure is however higher in a low-quality country (a badtype) where delivery is long and uncertain, management is poor and the like. The\nbuyer knows k",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 20,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "may fail, the probability of failure is however higher in a low-quality country (a badtype) where delivery is long and uncertain, management is poor and the like. The\nbuyer knows k\nGandkBbut not the type of each supplier, and assigns a prior\nprobability p1on a good type in the initial period. Let p1be the buyer’s proﬁt on a\nnon-defective product and p0\\p1on a defective one, payoffs being additive, and let\nfi¼1 designate the event that the product is non-defective. Let\n/C22pG¼kGp1þ1/C0kG/C0/C1\np0ð1Þ\nbe the expected proﬁt from buying from a good type and similarly for /C22pB. In periods\n2 and 3, the buyer revises his beliefs about the quality of each supplier on the basis\nof information (defective product or not) he obtained by dealing with them (if he\ndid) in the previous period.\nLet\npi\nt¼kGpi\nt/C01\nkGpi\nt/C01þkB1/C0pi\nt/C01/C0/C1 ;t¼2;3 ð2Þ\nbe the revised probability that supplier iis a good type in t, based on information\nfrom period t-1.",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 21,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "did) in the previous period.\nLet\npi\nt¼kGpi\nt/C01\nkGpi\nt/C01þkB1/C0pi\nt/C01/C0/C1 ;t¼2;3 ð2Þ\nbe the revised probability that supplier iis a good type in t, based on information\nfrom period t-1.\nThe buyer faces two sequential-sampling (or stopping-time) problems on two\nindependent stochastic processes, but the decisions are not independent because\nsampling on one has consequences for the optimal stopping time on the other. The\nproblem is thus potentially very complicated, but the limitation to two suppliers andthree periods keeps it tractable.\n8Consider the period-3 problem, and let V3be the\nbuyer’s expected proﬁt. Suppose that he dealt with both suppliers in period 2. Thenin period 3 he buys both units from the best, so\n8The problem of selecting the stochastic process that delivers the highest expected reward among a set of",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 22,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "8The problem of selecting the stochastic process that delivers the highest expected reward among a set of\nindependent processes is known in the statistical-decision literature as a ‘‘multi-armed bandit’’ problem.One strategy, called ‘‘epsilon-ﬁrst’’, consists of a sampling (exploratory) phase during which several‘‘levers’’ are tried, after which the experimenter sticks to the lever for which he has the most optimisticbelief based on information gathered during the sampling phase.6 O. Cadot et al.\n123\nV32ðÞ ¼ p/C3\n32/C22pG/C0/C1\nþ1/C0p/C3\n3/C0/C1\n2/C22pB/C0/C1\nð3Þ\nwhere p/C3\n3¼max px\n3;py\n3/C8/C9\nis the highest of the two posteriors. If he used just one of\nthem in period 2, i, then he just keeps that one and\nV31ðÞ ¼ pi\n32/C22pG/C0/C1\nþ1/C0pi\n3/C0/C1\n2/C22pB/C0/C1\nð4Þ\nwhere pi\n3is the revised belief on supplier iused in period 2. Clearly, by deﬁnition of\nthe max, V32ðÞ /C21 V31ðÞand the difference, DV3¼EV 32ðÞ½/C138 /C0 EV 31ðÞ½/C138 , is the value",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 23,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "ð4Þ\nwhere pi\n3is the revised belief on supplier iused in period 2. Clearly, by deﬁnition of\nthe max, V32ðÞ /C21 V31ðÞand the difference, DV3¼EV 32ðÞ½/C138 /C0 EV 31ðÞ½/C138 , is the value\nof information generated by keeping both suppliers in period 2.\nIn period 2, with two suppliers and a discount factor d,\nV22ðÞ ¼ px\n2py\n22/C22pG/C0/C1\nþ1/C0px\n2/C0/C1\n1/C0py\n2/C0/C1\n2/C22pB/C0/C1\nþpx\n21/C0py\n2/C0/C1\nþpy\n21/C0px\n2/C0/C1 /C2/C3\n/C22pGþ/C22pB/C0/C1\nþdV32ðÞ:ð5Þ\nWith one supplier,\nV21ðÞ ¼ p/C3\n22/C22pG/C0/C1\nþ1/C0p/C3\n2/C0/C1\n2/C22pB/C0/C1\nþdV31ðÞ ð 6Þ\nwhere p/C3\n2¼max px\n2;py\n2/C8/C9\n:\nIn period 1, ﬁnally, the prior being the same on both suppliers, both are used,\ngenerating the information used to revise beliefs from p1topx\n2and py\n2\nrespectively.\nClearly, the ‘‘interim’’ payoff collected in period 2 is higher, in expected value,",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 24,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "generating the information used to revise beliefs from p1topx\n2and py\n2\nrespectively.\nClearly, the ‘‘interim’’ payoff collected in period 2 is higher, in expected value,\nwith one supplier than with two, since in the former case the buyer buys only fromthe best whereas in the latter he carries both along. However, the expected period-3payoff is, as noted, higher when two suppliers are kept in period 2 because theinformation generated has a value. Thus, there is a trade off between concentratingon the most efﬁcient supplier and keeping several in order to ‘‘test’’ them.\nWhat does the value of the information depend on? Suppose that, at the end of\nperiod 1, the buyer kept only one supplier, the one with the highest probability ofbeing good, and suppose (without loss of generality) that it was supplier x. Letting I\n2\nstand for the information available at the beginning of period 2, the conditional\nexpectation of the period-3 gain is (see ‘‘ Appendix ’’):\nEV 3jI2ðÞ ¼ 2px\n2/C22pGþ1/C0px",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 25,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "2\nstand for the information available at the beginning of period 2, the conditional\nexpectation of the period-3 gain is (see ‘‘ Appendix ’’):\nEV 3jI2ðÞ ¼ 2px\n2/C22pGþ1/C0px\n2/C0/C1\n/C22pB/C2/C3\n: ð7Þ\nLet/y¼Prpy\n3[px\n3/C12/C12py\n2\\px\n2/C0/C1\nbe the probability that ywould perform better than x\nin period 3, given that he performed worse so far, if we could observe both in action\nin period 3. Using this, it can be shown that the value of the information is\nX¼uyEV 3jpy\n3[px\n3;I2/C0/C1\n/C0EV 3jI2ðÞ/C2/C3\n¼2uyEpy\n3/C12/C12py\n3[px\n3/C0/C1\n/C0px\n2/C2/C3\n/C22pG/C0/C22pB/C0/C1\n:ð8Þ\nThus, the value of the information depends on three multiplicative terms. The ﬁrst is\nthe probability that a good draw for the second-best supplier would reverse theOECD imports 7\n123\nranking of beliefs. In a 3-period model, sampling stops in period one and concen-\ntration has to take place.9By contrast, with more periods a reversal of beliefs is",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 26,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "123\nranking of beliefs. In a 3-period model, sampling stops in period one and concen-\ntration has to take place.9By contrast, with more periods a reversal of beliefs is\npossible, and so, depending on the parameters ( kandp) continued sampling is\noptimal. In Sect. 2.2below, a multi-period simulation of the model provides evi-\ndence of this phenomenon.\nThe second term is that in square brackets. Observe that it is decreasing in px\n2; the\nbetter is the ‘‘front-runner’’ supplier ( x) the less there is to gain from an eventual\nreversal of beliefs. In our 3-period setting, this doesn’t say much, but in a multi-period setting it would have a potentially important consequence on which we willreturn.\nThe third term, ﬁnally, is the difference in expected gains between a good and a\nbad supplier, which can be written as\n/C22p\nG/C0/C22pB¼kG/C0kB/C0/C1\np1/C0p0/C0/C1\n: ð9Þ\nThe ﬁrst factor on the RHS of ( 9) is the difference between the prospects of a good",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 27,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "bad supplier, which can be written as\n/C22p\nG/C0/C22pB¼kG/C0kB/C0/C1\np1/C0p0/C0/C1\n: ð9Þ\nThe ﬁrst factor on the RHS of ( 9) is the difference between the prospects of a good\nand a bad supplier, a measure of their heterogeneity; the second is the effect ofquality differences on proﬁt, a measure of the industry’s characteristics (quality-sensitivity). Thus, the value of information, which in our setting drives the searchfor quality, is increasing in their heterogeneity and in the sensitivity of buyers toproduct quality.\n2.2 More than three periods\nWith more periods, the revision of beliefs (i.e. the difference between posterior and",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 28,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "2.2 More than three periods\nWith more periods, the revision of beliefs (i.e. the difference between posterior and\nprior from one period to the next) becomes smaller over time as beliefs approachasymptotically zero or one, but how fast the process of revision converges depends,of course, on the parameters of the two processes. If the two distributions (good andbad) have similar parameters, it takes, in expectation, more time to tell apart the twotypes, which requires longer sampling. Figure 1illustrates how the rate of\nconvergence varies with the parameters. In the LHS panel the two distributions are\ncharacterized by sharply different parameters and beliefs converge after twentyperiods; in the RHS panel, the two distributions have similar parameters and thebeliefs take almost a hundred periods to converge.\nIn the LHS case, positions tend to lock in fairly quickly. In the RHS case, longer\nsampling is needed to tell apart the two suppliers; however, note that the difference",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 29,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "In the LHS case, positions tend to lock in fairly quickly. In the RHS case, longer\nsampling is needed to tell apart the two suppliers; however, note that the difference\nin expected returns ( /C22p\nG/C0/C22pB), which is part of the value of the information, is also\nsmaller, so the truth takes longer to appear but it matters less. Observe also that in\nthe RHS panel, around iteration #20, supplier xhas accumulated so many bad draws\n9In our 3-period model, the event that py\n2\\px\n2implies that yhad a defect in period 1 while xdid not.\nThen, if fortunes are reversed in period 2 ( xhas a defect while yhas not), it is easily veriﬁed that\nposteriors at the beginning of period 3 will be just equal for xandy. So, at best, the buyer will be\nindifferent between xandyin period 3. In ( 8), we have thus /y¼0 and, given the multiplicative form of\nX, the value of the information is nil: There is no reason to keep on sampling after period 1. In a 4-period",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 30,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "X, the value of the information is nil: There is no reason to keep on sampling after period 1. In a 4-period\nframework, at the cost of tedious algebra it is (relatively) straightforward to show that a reversal of beliefsis possible with two successive lucky draws on yand two unlucky ones on x, and so, continued sampling\n(using both suppliers) can be optimal in period 2.8 O. Cadot et al.\n123\nand supplier yso many good draws that the buyer is ‘‘almost certain’’ that yis of the\ngood type, even though this belief is false (observe the dotted curve ( y) approaching\none between iterations #20 and #40). Going back to ( 8), we see that\nlim\npx\n2!1X¼lim\npx\n2!1Epy\n3/C12/C12py\n3[px\n3/C0/C1\n/C0px\n2¼0; ð10Þ\nthat is, when the buyer becomes ‘‘almost certain’’ that his currently preferred\nsupplier is of the good type, the value of information goes to zero and he stopssampling. If that were the case in the RHS panel of Fig. 1(where the preferred",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 31,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "supplier is of the good type, the value of information goes to zero and he stopssampling. If that were the case in the RHS panel of Fig. 1(where the preferred\nsupplier around iteration 20 is y) the part of the long-dashed curve lying to the right\nof the stopping time would be censored. The remaining incumbent (here y) would\nthen be the sole supplier until sufﬁcient evidence accumulates to convince the buyerthat he had bet on the wrong horse (in the ﬁgure, that becomes clear after aboutiteration 60 and the posterior on yﬁnally converges to zero around iteration 90). The\nbuyer would turn to the alternative supplier only when his revised opinion on the\nincumbent drops back below the evicted supplier’s last posterior.\n10\nThe model thus implies that concentration, when it occurs, is on high-quality",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 32,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "incumbent drops back below the evicted supplier’s last posterior.\n10\nThe model thus implies that concentration, when it occurs, is on high-quality\nproducts. It also suggests that periods of diversiﬁcation are followed by periods ofre-concentration and that volatility in the concentration of imports is higher forgoods that are more heterogeneous in terms of quality. In order to shed light on the\n0.2 .4 .6 .8 1\n0 20 40 60 80 100\nta\ndelta px\npy\n-1 -.5 0 .5 1\n0 20 40 60 80 100\nt\ndelta px\npyb\nFig. 1 Random draws of Bernoulli processes in two cases. aA pair of draws with kG¼0:8;kB¼0:3,b\nA pair of draws with kG¼0:6;kB¼0:4.Note : The long-dashed curve gives px\nt, the revised probability\nthatxis of the good type; the dotted curve gives same thing for y, and the plain curve gives the difference\nbetween the two. The same parameters are used to draw the observations and to update the beliefs(parameters are assumed common knowledge); xis of the good type and yof the bad type",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 33,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "between the two. The same parameters are used to draw the observations and to update the beliefs(parameters are assumed common knowledge); xis of the good type and yof the bad type\n10Note that in this setup there can be no ‘‘informational cascade’’. An informational cascade\n(Bikhchandani et al. 1992 ) can take place when a sequence of actors make binary decisions on a singe\nissue (say, buying or selling a stock) based on a noisy signal about the correct decision and on theobserved behaviour of past players. Each player forms his own belief based on a weighted average of hissignal and past players’ actions, with weight on the latter that increases with the number of past players.Bikhchandani et al. show that there exists a critical number nsuch that, if nplayers observe the wrong\nsignal and act accordingly, the ( n?1)st will discard his own signal and follow the crowd. From then on,",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 34,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "signal and act accordingly, the ( n?1)st will discard his own signal and follow the crowd. From then on,\nthe herd behaviour cannot be reversed. Our setup is different because the buyer is repeatedly gettinginformation about his supplier, whereas in an informational cascade the individual experimenter gets onlyone signal that he compares with the actions of other (past) players.OECD imports 9\n123\nforces at works in a more dynamic setting, we add to the model two additional\nassumptions: (i) buyers have a taste for diversity, and (ii) the number of suppliers isexpanding.\n2.3 Quality search with diversiﬁcation\n2.3.1 Taste for diversity\nA taste for diversity (as in Krugman 1979 ; Ethier 1982 ) can be introduced in the\nmodel by replacing the assumption of additive payoffs by a utility function of theform\nP¼X\nipiðÞahi1=a\nð11Þ\nwhere pi2p0;p1/C8/C9\nis the proﬁt made on the purchase from supplier i. To see what",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 35,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "model by replacing the assumption of additive payoffs by a utility function of theform\nP¼X\nipiðÞahi1=a\nð11Þ\nwhere pi2p0;p1/C8/C9\nis the proﬁt made on the purchase from supplier i. To see what\nhappens to the model’s basic predictions, consider period 3. The reasoning is similar\nfor earlier periods. The period-3 payoff from using one supplier only (the preferredone), which was previously given by ( 3), is unchanged. That is,\nV\n32;1ðÞ ¼ 2p/C3\n3/C22pGþ21/C0p/C3\n3/C0/C1\n/C22pB: ð12Þ\nThe corresponding payoff if the buyer uses both suppliers in period 3 is\nV32;2ðÞ ¼ py\n32px\n3/C22pGþ1/C0p/C3\n3/C0/C1\n/C22pG/C0/C1 aþ/C22pB/C0/C1a/C2/C3 1=ano\nþ1/C0py\n3/C0/C1\npx\n3/C22pG/C0/C1 aþ/C22pB/C0/C1a/C2/C3 1=aþ21/C0p/C3\n3/C0/C1\n/C22pBno ð13Þ\nSuppose, without loss of generality, that the preferred supplier is x. Replacing p/C3\n3by\npx\n3in (3), it is easily veriﬁed that, for a¼1, keeping one supplier is optimal (this is\nthe benchmark case without a taste for diversity). However, as agoes down, the sign",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 36,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "3by\npx\n3in (3), it is easily veriﬁed that, for a¼1, keeping one supplier is optimal (this is\nthe benchmark case without a taste for diversity). However, as agoes down, the sign\nof the inequality is eventually reversed and the taste for diversity comes to dominatethe selection effect. This is illustrated in Fig. 2where V\n32;1ðÞ andV32;2ðÞ are\nshown as functions of r¼1=1/C0a ðÞ , the elasticity of substitution between the two\nsuppliers, for assumed parameter values. For values of rbelow 4.3, the taste for\ndiversity dominates and keeping both suppliers is optimal; for values above 4.3, theselection effect dominates and keeping only one supplier is optimal.\nWhat does this mean for our model? Essentially that the taste for diversity acts as\na counterforce to the selection effect, generating situations where the Bayesianupdate of beliefs designates one supplier as preferable to others but the buyernevertheless keeps several because he values diversity.\n2.3.2 Entry of new suppliers",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 37,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "2.3.2 Entry of new suppliers\nThe number of suppliers would enlarge if trade costs were coming down or if\nproductivity was rising exogenously among producers in a pool of potentialsuppliers with heterogeneous productivity levels as in Helpman et al. ( 2008 ).\nSeveral empirical studies support this increase in the number of potential suppliers.10 O. Cadot et al.\n123\nSchott ( 2004 ) shows that the number of LDC suppliers for a given product has on\naverage increased over time. Cadot et al. ( 2011 ) show that, over 1989–2005, on\naverage each country has introduced 50–200 new export products. Similarly, using a\nmore restrictive deﬁnition of new products, Klinger and Lederman ( 2004 ) found that\n1,710 new product-country pairs were introduced in the 1990s (with a maximum of160 for Indonesia).\n11Suppliers would then appear progressively, creating scope for",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 38,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "1,710 new product-country pairs were introduced in the 1990s (with a maximum of160 for Indonesia).\n11Suppliers would then appear progressively, creating scope for\ndiversiﬁcation of supplier sources at the extensive margin. As before, the repetitionof transactions with incumbents would asymptotically reveal their quality, butstrings of bad draws would always be possible even for good types, and theirreplacement would then set the clock back to zero for the new ones. With severalentrants all characterized by similar priors, buyers would start by sampling all of\nthem like at the beginning of our 3-period model, subsequently concentrating on the\nbest. Episodes of diversiﬁcation would be followed by episodes of concentration.\nThus, informational considerations in the multi-period setup suggest that, in",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 39,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "best. Episodes of diversiﬁcation would be followed by episodes of concentration.\nThus, informational considerations in the multi-period setup suggest that, in\nsectors where quality matters and is not standard across suppliers, entrants will ﬁndit hard to unseat incumbents as long as those perform well. But, with stochasticquality draws, incumbents are bound to fail 1 day or another. When they failsufﬁciently severely (i.e. with a string of bad draws in a row), a window ofopportunity opens up for entrants, ushering in a new phase of diversiﬁcation, quality\nsearch, and ultimate re-concentration on the best performers.\n12With an increasing\nnumber of suppliers, the number of best performers chosen as importers increasesover time. The buyers’ taste for diversity reinforces this effect. There isdiversiﬁcation. What the model shows is that diversiﬁcation will happen by\n140 160 180 200 220 240\n0.0 5.0 10.0 15.0 20.0\nsigma\nV21 V22Re-concentration in period 3\nNo re-\nconcentration3(2,2) V",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 40,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "140 160 180 200 220 240\n0.0 5.0 10.0 15.0 20.0\nsigma\nV21 V22Re-concentration in period 3\nNo re-\nconcentration3(2,2) V\n3(2,1) V\nFig. 2 Period-3 proﬁt from one versus two suppliers, as a function of the elasticity of substitution. Note :\nsimulated parameter values are p1=100,p0=50,kG=0.8,kB=0.1, p 3x=0.8, p 3y=0.1\n11Note that these studies consider new products at the HS6 level. The number of new producers is\nobviously much larger.\n12Failure may also be triggered endogenously by moral hazard if incumbents slacken the monitoring\neffort as time passes. For a reputational model with both selection and moral hazard, see e.g. Laeven andPerotti ( 2001 ).OECD imports 11\n123\n‘‘bouts’’, as a result of repeated failures in established buyer–supplier relationships,\nrather than as a continuous phenomenon.\nWhereas the taste-for-diversity forces generate maximum diversiﬁcation at all\ntimes (an essentially static prediction), quality search suggests alternating phases of",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 41,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Whereas the taste-for-diversity forces generate maximum diversiﬁcation at all\ntimes (an essentially static prediction), quality search suggests alternating phases of\ndiversiﬁcation and re-concentration. The existence of these phases is implied onlyby the informational features of the model. Thus, volatility in concentration levelscan be taken as a hallmark of informational phenomena and it depends on theheterogeneity of quality levels across suppliers.\n13Our model suggests three testable\npropositions that we empirically explore in the next section: (i) If driven by qualitysearch buyers will, at the end of each search phase, concentrate on the best supplier.(ii) Time-wise volatility in the concentration of imports is higher for goods that are\nmore heterogeneous in terms of quality. (iii) With an increasing number of\nsuppliers, new search phases are likely to entail higher diversiﬁcation over time.\n3 Quality search and diversiﬁcation: empirical evidence\n3.1 Concentration index and data",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 42,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "suppliers, new search phases are likely to entail higher diversiﬁcation over time.\n3 Quality search and diversiﬁcation: empirical evidence\n3.1 Concentration index and data\nWe measure, product by product ( k), the geographical concentration of OECD\ncountry i’s imports in tacross origin countries. Our measure is the Theil’s entropy\nindex (Theil 1972 ) given by:\nTheil\nikt¼1\nnkXnk\nj¼1xj\nikt\nliktlnxj\nikt\nlikt !\nwhere likt¼1\nnkXnk\nj¼1xj\nikt;\nwhere xj\niktis imports of OECD country ifrom origin country jof product kat time t\nandnkis the total number of countries with the capability to export good k.14Our\nbaseline deﬁnition of the set of potential exporters, nk, which is time-invariant, is the\nset of all countries having exported good ktosome destination in the world (not\nnecessarily OECD countries) at least two consecutive years in a row over the sample\n13However, supply shocks knocking out suppliers periodically could also create exogenous volatility at",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 43,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "necessarily OECD countries) at least two consecutive years in a row over the sample\n13However, supply shocks knocking out suppliers periodically could also create exogenous volatility at\nthe extensive margin. This is to be kept in mind in the empirical exploration that follows, as baselinevolatility is unlikely to be exactly zero.\n14Parteka ( 2010 ) found very high correlations between the different measures of concentration (Theil\nand Herﬁndahl indices are correlated at 0.95). Results in her paper do not depend on the choice of theconcentration index. We re-run all speciﬁcations of the present paper using the Herﬁndahl index andfound similar results as the ones presented here. These results are available upon request. We decided not\nto use the Gini coefﬁcient because of the issues associated with this concentration index. The Gini",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 44,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "to use the Gini coefﬁcient because of the issues associated with this concentration index. The Gini\ncoefﬁcient is a numerical representation of the degree of concentration and represents the distancebetween the Lorentz curve and the 45 /C176line (egalitarian distribution). There are two issues with Gini\ncoefﬁcients. First, they place more weight on changes in the middle part of the distribution. If a transferoccurs from a larger number of exporters to a smaller number of exporters, it has a greater effect on theGini if these numbers of exporters are near the middle rather than at the extremes of the distribution.Second, if the Lorentz curves cross, it is impossible to summarize the distribution in a single statisticwithout introducing value judgements. While studying concentration of import across time these issueshould be relevant. Herﬁndahl and Theil indices are robust to these sensitivity issues [on this, see Sen(1997 )].12 O. Cadot et al.\n123",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 45,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "123\nperiod.15We impose the requirement of two consecutive years of exports instead of\njust one in order to ensure that the exporter is a successful one (Besedes and Prusa2006a ,bshow that 2 years is the median duration of export spells; only 1 year\nmight signal failure rather than the capacity to export). This deﬁnition has the\nadvantage of being time- and importer-invariant (the latter matters for the part ofour analysis where we disaggregate OECD imports by importing country).\nAs shown in Cadot et al. ( 2011 ), the presence of logarithm in the Theil index is\nnot an issue for ‘‘zero’’ trade ﬂows as at the limit, and by L’Ho ˆpital’s rule, ‘‘zero’’\ntrade ﬂows do not contribute to the measure of concentration. Our index ofconcentration captures both actions at the extensive and intensive margin withoutdistinction.\n16In order to explore action at the extensive margin, we also consider the\nsimple number of exporters of good kto the OECD country iint,Nber ikt.",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 46,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "16In order to explore action at the extensive margin, we also consider the\nsimple number of exporters of good kto the OECD country iint,Nber ikt.\nOur data is COMTRADE import data for OECD countries (either taken as a bloc\nor disaggregated by importer) at the product level.17Our preferred product\nclassiﬁcation is the 5-digit level SITC data (using the backwards classiﬁcation—revision 1). The alternative, HS6, is more disaggregated (with 4,990–5,016 linesdepending on the year against 1,158–1,300 for 5-digit level SITC), but the sampleperiod is longer with SITC, which also underwent fewer revisions. In terms ofcountry coverage, 5-digit level SITC data covers 253 countries and territories\nbetween 1962 and 2006 (44 years); HS6 coverage is nominally available starting\n1988, but with only 12 countries (9 of which are OECD members) expandinggradually to 116 countries in 1995 and 140 in 2006.\n18",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 47,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "1988, but with only 12 countries (9 of which are OECD members) expandinggradually to 116 countries in 1995 and 140 in 2006.\n18\n15In order to calculate the Theil index and capture the evolution in geographic import concentration, we\nneed to deﬁne a potential number of source countries than is constant over time. In effect, if we let nkvary\nover time, (say by making it equivalent to the number of countries that export a speciﬁc product eachyear), we cannot disentangle concentration/diversiﬁcation on actual suppliers from changes in theuniverse of potential suppliers. For example, an increase in the Theil index may be caused by eitherconcentration of imports on fewer sources or an increase in the number of potential sources. Our modelhowever suggests that concentration occurs because buyers select the best suppliers after testing them. Ifn\nkvaries, we may observe concentration while the number of actual suppliers does not change, which",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 48,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "kvaries, we may observe concentration while the number of actual suppliers does not change, which\nwould be misleading. Similarly, the geographic diversiﬁcation of imports across time could results from\nthe elimination of some countries from the set of potential suppliers. The OECD is not more diversiﬁed in\nthe sense that it tests extra supply sources. As we are interested in the importers selections of sourcecountries and its link with unit values, we do not want our concentration index to be modiﬁed by changeson the supplier side.\n16Cadot et al. ( 2011 ) show that the Theil index can be decomposed into between- and within-groups\ncomponents with a partition of lines into active and inactive ones which result in a perfect mapping withthe extensive and intensive margins of trade.\n17The deﬁnition of OECD countries used in this paper includes the 29 countries that belonged to the",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 49,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "17The deﬁnition of OECD countries used in this paper includes the 29 countries that belonged to the\nOECD in 2006, i.e. Australia, Austria, Belgium-Luxembourg, Canada, the Czech Republic, Denmark,Finland, France, Germany, Greece, Hungary, Iceland, Italy, Ireland, Japan, Spain, Korea, Mexico, theNetherlands, New-Zealand, Norway, Poland, Portugal, the Slovak Republic, Sweden, Switzerland,Turkey, the United Kingdom and the United States.\n18We do not believe that the level of disaggregation (SITC 5-digit or HS6) matters for our analysis:\nalthough Theil variations may results from composition effect at the sub-product level, such variationsrandomly correlate with product unit value. In order to confront our main ﬁndings to the choice ofdisaggregation of the database, we re-run our main regression (Table 1) on the sub-sample of SITC codes",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 50,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "that correspond to only one (alternatively two or less) HS6 lines. Results are similar to the ones obtainwith the full SITC database and are available upon request.OECD imports 13\n123\n3.2 Concentration and quality search: testing for ‘‘bouts’’\nProposition 1 involves unobservable quality heterogeneity. We approximate quality\nby unit values, of which we calculate import-weighted averages for each OECDimporter, good and year. If re-concentration, when it takes place, is on the bestperformers, we expect positive year-on-year changes in the Theil index to correlatewith positive changes in the average unit value of imports. The average unit value’srise is a composition effect, as buyers concentrate on high-quality suppliers. Thus, a\nstraightforward test would consist of regressing, on a panel of OECD\nimporter 9product pairs (recall that we are looking at concentration across source",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 51,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "straightforward test would consist of regressing, on a panel of OECD\nimporter 9product pairs (recall that we are looking at concentration across source\ncountries), ﬁrst differences in Theil indices on ﬁrst differences in average unitvalues across sources, expecting a positive correlation. However, we can sharpenthis test using a key corollary.\nThe corollary is that the effect is asymmetric: whereas the model predicts that\nunit values should rise during concentration phases, it is silent on the evolution of\nunit values during diversiﬁcation phases. For instance, at the beginning of a search\nphase (i.e. diversiﬁcation), new tested suppliers may be of higher quality than the\nbest selected supplier of the preceding sampling phase. In this case, qualityincreases during diversiﬁcation. This corollary can be used to sharpen our test of themodel’s base prediction. To do this, we replace annual ﬁrst differences in unitvalues as a regressor ( DUV",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 52,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "ikt) by two interaction terms deﬁning two distinct\nregimes. In regime 1 (concentration), ﬁrst differences in unit values are interactedwith a dummy equal to one if concentration is rising ( DTheil\nikt[0). In regime 2\n(diversiﬁcation), ﬁrst differences in unit values are interacted with a dummy equal\nto one if concentration is decreasing ( DTheil iktB0). Table 1gives regression\nresults for this test and a variant where the regimes are restricted to DTheil ikt[0.1\nandDTheil iktB0.1 respectively (this 0.1 threshold corresponding to the top 25 % of\nthe re-concentration phases in terms of DTheil ikt).\nThe ﬁrst two columns of Table 1conﬁrm the model’s base prediction. Positive\nyear-on-year changes in the Theil index correlate with positive changes in unitvalues, and this result holds for a large set of ﬁxed effects. That is, when there is re-concentration, it takes place on higher-quality suppliers. As shown in columns (3)",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 53,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "and (4), this positive impact becomes stronger when restricted to deeper re-\nconcentration phases, i.e. for phases where ﬁrst differences in the Theil index areabove 0.1. Strikingly, no signiﬁcant correlation is found in diversiﬁcation phases.We tested the robustness of this result by running the same estimation using theannual ﬁrst difference in the numbers of partners of country iin good kas the\ndependent variable (with a threshold still corresponding to the top 25 % of the re-concentration phases in terms of DNber\nikt). As shown in columns (5) and (6), results\nare similar to those presented in the 2 preceding columns.19\nFinally, a similar regression using import-weighted averages of the exporters’\nGDP per capita instead of unit values gives a qualitatively similar result, suggesting\n19Note that importer-product as well importers ﬁxed effects control for late appearance of some OECD",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 54,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "GDP per capita instead of unit values gives a qualitatively similar result, suggesting\n19Note that importer-product as well importers ﬁxed effects control for late appearance of some OECD\ncountries within the database (e.g., we have data for Poland, the Slovak Republic and the Czech Republicstarting in the early 90’s). Year ﬁxed effects control for exogenous shocks that may affect several OECDcountries on their sourcing behaviour alike.14 O. Cadot et al.\n123\nTable 1 Regression results: change in the Theil index or numbers of partners on change in unit values\nRegressors Dep. var\nDTheil ik (t -(t-1)) DTheil ik (t -(t-1)) DTheil ik (t -(t-1)) DTheil ik (t -(t-1)) DNber ik (t -(t-1)) DNber ik (t -(t-1))\n(1) (2) (3) (4) (5) (6)\nDUV lk (t -(t-1))(DTheil ik (t -(t-1))[0) 1.05E–06**\n(5.50E–07)9.78E–07*\n(5.70E–07)\nDUV lk (t -(t-1))(DTheil ik (t -(t-1))B0) -3.47E–07\n(1.95E–06)-2.04E–07\n(2.30E–07)\nDUV lk (t -(t-1))(DTheil ik (t -(t-1))[0.1) 1.45E–06**\n(7.54E–07)1.43E–06**\n(7.42E–07)",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 55,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "(5.70E–07)\nDUV lk (t -(t-1))(DTheil ik (t -(t-1))B0) -3.47E–07\n(1.95E–06)-2.04E–07\n(2.30E–07)\nDUV lk (t -(t-1))(DTheil ik (t -(t-1))[0.1) 1.45E–06**\n(7.54E–07)1.43E–06**\n(7.42E–07)\nDUV lk (t -(t-1))(DTheil ik (t -(t-1))B0.1) -2.02E–07\n(1.48E–07)-1.56E–07\n(1.63E–07)\nDUV lk (t -(t-1))(DTheil ik (t -(t-1))\\-1) -2.39E–06***\n(7.39E–07)-2.24E–06*\n(1.21E–06)\nDUV lk (t -(t-1))(DTheil ik (t -(t-1))C-1) 6.92E–06***\n(5.89E–07)6.68E–06***\n(4.82E–07)\nObservations ( ikt) 1,059,984 1,059,984 1,059,984 1,059,984 1,059,984 1,059,984\nNo. of products ( k) 1,299 1,299 1,299 1,299 1,299 1,299\nNo. of importers ( i) 2 92 92 92 92 92 9\nYears ( t) 1963–2006 1963–2006 1963–2006 1963–2006 1963–2006 1963–2006\nObservations with DTheil[x 640,038 640,038 277,294 277,294\nObservations with DNber\\x 251,895 251,895\nImporter 9product ﬁxed effects Yes – Yes – Yes –\nI m porter ﬁxed effects – Yes – Yes – YesProduct ﬁxed effects – Yes – Yes – Yes\nYear ﬁxed effects Yes Yes Yes Yes Yes Yes",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 56,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Importer 9product ﬁxed effects Yes – Yes – Yes –\nI m porter ﬁxed effects – Yes – Yes – YesProduct ﬁxed effects – Yes – Yes – Yes\nYear ﬁxed effects Yes Yes Yes Yes Yes Yes\nEstimation with OLS; standard errors in parentheses: heteroskedasticity-consistent and adjusted for product-level clustering\n***, **, * indicate signiﬁcance at the level of 1, 5 and 10 % respectivelyOECD imports 15\n123\nthat when re-concentration takes place, it is on suppliers located in higher-income\ncountries, which tend to produce higher-quality goods (on this, see Hallak andSchott 2011 ). The evidence in Table 1is thus suggestive of a quality-search process\nrather than a price-search one (in a price-search model, the search phase would\nsettle on the lowest-price supplier).\nWe now turn to Proposition 2, which says that the alternating phases of quality",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 57,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "rather than a price-search one (in a price-search model, the search phase would\nsettle on the lowest-price supplier).\nWe now turn to Proposition 2, which says that the alternating phases of quality\nscreening and re-concentration will be more pronounced for products whose qualitymatters and where it is not standardized across suppliers. That is, the time-wisevolatility of concentration should correlate with the dispersion of quality acrosssuppliers. In order to test for this, we measure the time-wise volatility ofconcentration at the (importer 9product) level by the normalized standard\ndeviation of the Theil index over the entire sample period. We approximate the\ndispersion of quality across suppliers, also at the (importer 9product) level, by the\nstandard deviation of unit values across time and exporters. Note that, in so doing,we reduce the sample’s dimensionality from three (importer 9product 9time) to\ntwo (importer 9product), i.e. we collapse our panel into a cross-section of",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 58,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "two (importer 9product), i.e. we collapse our panel into a cross-section of\n(importer 9product) pairs.\nBefore we turn to regression results, let us take a look at the relationship for the\n1,299 products between the time-wise volatility of concentration and the variability\nof unit values for an average OECD country’ imports (i.e. disregarding heteroge-\nneity between importing countries).\n20The plain line in Fig. 3is generated by\nregressing standard deviations of Theil indices on standard deviations of unit-valuesusing pooled OLS with White-corrected standard errors.\n21The broken curve in the\nsame ﬁgure is generated by running a ‘‘smoother’’ (non-parametric) regressioninstead of OLS. Non-parametric regression imposes no functional form and istherefore well suited to the exploration of data with no pre-determined relationshipbetween variables.\n22Both show a positive relationship between the volatility of\nconcentration over time (the amplitude of the alternating diversiﬁcation/re-",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 59,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "22Both show a positive relationship between the volatility of\nconcentration over time (the amplitude of the alternating diversiﬁcation/re-\nconcentration phases) and the variability of unit values across time and suppliers(the extent of the selection problem).\nWe run a parametric test exploiting cross-importer variation in our base\nrelationship (although the time dimension of the panel is still collapsed by theconstruction of our volatility variables). In Table 2, the normalized standard errors\nof the Theil index and unit values are computed using both the whole sample(column 1) and the sub-sample of (importer 9product) pairs with at least 30 non-\nmissing observations over 1963–2006 (column 2). Results presented in Table 2",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 60,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "missing observations over 1963–2006 (column 2). Results presented in Table 2\nconﬁrm the positive correlation between volatility in concentration indices andvariability in product quality. As shown in columns (3) and (4), our results are alsorobust to the use of standard deviations in the numbers of partners as the dependentvariable instead of standard deviations in Theil indices.\n20For every product, Theil and unit value volatilities correspond to simple averages over countries\nbelonging to the OECD.\n2195 % conﬁdence interval is also reported.\n22Non-parametric ‘‘smoother’ ’ regression consists on re-estimating the regression for overlapping\nsamples centered on each observation.16 O. Cadot et al.\n123\nThus by and large, results are as suggested by the model. Re-concentration",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 61,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "samples centered on each observation.16 O. Cadot et al.\n123\nThus by and large, results are as suggested by the model. Re-concentration\nphases occur on goods of better quality and the volatility of concentration indices ishigher for products with high-quality heterogeneity. This indeed suggests alternat-ing periods of diversiﬁcation and concentration in search for quality.\n3.3 Measuring overall geographical import concentration\nWe now examine whether there is an overall diversiﬁcation trend over the entire\nperiod. Our set up suggests that with entry of new suppliers and a taste for variety,\nFig. 3 Volatility of the Theil index versus volatility of import unit-value (sample of 1,299 products)\nTable 2 Regression results, volatility of concentration on product quality heterogeneity\nRegressors Dep. var\nrTheil ik rTheil ik rNber ik rNber ik\n(1) (2) (3) (4)\nrUV ik 1.63E–03***\n(2.28E–04)1.02E–03***\n(2.27E–04)1.75E–02***\n(1.10E–03)1.01E–02***\n(1.02E–03)",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 62,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Regressors Dep. var\nrTheil ik rTheil ik rNber ik rNber ik\n(1) (2) (3) (4)\nrUV ik 1.63E–03***\n(2.28E–04)1.02E–03***\n(2.27E–04)1.75E–02***\n(1.10E–03)1.01E–02***\n(1.02E–03)\nObservations ( ik) 36,209 26,820 36,209 26,820\nNo. of products ( k) 1,299 1,299 1,299 1,299\nNo. of importers ( i) 2 92 92 92 9\nPeriod 1963–2006 1963–2006 1963–2006 1963–2006\nImporter ﬁxed effects Yes Yes Yes Yes\nProduct ﬁxed effects Yes Yes Yes Yes\nEstimation with OLS; standard errors in parentheses: heteroscedasticity consistent and adjusted for\nproduct-level clustering\n***, **, * indicate signiﬁcance at the level of 1, 5 and 10 % respectivelyOECD imports 17\n123\nOECD imports become globally more diversiﬁed (even if this diversiﬁcation\nhappens by bouts). We test this conjecture by looking at the overall evolution of theconcentration index and the number of imported products over the years 1963–2006.\nFigure 4shows the evolution of simple averages over all products imported by",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 63,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Figure 4shows the evolution of simple averages over all products imported by\nOECD countries at tof our Theil index as well as the number of products. Panel a)\nshows Theil indices calculated using all OECD imports (i.e. imports from allpartners, including intra-OECD ones) as well as using only extra-OECD partners(i.e. developing countries). A strong diversiﬁcation trend until 2002 is shown by theTheil index when accounting for all imports, after which the indices rise until 2006,the sample’s last year. The diversiﬁcation is less pronounced while excluding intra-OECD trade and it re-concentrates after 1990. Between 1999 and 2006, this Theil\nindex rises by 7.4 %, almost three times its coefﬁcient of variation over the period\n1963–1999. Panel b) looks at the extensive margin by showing the evolution ofimport-weighted averages, across 5-digit level SITC lines, of the number of non-OECD exporters to the OECD over the sample period.\n23",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 64,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "23\nThe trend reversal is unmistakable as far as the concentration index for imports\nfrom non-OECD countries is concerned. However, it takes place quite late in thesample period. In order to verify whether it is statistically signiﬁcant, and that it isnot a pure composition effect between products (i.e. a sectoral shift away from\nwidely-procured products toward narrowly-procured ones), we now turn to\nregressions of concentration indices on time and its square using ﬁxed (product)effects. Results are shown in Table 3. Column (1) shows results with concentration\nindices (the dependent variable) calculated over all imports (including intra-OECD)whereas column (2) presents results for extra-OECD imports only (a moreinteresting measure from a developmental perspective). The within estimatorconﬁrms the convex time trend, as both time and its square are signiﬁcant withopposite signs.\nColumns (4) and (5) of Table 3report the results of ﬁxed-effects regressions of",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 65,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Columns (4) and (5) of Table 3report the results of ﬁxed-effects regressions of\nthe number of exporters to the OECD on time and its square. Column (5) includes aspeciﬁc time trend for the post-2000 period. The extensive margin as measured bythe average number of source countries does not seem to show the same kind oftrend reversal that we observed in the concentration indices, which pick up action atboth the extensive and intensive margins. Figure 4shows a decline in the rate of\nincrease in the number of exporters to the OECD (the trade-weighted averagenumber of suppliers per product stabilizes over 100). For many products, this is\nlikely to exhaust the pool of potential exporters, so a leveling off is to be expected.\nThis is reﬂected by the negative coefﬁcient on Post 2000. This inﬂexion is howevernot strong enough to reverse the trend. The observed re-concentration of OECDimports thus seems to be entirely caused by action at the intensive margin.",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 66,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "In order to explore further what might be driving the apparent re-concentration of\nOECD imports, we now decompose OECD imports by importing country andconstruct a three-dimensional panel whose unit of observation (the basis for thecalculation of our concentration indices) is a product imported by an OECD country\n23Figures including all suppliers and using simple averages of number of exporters to OECD at the\nproduct (SITC4) level are very similar to the one presented here and are available upon request.18 O. Cadot et al.\n123\nin a year (a triplet importer 9product 9year). Looking at things this way allows\nus to look for another type of composition effects where more concentrated OECDcountries increase their relative share of total OECD imports. Regression results areshown in Column (3) and (6). Several observations emerge. First, the re-concentration apparent in the Theil index seems robust to the introduction of ﬁxed",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 67,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "effects by importer 9product pair. The news comes from the extensive margin,\nwhere not only the square term on time preserves the monotonicity of diversiﬁcationbut even the post-2000 time trend no longer indicates a trend inﬂexion in the verylast years. The disappearance of the trend inﬂexion suggests that it resulted from acomposition effect between importers as described above.\nTo sum up, the observed re-concentration is robust to the decomposition of\nOECD imports by importing country. However, as results on the number ofexporters show, it does not occur at the extensive margin, all of the action being at\nthe intensive margin.\nConsidering the rising importance of OECD trade with China over the last\ndecade, we must control for the role that China may play in that re-concentration. Incolumn (7) of Table 3the coefﬁcient on time squared loses its signiﬁcance when",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 68,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "decade, we must control for the role that China may play in that re-concentration. Incolumn (7) of Table 3the coefﬁcient on time squared loses its signiﬁcance when\nChina is excluded from the sample, suggesting that China is indeed driving theobserved re-concentration. Using our SITC data for China we calculated thecontribution of the intensive and extensive margin to China-OECD imports growthover the 1963–2006 period. While in the early years (1963–1975) the extensive\nmargin accounted for about 35 % of China-OECD imports growth, this share shrank\nto almost zero in the 1993–2006 period. This conﬁrms that the increasedconcentration of OECD imports on China occurs at the intensive margin: In recentyears, no new product line opened between China and its OECD trade partners.\nThus, although their imports are increasingly concentrating on Chinese products,",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 69,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Thus, although their imports are increasingly concentrating on Chinese products,\nOECD countries continue to open new imports lines with extra-OECD countries.That is, China’s expanding exports to the OECD do not seem (yet) to crowd out theNumber of exporters Theil index\n2.22.42.62.833.23.4\nExtra-OECD imports\nAll imports \n020406080100120\n1963 1969 1975 1981 1987 1993 1999 2005 1963 1969 1975 1981 1987 1993 1999 2005(a) (b)\nFig. 4 OECD import concentration and number of partners, 1963–2006. aTheil index, bNumber of\nexporters. Note : Data from COMTRADE. aTheil indices are simple averages over all products.\nbNumbers of exporters is import-weighted averages (weights =shares of each 5-digit level SITC\nproduct in OECD imports in given year)OECD imports 19\n123\nTable 3 Regression results, OECD import concentration and number of exporters on time trend\nRepressors Theil: all imports Theil: extra-OECD imports Numbers of countries exporting to the OECD Theil: no China\n(1) (2) (3) (4) (5) (6) (7)",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 70,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Repressors Theil: all imports Theil: extra-OECD imports Numbers of countries exporting to the OECD Theil: no China\n(1) (2) (3) (4) (5) (6) (7)\nTime -0.013*** -0.023*** -0.015*** 0.583 *** 0.543*** 0.091*** -0.013***\n(-34.03) ( -43.53) (100.10) (38.49) (29.66) (48.33) ( -24.61)\nTime, squared -0.000*** 0.000*** -0.000*** 0.008*** 0.009*** 0.003*** 0.000\n(4.72.3) (28.13) (7.05) (24.76) (20.79) (75.63) (0.072)\nPost 2000 0.020 -0.228*** 0.147***\n(47.64) (3.91) (27.01)\nConstant 2.913*** 3.330*** 4.336*** 16.560*** 16.560*** 2.871*** 3.302***\n(861.4) (686.9) (3363.6) (113.2) (113.2) (173.5) (677.4)\nObservations 54,030 53,770 1,154,420 53,770 53,770 1,154,420 53,768R-squared 0.671 0.570 0.180 0.540 0.552 0.290 0.570Turning year 2001 1997 1997\nProduct FE Yes Yes Yes Yes Yes\nImporter 9product FE Yes Yes\nt-Statistics in parentheses; ***, **, * indicate signiﬁcance at the level of 1, 5 and 10 % respectively. The time variable is an index starting as 1963 =1. The post-2000",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 71,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Importer 9product FE Yes Yes\nt-Statistics in parentheses; ***, **, * indicate signiﬁcance at the level of 1, 5 and 10 % respectively. The time variable is an index starting as 1963 =1. The post-2000\nvariable is another index starting at 2000 =120 O. Cadot et al.\n123\nentry of new exporter/product pairs on OECD markets. Overall, excluding China,\nOECD imports are becoming more diversiﬁed across time as predicted by ourquality search model with an increasing number of potential suppliers.\n4 Concluding remarks\nLooking at the evolution of OECD imports at a high degree of disaggregation (over\na thousand product lines) over the forty-year period where data is available, we ﬁndstriking evidence of geographical diversiﬁcation at the product level. That is, OECDcountries have been sourcing each of their imported products from an increasingly\nlarge pool of suppliers. We also ﬁnd evidence of a geographical re-concentration of",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 72,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "large pool of suppliers. We also ﬁnd evidence of a geographical re-concentration of\nimports in the last 5 years or so, but this trend reversal is entirely attributable to thegrowing share of China in OECD imports. Put together with Besedes and Prusa’s(2006a ,b) ﬁndings of high churning rates among exporters, our results suggest that\nOECD markets seem to be increasingly contestable for developing-countryexporters, at least at the source-country level.\nAs for the drivers of diversiﬁcation versus re-concentration, we ﬁnd that when\ntemporary geographical concentration takes place, it tends to be on higher-priced\nnational varieties. It is also more volatile for those goods which may be highly",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 73,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "temporary geographical concentration takes place, it tends to be on higher-priced\nnational varieties. It is also more volatile for those goods which may be highly\ndifferentiated quality-wise where quality presumably matters more and is moreheterogeneous across suppliers. Put together, these observations lend support to amodel of quality search by OECD buyers generating alternating periods ofconcentration and diversiﬁcation, discussed in Sect. 2of this paper. Our quality-\nsearch approach suggests that the contestability of OECD markets varies across timeand products, with periods of closed doors, characterized by strong incumbencyadvantages, alternating with periods of open door, characterized by contestability.\nIn terms or policy implications, our results highlight the importance of raising\nexporter quality-management capacities in developing countries, as periods of opendoor appear to be essentially periods of quality search.",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 74,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "exporter quality-management capacities in developing countries, as periods of opendoor appear to be essentially periods of quality search.\nAcknowledgments Research on this paper was supported by a Grant from the World Bank. Support\nfrom France’s Agence Nationale de la Recherche under ‘‘Investissement d’Avenir’ ’ Grant ANR-10-LABX-14-01 is gratefully acknowledged. Without implicating them, the authors would like to thankDaniel Lederman, William Maloney, Marcelo Olarreaga, and an anonymous internal reviewer for usefulcomments. We are grateful to Madina Kukenova for her research assistantship on a previous version ofthe paper.\nAppendix\nThe expression for the expected period-3 gain, as of the beginning of period 2, given\nthat the buyer kept only one supplier, x,i s\nEV 3jI2ðÞ ¼ qx\n2EV 3jfx\n2¼1/C0/C1\nþ1/C0qx\n2/C0/C1\nEV 3jfx\n2¼0/C0/C1\nð14Þ\nwhere the probability of no defect in period 2 given information at the beginning of\nperiod 2, qx\n2,i sOECD imports 21\n123\nqx\n2/C17Prfx\n2¼1I2j/C0/C1\n¼px",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 75,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "þ1/C0qx\n2/C0/C1\nEV 3jfx\n2¼0/C0/C1\nð14Þ\nwhere the probability of no defect in period 2 given information at the beginning of\nperiod 2, qx\n2,i sOECD imports 21\n123\nqx\n2/C17Prfx\n2¼1I2j/C0/C1\n¼px\n2kGþ1/C0px\n2/C0/C1\nkB; ð15Þ\nand the expected gain in period 3 is\nEV 3jfx\n2¼1/C0/C1\n¼px\n3fx\n2¼1/C0/C1\n2/C22pG/C0/C1\nþ1/C0px\n3fx\n2¼1/C0/C1/C2/C3\n2/C22pB/C0/C1\nð16Þ\ngiven no defect in period 2 and\nEV 3jfx\n2¼0/C0/C1\n¼px\n3fx\n2¼0/C0/C1\n2/C22pG/C0/C1\nþ1/C0px\n3fx\n2¼0/C0/C1/C2/C3\n2/C22pB/C0/C1\nð17Þ\ngiven a defect in period 2. Finally, the probability of supplier xbeing of the good\ntype is, by Bayes’ rule,\npx\n3fx\n2¼1/C0/C1\n¼PrGjfx\n2¼1/C0/C1\n¼kGpx\n2\nkGpx\n2þkB1/C0px\n2/C0/C1 ð18Þ\ngiven no defect in period 2 and\npx\n3fx\n2¼0/C0/C1\n¼PrGjfx\n2¼0/C0/C1\n¼1/C0kG/C0/C1\npx\n2\n1/C0kG/C0/C1\npx\n2þ1/C0kB/C0/C1\n1/C0px\n2/C0/C1 ð19Þ\ngiven a defect. Substituting these expressions into ( 14) and simplifying gives\nexpression ( 7) in the text.\nReferences",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 76,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "2¼0/C0/C1\n¼1/C0kG/C0/C1\npx\n2\n1/C0kG/C0/C1\npx\n2þ1/C0kB/C0/C1\n1/C0px\n2/C0/C1 ð19Þ\ngiven a defect. Substituting these expressions into ( 14) and simplifying gives\nexpression ( 7) in the text.\nReferences\nAntra `s, P. (2011). Grossman -Hart (1986 )goes global: Incomplete contracts, property rights, and the\ninternational organization of production (NBER Working Papers 17470).\nAristei, D., Castellani, D., & Franco, C. (2013). Firms’ exporting and importing activities: Is there a two-\nway relationship? Review of World Economics/Weltwirtschaftliches Archiv, 149 (1), 55–84.\nBaldwin, R., & Harrigan, J. (2011). Zeros, quality, and space: Trade theory and trade evidence. American\nEconomic Journal: Microeconomics, 3 (2), 60–88.\nBar-Isaac, H. (2003). Reputation and survival: Learning in a dynamic signalling model. Review of\nEconomic Studies, 70 (2), 231–251.\nBas, M., & Strauss-Kahn, V. (forthcoming). Does importing more inputs raise exports? Firm-level",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 77,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Economic Studies, 70 (2), 231–251.\nBas, M., & Strauss-Kahn, V. (forthcoming). Does importing more inputs raise exports? Firm-level\nevidence from France. Forthcoming in Review of World Economics/Weltwirtschaftliches Archiv .\nBesedes, T., & Prusa, T. (2006a). Surviving the US import market: The role of product differentiation.\nJournal of International Economics, 70 (2), 339–358.\nBesedes, T., & Prusa, T. (2006b). Ins, outs, and the duration of trade. Canadian Journal of Economics,\n39(1), 266–295.\nBikhchandani, S., Hirshleifer, D., & Welch, I. (1992). A theory of fads, fashion, custom, and cultural\nchange as informational cascades. Journal of Political Economy, 100 (5), 992–1026.\nBrenton, P., & Newfarmer, R. (2007). Watching more than the discovery channel: Export cycles and\ndiversiﬁcation in development (Policy Research Working Paper 4302). Washington, DC: World\nBank.\nBroda, C., & Weinstein, D. (2006). Globalization and the gains from variety. Quarterly Journal of",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 78,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "diversiﬁcation in development (Policy Research Working Paper 4302). Washington, DC: World\nBank.\nBroda, C., & Weinstein, D. (2006). Globalization and the gains from variety. Quarterly Journal of\nEconomics, 121 (2), 541–585.\nCadot, O., Carre `re, C., & Strauss-Kahn, V. (2011). Export diversiﬁcation: What’s behind the hump?\nReview of Economics and Statistics, 93 (2), 590–605.\nCoe, D., & Helpman, E. (1995). International RD spillovers. European Economic Review, 39 (5),\n859–887.22 O. Cadot et al.\n123\nDjankov, S., Freund, C., & Pham, C. (2010). Trading on time. The Review of Economics and Statistics,\n92(1), 166–173.\nEthier, W. (1982). National and international returns to scale in the modern theory of international trade.\nAmerican Economic Review, 72 (3), 389–405.\nEvenett, S., & Venables, A. (2002). Export growth in developing countries: Market entry and bilateral\ntrade ﬂows . Mimeo: London School of Economics.",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 79,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "American Economic Review, 72 (3), 389–405.\nEvenett, S., & Venables, A. (2002). Export growth in developing countries: Market entry and bilateral\ntrade ﬂows . Mimeo: London School of Economics.\nFeenstra, R. (1994). New product varieties and the measurement of international prices. American\nEconomic Review, 84 (1), 157–177.\nGoldberg, P., Khandelwal, A., Pavcnik, N., & Topalova, P. (2010). Imported intermediate inputs and\ndomestic product growth: Evidence from India. Quarterly Journal of Economics, 125 (4),\n1727–1767.\nHallak, J. C., & Schott, P. (2011). Estimating cross-country differences in product quality. Quarterly\nJournal of Economics, 126 (1), 417–474.\nHalpern, L., Koren, M., & Szeidl, A. (2011). Imported inputs and productivity (CeFiG Working Papers\n8). Center for Firms in the Global Economy.\nHanson, G. (1996). Localization economies, vertical organization and trade. American Economic Review,\n86(5), 1266–1278.",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 80,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "8). Center for Firms in the Global Economy.\nHanson, G. (1996). Localization economies, vertical organization and trade. American Economic Review,\n86(5), 1266–1278.\nHausmann, R., & Rodrik, D. (2003). Economic development as self-discovery. Journal of Economic\nDevelopment, 72 (2), 603–633.\nHelpman, E., Melitz, M., & Rubinstein, Y. (2008). Trading partners and trading volumes. Quarterly\nJournal of Economics, 123 (2), 441–487.\nHummels, D., & Klenow, P. J. (2005). The variety and quality of a nation’s exports. American Economic\nReview, 95 (3), 704–723.\nImbs, J., & Wacziarg, R. (2003). Stages of diversiﬁcation. American Economic Review, 93 (1), 63–86.\nJaimovich, E. (2012). Import diversiﬁcation along the growth path. Economics Letters, 117 (1), 306–310.\nKasahara, H., & Rodrigue, J. (2008). Does the use of imported intermediates increase productivity? Plant-\nlevel evidence. Journal of Development Economics, 87 (1), 106–118.",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 81,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Kasahara, H., & Rodrigue, J. (2008). Does the use of imported intermediates increase productivity? Plant-\nlevel evidence. Journal of Development Economics, 87 (1), 106–118.\nKee, H. L., Nicita, A., & Olarreaga, M. (2009). Estimating trade restrictiveness indices. Economic\nJournal, 119 (534), 172–199.\nKeller, W. (2004). International technology diffusion. Journal of Economic Literature, 42 (3), 752–782.\nKhandelwal, A. (2010). The long and short (of) quality ladders. Review of Economic Studies, 77 (4),\n1450–1476.\nKlinger, B., & Lederman, D. (2004). Discovery and development: An empirical exploration of ‘‘New’’\nproducts (Policy Research Working Paper 3450). Washington, DC: World Bank.\nKrugman, P. (1979). Increasing returns, monopolistic competition, and international trade. Journal of\nInternational Economics, 9 (4), 469–479.\nKugler, M., & Verhoogen, E. (2012). Prices, plant size and product quality. Review of Economic Studies,\n79(1), 307–339.",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 82,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "International Economics, 9 (4), 469–479.\nKugler, M., & Verhoogen, E. (2012). Prices, plant size and product quality. Review of Economic Studies,\n79(1), 307–339.\nLaeven, L., & Perotti, E. (2001). Conﬁdence building in emerging stock markets (CEPR Discussion Paper\n3055).\nLeland, H. E. (1979). Quacks, lemons, and licensing: A theory of minimum quality standards. Journal of\nPolitical Economy, 87 (6), 1328–1346.\nManova, K., & Zhang, Z. (2012). Export prices across ﬁrms and destinations. Quarterly Journal of\nEconomics, 127 (1), 379–436.\nMelitz, M. (2003). The impact of trade on intra-industry reallocations and aggregate industry\nproductivity. Econometrica, 71 (6), 1695–1725.\nParteka, A. (2010). Employment and export specialization along the development path: Some robust\nevidence. Review of World Economics/Weltwirtschaftliches Archiv, 145 (4), 615–640.\nParteka, A., & Tamberi M. (2012). Relative product diversiﬁcation in the course of economic",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 83,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "evidence. Review of World Economics/Weltwirtschaftliches Archiv, 145 (4), 615–640.\nParteka, A., & Tamberi M. (2012). Relative product diversiﬁcation in the course of economic\ndevelopment: Import -export analysis (Departmental Working Papers No. 2012–23). Department of\neconomics, management and quantitative methods, Universita `degli Studi di Milano.\nRauch, J. E., & Watson, J. (2003). Starting small in an unfamiliar environment. International Journal of\nIndustrial Organization, 21 (7), 1021–1042.\nRomer, P. (1987). Growth based on increasing returns due to specialization. American Economic Review,\n77(2), 56–62.\nRothschild, M. (1974). A two-armed bandit theory of market pricing. Journal of Economic Theory, 9 (2),\n185–202.OECD imports 23\n123\nSchott, P. (2004). Across-product versus within-product specialization in international trade. Quarterly\nJournal of Economics, 119 (2), 647–678.\nSen, A. (1997). On economic inequality . Oxford University Press, expanded edition with a substantial",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 84,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  },
+  {
+    "text": "Journal of Economics, 119 (2), 647–678.\nSen, A. (1997). On economic inequality . Oxford University Press, expanded edition with a substantial\nannexe by James E. Foster and Amartya Sen (ﬁrst published in 1973).\nTheil, H. (1972). Statistical decomposition analysis . Amsterdam: North Holland.\nTirole, J. (1996). A theory of collective reputation (with applications to the persistence of corruption and\nto ﬁrm quality). Review of Economic Studies, 63 (1), 1–22.\nWorld Bank. (2011). World development indicators . Washington, DC.24 O. Cadot et al.\n123",
+    "metadata": {
+      "source": "Cadot  Celine Carrere 2014.txt",
+      "chunk_id": 85,
+      "document": "Cadot  Celine Carrere 2014"
+    }
+  }
+]

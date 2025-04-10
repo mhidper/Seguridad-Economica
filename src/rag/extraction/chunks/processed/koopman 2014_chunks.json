@@ -1,0 +1,1106 @@
+[
+  {
+    "text": "American Economic Review 2014, 104(2): 459–494  \nhttp://dx.doi.org/10.1257/aer.104.2.459\n459Tracing Value-Added and Double Counting  \nin Gross Exports†\nBy Robert Koopman, Zhi Wang, and Shang-Jin Wei*\nThis paper proposes an accounting framework that breaks up a coun-\ntry’s gross exports into various value-added components by source and additional double-counted terms. Our parsimonious framework bridges a gap between official trade statistics ( in gross value terms) \nand national accounts ( in value-added terms) , and integrates all pre-\nvious measures of vertical specialization and value-added trade in the literature into a unified framework. To illustrate the potential of such a method,  we present a number of applications including re-comput-\ning revealed comparative advantages and the magnifying impact of multi-stage production on trade costs. ( JEL E01, E16, F14, F23, L14)\nAs different stages of production are now regularly performed in different coun-",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 0,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "As different stages of production are now regularly performed in different coun-\ntries, intermediate inputs cross borders multiple times. As a result, traditional trade \nstatistics become increasingly less reliable as a gauge of the value contributed by \nany particular country. This paper integrates and generalizes the many attempts \nin the literature at tracing value added by country and measuring vertical special-ization in international trade. We provide a unified conceptual framework that is more comprehensive than the current literature. By design, this is an accounting exercise, and does not directly examine the causes and the consequences of global production chains. However, an accurate and well-defined conceptual framework \nto account for value added by sources is a necessary step toward a better under -\nstanding of all these issues.\nSupply chains can be described as a system of value-added sources and destina-",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 1,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "to account for value added by sources is a necessary step toward a better under -\nstanding of all these issues.\nSupply chains can be described as a system of value-added sources and destina-\ntions. Within a supply chain, each producer purchases inputs and then adds value, \nwhich is included in the cost of the next stage of production. At each stage, the \nvalue added equals the value paid to the factors of production in the exporting \ncountry. However, as all official trade statistics are measured in gross terms, which \n* Koopman: Office of Operations, United States International Trade Commission, Washington, DC 20436 \n(e-mail: robert.koopman@usitc.gov); Wang: Office of Economics, United States International Trade Commission,",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 2,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Washington, DC 20436 (e-mail: zhi.wang@usitc.gov); Wei: Columbia Business School, Uris Hall, 3022 Broadway, Room 619 New York, NY 10027, Tsinghua Center for International Economic Research (CIER), and NBER (e-mail: sw2446@columbia.edu). The views in the paper are those of the authors and may not reflect the views of the USITC, its Commissioners, or any other organization that the authors are affiliated with. We thank William Powers for his contributions in the early stage of this research, Peter Dixon, Kei-Mu Yi, and Kunfu Zhu for con-structive and generous discussions, and five referees of this journal and numerous conference and seminar partici-pants for valuable comments, Paul Bernhard and Ravinder Ubee for efficient research assistance, and Nikhil Patel and Joy Glazener for editorial assistance. The authors declare that they have no relevant or material interests that are related to the research described in this paper.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 3,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "† Go to http://dx.doi.org/10.1257/aer.104.2.459 to visit the article page for additional materials and author dis-\nclosure statement(s).\n460\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\ninclude both intermediate inputs and final products, they “double count” the value \nof  intermediate goods that cross international borders more than once. Such a con-\nceptual and empirical shortcoming of gross trade statistics, as well as their inconsis-\ntency with the System of National Accounts (SNA ) accounting standards, has long \nbeen recognized by both the economics profession and policy makers.1\nCase studies on global value chains based on detailed micro data for a single prod-\nuct or a single sector in industries such as electronics, apparel, and motor vehicles \nhave provided detailed examples of the discrepancy between gross and value-added \ntrade. While enhancing our intuitive understanding of global production chains in",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 4,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "have provided detailed examples of the discrepancy between gross and value-added \ntrade. While enhancing our intuitive understanding of global production chains in \nparticular industries, they do not offer a comprehensive picture of the gap between value-added and gross trade, and an economy’s participation in cross-border pro-duction chains. Several researchers have examined the issue of vertical specializa-tion on a systematic basis, including the pioneering effort of Hummels, Ishii, and Yi (2001)—henceforth, HIY . They suggested that a country can participate in ver -\ntical specialization in two ways: (i) uses imported intermediate inputs to produce \nexports; (ii) exports intermediate goods that are used as inputs by other countries to \nproduce goods for export. HIY proposed to measure the imported foreign content in a country’s exports based on a country’s Input-Output (IO) table.\nThere are two key assumptions in HIY’s foreign content (VS) estimation: the",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 5,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "There are two key assumptions in HIY’s foreign content (VS) estimation: the \nintensity in the use of imported inputs is the same between production for exports and production for domestic sales; and imports are 100 percent foreign sourced. The first assumption is violated in the presence of processing exports, which is a significant portion of exports for a large number of developing countries (Koopman, Wang, and Wei 2008 and 2012). The second assumption does not hold when there is more than one country exporting intermediate goods.\nA growing recent literature aims to estimate value-added trade using global Inter-\nCountry  Input-Output (ICIO) tables based on the Global Trade Analysis Project \n(GTAP, Narayanan and Walmsley 2008) and World Input-Output database (WIOD, Timmer 2012), such as Daudin, Rifflart, and Schweisguth (2011), Johnson and Noguera (2012), and Stehrer, Foster, and de Vries (2012). Most of these papers",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 6,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "discuss the connections between their works with HIY , but are more closely related to the factor content trade literature, except Koopman et al. (2010). By integrating the literature on vertical specialization and the literature on trade in value added, this paper makes the following contributions:\nFirst, we provide a unified and transparent mathematical framework to completely \ndecompose gross exports into its various components, including exports of value \nadded, domestic value added that returns home, foreign value added, and other addi-\ntional double-counted terms. Measures of vertical specialization and trade in value added in the existing literature can be derived from this framework and expressed as some linear combinations of these components. We show why some existing mea-sures are special cases of the generalized measures in our framework and why some \nhave to be modified from their original definitions in a more general multi-country",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 7,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "have to be modified from their original definitions in a more general multi-country \nframework with unrestricted intermediate trade.\n1 See, for example, National Research Council (2006) and Grossman and Rossi-Hansberg (2008).\n461\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\nSecond, rather than simply excluding double-counted items from official trade \nstatistics, we provide an accounting formula that quantifies different types of \ndouble-counted items for the first time in the literature. Knowing the relative \nimportance of different double-counted items in a country’s gross exports can",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 8,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "double-counted items for the first time in the literature. Knowing the relative \nimportance of different double-counted items in a country’s gross exports can \nhelp us to gauge the depth and pattern of that country’s participation in global production chains. For example, in some sectors, China and the United States may have a similar amount of value-added exports. However, the composition of the double-counted terms can be very different. For China, the double-counted terms may show up primarily in the form of the use of foreign components ( e.g., \nforeign product designs or machinery)  in the final goods that China exports. For \nthe United States, the double-counted terms may show up primarily in the form of domestic value added finally returned and consumed at home ( e.g., product \ndesigns by Apple that are used in the final Apple products produced abroad but sold in the US market) . The structure of these double-counted items in addition to",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 9,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "designs by Apple that are used in the final Apple products produced abroad but sold in the US market) . The structure of these double-counted items in addition to \ntheir total sums offer additional information about the United States and China’s respective positions in the global value chain.\nThird, our accounting framework establishes a precise relationship between \n value-added measures of trade and official trade statistics, thus providing an observ-\nable benchmark for value-added trade estimates, as well as a workable way for national and international statistical agencies to remedy the missing information in \ncurrent official trade statistics without dramatically changing the existing data col-\nlection practices of national customs authorities.\nFourth, our estimated global ICIO table may better capture the international \nsource and use of intermediate goods than in previous databases in two ways. In estimating intermediate goods in bilateral trade, we use end-use classifications",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 10,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "source and use of intermediate goods than in previous databases in two ways. In estimating intermediate goods in bilateral trade, we use end-use classifications \n(intermediate or final)  of detailed import statistics rather than the conventional \nproportionality assumptions. In addition, we estimate separate input-output coef-\nficients for processing trade in China and Mexico, the two major users of such regimes in the world.\nFinally, we report a number of applications to illustrate the potential of our \napproach to reshape our understanding of global trade. For example, with gross \ntrade data, the business services sector is a revealed comparative advantage sector",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 11,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "approach to reshape our understanding of global trade. For example, with gross \ntrade data, the business services sector is a revealed comparative advantage sector \nfor India. In contrast, if one uses our estimated domestic value added in exports instead, the same sector becomes a revealed comparative disadvantage sector for India in 2004. The principal reason for this is how the indirect exports of busi-ness services are counted in high-income countries. Consider Germany. Most of its \nmanufacturing exports embed German domestic business services. In comparison, \nmost of Indian goods exports use comparatively little Indian business services. Once indirect exports of domestic business services are taken into account, Indian’s busi-ness service exports become much less impressive relative to Germany and many other developed countries. As another example, the value-added decomposition shows that a significant portion of China’s trade surplus to the United States in gross",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 12,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "trade terms reflects indirect value-added exports that China does on behalf of Japan, \nKorea and Taiwan. While such stories have been understood in qualitative terms, our framework offers a way to quantify these effects.\nThis paper is organized as follows. Section I presents the conceptual framework \nof gross exports accounting. Section II discusses database construction methods, \n462\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nespecially on how to estimate the required inter-country IO model from currently \navailable data sources. Section III presents a number of illustrative applications. Section IV concludes.\nI. Gross Exports Accounting: Concepts and Measurement\nA. Concepts\nFour measures have been proposed in the existing literature:",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 13,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "I. Gross Exports Accounting: Concepts and Measurement\nA. Concepts\nFour measures have been proposed in the existing literature:\n (i) The first measure of vertical specialization, proposed by HIY (2001), refers to the imported content in a country’s exports. This measure, labeled as VS, includes both the directly and indirectly imported input content in exports. In mathematical terms, it can be expressed as\n(1)  VS =  A \nM (I −  A D  ) −1 E.\n (ii) A second measure, also proposed by HIY (2001) and labeled as VS1, looks at \nvertical specialization from the export side, and measures the value of inter -\nmediate exports sent indirectly through third countries to final destinations. \nHowever, HIY did not provide a mathematical definition for VS1.\n (iii) A third measure is the value of a country’s exported goods that are used \nas imported inputs by the rest of the world to produce final goods that are shipped back to home. This measure was proposed by Daudin, Rifflart, and",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 14,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "as imported inputs by the rest of the world to produce final goods that are shipped back to home. This measure was proposed by Daudin, Rifflart, and \nSchweisguth (2011). Because it is a subset of VS1, they call it VS1\n*.\n (iv) A fourth measure is value-added exports, which is value added produced in source country s and absorbed in destination country r. Johnson and \nNoguera (2012) defined this measure and proposed to use the ratio of value-\nadded exports to gross exports, or the “V AX ratio” as a summary measure of \n value-added content of trade.\nBy definition, as value added is a “net” concept, double counting is not allowed. \nAs the first three measures of vertical specialization all involve values that show up",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 15,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "By definition, as value added is a “net” concept, double counting is not allowed. \nAs the first three measures of vertical specialization all involve values that show up \nin more than one country’s gross exports, they, by necessity, have to include some double-counted portions of the official trade statistics. This implies that these two types of measures are not equal to each other in general because double counting is only allowed in one of them. They become equal only in some special cases as we \nwill show later both analytically and numerically. In addition, these existing mea-\nsures are all proposed as stand-alone indicators. No common mathematical frame-work proposed in the literature provides a unified accounting for them and spells out their relationships explicitly.\nWe provide below a unified framework that breaks up a country’s gross exports \ninto the sum of various components. The value-added exports, VS, VS1, and VS1\n*",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 16,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "We provide below a unified framework that breaks up a country’s gross exports \ninto the sum of various components. The value-added exports, VS, VS1, and VS1\n* \nare linear combinations of these components. In addition, we show how one may \n463\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\ngeneralize the VS measure without the restrictive assumption made by HIY (no \n two-way trade in intermediate goods). By properly including various double-counted \nterms, our accounting is complete in the sense that the sum of these well-identified \ncomponents yields 100 percent of the gross exports.\nFor ease of understanding, we start with a discussion of a two-country one sector \ncase in Section II. We relate the components of our decomposition formula with",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 17,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "For ease of understanding, we start with a discussion of a two-country one sector \ncase in Section II. We relate the components of our decomposition formula with \nthe existing measures in the literature in Section III. We provide several numeri-cal examples in Section IV to show intuitively how our gross exports account-ing equation  works. Finally, we present the most general G -country  N-sector  \ncase.\nB. Two-Country Case\nAssume a two-country (home and foreign) world, in which each country  pro-\nduces in a single tradable sector. The good in that sector can be consumed directly or used as an intermediate input, and each country exports both intermediate and final goods to the other.\nAll gross output produced by Country s must be used as either an intermediate \ngood or a final good, either at home or abroad. So Country s’ gross output,  x \ns , has to \nsatisfy the following accounting relationship:\n(2)  x s  =  a ss   x s  +  a sr   x r  +  y ss  +  y sr ,  r,s  = 1, 2,",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 18,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "s , has to \nsatisfy the following accounting relationship:\n(2)  x s  =  a ss   x s  +  a sr   x r  +  y ss  +  y sr ,  r,s  = 1, 2,\nwhere  y sr  is the final demand in Country r for the final good produced in Country s, \nand  a sr  is the input-output (IO) coefficient, describing units of intermediate goods \nproduced in s  used in the production of one unit gross output in Country r . The two-\ncountry production and trade system can be written as an inter-country input-output \n(ICIO)  model as follows:\n(3)  x 1 \n =  a 11  a 12  x 1 \n+ y 11  +  y 12  .\n x 2  a 21  a 22  x 2  y 21  +  y 22 \nWith rearranging, we have\n(4)  x 1  = I −  a 11 − a 12 −1\n y 11  +  y 12  =  b 11  b 12  y 1  .\n  x 2 − a 21 I −  a 22  y 21  +  y 22  b 21  b 22  y 2 \nSince equation  (4) takes into account both the direct and indirect use of a coun-\ntry’s gross output as intermediate goods in the production of its own and foreign",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 19,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Since equation  (4) takes into account both the direct and indirect use of a coun-\ntry’s gross output as intermediate goods in the production of its own and foreign \nfinal goods, the coefficients in the B matrix ( Leontief inverse)  are referred to as \n“total requirement coefficients” in the input-output literature. Specifically,  b 11  \nis the total amount of Country 1’s gross output needed to produce an extra unit \nof the final good in Country 1 ( which is for consumption in both Countries 1  \n464\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nand 2) ;  b 12  is the total amount of Country 1’s gross output needed to produce an \nextra unit of the final good in Country 2 ( again for consumption both at home \nand abroad) . Similar interpretations can be assigned to the other two coefficients \nin the B matrix.\nWe can break up each country’s gross output according to where it is ultimately \nabsorbed by rearranging both countries’ final demand into a matrix format by source",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 20,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "in the B matrix.\nWe can break up each country’s gross output according to where it is ultimately \nabsorbed by rearranging both countries’ final demand into a matrix format by source \nand destination, and rewrite equation (4) as follows:\n(5) x 11  x 12 \n= b 11  b 12  y 11  y 12 \n= b 11  y 11  +  b 12   y 21  b 11  y 12  +  b 12   y 22 ,\n x 21  x 22  b 21  b 22  y 21  y 22  b 21  y 11  +  b 22   y 21  b 21  y 12  +  b 22   y 22 \nwhere ysr is as defined in equation (2), giving the final goods produced in Country s \nand consumed in Country r. This final demand matrix in the middle of equation (5) \nis a 2 × 2 matrix, summing along each row of the matrix equals ys , which repre-\nsents the global use of the final goods produced in each country as specified in \nequation (4).\nWe label the 2 × 2 matrix on the left-hand side of equation  (5) the “gross out-\nput decomposition matrix.” It fully decomposes each country’s gross outputs according to where it is absorbed. Each element  x",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 21,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "put decomposition matrix.” It fully decomposes each country’s gross outputs according to where it is absorbed. Each element  x \nsr  is the gross output in source \nCountry s necessary to sustain final demand in destination Country r. Summing \nalong its row equals total gross output in Country s,  x s  as specified in equation (2). \nFor example, it breaks up Country 1’s gross output  x 1  into two parts:  x 1  =  x 11  +  x 12 .  \nWhile  x 11  is the part of Country 1’s gross output that is ultimately absorbed in Country 1,  \nx 12  is the part of Country 1’s gross output that is ultimately absorbed in Country 2.\nThe RHS of equation  (5) further decomposes  x 11  itself into two parts:  \n x 11  =  b 11  y 11  +  b 12   y 21 . The first part,  b 11  y 11  is the part of Country 1’s gross output \nrequired to produce Country  1’s final good that is consumed in Country  1. The \nsecond part,  b 12   y 21 , is the part of Country 1’s gross output that is exported as an",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 22,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "required to produce Country  1’s final good that is consumed in Country  1. The \nsecond part,  b 12   y 21 , is the part of Country 1’s gross output that is exported as an \nintermediate good, and eventually returns home as part of Country 1’s imports from \nabroad (embedded in foreign final goods).\nSimilarly,  x 12  can also be decomposed into two parts:  x 12  =  b 11   y 12  +  b 12   y 22 . The \nfirst part,  b 11  y 12  is the part of Country 1’s gross output that is used to produce exported \nfinal good that is consumed abroad.  b 12   y 22  is the part of Country 1’s gross output \nthat is exported as an intermediate good and used in Country 2 to produce final good \nthat is consumed there. Of course,  x 1  =  x 11  +  x 12  is nothing but Country 1’s total \noutput. By assumption, they are produced by the same technology and therefore \nhave the same share of domestic value added.\nBy the same interpretation, Country 2’s gross output also can be first broken",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 23,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "have the same share of domestic value added.\nBy the same interpretation, Country 2’s gross output also can be first broken \nup into two parts:  x 2  =  x 21  +  x 22 .  x 21  is Country 2’s gross output that is ultimately \nabsorbed in Country  1, which can be in turn broken up to  b 21  y 11  +  b 22   y 21 .  x 22  is \nCountry 2’s domestic absorption of its own gross output, and can be further broken \nup to  b 21  y 12  +  b 22   y 22 .\nBy definition, to produce one unit of Country  1’s good, a11 units of domestic \nintermediate good is used, and a21 units of imported intermediate good is used. \nTherefore, the fraction of domestic output that represents the domestic value added \nin Country 1 is  v 1  = 1 −  a 11  −  a 21 . Similarly, the share of domestic value added in \n465\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\nCountry 2’s gross output is:  v 2  = 1 −  a 12  −  a 22 . Therefore, we can define a 2 × 2 \ndirect value-added coefficient matrix as",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 24,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Country 2’s gross output is:  v 2  = 1 −  a 12  −  a 22 . Therefore, we can define a 2 × 2 \ndirect value-added coefficient matrix as\n(6) V =  [   \n  v 1    \n0 \n    \n  0   \n v 2     ] .\nMultiplying V with the Leontief inverse B produces the 2 × 2 value-added share \n(VB) matrix, our basic measure of value-added shares by source of production:\n(7) VB =  [   \n  v 1   b 11    \n v 2   b 21     \n  v 1   b 12    \n v 2   b 22     ] .\nWithin VB,  v 1  b 11  and  v 2   b 22  denote the domestic value-added share of domestically \nproduced products for Country 1 and Country 2 respectively;  v 2   b 21  and  v 1  b 12  denote \nthe share of foreign country’s value added in the same goods. Because all value \nadded must be either domestic or foreign, the sum along each column is unity2:\n(8)  v 1   b 11  +  v 2   b 21  =  v 1   b 12  +  v 2   b 22  = 1.\nGiven the assumption on the input-output coefficients, there is no difference in",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 25,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "(8)  v 1   b 11  +  v 2   b 21  =  v 1   b 12  +  v 2   b 22  = 1.\nGiven the assumption on the input-output coefficients, there is no difference in \nthe share of domestic value added in Country 1’s production for goods absorbed at \nhome versus its production for exports.3 Therefore, the total domestic value added in \nCountry 1’s gross output is simply  v 1   x 1 ; it is Country 1’s GDP by definition.\nThe total value added in Country 1’s gross outputs can be easily broken up into \ntwo parts based on where it is ultimately absorbed:  v 1   x 1  =  v 1   x 11  +  v 1   x 12 where  \n v 1   x 11  is the domestic value added that is ultimately absorbed at home, and  v 1   x 12  is \nthe domestic value added that is ultimately absorbed abroad.\nThe last part,  v 1   x 12 , is also Country 1’s exports of value added. It is instructive \nto decompose the last item further. Since  v 1   x 12  =  v 1   b 11   y 12  +  v 1   b 12   y 22 , Country 1’s",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 26,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "to decompose the last item further. Since  v 1   x 12  =  v 1   b 11   y 12  +  v 1   b 12   y 22 , Country 1’s \nexports of value added has two components: Country 1’s value added embedded \nin Country 1’s exports of final good that is absorbed in Country 2 ( v 1   b 11   y 12 ); and \nCountry 1’s value added in its exports of intermediate good that is used by Country 2 \nto produce final good that is ultimately locally consumed ( v 1   b 12   y 22 ).\nNote that  v 1   x 12  is conceptually the same as Country 1’s value-added exports as \ndefined by Johnson and Noguera (2012) except that we express it as the sum of two \ncomponents related only to the final demand in the two countries. To summarize, \nCountry 1’s and 2’s “value-added exports” are, respectively,\n(9)  V T 12  ≡  v 1   x 12  =  v 1   b 11   y 12  +  v 1   b 12   y 22 \n  V T 21  ≡  v 2   x 21  =  v 2   b 21   y 11  +  v 2   b 22   y 21  .",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 27,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "(9)  V T 12  ≡  v 1   x 12  =  v 1   b 11   y 12  +  v 1   b 12   y 22 \n  V T 21  ≡  v 2   x 21  =  v 2   b 21   y 11  +  v 2   b 22   y 21  .\n2 Note that the VB matrix is not any arbitrary share matrix, but rather the one that reflects the underlying pro-\nduction structure embedded in the ICIO model specified in equation (3). It contains all the needed information on \nvalue-added production by source.\n3 Such an assumption is maintained by HIY (2001), Johnson and Noguera (2012), and Daudin, Rifflart, and \nSchweisguth (2011). One might allow part of the production for exports (processing exports) to take on different \ninput-output coefficients. Such a generalization is pursued by Koopman, Wang, and Wei (2012), who have worked out a generalized formula for computing the share of domestic value added in a country’s gross exports when pro-cessing trade is prevalent.\n466\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 28,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "466\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nIntuitively, there are at least two reasons for a country’s exports of value added \nto be smaller than its gross exports to the rest of the world. First, the production for \nits exports may contain foreign value added or imported intermediate goods (a). \nSecond, part of the domestic value added that is exported may return home after \nbeing embodied in the imported foreign goods rather than being absorbed abroad (b). \nIn other words, exports of value added are a net concept; it has to exclude from the gross exports both foreign value added and the part of domestic value added that is imported back to home.\nIdentifying and estimating these double-counted terms in gross exports have \nimportant implications for measuring each country’s position in global value-chains. For example, two countries can have identical ratios of value-added exports to gross exports but very different ratios of (a) and (b). Those countries that are mainly",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 29,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "upstream in global production chains, such as product design, tend to have a large value of (b) but a small value of (a). In comparison, those countries mainly special-\nizing in assembling imported components to produce final products tend to have \na small value of (b) but a big value of (a). However, the existing literature lacks a uniform and transparent framework to compute exports of value added, part (a) and \npart (b) simultaneously. We venture to do this next. Without loss of generality, let us \nwork with Country 1’s gross exports first:\n(10)  e \n12  =  y 12  +  a 12   x 2  .\nIt says that Country  1’s exports consist of final goods and intermediate goods. \nCombining (10) with equation (8), we have\n(11)   e 12  = ( v 1   b 11  +  v 2   b 21 )( y 12  +  a 12   x 2 )\n  =  v 1   b 11   y 12  +  v 2   b 21   y 12  +  v 1   b 11   a 12   x 2  +  v 2   b 21   a 12   x 2 \n  =  v 1   b 11   y 12  +  v 2   b 21   y 12  +  v 1   b 12   y 22  +  v 1   b 12   y 21",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 30,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "=  v 1   b 11   y 12  +  v 2   b 21   y 12  +  v 1   b 11   a 12   x 2  +  v 2   b 21   a 12   x 2 \n  =  v 1   b 11   y 12  +  v 2   b 21   y 12  +  v 1   b 12   y 22  +  v 1   b 12   y 21  \n  +  v 1   b 12   a 21   x 1  +  v 2   b 21   a 12   x 2  .\nA step-by-step proof of  v 1   b 11   a 12   x 2  =  v 1   b 12   y 22  +  v 1   b 12   y 21  +  v 1   b 12   a 21   x 1  can be \nfound in online Appendix A.\nHere we give the economic intuition behind it. The total value of Country 1’s \nintermediate exports must include two types of value. First, it must include all \nvalue added by Country 1 in its imports from Country 2. To see this, we note that in order for exported value produced by Country 1 to come back through its imports, it must have first been embodied in Country 1’s intermediate exports, which is  v \n1   b 12   y 21  +  v 1   b 12   a 21   x 1 . Second, it must include all value added generated",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 31,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "1   b 12   y 21  +  v 1   b 12   a 21   x 1 . Second, it must include all value added generated \nin Country 1 that is absorbed in Country 2 after being used as intermediate inputs \nby Country 2, which is  v 1   b 12   y 22 .\nNote that multiplying the Leontief inverse with intermediate goods exports leads \nto some double counting of gross output and thus some value terms in exports. \n467\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\nHowever, in order to account for 100 percent of the value of Country 1’s inter -\nmediate goods exports and to identify what is double counted, we have to include \nthem into the accounting equation first. By decomposing the last two terms in equa-\ntion (11) further, we can see precisely what is double counted. Using the gross \noutput identity (equation (2))  x 1  =  y 11  +  a 11   x 1  +  e 12  and  x 2  =  y 22  +  a 22   x 2  +  e 21 ,  it is easy to show that",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 32,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "output identity (equation (2))  x 1  =  y 11  +  a 11   x 1  +  e 12  and  x 2  =  y 22  +  a 22   x 2  +  e 21 ,  it is easy to show that\n(12)   x 1  = (1 −  a 11  ) −1   y 11  + (1 −  a 11  ) −1   e 12 \n   x 2  = (1 −  a 22  ) −1   y 22  + (1 −  a 22  ) −1   e 21  .\n(I −  a 11  ) −1  y 11  is the gross output needed to sustain final goods that are both pro-\nduced and consumed in Country 1, using domestically produced intermediate \ngoods; deducting it from Country 1’s total gross output, what is left is the gross \noutput needed to sustain Country 1’s production of its gross exports  e 12 . Therefore \nthe two terms in the right-hand side of equation (12) both have straightforward \neconomic meanings. We can further show that  b 12   a 21 (1 −  a 11  ) −1   y 11  =  b 11   y 11  −  \n(1 −  a 11  ) −1   y 11  (see proof, also in online Appendix A), which is the total gross out-\nput needed to sustain final goods both produced and consumed in Country 1, but",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 33,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "(1 −  a 11  ) −1   y 11  (see proof, also in online Appendix A), which is the total gross out-\nput needed to sustain final goods both produced and consumed in Country 1, but \nusing intermediate goods that originated in Country 1 and shipped to Country 2 \nfor processing before being re-imported by Country 1 (gross output sold indi-rectly in the domestic market). These two parts plus  b \n12   y 21 sum to  x 11  in equa-\ntion (5), which is the gross output of Country 1 absorbed in Country 1 to sustain \nits domestic final demand both directly and indirectly. It indicates that Country 1’s \ndomestic final demand is satisfied by three production channels: (i) (1 −  a 11  ) −1   y 11   \nis part of Country 1’s gross output sold directly in the domestic market that is \nconsumed there; (ii)  b 12   y 21  is part of Country 1’s gross output used as intermedi-\nate goods by Country 2 to produce final goods that are consumed in Country 1;",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 34,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "consumed there; (ii)  b 12   y 21  is part of Country 1’s gross output used as intermedi-\nate goods by Country 2 to produce final goods that are consumed in Country 1;  \n(iii)  b 12   a 21 (1 −  a 11  ) −1   y 11  is part of Country 1’s gross output used as intermediate \ngoods by Country 2 to produce intermediate goods that are exported to country 1 \nto produce final goods in Country 1 that are consumed there. They are all needed to \nsustain the domestic final demand in Country 1, but they differ in terms of how they \nparticipate in international trade.\nReplacing  x 1  by (1 −  a 11  ) −1  y 11  + (1 −  a 11  ) −1   e 12  and  x 2  by (1 −  a 22  ) −1   y 22  + \n(1 −  a 22  ) −1   e 21  in equation  (11), and rearranging terms, we can fully decompose \nCountry 1’s gross exports into its various value-added and double-counted compo-\nnents as follows:\n(13)  e 12  =  v 1   b 11   e 12  +  v 2   b 21   e 12  = [ v 1   b 11   y 12  +  v 1   b 12   y 22 ]",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 35,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "nents as follows:\n(13)  e 12  =  v 1   b 11   e 12  +  v 2   b 21   e 12  = [ v 1   b 11   y 12  +  v 1   b 12   y 22 ]\n + [ v 1   b 12   y 21  +  v 1   b 12   a 21 (1 −  a 11  ) −1   y 11 ] +  v 1   b 12   a 21 (1 −  a 11  ) −1   e 12 \n + [ v 2   b 21   y 12  +  v 2   b 21   a 12 (1 −  a 22  ) −1   y 22 ] +  v 2   b 21   a 12 (1 −  a 22  ) −1   e 21  .\nWhile the algebra to arrive at equation (13) may be a bit tedious, expressing a \ncountry’s gross exports as the sum of these eight terms on the right-hand side of equa-\ntion (13) is very useful. We go over their economic interpretations systematically.\n468\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nThe first two terms in equation  (13) (or the two terms in the first square bracket) \nare value-added exports, i.e., Country 1’s domestic value added absorbed outside \nCountry 1.\nThe third term,  v 1   b 12   y 21  is Country 1’s domestic value added that is initially embod-",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 36,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "are value-added exports, i.e., Country 1’s domestic value added absorbed outside \nCountry 1.\nThe third term,  v 1   b 12   y 21  is Country 1’s domestic value added that is initially embod-\nied in its intermediate exports but is returned home as part of Country 1’s imports of \nthe final good. The fourth term,  v 1   b 12   a 21 (1 −  a 11  ) −1   y 11 , is also Country 1’s domestic \nvalue added that is initially exported by Country 1 as part of its intermediate goods \nto Country 2, but then is returned home via its intermediate imports from Country 2 \nto produce final goods that are absorbed at home. Both the third and the fourth terms \nare domestic value added produced in Country 1, exported to Country 2, but then return to and stay in Country 1. Both are counted at least twice in trade statistics as they first leave Country 1 for Country 2, and then leave Country 2 for Country 1 ( and \nultimately stay in Country 1) . Note that the value represented by these two terms can",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 37,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "ultimately stay in Country 1) . Note that the value represented by these two terms can \nbe embodied in trade transactions that cross borders back and forth more than twice as \nlong as they originate in Country 1 and are ultimately consumed in Country 1.\nThe fifth term,  v \n1   b 12   a 21 (1 −  a 11  ) −1   e 12 , may be called a “pure double-counted \nterm.” The reason for labeling it as such will become clear after we present a similar \ndissection of Country 2’s gross exports and a further decomposition of this term. \nThis term only occurs when both countries export intermediate goods. If at least one \ncountry does not export intermediate goods (i.e., no two-way trade in intermediate goods), this terms disappears.\nThe sixth term, v \n2   b 21   y 12 , is the foreign value added in Country 1’s gross exports of \nfinal goods; and the seventh term,  v 2   b 21   a 12 (1 −  a 22  ) −1   y 22 , is the foreign value added",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 38,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "2   b 21   y 12 , is the foreign value added in Country 1’s gross exports of \nfinal goods; and the seventh term,  v 2   b 21   a 12 (1 −  a 22  ) −1   y 22 , is the foreign value added \nin Country 1’s gross exports of intermediate goods. They both ultimately go back to \nthe foreign country and are consumed there.\nThe eighth (and the last) term is another pure double-counted item in Country 1’s \ngross exports. Similar to the fifth term, this term would disappear if at least one country does not export intermediate goods.\nIn a similar way, we can express Country 2’s gross exports as a sum of eight terms:\n(14)  e \n21  =  v 1   b 12   e 21  +  v 2   b 22   e 21  = [ v 2   b 22   y 21  +  v 2   b 21   y 11 ]\n + [ v 2   b 21   y 12  +  v 2   b 21   a 12 (1 −  a 22  ) −1   y 22 ] +  v 2   b 21   a 12 (1 −  a 22  ) −1   e 21 \n + [ v 1   b 12   y 21  +  v 1   b 12   a 21 (1 −  a 11  ) −1   y 11 ] +  v 1   b 12   a 21 (1 −  a 11  ) −1   e 12  .",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 39,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "+ [ v 1   b 12   y 21  +  v 1   b 12   a 21 (1 −  a 11  ) −1   y 11 ] +  v 1   b 12   a 21 (1 −  a 11  ) −1   e 12  .\nComparing equations ( 13) and ( 14), there are a few noteworthy features. First, the \nthird, fourth, and fifth terms in Country 1’s gross exports ( 13) are identical to the sixth, \nseventh, and eighth terms in Country 2’s exports ( 14), and vice versa. This means \nthat the value added, that is initially produced and exported by Country 1 but then re-\nimported by Country 1, is exactly the same as foreign value added in Country 2’s gross exports to Country 1. Symmetrically, the foreign value added in Country 1’s gross exports to Country 2, is the same as Country 2’s value added, initially produced and \nexported by Country 2, but reappears as part of Country 1’s gross exports to Country 2.\nSecond, while the first and second terms in equations (13) and \n(14) constitute \nvalue-added exports, all other terms are double-counted components in a  country’s",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 40,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Second, while the first and second terms in equations (13) and \n(14) constitute \nvalue-added exports, all other terms are double-counted components in a  country’s \nofficial exports statistics. However, there are conceptually interesting differences \n469\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\namong the third and the fourth terms as the first group, the sixth and the  seventh \nterms as the second group, and the fifth and eighth terms as the third group. The \ndifferences are revealed when comparing them to the two countries’ GDP. More \nprecisely, a country’s GDP is the sum of its value-added exports plus its domestic \nvalue added consumed at home:\n(15)   GDP 1  =  v 1   x 1  =  v 1 ( b 11   y 12  +  b 12   y 22  +  b 12   y 21  +  b 11   y 11 )\n =  v 1  { b 11   y 12  +  b 12   y 22  + [ b 12   y 21  +  b 12   a 21 (1 −  a 11  ) −1   y 11 ]}\n +  v 1 (1 −  a 11  ) −1   y 11",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 41,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "=  v 1  { b 11   y 12  +  b 12   y 22  + [ b 12   y 21  +  b 12   a 21 (1 −  a 11  ) −1   y 11 ]}\n +  v 1 (1 −  a 11  ) −1   y 11 \n(16)   GDP 2  =  v 2   x 2  =  v 2 ( b 21   y 11  +  b 22   y 21  +  b 21   y 12  +  b 22   y 22 )\n =  v 2  { b 21   y 11  +  b 22   y 21  + [ b 21   y 12  +  b 21   a 12 (1 −  a 22  ) −1   y 22 ]}\n +  v 2 (1 −  a 22  ) −1   y 22  .\nThe last term in each GDP equation is value-added produced and consumed at home \nthat are not related to international trade; while the first four terms in the bracket in \neach GDP equation are exactly the same as the first four terms in equations ( 13) and \n(14). It is easy to show that the sum of global GDP always equals global final demand:\n(17) GD P 1  +  GDP 2  =  v 1   x 1  +  v 2   x 2  = (1 −  a 11  −  a 21 ) x 1  + (1 −  a 12  −  a 22 ) x 2 \n =  x 1  −  a 11   x 1  −  a 12   x 2  +  x 2  −  a 21   x 1  −  a 22   x 2  =  y 1  +  y 2  .",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 42,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "=  x 1  −  a 11   x 1  −  a 12   x 2  +  x 2  −  a 21   x 1  −  a 22   x 2  =  y 1  +  y 2  .\nEquations (15) and ( 16) show that the third and fourth terms in equations ( 13) and \n(14) are counted as part of the home country’s GDP ( even though they are not part \nof the home country’s exports of value added) . Because they represent a country’s \ndomestic value added that is initially exported but imported back and consumed in \nthe initial producing country, they are part of the value added created by domestic production factors. The sixth and seventh terms represent the foreign value added in a country’s exports that are ultimately absorbed in the foreign country. They are counted \nonce as part of the foreign country’s GDP in equations ( 15) and ( 16). In comparison, \nbecause a combination of the part of GDP that is consumed at home and exports of",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 43,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "once as part of the foreign country’s GDP in equations ( 15) and ( 16). In comparison, \nbecause a combination of the part of GDP that is consumed at home and exports of \nvalue added yields 100 percent of a country’s GDP, the fifth and eighth terms are not part of either country’s GDP. In this sense, they are “pure  double-counted terms.”\nSubtracting global GDP from global gross exports using equations (13), (14), \n(15), and (16) yields the following:\n(18)  \ne 12  +  e 21   −  GD  P 1   −   GDP 2  =  v 1  [ b 12   y 21  +  b 12   a 21 (1 −  a 11  ) −1   y 11 ]\n  +  v 2  [ b 21   y 12  +  b 21   a 12  (1 −  a 22  ) −1   y 22 ]\n  + 2 v 1   b 12   a 21 (1 −  a 11  ) −1   e 12   +  2 v 2   b 21   a 12  (1 −  a 22  ) −1   e 21 \n  − [ v 1 (1 −  a 11  ) −1   y 11  +  v 2 (1 −  a 22  ) −1   y 22 ].\n470\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nEquation (18) shows clearly that besides the value added produced and consumed at",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 44,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "− [ v 1 (1 −  a 11  ) −1   y 11  +  v 2 (1 −  a 22  ) −1   y 22 ].\n470\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nEquation (18) shows clearly that besides the value added produced and consumed at \nhome (in the last square bracket), which is not a part of either country’s gross exports, \nthe sixth and seventh terms in equation (13),  v 2 [ b 21   y 12  +  b 21   a 12 (1 −  a 22  ) −1   y 22 ],  \nand the sixth and seventh terms in equation (14)  v 1 [ b 12   y 21  +  b 12   a 21 (1 −  a 11  ) −1   y 11 ],  \nare double counted only once as foreign value added in the other country’s gross \nexports. Because the third and fourth terms in (13) and (14) reflect part of the coun-\ntries’ GDP, they are not double counted from the global GDP point of view. In com-\nparison, both the fifth and eighth terms are counted twice relative to the global GDP since they are not a part of either country’s GDP.\nThird, the nature of the fifth and eighth terms can be better understood if we break",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 45,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Third, the nature of the fifth and eighth terms can be better understood if we break \nthem up further. In particular, with a bit of algebra, they can be expressed as linear combinations of components of the two countries’ final demand:\n(19)   v \n1   b 12   a 21 (1 −  a 11  ) −1   e 12 \n    =  b 12   a 21 [ v 1   b 11   y 12  +  v 1   b 12   y 22  +  v 1   b 12   y 21  +  v 1   b 12   a 21 (1 −  a 11  ) −1   y 11 ]\n(20)4 v 2   b 21   a 12 (1 −  a 22  ) −1   e 21 \n   =  b 21   a 12 [ v 2   b 21   y 11  +  v 2   b 22   y 21  +  v 2   b 21   y 12  +  v 2   b 21   a 12 (1 −  a 22  ) −1   y 22 ].\nThe four terms inside the square bracket on the RHS of equation (19) are exactly \nthe same as the first four terms in the gross exports accounting equation  (13). A \nsimilar statement can be made about the four terms inside the square bracket in \nequation  (20) to gross export accounting equation  (14). This means that the fifth and",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 46,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "similar statement can be made about the four terms inside the square bracket in \nequation  (20) to gross export accounting equation  (14). This means that the fifth and \nthe eighth terms double count a fraction of both a country’s value-added exports and its domestic value added that has been initially exported but are eventually returned home. Just to belabor the point, unlike the other terms in equation  (13) that are parts \nof some countries’ GDP, the fifth and the eighth terms over-count the values that are already captured by other terms in gross exports. Again, this feature suggests that they are “pure double-counted terms.”\nNote, if Country 2 does not export any intermediate goods, then  a \n21  =  b 21  = 0, and \nthe entire RHS of equations (20) and (19) would vanish. Alternatively, if Country 1 does not export intermediate goods, then  a \n12  =  b 12  = 0, the entire RHS of equations \n(19) and (20) would also vanish. In other words, the fifth and eighth terms exist only",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 47,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "12  =  b 12  = 0, the entire RHS of equations \n(19) and (20) would also vanish. In other words, the fifth and eighth terms exist only \nwhen two-way trade in intermediate goods exist so that some value added is shipped \nback and forth as a part of intermediate trade between the two countries. Because the \neight components of equations (13) and (14) collectively constitute 100 percent of \na country’s gross exports, missing any part, including the two pure double-counted terms, would yield an incomplete accounting of the gross exports.\nFinally, while the fifth and eighth terms in equation  (13) are (double-counted) val -\nues in intermediate goods trade that are originated in Countries 1 and 2, respectively, \nwe cannot directly see where they are absorbed. By further partitioning the fifth and \n4 Proofs of equations (18), (19), and (20) are provided in online Appendix A.\n471\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 48,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "4 Proofs of equations (18), (19), and (20) are provided in online Appendix A.\n471\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\neighth terms, we can show where they are finally absorbed and interpret the absorp-\ntion by input/output economics. With a bit of algebra, we can show5\n(21)   v 1   b 12   a 21 (1 −  a 11  ) −1   e 12  +  v 2   b 21   a 12 (1 −  a 22  ) −1   e 21 \n    =   a 12 [ b 21   y 12  +  b 21   a 12 (1 −  a 22  ) −1   y 22 ] \n  +  a 21 [ b 12   y 21  +  b 12   a 21 (1 −  a 11  ) −1   y 11 ].\nTherefore, the sum of fifth and eighth terms in equation  (13) is equivalent to the \nsum of the four terms in the RHS of equation  (21). From equation  (5), it is easy \nto see that the terms in the square bracket in equation  (21) are parts of  x 22  and  x 11 ,  \nwhich are trade-related portions of gross output that are both originally produced \nand finally consumed in the source country; therefore they are part of each country’s",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 49,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "which are trade-related portions of gross output that are both originally produced \nand finally consumed in the source country; therefore they are part of each country’s \ngross intermediate exports ( a 12   x 2  and  a 21   x 1 ). Since the value added embodied in \nthose intermediate goods are already counted once in the production of each coun-\ntry’s GDP (the third and fourth, terms in equations (13) and (14)), they are double \ncounted in value-added (GDP) terms. As we pointed earlier, the exact same terms will also appear in Country 2’s official exports statistics.\nDue to the presence of these types of conceptually different double counting \nin a country’s gross exports, we may separately define “domestic value added in exports”(part of a country’s GDP in its exports) and “domestic content in exports.” The former excludes the pure double-counted intermediate exports that return home; \nwhereas the latter is the former plus the pure double-counted term.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 50,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "whereas the latter is the former plus the pure double-counted term.\nC. Using the Accounting Equation to Generate Measures  \nof Vertical Specialization\nWe can relate the definitions of the three concepts to components in  equation  (13). \nCountry 1’s exports of value added are the sum of the first and the second term. \nIt takes into account both where the value is created and where it is absorbed. Country 1’s value added in its exports is the sum of its exports of value added and the \nthird and the fourth terms. This concept takes into account where the value is created but not where it is absorbed. Obviously, Country 1’s “value added in its exports” is \ngenerally greater than its “exports of value added.” Finally, the domestic content in",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 51,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "generally greater than its “exports of value added.” Finally, the domestic content in \nCountry 1’s exports is Country 1’s value added in its exports plus the fifth term, the double-counted intermediate goods exports that are originated in Country 1. This last concept also disregards where the value is ultimately absorbed. By assigning the fifth term to the domestic content in Country 1’s exports, and the eighth term to the \nforeign content in Country 1’s exports, we can achieve the property that the sum of \nthe domestic content and the foreign content yields the total gross exports. We will justify these definitions in what follows.\nWe already show that the first two terms in equation  (13) correspond to  value-added \nexports as proposed in Johnson and Noguera ( 2012) . We now link other  measures in \n5 A step-by-step proof is in online Appendix A.\n472\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nthe literature to linear combinations of the components in the same gross exports",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 52,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "5 A step-by-step proof is in online Appendix A.\n472\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nthe literature to linear combinations of the components in the same gross exports \naccounting equation. Following HIY’s original ideas, Koopman, Wang, and Wei (2008 and 2012)  have shown that gross exports can be decomposed into domes-\ntic content and foreign content/ vertical specialization ( VS) in a single country IO \nmodel without two-way international trade in intermediate goods. If we were to maintain HIY’s assumption that Country 1 does not export intermediate good ( i.e., \n a \n12  =  b 12  = 0), then the two pure double-counted terms, or the fifth and the eighth \nterms in equation  (13) are zero. In this case, we can easily verify that the sum of the \nlast four terms in equation  (13) is identical to the VS measure in the HIY ( 2001)  paper.\nTo remove the restriction that HIY imposed on intermediate trade, we have to",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 53,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "last four terms in equation  (13) is identical to the VS measure in the HIY ( 2001)  paper.\nTo remove the restriction that HIY imposed on intermediate trade, we have to \ndetermine how to allocate the two pure double-counted terms. We choose to allo-\ncate the double-counted intermediate exports according to where they are originally produced. That is, even though the fifth term in equation  (13) reflects pure double \ncounting, it nonetheless is originally produced in Country 1 and therefore can be treated as part of Country 1’s domestic content. Similarly, we allocate the eighth \nterm to the foreign content in Country 1’s exports. Such a definition is consistent",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 54,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "term to the foreign content in Country 1’s exports. Such a definition is consistent \nwith HIY’s original idea that a country’s gross exports consist of either domestic or foreign content and the major role of their VS measure is to quantify the extent to which intermediate goods cross international borders more than once. It is also computationally simple because the share of domestic and foreign content can be \nobtained directly from the VB matrix.\nHowever, since the fifth term reflects double-counted intermediate goods in a \ncountry’s gross exports, we may wish to exclude it if we are to consider which part \nof Country 1’s GDP is exported. In particular, we define “domestic value added in Country  1’s gross exports” ( regardless of where the exports are ultimately \nabsorbed)  as the sum of the first four terms on the RHS of equation  (13). This vari-\nable can be shown to equal  v \n1 (1 −  a 11  ) −1   e 12 , part of equation  (12), Country 1’s \ngross output identity.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 55,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "able can be shown to equal  v \n1 (1 −  a 11  ) −1   e 12 , part of equation  (12), Country 1’s \ngross output identity.\n(22) D V 1  =  v 1 (1 −  a 11  ) −1   e 12  =  v 1 (1 −  a 11  ) −1 (  y 12  +  a 12   x 2 )\n =  v 1 (1 −  a 11  ) −1  [  y 12  +  a 12 ( b 21   y 11  +  b 22   y 21  +  b 21   y 12  +  b 22   y 22 )]\n =  v 1 (1 −  a 11  ) −1  [(1 +  a 12   b 21 )  y 12  +  a 12 ( b 21   y 11  +  b 22   y 21  +  b 22   y 22 )]\n =  v 1 (1 −  a 11  ) −1  {(1 −  a 11 ) b 11   y 12  + (1 −  a 11 ) b 12 (  y 21  +  y 22 ) \n + [(1 −  a 11 ) b 11  − 1]  y 11 }\n =  v 1   b 11   y 12  +  v 1   b 12   y 22  +  v 1   b 12   y 21  +  v 1 [ b 11  − (1 −  a 11  ) −1 ]  y 11 \n =  v 1   b 11   y 12  +  v 1   b 12   y 22  +  v 1 [ b 12   y 21  +  b 12   a 21 (1 −  a 11  ) −1   y 11 ].\nThe derivation uses the property of inverse matrix (1 −  a 11 ) b 11  = 1 +  a 12   b 21  and \n(1 −  a 11 ) b 12  =  a 12   b 22 .\n473\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 56,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "(1 −  a 11 ) b 12  =  a 12   b 22 .\n473\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\nFollowing the same frame of thinking, we label only the sum of the sixth and sev-\nenth terms, a subset of the foreign content, as the “foreign value added in Country 1’s \nexports,” and define Country 1’s VS as\n(23)  V S 1  =  v 2   b 21   e 12  =  v 2 [ b 21   y 12  +  b 21   a 12 (1 −  a 22  ) −1   y 22 ]\n +  v 2   b 21   a 12 (1 −  a 22  ) −1   e 21  \n = (1 −  v 1   b 11 )  e 12  .\nThe first two terms are foreign value added or GDP in Country 1’s exports, and VS \nshare of Country 1 equals  v 2   b 21 . Therefore, such a measure of foreign content is a \nnatural extension of HIY’s VS measure in a two-country world with unrestricted \nintermediate goods trade. Because the VS share is defined this way, it is natural to \ndefine the domestic content share in Country 1’s exports as 1 − VS share or  v 1   b 11 .",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 57,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "intermediate goods trade. Because the VS share is defined this way, it is natural to \ndefine the domestic content share in Country 1’s exports as 1 − VS share or  v 1   b 11 .\nIn a two-country world, Country 1’s VS1 is identical to its VS1* and Country 2’s VS:\n(24) VS 1 1  = VS 1  1  * \n =  v 1   b 12   e 21  =  v 1 [ b 12   y 21  +  b 12   a 21 (1 −  a 22  ) −1   y 11 ] +  v 1   b 12   a 21 (1  −   a 11  ) −1   e 12 ,\nwhich is the sum of the third, fourth, and fifth terms in equation  (13). However, in a \nmulti-country setting to be discussed later, VS1* will only be a subset of VS1, and \nthe latter will also include some third country terms.\nD. Numerical Examples\nTo enhance the intuition for our approach, we provide some numerical examples.\nExample 1 ( Two Countries, One Sector, and Only One Country Exports \nIntermediate Good) :\nConsider a world consisting of two countries (USA and CHN) and a single sec-",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 58,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Example 1 ( Two Countries, One Sector, and Only One Country Exports \nIntermediate Good) :\nConsider a world consisting of two countries (USA and CHN) and a single sec-\ntor of electronics. The two countries have identical gross exports and identical \n value-added exports (and hence identical V AX ratios). The point of this example is \nto show that the structure of the “double-counted” values in gross exports contains useful information.\nBoth USA and CHN have a gross output of 200. USA’s total output consists of \n150 units of intermediate goods (of which, 100 units are used at home and 50 units are exported) and 50 units of final goods (of which 30 are consumed at home and 20 are exported).\nCHN’s total output consists of 50 units of intermediate goods (all used at home) \nand 150 units of final goods (of which, 70 units are exported and 80 units are used \nat home). By construction, both countries export 70 units of their output (50 units",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 59,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "and 150 units of final goods (of which, 70 units are exported and 80 units are used \nat home). By construction, both countries export 70 units of their output (50 units \nof intermediate goods + 20 units of final goods exported by USA, and 70 units of final goods exported by CHN).\nThe domestic value added in USA’s output is therefore 100 (=  value of gross \noutput 200-value of domestic intermediate good of 100). Note no foreign value is \n474\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nused in USA’s production. The domestic value added in CHN’s output is also 100 \n(= value of gross output 200-value of domestic intermediate goods of 50 + value \nof imported intermediate goods of 50). The input-output relationship can be sum-\nmarized as follows:\n x 1 \n=200\n ,A =0.5 0.25\n ,V =0.5 0\n .\n x 2 200 00.25 00.5\nThe two-country production and trade system can be written as an inter- country \ninput output (ICIO) model as follows:\n  x 1 \n=0.5 0.25 200\n+30 + 20\n. x 2 00.25 200 70 + 80",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 60,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": ".\n x 2 200 00.25 00.5\nThe two-country production and trade system can be written as an inter- country \ninput output (ICIO) model as follows:\n  x 1 \n=0.5 0.25 200\n+30 + 20\n. x 2 00.25 200 70 + 80\nThe Leontief inverse matrix and the VB matrix can be computed easily as\n B = b 11  b 12 \n=20.67\n, VB = 10.33\n.\n b 21  b 22 01.33, 00.67\nWe can break up each country’s gross output according to where it is ultimately \nabsorbed by rearranging each country’s final demand as follows:\n x 11  x 12 =20.67 3020=60 + 46.69 40 + 53.3=106.7 93.3\n .\n x 21  x 22 01.33 7080 0 + 93.33 0 + 106.67 93.3 106.7\nIt is easy to verify that  x 1  =  x 11  +  x 12  and  x 2  =  x 21  +  x 22 . USA’s value-added \nexport is 46.7 ( v 1   x 12  = 0.5 × 93.33) , where 20 (=  v 1   b 11   y 12  = 0.5 × 2  × 20, \nfirst term in equation  (13)) is the amount of USA’s value added in its export of \nfinal goods that is absorbed in CHN, and 26.7(=   v 1  b 12   y 22  = 0.5 × 0.667 × 80,",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 61,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "first term in equation  (13)) is the amount of USA’s value added in its export of \nfinal goods that is absorbed in CHN, and 26.7(=   v 1  b 12   y 22  = 0.5 × 0.667 × 80, \nsecond term in ( 13)) is the amount of USA’s value added in its export of inter -\nmediate goods that is also absorbed in CHN. The amount of USA’s value added \nthat is embedded in its export of intermediate goods but returns home as part \nof CHN’s export of final goods is 23.3 (=  v 1   b 12   y 21  = 0.5 × 0.667 × 70, the \nthird term in ( 13)). Using the terminology of Daudin, Rifflart, and Schweisguth \n(2011) , USA’s VS1* = 23.3, the same as the estimates from our accounting \nequation ( 13).\nBy construction, foreign value added in USA’s exports equals zero (since CHN \ndoes not export intermediate goods by assumption). It is easy to verify that the sum \nof USA’s exports of value added (46.7) and the amount of returned value added (23.3) is 70, which is the value of its gross exports.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 62,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "of USA’s exports of value added (46.7) and the amount of returned value added (23.3) is 70, which is the value of its gross exports.\nFor CHN, its value-added exports ( that are absorbed in USA)  are also 46.7  \n(=  v \n2   b 22   y 21  = 0.5 × 1.333 × 70, first term in equation  (14)). It is entirely \n475\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\n embedded in CHN’s exports of final goods to USA. However, CHN does import \nintermediate goods from USA to produce both goods consumed in CHN and goods exported to USA. The amount of USA’s value added used in the pro-\nduction of CHN’s exports is 23.3 (=  v \n1   b 12   y 21  = 0.5 × 0.667 × 70, the sixth \nterm in equation  (14)). The sum of CHN’s exports of value added ( 46.7)  and \nthe foreign value added in its exports (23.3)  is 70, which is the same as CHN’s  \ngross exports.\nIn this example, both countries have identical gross exports and exports of",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 63,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "the foreign value added in its exports (23.3)  is 70, which is the same as CHN’s  \ngross exports.\nIn this example, both countries have identical gross exports and exports of \nvalue added, and therefore identical V AX ratios. However, the reasons underlying \nwhy value-added exports deviate from the gross exports are different. For USA, the V AX ratio is less than one because some of the value added that is initially exported returns home after being used as an intermediate good by CHN in the \nlatter’s production for exports. For CHN, the V AX ratio is less than one because its \nproduction for exports uses intermediate goods from USA which embeds USA’s value added.\nIn addition, the double-counted items are also value added at some stage of pro-\nduction. More precisely, the VS in CHN’s exports (23.3) is simultaneously a true \nvalue added from USA’s viewpoint as it is value added by USA in its exports to \nCHN (that returned home), but a “double-counted item” from CHN’s viewpoint as",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 64,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "value added from USA’s viewpoint as it is value added by USA in its exports to \nCHN (that returned home), but a “double-counted item” from CHN’s viewpoint as \nit is not part of CHN’s value added.\nSince we assume that CHN does not export intermediate goods (or  a \n21  = 0 and  \nb 21  = 0), there is no channel for CHN’s gross output to be used by USA in its pro-\nduction and for CHNs gross output to be first exported and then returned home. \nTherefore, our gross exports accounting equation produces the same estimate for \nVS as the HIY’s formula, i.e.,\n  v 2  (1 −  b 11 ) =  v 2   b 21   e 12  = 0.5 × 0.667 × 70 = 23.3 \n =  a 21 (1 −  a 11  ) −1   e 12  = 0.25 × (1 − 0.25 ) −1  × 70 = 23.3.\nDomestic value-added share for CHN’s exports equals (70 − 23.3)/70 = 0.667 \n=  v 2   b 22  = 0.667. There is no difference between HIY’s measure and our method in \nsuch a case since there are no pure double-counting terms due to two way trade in intermediate goods. Both VS in USA and VS1",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 65,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "such a case since there are no pure double-counting terms due to two way trade in intermediate goods. Both VS in USA and VS1\n* in CHN are zero. But this equality \nwill not hold when we remove the assumption of  a 21  = 0.\nHowever, because there is domestic value added embodied in USA’s intermediate \ngoods exports that is eventually returned home, the domestic value-added share in \nUSA’s exports equals to 1. As a result, using the V AX ratio (0.667) as a metric of the \nshare of home country’s domestic value added in its gross exports would produce an \nunderestimate. The corresponding ICIO table and more computation details can be found in online Appendix C.\nExample 2 (Different Sequences of Trade for Same Final Goods Consumption \nand Same Value-Added Contribution from Each Source Country):\nImagine the United States trades in a good that has $1 million of US value added \nplus $100,000 of value added from each of other five countries before the final good, \n476",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 66,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Imagine the United States trades in a good that has $1 million of US value added \nplus $100,000 of value added from each of other five countries before the final good, \n476\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\npriced at $1.5 million, is consumed in the United States. Let us consider two differ -\nent production sequences of the supply chains.\nCase 1:  If each of the five countries sends the parts sequentially between them \nfor assembly before they enter the United States, then total trade will be $100K +  \n$200K + $300K + $400K + $500K = $1.5 million.\nCase 2:  If the United States exports its part first, then the production proceeds \nsequentially and the final goods produced by the production chain are shipped back \nto the United States, the total trade will be $1 million + $1.1 million + $1.2 mil-\nlion + $1.3 million + $1.4 million + $1.5 million = $7.5 million.\nBoth cases yield the same value added but different amounts of gross trade.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 67,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "lion + $1.3 million + $1.4 million + $1.5 million = $7.5 million.\nBoth cases yield the same value added but different amounts of gross trade. \nHowever, the two sequences of trade will correspond to two different inter-coun-try input-output ( ICIO)  tables. We can attach concrete labels to the final product \nand the inputs to get more economic intuition. Let us think of the final product \nas a Barbie doll, and the inputs as hair ( made by the United States) , head, body, \nhat, clothes, and shoes, respectively. The information about the sequence of the \nproduction is embedded in the direct input-output matrix A. In the first case, if the hair is attached by the United States at the last stage of production, it is an input to the “doll” industry. While in the second case, if the hair is first exported to the \ncountry producing “head,” attached to the “head” there, and re-exported to the",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 68,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "country producing “head,” attached to the “head” there, and re-exported to the \nnext stage of production, it becomes an input to the “head” industry. The two dif-ferent organizations of the spatial and temporal connections of hair to head show up in changed entries to the ICIO matrix, with inputs of hair to the “doll” industry  falling in the former  recipient country ICIO coefficient in the first case, but inputs \nof hair rising in the second country’s “head” industry and measured inputs of \nheads (now bulked up with the hair value)  rising in all head-using industries in all \ncountries downstream from the initial head-producing country to the final “doll” \nindustry that uses heads. While a change in the first country’s hair inputs from the final country’s doll industry to the second country’s head industry in the direct I-O matrix A, the inverse ( direct plus indirect request)  matrix B will still capture that",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 69,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "the hair arrived via the heads. Due to the less direct route of hair to dolls is raising measured inputs in all subsequent stages, as well as in the trade statistics, this case clearly shows a rise in gross imports and exports for those downstream of the head industry with only a redirection ( not an increase)  in exports of hair even though \nvalue added is constant by assumption.\nIn online Appendix C, we show how ICIO tables can be constructed for each \nof the two cases. In each case, our decomposition formula decomposes the gross exports into value added by each source country  plus additional double-counted terms. The results are reported in Table 1. Because these are very simple examples, we can also decompose the gross exports in each case by economic intuition (see Table 2). The results are identical to what our decomposition formula generates. \nHowever, our analytical formula not only clearly shows the structure of a country’s",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 70,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "However, our analytical formula not only clearly shows the structure of a country’s \nvalue-added exports (exports in final goods (v1), in intermediate goods (v2), and indirect exports via third countries (v3)), but also further splits the overall double counted amount to what is domestic value added initially exported and eventually \n477\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\nreturning home (v4), what is foreign value added (v7), and what is double counted \ndue to intermediate goods imported from foreign countries (v9). The additional detail provides more information about the structure of both the value-added and \nthe double-counted trade. A more detailed two-country  supply chain example is \nprovided in online Appendix D with additional economic intuition.Table 1— Decomposition of Gross Exports in Different Organization of Global Production Chain for \nSame Final Goods Delivery and Value-Added by Source Countries\nTerms in",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 71,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Same Final Goods Delivery and Value-Added by Source Countries\nTerms in \naccounting equationTerm 1\n(v1)Term 2\n(v2)Term 3\n(v3)Term 4\nand 5\n(v4, v5)Term 6\n(v6)Term 7\nand 8\n(v7, v8)Term 9\n(v9)Total\ngross\nexports\nCase 1\nC1 0 0 1 0 0 0 0 1\nC2 0 0 1 0 0 0 1 2\nC3 0 0 1 0 0 0 2 3\nC4 0 0 1 0 0 0 3 4\nC5 0 1 0 0 0 0 4 5\nUSA 0 0 0 0 0 0 0 0\nCase 2USA 0 0 0 10 0 0 0 10\nC1 0 0 1 0 0 0 10 11\nC2 0 0 1 0 0 0 11 12\nC3 0 0 1 0 0 0 12 13\nC4 0 0 1 0 0 0 13 14\nC5 1 0 0 0 0 14 0 15\nNote: The unit is $100K.\nTable 2—Intuitive Accounting for the Gross Exports Flows in Numerical Example 2\nValue-added \ninputIntermediate \ninputGross\noutputValue-added \nexportsGross\nexportsDouble \ncounting\nCase 1Stage 1 country 1 100,000 0 100,000 100,000 100,000 0\nStage 2 country 2 100,000 100,000 200,000 100,000 200,000 100,000\nStage 3 country 3 100,000 200,000 300,000 100,000 300,000 200,000\nStage 4 country 4 100,000 300,000 400,000 100,000 400,000 300,000\nStage 5 country 5 100,000 400,000 500,000 100,000 500,000 400,000",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 72,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Stage 3 country 3 100,000 200,000 300,000 100,000 300,000 200,000\nStage 4 country 4 100,000 300,000 400,000 100,000 400,000 300,000\nStage 5 country 5 100,000 400,000 500,000 100,000 500,000 400,000\nStage 6 USA 1,000,000 500,000 1,500,000 0 0 0\nStage 7 USA consumes all the final goods from stage 6, its own production\nTotal 1,500,000 1,500,000 3,000,000 500,000 1,500,000 1,000,000\nCase 2Stage 1 USA 1,000,000 0 1,000,000 0 1,000,000 1,000,000\nStage 2 country 1 100,000 1,000,000 1,100,000 100,000 1,100,000 1,000,000\nStage 3 country 2 100,000 1,100,000 1,200,000 100,000 1,200,000 1,100,000\nStage 4 country 3 100,000 1,200,000 1,300,000 100,000 1,300,000 1,200,000\nStage 5 country 4 100,000 1,300,000 1,400,000 100,000 1,400,000 1,300,000\nStage 6 country 5 100,000 1,400,000 1,500,000 100,000 1,500,000 1,400,000\nStage 7 USA consumes all the final goods from stage 6 − country 5’s exports  \nTotal 1,500,000 6,000,000 7,500,000 500,000 7,500,000 7,000,000\n478",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 73,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Stage 7 USA consumes all the final goods from stage 6 − country 5’s exports  \nTotal 1,500,000 6,000,000 7,500,000 500,000 7,500,000 7,000,000\n478\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nE. The General Case of G Countries and N Sectors\nWe now discuss the general case with any arbitrary number of countries and sec-\ntors. The ICIO model, gross output decomposition matrix, value added by source \nshares matrix, are given succinctly by block matrix notations:\n(25)  X 1 \n = I −  A 11 − A 12 ⋯− A 1G −1 ∑  \nr   G\n    Y 1r \n X 2 − A 21 I −  A 22 ⋯− A 2G  ∑  \nr   G\n    Y 2r \n⋮ ⋮ ⋮ ⋱ ⋮ ⋮\n X G − A G1 − A G2 ⋯ I −  A GG  ∑  \nr   G\n    Y Gr \n =  B 11  B 12 ⋯  B 1G  Y 1 \n B 21  B 22 ⋯  B 2G  Y 2 \n⋮ ⋮ ⋱ ⋮ ⋮\n B G1  B G2 ⋯  B GG  Y G \n(26) X 11  X 12 ⋯  X 1G \n= B 11  B 12 ⋯  B 1G  Y 11  Y 12 ⋯  Y 1G \n X 21  X 22 ⋯  X 2G  B 21  B 22 ⋯  B 2G  Y 21  Y 22 ⋯  Y 2G \n⋮⋮⋱ ⋮ ⋮⋮⋱ ⋮ ⋮⋮⋱ ⋮\n X G1  X G2 ⋯  X GG  B G1  B G2 ⋯  B GG  Y G1  Y G2 ⋯  Y GG \n(27)\nVB  =  V 1  B 11  V 1  B 12 ⋯  V 1  B 1G",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 74,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "X 21  X 22 ⋯  X 2G  B 21  B 22 ⋯  B 2G  Y 21  Y 22 ⋯  Y 2G \n⋮⋮⋱ ⋮ ⋮⋮⋱ ⋮ ⋮⋮⋱ ⋮\n X G1  X G2 ⋯  X GG  B G1  B G2 ⋯  B GG  Y G1  Y G2 ⋯  Y GG \n(27)\nVB  =  V 1  B 11  V 1  B 12 ⋯  V 1  B 1G \n V 2  B 21  V 2  B 22 ⋯  V 2  B 2G \n⋮ ⋮ ⋱ ⋮,\n V G  B G1  V G  B G2 ⋯  V G  B GG \nwith G countries and N sectors, A, and B are GN × GN matrices; V and VB are \nG × GN matrices.  V s  denotes a 1 × N row vector of direct value-added coeffi-\ncient,  A sr  is a N × N block input-output coefficient matrix,  B sr  denotes the N × N \nblock Leontief inverse matrix, which is the total requirement matrix that gives the \namount of gross output in producing country  s required for a one-unit increase in \n479\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\nfinal demand in destination country  r.  X sr  is a N × 1 gross output vector that gives \ngross output produced in s and absorbed in r.  X s  =  ∑  r  G   X sr  is also a N × 1 vector",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 75,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "final demand in destination country  r.  X sr  is a N × 1 gross output vector that gives \ngross output produced in s and absorbed in r.  X s  =  ∑  r  G   X sr  is also a N × 1 vector \nthat gives country  s’ total gross output.  Y sr  is a N × 1 vector give final goods pro-\nduced in s and consumed in r.  Y s  =  ∑  r  G   Y sr  is also a N × 1 vector that gives the \nglobal use of s’ final goods. Both the gross output decomposition and final demand \nmatrix in equation (26) are GN × G matrices.\nLet     V  s  be a N × N diagonal matrix with direct value-added coefficients along \nthe diagonal. ( Note      V  s  has a dimension that is different from  V s .) We can define a  \nGN × GN diagonal value-added coefficient matrix as\n(28)\n   V  =    V  1 0⋯ 0\n . 0     V  2 ⋯ 0\n⋮⋮⋱ ⋮\n0 0⋯     V  G \nUsing the similar intuition as we used to derive equation  (9) in the two-coun-\ntry one sector case, we can obtain domestic value added in a country’s gross out-",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 76,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "⋮⋮⋱ ⋮\n0 0⋯     V  G \nUsing the similar intuition as we used to derive equation  (9) in the two-coun-\ntry one sector case, we can obtain domestic value added in a country’s gross out-\nput by multiplying this value-added coefficient matrix with the right-hand side of  equation  (26), the gross output decomposition matrix. This will result in a GN × G \nvalue-added production matrix    V BY as\n(29)    V  1 0⋯ 0  X 11  X 12 ⋯  X 1G \n0     V  2 ⋯ 0  X 21  X 22 ⋯  X 2G \n⋮⋮⋱ ⋮ ⋮⋮⋱ ⋮\n0 0⋯     V  G  X G1  X G2 ⋯  X GG \n  =    V  1   ∑  r  G   B 1r  Y r  1     V  1  ∑  r  G   B 1r  Y r  2 ⋯     V  1  ∑  r  G   B 1r  Y r  G \n .    V  2  ∑  r  G   B 2r  Y r  1     V  2  ∑  r  G   B 2r  Y r  2 ⋯     V  2  ∑  r  G   B 2r  Y r  G \n⋮ ⋮ ⋱ ⋮\n    V  G  ∑  r  G   B Gr  Y r  1     V  G  ∑  r  G   B Gr  Y r  2 ⋯     V  G  ∑  r  G   B Gr  Y r  G \nElements in the diagonal columns give each country’s production of value added",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 77,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "⋮ ⋮ ⋱ ⋮\n    V  G  ∑  r  G   B Gr  Y r  1     V  G  ∑  r  G   B Gr  Y r  2 ⋯     V  G  ∑  r  G   B Gr  Y r  G \nElements in the diagonal columns give each country’s production of value added \nabsorbed at home. As in the two-country case, exports of value added can be defined \nas the elements in the off-diagonal columns of this GN × G matrix as\n(30)   VT sr  =     V  s   X sr  =     V  s   ∑  \ng   G\n    B sg   Y gr  .\n480\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nObviously, it excludes value added produced by the home country that returns \nhome after being processed abroad. A country’s total value-added exports to the \nworld equal:\n(31)  VT s*  =  ∑  \nr  ≠ s  G\n   V X sr  =  V s   ∑  \nr  ≠s  G\n     ∑  \ng=1  G\n    B sg   Y gr  .\nBy rewriting equation  (31) into three groups according to where and how the \n value-added exports are absorbed, we obtain decomposition as follows:\n(32)6 V T s*  =  V s   ∑  \nr  ≠s  G\n    B ss   Y sr  +  V s   ∑  \nr  ≠s  G\n    B sr   Y rr  +  V s   ∑",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 78,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "value-added exports are absorbed, we obtain decomposition as follows:\n(32)6 V T s*  =  V s   ∑  \nr  ≠s  G\n    B ss   Y sr  +  V s   ∑  \nr  ≠s  G\n    B sr   Y rr  +  V s   ∑  \nr  ≠s  G\n     ∑  \nt≠s,r  G\n    B sr   Y rt  .\nThis is the value-added export decomposition equation in terms of all countries’ \nfinal demands. The first term is value added in the country’s final goods exports; the second term is value added in the country’s intermediate exports used by the direct importer to produce final goods consumed by the direct importer; and the third term is value added in the country’s intermediate exports used by the direct importing \ncountry to produce final goods for third countries. Comparing with equation  (9), we \ncan see clearly what is missing in our two-country case: it is the re-export of value \nadded via third countries, the last term of the RHS of equation  (32), because the",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 79,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "can see clearly what is missing in our two-country case: it is the re-export of value \nadded via third countries, the last term of the RHS of equation  (32), because the \ndistinction between value-added exports from direct and indirect sources only can be made in a setting with three or more countries.\nDefine a country’s gross exports to the world as\n(33)  E \ns*  =  ∑  \nr  ≠s  G\n    E sr  =  ∑  \nr  ≠s  G\n   ( A sr   X r  +  Y sr ) .\nUsing the logic similar to the derivation of equation (11), we can first decompose a \ncountry’s gross exports to its various components as follows:\n(34)7 u E s*  =  V s   B ss   E s*  +  ∑  \nr  ≠s  G\n    V r   B rs   E s* \n = V T s*  +  {  V s   ∑  \nr  ≠s  G\n    B sr  Y rs  +  V s   ∑  \nr  ≠s  G\n    B sr   A rs   X s  } \n +  {  ∑  \nt  ≠s   G\n    ∑  \nr  ≠s  G\n    V t   B ts   Y sr  +  ∑  \nt  ≠s   G\n    ∑  \nr  ≠s  G\n    V t   B ts   A sr   X r  }  .",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 80,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "B sr  Y rs  +  V s   ∑  \nr  ≠s  G\n    B sr   A rs   X s  } \n +  {  ∑  \nt  ≠s   G\n    ∑  \nr  ≠s  G\n    V t   B ts   Y sr  +  ∑  \nt  ≠s   G\n    ∑  \nr  ≠s  G\n    V t   B ts   A sr   X r  }  .\n6 This value-added exports decomposition could also be done at the bilateral level; however, it is different from \nequation (15) in Johnson and Noguera (2012), who split bilateral gross exports to three groups.\n7 The step-by-step proof is provided in online Appendix B.\n481\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\nBased on the gross output identity for each country  X s  =   Y ss  +   A ss   X s  +   E s* ,  \nwe have,\n(35)   X s  = (I −  A ss  ) −1   Y ss  + (I −  A ss  ) −1   E s* \n   X r  = (I −  A rr  ) −1   Y rr  + (I −  A rr  ) −1   E r  *  .\nReplace  X s  and  X r  in equation  (34), insert equation  (32), we obtain the G country, \nN sector generalized version of gross exports accounting equation as follows:\n(36) u E s*  =  {  V s   ∑  \nr  ≠s  G",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 81,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "N sector generalized version of gross exports accounting equation as follows:\n(36) u E s*  =  {  V s   ∑  \nr  ≠s  G\n     B ss  Y sr  +  V s   ∑  \nr  ≠s  G\n     B sr  Y rr  +  V s   ∑  \nr  ≠s  G\n    ∑  \nt≠s,r  G\n    B sr   Y rt  } \n  +  {  V s   ∑  \nr  ≠s  G\n     B sr  Y rs  +  V s   ∑  \nr  ≠s  G\n     B sr   A rs (I −  A ss  ) −1   Y ss  } \n  +  V s   ∑  \nr  ≠s  G\n     B sr   A rs (I −  A ss  ) −1   E s* \n  +  {  ∑  \nt≠s   G\n    ∑  \nr  ≠s  G\n    V t   B ts  Y sr  +  ∑  \nt  ≠s   G\n    ∑  \nr  ≠s  G\n    V t   B ts   A sr (I −  A rr  ) −1   Y rr  } \n  +  ∑  \nt≠s   G\n    V t   B ts   A sr   ∑  \nr  ≠s  G\n   (I −  A rr  ) −1  E r  *  .\nEquation  (36) has nine terms. It is very similar to equations (13) and (14) in the \ntwo-country case with only one main difference. It has an additional term, repre-\nsenting indirect value-added exports via third countries, in its value-added exports besides the two value-added terms that directly absorbed by the direct importer.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 82,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "senting indirect value-added exports via third countries, in its value-added exports besides the two value-added terms that directly absorbed by the direct importer. \nTherefore, the first three terms are value-added exports (only two terms in the \ntwo-country case). The fourth and fifth terms, in the second bracketed expression, include the source country’s value added in both its final and intermediate goods imports, which are first exported but eventually returned and consumed at home, both of which are parts of the source country’s GDP but represent a double-counted \nportion in official gross export statistics, and have a similar economic interpretation",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 83,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "portion in official gross export statistics, and have a similar economic interpretation \nas the third and fourth terms in equations (13) and (14). They differ from the two-country case in that we have to account for the domestic value added returning home from each of the G-1 countries here, not just from Country 2. The seventh and eighth terms in the third bracketed expression represent foreign value added (GDP) in the source country’s gross exports, including foreign GDP embodied in both final and \nintermediate goods. They differ from the sixth and seventh terms in equation  (13) \nin the two-country case in that equation  (36) further partitions each of the foreign \nvalue added (GDP) by individual country sources. There are also two pure double-\ncounted terms, the sixth and the ninth terms in equation  (36) as equations (13) and \n(14), but they sum up the double-counted portions of two way intermediate trade",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 84,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "counted terms, the sixth and the ninth terms in equation  (36) as equations (13) and \n(14), but they sum up the double-counted portions of two way intermediate trade \nfrom all bilateral routes, not just between Country  1 and 2. The complete gross \nexports accounting made by equation (36) is also diagrammed in Figure 1.\n482\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nFigure 1. Accounting of Gross Exports: Concepts\nNotes: (i) Value-added exports by a country equals (1) + (2) + (3); (ii) GDP in exports equals (1) + (2) +  \n(3) + (4) + (5); (iii) Domestic content in a country’s exports equals (1) + (2) + (3) + (4) + (5) + (6); \n(iv) (7) + (8) + (9) is labeled as VS, and (3) + (4) + (5) + (6) is part of VS1 labeled by HIY (2001); (v) (4) is  \nalso labeled as VS1* by Daudin, Rifflart, and Schweisguth (2011); (vi) (4) through (9) involve value added that \ncrosses national borders at least twice, and are the sources of multiple counting in official trade statistics.8",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 85,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "crosses national borders at least twice, and are the sources of multiple counting in official trade statistics.8\nSimilar to the two-country  case, measures of vertical specialization can be \nexpressed as linear combination of the various components identified by equation \n(36) as follows:\n(37)  D V s  =  V s (I −  A ss  ) −1   E s* \n = V T s*  +  V s   ∑  \nr  ≠s  G\n    B sr  Y rs  +  V s   ∑  \nr  ≠s  G\n    B sr   A rs  (I −  A ss  ) −1   Y ss  ≥  ∑  \nr   G\n   V T s*   .\nThese are the first five terms in equation  (36) and it clearly shows that a country’s \ndomestic value added in its exports is generally greater than its value-added exports \nin aggregate. The two measures equal each other only in the case where there is no returned domestic value added in imports, i.e., when both  V \ns   ∑  r  ≠s  G    B sr  Y rs  and \n ∑  r  ≠s  G    B sr   A rs (I −  A ss  ) −1   Y ss  are zero.\n(38)  V S s  =  ∑  \nt≠s   G\n    ∑  \nr  ≠s  G\n    V t   B ts   Y sr  +  ∑  \nt≠s   G\n    ∑  \nr  ≠s  G",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 86,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "s   ∑  r  ≠s  G    B sr  Y rs  and \n ∑  r  ≠s  G    B sr   A rs (I −  A ss  ) −1   Y ss  are zero.\n(38)  V S s  =  ∑  \nt≠s   G\n    ∑  \nr  ≠s  G\n    V t   B ts   Y sr  +  ∑  \nt≠s   G\n    ∑  \nr  ≠s  G\n    V t   B ts   A sr (I −  A rr  ) −1   Y rr \n +  ∑  \nt≠s   G\n    V t   B ts   A sr   ∑  \nr  ≠s  G\n   (I −  A rr  ) −1   E r* \n =  ∑  \nr  ≠s  G\n    V r   B rs   E s*  =  ∑  \nt≠s   G\n    ∑  \nr  ≠s  G\n    V t   B ts   Y sr  +  ∑  \nt≠s   G\n    ∑  \nr  ≠s  G\n    V t   B ts   A sr   X r  ,\n8 (3) should not be included in double counting, because when this value crosses a border for the second time, \nit becomes foreign value in the direct importer’s exports. For this reason, it is not included as double counting to \navoid an overcorrection.(6)\nDouble\ncounted\nintermediate\nexports\nproduced\nat homeGross exports\n(E)\n(1)\nDV in\ndirect\nfinal\ngoods\nexports (3)\nDV in\nintermediates\nreexported\nto third\ncountries\nIV  (4)\nDV in \nintermediates\nthat\nreturns\nvia final\nimports(2)\nDV in\nintermediates\nexports",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 87,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "(E)\n(1)\nDV in\ndirect\nfinal\ngoods\nexports (3)\nDV in\nintermediates\nreexported\nto third\ncountries\nIV  (4)\nDV in \nintermediates\nthat\nreturns\nvia final\nimports(2)\nDV in\nintermediates\nexports\nabsorbed\nby direct\nimporters (5)\nDV in\nintermediates\nthat\nreturns via\nintermediate\nimports   Domestic content\nin intermediate exports\nthat /f_inally returns home\n(VS1*)\n(7)\nFV in\nfinal\ngoods \nexports(8)\nFV in\nintermediate\ngoods\nexports (9)\ndouble\ncounted\nintermediate\nexports\nproduced\nabroad \nDomestic content (DC)Foreign\ncontent\n(VS)Value-added\nexports\n(VT)\n483\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\nwhich is composed of the last three terms in equation (36).\nWe can verify that equation  (38) is reduced to more familiar expressions in some \nspecial cases. Using a single country IO model, Koopman, Wang, and Wei (2008, \n2012) have shown\n(39) VS share = u −  A v  (I −  A D  ) −1  = u A M (I −  A D  ) −1  .\nIn the G-country world,\n(40)9 VS share =  ∑  \nr  ≠s   G",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 88,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "2012) have shown\n(39) VS share = u −  A v  (I −  A D  ) −1  = u A M (I −  A D  ) −1  .\nIn the G-country world,\n(40)9 VS share =  ∑  \nr  ≠s   G\n    V r   B rs \n = u −  V s   B ss  = u −  V s (I −  A ss  ) −1 \n −  ∑  \nr  ≠s   G\n    V s   B sr   A rs (I −  A ss  ) −1  .\nThe last term in the last step can be interpreted as the adjustment made for domestic \ncontent returned to the source country. Therefore, our foreign content measure \nof gross exports is a natural generalization of HIY’s VS measure in a multi-country setting with unrestricted intermediate goods trade. Because  \n∑  r  ≠s  G    V r   B rs  +  \nV s   B ss  = u, it is natural to define a country’s domestic content in its exports as:\n(41)  D C s  =  V s   B ss   E s*  \n = V T s*  +  V s   ∑  \nr  ≠s   G\n    B sr   Y rs  +  V s   ∑  \nr  ≠s   G\n    B sr   A rs   X s  ≥ D V  s  ≥  ∑  \nr   G\n   V T sr  .\nThis is the sum of the first six terms in equation  (36).10 It shows that a country’s",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 89,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "r  ≠s   G\n    B sr   Y rs  +  V s   ∑  \nr  ≠s   G\n    B sr   A rs   X s  ≥ D V  s  ≥  ∑  \nr   G\n   V T sr  .\nThis is the sum of the first six terms in equation  (36).10 It shows that a country’s \ndomestic content in its exports is generally greater than the part of its GDP in exports, \nand therefore is also greater than its value-added exports in the aggregate. The three \nmeasures equal each other only in the case where there is no returned domestic value \nin imports, i.e., when both  V s   ∑  r  ≠s  G    B sr  Y rs  and  V s   ∑  r  ≠s  G    B sr   A rs   X s  are zero.\nThe second HIY measure of vertical specialization (VS1) measures the value of \nthe exported goods that are used as imported inputs by other countries to produce \ntheir exports. Although an expression for such indirectly exported products has not \nbeen previously defined mathematically in the literature, it can be specified based on some of the terms in our gross exports accounting equations.\n(42)  VS 1",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 90,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "been previously defined mathematically in the literature, it can be specified based on some of the terms in our gross exports accounting equations.\n(42)  VS 1 \ns  =  V s   ∑  \nr  ≠s  G\n    B sr   E r*  =  V s   ∑  \nr  ≠s  G\n    ∑  \nt≠s,r  G\n    B sr  Y rt  +  V s   ∑  \nr  ≠s  G\n    ∑  \nt≠s,r  G\n    B sr   A rt   X t \n +  V s   ∑  \nr  ≠s  G\n    B sr  Y rs  +  V s   ∑  \nr  ≠s  G\n    B sr   A rs   X s  .\n9 See online Appendix B for the step-by-step proof.\n10 Note that the third term can be further decomposed into two terms (the fifth and sixth terms) in equation  (36).\n484\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nThis means HIY’s VS1 can be expressed as the third term in (36) plus the third and \nfifth terms in equation  (34). The second term in equation  (42) measures how much \ndomestic content in exported goods from the source country is used as imported \ninputs to produce other countries’ intermediate goods exports. It also shows clearly",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 91,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "domestic content in exported goods from the source country is used as imported \ninputs to produce other countries’ intermediate goods exports. It also shows clearly \nthat HIY’s VS1 measure is generally greater than indirect value-added exports because the latter only includes the first term of (42), but excludes domestic content that is returned home and the value embodied in intermediate goods exports via third countries (they are already counted as other countries’ foreign content in these third countries’ exports), i.e.,\n(43) I V \ns  =  V s   ∑  \nr  ≠s  G\n     ∑  \nt≠s,r  G\n    B sr   Y rt  ≤ VS 1 s  .\nCompared with equation  (24) of the definition of VS1 in the two-country case, two \nadditional terms (the first two terms) appear on the RHS of (42) because of the third \ncountry effect.\n(44) VS 1  s  *  =  ∑  \ns≠t    \n    V s   B sr   E rs  =  V s   ∑  \nr  ≠s  G\n    B sr   Y rs  +  V s   ∑  \nr  ≠s  G\n    B sr   A rs   X s  .",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 92,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "country effect.\n(44) VS 1  s  *  =  ∑  \ns≠t    \n    V s   B sr   E rs  =  V s   ∑  \nr  ≠s  G\n    B sr   Y rs  +  V s   ∑  \nr  ≠s  G\n    B sr   A rs   X s  .\nAs equation  (44) shows, we define VS1* as a subset of VS1 similar to Daudin, \nRifflart, and Schweisguth (2011), but our definition differs from theirs as they \ninclude only domestic value added returned home in final goods imports (the \nfirst term in equation  (44)) but exclude domestic content returned home by being \nembodied in the imports of intermediate goods, the second term in equation  (44).11 \nIf one omits the second term, then VS1* would be inconsistent with the core idea of \nmeasuring vertical specialization from the export side, as it would fail to account \nfor the source country’s exports used by third countries to produce their export of \nintermediate goods. It would therefore consistently under-estimate actual vertical",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 93,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "for the source country’s exports used by third countries to produce their export of \nintermediate goods. It would therefore consistently under-estimate actual vertical \nspecialization. To put it differently, the same domestic content embodied in a country’s intermediate goods exports manifests itself in international trade flows in two ways: (i) as foreign content in other countries exports, and (ii) as the source country’s indirect exports of domestic content via a third country. In other words, the foreign content in one country’s exports is the domestic content of another \ncountry embodied in its indirect exports. As an example, the Japanese content in",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 94,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "country embodied in its indirect exports. As an example, the Japanese content in \nthe form of Japanese-made computer chips used in China’s exports of electronic toys to the United States represents foreign content in China’s exports, and it is also simultaneously Japan’s indirect exports of its domestic content to the United States. While these two perspectives produce the identical numbers when aggregating across \nall countries at the global level, their values for a given country can be very different. \nTherefore, when measuring a country’s participation in vertical specialization it is useful to be able to trace the two perspectives separately. This is also why HIY proposed two measures of vertical specialization, because a complete picture of vertical specialization and a county’s position in a vertical integrated production network has to involve both measures. Indeed, for a given country, the ratio of the",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 95,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "11 Note that the second term can be further decomposed into two terms (the fifth and sixth terms) in equation  (36).\n485\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\ntwo measures provides insight for the country’s position in global value chains. \nDownstream countries tend to have a higher share of vertical specialization from the import side, i.e., higher foreign content (VS) in their exports, while upstream \ncountries tend to have a higher share of vertical specialization from export side \n(VS1), higher share of exports via third countries. In addition, as we show in both equations (13) and (36), ignoring domestic content returning home via intermediate \ngoods imports would leave the gross export accounting incomplete.\nTherefore, equation  (36) provides a new way of thinking about the gross exports \nstatistics. It demonstrates that various double-counted items in gross exports can",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 96,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Therefore, equation  (36) provides a new way of thinking about the gross exports \nstatistics. It demonstrates that various double-counted items in gross exports can \nbe used to gauge the depth of a country’s participation in global production chains. \nSimply stripping away double-counted items and focusing just on value-added trade would miss such useful information. We have already provided numerical examples earlier to illustrate the intuition of this point; now we have laid out the accounting equation in a more general multi-country setting. It provides a transpar -\nent  framework that allows various value-added and double-counted components in \na country’s official gross exports statistics to be correctly identified and estimated.\nEquation  (36) (or Figure 1) also integrates the older literature on vertical special-",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 97,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "a country’s official gross exports statistics to be correctly identified and estimated.\nEquation  (36) (or Figure 1) also integrates the older literature on vertical special-\nization with the newer literature on trade in value added, while ensuring that the sum of value-added components from all sources and the additional  double-counted inter -\nmediate goods exports (due to back-and-forth trade in intermediate goods) yields \ntotal gross exports. The previous vertical specialization literature only decomposes \ngross exports into two components: domestic and foreign content. In comparison, equation  (36) shows that a country’s domestic content can be further broken up into \nsubcomponents that reveal the destinations for a country’s exported value added, including its own value added that returns home in its imports and what is double \ncounted due to cross border intermediate goods trade. Similarly, equation  (36) also",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 98,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "counted due to cross border intermediate goods trade. Similarly, equation  (36) also \ntraces out the foreign content in a country’s exports to its sources.\nFinally, note that we use a single subscript for the domestic content measure and \ntwo subscripts for the trade in value-added measure. This is to suggest that the trade \nin value-added measure holds for both aggregate and bilateral trade, while the gross export accounting equation we propose only holds for a country’s total exports to \nthe world.\nII. Data and Results\nA. The Construction of an Inter-Country \nInput-Output (ICIO) Table and its Data Sources\nTo implement the above accounting method, we need an inter-country  input \noutput (ICIO) table, that is, a database detailing international production and use \nfor all flows of value added. The database should specify (i) transactions of inter -\nmediate products and final goods within and between each country at the industry",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 99,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "for all flows of value added. The database should specify (i) transactions of inter -\nmediate products and final goods within and between each country at the industry \nlevel, (ii) the direct value added in production of each industry in all countries, and \n(iii) the gross output of each industry in all countries. Such an ICIO table goes \nbeyond a collection of single-country IO tables. It specifies the origin and destina-tion of all transaction flows by industry as well as every intermediate and/or final use for all such flows. However, these tables are not available on a global basis, and \n486\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nin fact are rarely available at the regional level. The available global databases, such \nas the GTAP Multi-Country Input-Output (MCIO) tables, do not have enough detail \non the cross-border supply and the use of goods to be directly used to implement our \nmethodological framework.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 100,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "as the GTAP Multi-Country Input-Output (MCIO) tables, do not have enough detail \non the cross-border supply and the use of goods to be directly used to implement our \nmethodological framework.\nTo provide a workable dataset and empirically conduct gross export decomposi-\ntion, we construct a global ICIO table for 2004 by integrating the GTAP database \n(version 7) and the additional information from UN COMTRADE using a quadratic mathematical programming model. The model (i) minimizes the deviation of the \nresulting new dataset from the original GTAP data, (ii) ensures that supply and use \nbalance for each sector and every country, and (iii) keeps all sectoral bilateral trade \nflows in the GTAP database constant. The new database covers 26 countries and \n41 sectors.\n12\nTo estimate these detailed inter-industry and inter-country  intermediate flows,",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 101,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "flows in the GTAP database constant. The new database covers 26 countries and \n41 sectors.\n12\nTo estimate these detailed inter-industry and inter-country  intermediate flows, \nwe need to (i) separate gross bilateral trade flows at the sector level in the GTAP database into intermediate, consumption, and investment goods trade flows, and \n(ii) allocate intermediate goods from a particular country source to each sector it \nis used within all destination countries. We address the first task by concording the \nthree end-use categories defined by UN Broad Economic Categories (BEC) to the 6-digit HS level bilateral trade data in COMTRADE. This differs from Johnson and Noguera (2012) and Daudin, Rifflart, and Schweisguth (2011), who also transform \nthe MCIO table in the GTAP database into an ICIO table. However, they do not use \ndetailed trade data to identify intermediate goods in each bilateral trade flow, but",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 102,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "the MCIO table in the GTAP database into an ICIO table. However, they do not use \ndetailed trade data to identify intermediate goods in each bilateral trade flow, but \napply a proportionality method directly to the GTAP trade data; i.e., they assume that the proportion of intermediate to final goods is the same for domestic supply and imported products.\nThe use of end-use categories to distinguish imports by use is becoming more \nwidespread in the literature and potentially avoids some noted deficiencies in the proportionality method. Feenstra and Jensen (2012) use a similar approach to sepa-\nrate final goods from intermediates in US imports in their recent re-estimation of the Feenstra-Hanson measure of material off-shoring. Dean, Fung, and Wang (2011) show that the proportionality assumption underestimates the share of imported goods used as intermediate inputs in China’s processing trade. Nordås (2005) stated that",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 103,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "the large industrial countries have a higher share of intermediates in their exports \nthan in their imports, while the opposite is true for large developing countries. These results imply that the intermediate content of imports differs systematically from the intermediate content in domestic supply.\nIn theory, less distorted intermediate share estimates will provide a better row total \ncontrol for each block matrix of  A \nsr  in the ICIO coefficient matrix A, thus improving \nthe accuracy of the most important parameters (the inter-country IO coefficients) \nin an ICIO model. This is why distinguishing imports by BEC may improve ICIO \ndatabase quality over the proportionality assumption. To precisely assess whether \nand how much the BEC method improves over the proportionality approach, one would need the true inter-country  IO coefficients as a “reference point,” which unfortunately do not exist on a global scale. We will provide some evidence that the",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 104,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "12 Tsigas, Wang, and Gehlhar (2012) provide details on the construction of the database. The longer working \npaper lists the countries/regions and sectors in our sample and their concordance to the GTAP database.\n487\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\ntwo alternative ways to identify intermediate goods from bilateral trade flows in the \nliterature have a significant impact on trade cost when the magnification effects of multi-stage production are taken into account in one of our application examples.\nB. Complete Accounting of Gross Exports\nTable 3 presents a complete accounting of each country’s gross exports in 2004 \nusing equation  (36). The column numbers correspond to the order of each item in \nthe equation and also the box numbers in Figure 1. The first three columns also cor -\nrespond to the three terms in the RHS of equation (32).\nWe compute all nine terms independently and verify that they sum to exactly",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 105,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "respond to the three terms in the RHS of equation (32).\nWe compute all nine terms independently and verify that they sum to exactly \n100  percent of gross exports. The resulting estimates constitute the first such Table 3—Accounting of Gross Exports, 2004\nValue-added exportsDomestic V A\nreturns homePure \ndouble \ncountingForeign V A \nreturned to  \nforeign countries\nDirect\nfinal \nexportsInter-\nmediate \nabsorb \nby direct \nimportersInt. re-\nexports \nto third \ncountriesFinal \nexportsInter- \nmediate \nexportsInter-\nmediate \nexports \nproduced \nin homeFinal \nexportsInt.\nexports\nCountry/region (1) (2) (3) (4) (5) (6) (7) (8)\nAdvanced economies\nAus-New Zealand 27.0 50.5 10.5 0.2 0.2 0.1 3.7 5.1\nCanada 23.5 43.0 4.0 0.5 0.4 0.5 12.8 12.0\nWestern EU 38.1 38.1 5.0 3.1 3.4 0.9 4.8 4.3\nJapan 38.4 34.2 12.2 1.4 1.0 0.5 4.8 3.7\nUnited States 32.5 36.6 5.5 6.8 4.5 1.2 4.3 4.7\nAsian NICsHong Kong 27.2 35.7 9.1 0.4 0.1 0.1 10.2 9.9\nKorea 29.5 25.3 10.4 0.3 0.2 0.4 13.1 9.9",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 106,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Japan 38.4 34.2 12.2 1.4 1.0 0.5 4.8 3.7\nUnited States 32.5 36.6 5.5 6.8 4.5 1.2 4.3 4.7\nAsian NICsHong Kong 27.2 35.7 9.1 0.4 0.1 0.1 10.2 9.9\nKorea 29.5 25.3 10.4 0.3 0.2 0.4 13.1 9.9\nTaiwan 19.2 25.9 13.1 0.2 0.1 0.5 12.4 12.5\nSingapore 11.0 20.1 5.2 0.1 0.1 0.4 17.0 24.2\nEmerging AsiaChina normal 44.2 31.8 8.1 0.4 0.7 0.1 6.8 5.2\nChina processing 28.8 12.6 1.7 0.0 0.0 0.3 34.1 12.4\nChina total 36.5 22.2 4.9 0.2 0.3 0.2 20.5 8.8\nIndonesia 20.0 45.6 10.9 0.2 0.3 0.2 9.2 7.2\nMalaysia 16.7 31.5 10.4 0.3 0.1 0.6 12.9 13.6\nPhilippines 17.6 27.8 12.4 0.1 0.0 0.2 10.8 14.0\nThailand 27.9 24.2 7.9 0.1 0.1 0.2 17.2 11.3\nVietnam 32.9 24.9 4.8 0.0 0.2 0.2 24.4 7.7\nIndia 30.2 41.7 7.7 0.1 0.2 0.1 6.4 9.5\nOther emerging Brazil 27.4 52.1 7.5 0.1 0.1 0.1 3.9 6.4\nNew EU countries 28.7 35.2 4.3 0.4 0.3 0.3 13.4 13.2\nMexico normal 23.5 52.7 5.9 0.1 0.5 0.1 2.9 11.5\nMexico processing 20.6 13.3 2.4 0.0 0.0 0.3 37.6 18.2\nMexico total 21.6 26.5 3.6 0.1 0.2 0.2 26.0 16.0",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 107,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Mexico normal 23.5 52.7 5.9 0.1 0.5 0.1 2.9 11.5\nMexico processing 20.6 13.3 2.4 0.0 0.0 0.3 37.6 18.2\nMexico total 21.6 26.5 3.6 0.1 0.2 0.2 26.0 16.0\nRussian 9.5 70.2 9.4 0.3 0.2 0.1 1.6 5.9\nSouth Africa 23.1 50.0 8.5 0.1 0.1 0.1 5.3 8.9\nWorld average 29.2 38.4 6.8 1.9 1.5 0.6 8.7 7.7\n(Continued )\n488\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\n decomposition in a global setting and clearly highlight what is double counted in the  \nofficial trade statistics. Column 15 reports the percentage of double counting by add-\ning columns 4 through 9. At the global level, only domestic value added in exports \nabsorbed abroad are value-added exports. In addition to foreign content in exports,",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 108,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "ing columns 4 through 9. At the global level, only domestic value added in exports \nabsorbed abroad are value-added exports. In addition to foreign content in exports, \ndomestic content that returns home from abroad is also a part of double counting in official trade statistics, since it crosses borders at least twice. Such returned value added has to be separated from domestic value added absorbed abroad in order to fully capture multiple counting in official trade statistics. Therefore, for any coun-try’s gross exports, the double-counting portion equals the share of gross exports in \nexcess of the value-added exports. We estimate this share to be about 25.6 percent \nof total world exports in 2004.\nThe accounting results reported in Table 3 also provide a more detailed breakdown \nof domestic content in exports than has been previously available in the literature. Table 3—Accounting of Gross Exports, 2004 ( Continued)\nPure double counting Connection with existing measures",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 109,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "of domestic content in exports than has been previously available in the literature. Table 3—Accounting of Gross Exports, 2004 ( Continued)\nPure double counting Connection with existing measures\nIntermediate \nexports produced \nabroadV AX \nratioVS \nshareVS1 \nshareDC \nshareDouble \ncount \nshareShare of \nvertical \ntradeGross \nexports in \nbillions of \nUS dollars\nCountry/region (9) (10) (11) (12) (13) (14) (15) (16)\nAdvanced economies\nAus-New Zealand 2.8 88.0 11.5 27.9 88.5 12.0 39.4 122.5\nCanada 3.3 70.5 28.1 12.2 71.9 29.5 40.4 323.0\nWestern EU 2.4 81.1 11.4 20.9 88.6 18.9 32.3 1,575.5\nJapan 3.7 84.9 12.2 30.8 87.8 15.1 43.1 618.9\nUnited States 4.0 74.6 12.9 27.0 87.1 25.4 39.9 1,062.3\nAsian NICsHong Kong 7.4 71.9 27.5 19.5 72.5 28.1 47.0 121.7\nKorea 10.8 65.2 33.9 23.2 66.1 34.8 57.0 283.1\nTaiwan 16.1 58.2 41.1 27.1 58.9 41.8 68.2 219.8\nSingapore 22.1 36.3 63.2 12.8 36.8 63.7 76.0 150.6\nEmerging AsiaChina normal 2.7 84.2 14.6 20.7 85.4 15.8 35.3 334.6",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 110,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Taiwan 16.1 58.2 41.1 27.1 58.9 41.8 68.2 219.8\nSingapore 22.1 36.3 63.2 12.8 36.8 63.7 76.0 150.6\nEmerging AsiaChina normal 2.7 84.2 14.6 20.7 85.4 15.8 35.3 334.6\nChina processing 10.1 43.1 56.6 4.3 43.4 56.9 60.9 336.0\nChina total 6.4 63.6 35.7 12.5 64.3 36.4 48.1 670.6\nIndonesia 6.5 76.5 22.9 29.0 77.1 23.5 51.9 86.7\nMalaysia 14.0 58.6 40.5 25.0 59.5 41.4 65.5 152.0\nPhilippines 17.1 57.8 41.9 29.4 58.1 42.2 71.2 50.1\nThailand 11.2 60.0 39.7 18.5 60.3 40.0 58.1 119.4\nVietnam 4.9 62.6 37.0 14.8 63.0 37.4 51.8 32.3\nIndia 4.2 79.6 20.1 18.9 79.9 20.4 39.0 99.9\nOther emerging Brazil 2.4 87.0 12.7 19.2 87.3 13.0 31.9 113.0\nNew EU countries 4.2 68.3 30.8 11.4 69.2 31.7 42.1 273.7\nMexico normal 2.8 82.1 17.3 18.0 82.7 17.9 35.3 63.6\nMexico processing 7.6 36.3 63.4 5.9 36.7 63.7 69.2 126.9\nMexico total 6.0 51.6 48.0 9.9 52.0 48.4 57.9 190.5\nRussian 2.7 89.1 10.2 31.2 89.8 10.9 41.4 160.2\nSouth Africa 4.0 81.6 18.2 24.2 81.8 18.4 42.4 61.4",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 111,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Mexico total 6.0 51.6 48.0 9.9 52.0 48.4 57.9 190.5\nRussian 2.7 89.1 10.2 31.2 89.8 10.9 41.4 160.2\nSouth Africa 4.0 81.6 18.2 24.2 81.8 18.4 42.4 61.4\nWorld average 5.1 74.4 21.5 21.5 78.5 25.6 43.0 7,733.4\nNote: All columns are expressed as a share of total gross exports.\nSource: Authors’ estimates.\n489\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\nThe variations in the relative size of different components across countries provide \na way to gauge the differences in the role that countries play in global production networks. For example, for the United States, the share of foreign value added in \nits exports was only 9 percent (columns 7 + 8), while its own GDP first exported \nthen finally return home is large at 11.3 percent (columns 4 + 5), indicating that \nmost of its exports reflect its own domestic value added. In comparison, for China’s",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 112,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "then finally return home is large at 11.3 percent (columns 4 + 5), indicating that \nmost of its exports reflect its own domestic value added. In comparison, for China’s \nand Mexico’s processing exports, the share of foreign GDP in their gross exports is 46.5 percent and 55.8 percent respectively, with an additional 10.1 percent and 7.6 percent of their gross exports coming from intermediate goods produced in for -\neign countries (column 9), indicating domestic value added accounts for less than half the value of both countries’ processing exports. More importantly, about half of the double counting in US exports reflected as 1-V AX ratio (column 11) in col-umn 15 comes primarily from its own domestic content returning home via imports \n(12.4 percent over 25.4 percent). In contrast, almost all of the double counting in \nChina’s and Mexico’s processing exports comes from imported foreign content",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 113,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "(12.4 percent over 25.4 percent). In contrast, almost all of the double counting in \nChina’s and Mexico’s processing exports comes from imported foreign content \n(56.6 percent over 56.9 percent and 63.4 over 63.7 respectively). These calculations highlight US exporters and Chinese and Mexican processing exporters’ respective positions at the head and tail of global production chains.\nThe structure of double-counted terms in each country’s gross exports listed in \ncolumns 4 through 9 offers additional information on how each country participates \nin vertical specialization and its relative position in global production chains. For \nexample, for Western EU countries, about 40 percent of its double-counted gross exports come from domestic content returned home ( 7.4/18.9) . In comparison, \nfor most developing countries, the foreign content tends to dominate, with only a very tiny portion of their domestic content returning home. Within foreign content,",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 114,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "for most developing countries, the foreign content tends to dominate, with only a very tiny portion of their domestic content returning home. Within foreign content, \nMaquiladora producers in Mexico, export processing zones in China and Vietnam, \ntend to have a large portion embodied in their final goods exports ( 37.6  percent, \n34.1 percent, and 24.4 percent, respectively) , reflecting their position as the assem-\nblers of final goods in global production chains. For developed and newly industrial-ized economies, the shares in intermediate goods exports and the pure double-counted portion due to multiple border crossing intermediate goods trade are much higher. \nSimilarly, upstream natural resource producers such as Australia and New Zealand,",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 115,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Similarly, upstream natural resource producers such as Australia and New Zealand, \nRussia, Indonesia, and Philippines, have a significant portion of their intermediate exports used by other countries to produce their intermediate goods exports. This is also true for upstream producers of manufacturing intermediates such as Japan.\nTo reiterate the connection of the nine basic components reported in Table 3 \nto measures in the existing literature by numerical estimates, column 11 reports the value-added to gross exports ( VA X) ratio proposed by Johnson and Noguera \n(2012)  by adding up columns 1, 2, and 3; column 12 lists HIY’s VS share by sum-\nming columns 7, 8, and 9. Column 14 lists the share of domestic content exten-sively discussed in the vertical specialization literature by summing columns 1 through 6; Finally, column 16 gives the share of vertical trade by adding columns \n12 and 13, which is an indicator of how intensively a country is participating in",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 116,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "12 and 13, which is an indicator of how intensively a country is participating in \nthe global production chain.\nComparing domestic content share estimates ( column 14)  and Johnson and \nNoguera’s V AX ratio (column 11)  reported in Table 3, we see interesting differences \nbetween high-income countries and emerging market economies. For most  emerging \n490\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nmarket economies, the numerical difference of these two measures is quite small. This \nmeans that only a tiny part of domestic content returns home for most countries. In comparison, for the United States, Western Europe, and Japan, the difference between \ndomestic content share and the value-added export share is more significant. This",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 117,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "domestic content share and the value-added export share is more significant. This \nreflects the fact that advanced economies export relatively more upstream compo-nents, and some of the value added embedded in these intermediate goods returns home as part of other countries’ exports to the advanced economies. Such differences between high-income countries and emerging market economies would not be appar -\nent if one does not compute the domestic content share and the V AX ratio separately.\nIII. Broad Implications for a Better Understanding of Global Trade\nThe decomposition results have implications for a variety of research and policy \nquestions. In this section, to illustrate the potential importance of the decomposi-tion, we briefly discuss a few applications.\nA. Revealed Comparative Advantage Index  \nBased on Gross and Value-Added Trade\nThe concept of revealed comparative advantage (RCA), proposed by Balassa",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 118,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "A. Revealed Comparative Advantage Index  \nBased on Gross and Value-Added Trade\nThe concept of revealed comparative advantage (RCA), proposed by Balassa \n(1965), has proven useful in many research and policy applications. In  standard \napplications, it is defined as the share of a sector in a country’s total gross exports relative to the world average of the same sector in world exports. When the RCA exceeds one, the country is said to have a revealed comparative advantage in that sec-tor; when the RCA is below one, the country is said to have a revealed comparative disadvantage in that sector. The problem of double counting of certain value-added \ncomponents in the official trade statistics suggests that the traditional computation",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 119,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "components in the official trade statistics suggests that the traditional computation \nof RCA could be noisy and misleading. The gross exports accounting exercise we proposed in this paper provides a way to remove the distortion of double counting by focusing on domestic value added in exports. Because domestic value added or GDP in a country’s exports describes the characteristics of a country’s production (total domestic factor content in exports), it does not depend on where the exports \nare absorbed. For those applications in which a production-based RCA is the right \nmeasure, we can use GDP in exports to compute RCA.\nWe re-compute the RCA index at the country-sector level for all the countries and \nsectors in our database. Due to space constraints, we select two sectors and compare the country rankings of RCAs using both gross exports and domestic value added \nin gross exports. In Figure 2, panel A we report the two sets of RCA indices for the",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 120,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "in gross exports. In Figure 2, panel A we report the two sets of RCA indices for the \nfinished metal products sector in 2004. Using gross exports data, both China and India show a strong revealed comparative advantage (ranked the first and fourth, respectively, among the set of countries in our database, and with the absolute values of RCA at 1.94 and 1.29, respectively). However, when looking at domestic value added in that sector’s exports, both countries ranking in RCA drop precipitously to \nseventh and fifteenth place, respectively.\n13 In fact, for India, the sector has switched \n13 Sectoral value added here includes value produced by the factors of production employed in the finished \nmetal products sector and then embodied in gross exports of all downstream sectors, rather than the value-added \n491\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\nfrom being labeled as a comparative advantage sector to a comparative disadvantage",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 121,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "491\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\nfrom being labeled as a comparative advantage sector to a comparative disadvantage \nsector. Unsurprisingly, the ranking for some other countries move up. For example, for the United States, not only does its RCA ranking move up from tenth place under \nthe conventional calculation to the third place under the new calculation, but its \nfinished metal products industry also switches from being labeled as a comparative disadvantage sector to a comparative advantage sector.\nAnother example is the “real estate and business services” sector (Figure  2, \npanel B). Using data on gross exports, India exhibits a strong revealed comparative advantage in that sector on the strength of its unusually high share of business ser -",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 122,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "panel B). Using data on gross exports, India exhibits a strong revealed comparative advantage in that sector on the strength of its unusually high share of business ser -\nvices exports in its overall exports. However, once we compute RCA using domestic value added in exports, the same sector becomes a comparative disadvantage sector for India! One key reason for the change is that business services in advanced coun-tries are often exported indirectly by being embedded in these countries manufactur -\ning exports. Indeed, the RCA rankings for the United States, the European Union, \nand Japan all move up using data on the domestic value added in exports. Therefore, \nafter taking into account indirect value-added exports, the Indian share of the sector in its exports becomes much less impressive (relative to other countries).\nemployed in upstream sectors that are used to produce finished metal products in the exporting country. This dis-",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 123,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "employed in upstream sectors that are used to produce finished metal products in the exporting country. This dis-\ntinction is particularly important in the business services sector, discussed next.Figure 2. Value-Added-Adjusted Revealed Comparative Advantage Indicators\nChina (1.94)\nTaiwan (1.93)\nEU Accession (1.83)\nIndia (1.29)\nEU (1.27)\nMexico (1.05)\nCanada (1.01)\nSouth Africa (1)\nEFTA (0.95)\nUSA (0.93)\nJapan (0.87)\nThailand (0.86)\nKorea (0.83)\nBrazil (0.56)\nVietnam (0.56)\nMalaysia (0.51)\nSingapore (0.5)\nRussia (0.43)\nIndonesia (0.38)\nRest of World (0.32)\nAustralia & NZ (0.31)\nPhilippines (0.23)\nRest of S. Asia (0.23)\nRest of E. Asia (0.2)\nRest of Americas (0.2)\nHong Kong (0.11)(1.5) Taiwan\n(1.46) EU Accession\n(1.33) USA\n(1.31) EU\n(1.19) Canada\n(1.18) Brazil(1.14) China\n(1.09) Korea\n(1.07) Japan\n(0.91) Mexico\n(0.09) South Africa(0.8) Philippines(0.78) Singapore(0.75) EFTA\n(0.68) India\n(0.62) Australia & NZ(0.5) Thailand(0.42) Malaysia (0.35) Vietnam(0.35) Rest of Americas",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 124,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "(1.07) Japan\n(0.91) Mexico\n(0.09) South Africa(0.8) Philippines(0.78) Singapore(0.75) EFTA\n(0.68) India\n(0.62) Australia & NZ(0.5) Thailand(0.42) Malaysia (0.35) Vietnam(0.35) Rest of Americas\n(0.29) Rest of World\n(0.29) Russia(0.28) Indonesia(0.21) Rest of E. Asia(0.1) Hong Kong(0.1) Rest of S. AsiaHong Kong (2.85)\nIndia (2.4)\nSingapore (2.04)\nEU (1.66)\nUSA (1.43)\nEFTA (1.20)\nCanada (0.98)\nBrazil (0.93)\nEU Accession (0.00)\nRest of World (0.81)\nAustralia & NZ (0.71)\nRest of Americas (0.65)\nRussia (0.58)\nThailand (0.57)\nRest of S. Asia (0.52)\nKorea (0.51)\nRest of E. Asia (0.47)\nVietnam (0.46)\nJapan (0.43)\nTaiwan (0.4)\nMalaysia (0.33)\nSouth Africa (0.23)\nChina (0.18)\nPhilippines (0.18)\nMexico  (0.09)\nIndonesia (0.06)(1.85) Singapore(1.62) EU\n(1.57) Hong Kong\n(1.29) USA\n(1.22) EFTA\n(1.07) Canada(0.99) Brazil\n(0.97) Japan\n(0.90) Australia & NZ\n(0.9) EU Accession\n(0.75) Korea(0.73) South Africa(0.7) India(0.65) Rest of Americas\n(0.57) Taiwan",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 125,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "(1.29) USA\n(1.22) EFTA\n(1.07) Canada(0.99) Brazil\n(0.97) Japan\n(0.90) Australia & NZ\n(0.9) EU Accession\n(0.75) Korea(0.73) South Africa(0.7) India(0.65) Rest of Americas\n(0.57) Taiwan\n(0.52) Russia(0.47) Rest of E. Asia(0.46) Rest of World(0.34) Thailand(0.20) China\n(0.25) Rest of S. Asia\n(0.22) Malaysia\n(0.22) Vietnam(0.18) Philippines(0.08) Mexico(0.06) IndonesiaGross tradeValue-added trade\nGross tradeValue-added tradePanel A. Finished metal products (ISIC: 28) Panel B. Real estate, renting, \nand business activities (ISIC: K)\n492\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nThese examples illustrate the possibility that our understanding of trade patterns \nand revealed comparative advantage could be modified substantially once we have \nthe right statistics.\nB. Magnification of Trade Costs from Multi-Stage Production\nAs noted by Yi (2003, 2010), multi-stage production magnifies the effects of trade",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 126,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "the right statistics.\nB. Magnification of Trade Costs from Multi-Stage Production\nAs noted by Yi (2003, 2010), multi-stage production magnifies the effects of trade \ncosts on world trade. There are two separate magnification forces. The first exists because goods that cross national borders multiple times incur tariffs and transpor -\ntation costs multiple times. The second exists because tariffs are applied to gross imports, even though value added by the direct exporter may be only a fraction of this amount. Different ways of participating in global production chains affects the extent to which different countries are affected by such cost magnification. However, Yi (2003) does not actually measure the magnification of tariffs, though it is impor -\ntant to his simulation exercise.\nOur accounting method provides an ideal way to re-examine the magnification",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 127,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "tant to his simulation exercise.\nOur accounting method provides an ideal way to re-examine the magnification \nissue. In online Appendix E, we provide an illustrative calculation of the first order magnification effect of using imported intermediate inputs to produce exports. It r epresents the magnification effect if tariffs were the only factor that augments the \ntrading costs. For instance, we find that one additional stage of production increases \ntrade costs of Vietnam’s merchandise production by 80 percent of its standard tariff. \nGenerally speaking, the magnification effect is stronger for emerging market econo-mies than for developed economies due to the lower domestic value-added share in most developing countries’ manufacturing exports. In the same Appendix, we also show that global ICIO databases constructed by the BEC end-use classification ver -\nsus the proportionality assumption produce different trade cost magnification effects for a number of countries.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 128,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "sus the proportionality assumption produce different trade cost magnification effects for a number of countries.\nC. Other Applications\nThe set of examples discussed so far certainly does not exhaust the possible appli-\ncations. For example, the Federal Reserve Board and the IMF routinely compute effective exchange rates using trade weights that are based on gross exports and imports. A conceptually better measure should weight trading partners based on the relative importance in value-added trade rather than in gross trade terms. Our decomposition results make it feasible to do such computations.\nAs another example, for some research or policy questions, one might need to \nlook at the response of a country’s bilateral or multilateral trade to exchange rate changes. Once one recognizes that there is a potential mismatch between trade in value added and trade in gross terms, one would want to take this into account. Our decomposition allows for a correction.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 129,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "As a further example, because a country’s gross exports embed value added from \nother countries, its bilateral trade balance in value-added terms can be very different from that in gross trade terms. By our estimation, because China is the final assem-bler in a large number of global supply chains, and it uses components from many other countries, especially East Asian countries, its trade surplus with the United States and Western EU countries measured in value-added terms is 41 percent and \n493\nKOOPMAN ET AL.: VALUE-ADDED AND DOUBLE COUNTING IN GROSS EXPORTS VOL. 104 NO. 2\n49 percent less than that measured in gross terms in 2004. In contrast, Japan’s trade \nsurplus with the United States and Western EU countries are 40 percent and 31 per -\ncent larger measured in value-added terms, because Japan exports parts and compo-\nnents to countries throughout Asia that are eventually assembled into final products \nthere and exported to the United States and Western EU countries.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 130,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "nents to countries throughout Asia that are eventually assembled into final products \nthere and exported to the United States and Western EU countries.\nIV . Conclusions\nWe have developed a unified conceptual framework that can fully account for a \ncountry’s gross exports by its various value-added and double-counted components. This new framework incorporates all previous measures of vertical specialization \nand value-added trade in the literature while adjusting for the back-and-forth trade of \nintermediates across multiple borders. With a full concordance between value-added and double-counted components and official gross trade statistics, it opens the pos-sibility for the System of National Accounts ( SNA) to accept the concept of value-\nadded trade without dramatically changing the current practice of customs trade data collection. This may in turn provide a feasible way for international statistical agen-",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 131,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "added trade without dramatically changing the current practice of customs trade data collection. This may in turn provide a feasible way for international statistical agen-\ncies to report value-added trade statistics regularly in a relatively low cost fashion.\nThe creation of a database that encompasses detailed global trade in both gross \nand value-added terms will allow us to move from a largely descriptive empirical \nexercise to analysis of the causes and consequences of differences in supply chain participation. We show that conventional analyses involving revealed comparative \nadvantage, bilateral trade balance, trade cost or effective real exchange rates can all \nbenefit from our gross exports accounting results.\nBetter information at the sector level can improve our estimation. For instance,",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 132,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "benefit from our gross exports accounting results.\nBetter information at the sector level can improve our estimation. For instance, \ncurrent end use classifications, such as the UN BEC, need to be extended to dual used products and services trade. In addition, methods also need to be developed to properly distribute imports to domestic users either based on cross country   statistical \nsurveys or based on firm level and customs transaction-level trade data. We leave \nsuch sector level applications to future research.\nREFERENCES\nBalassa, Bela. 1965. “Trade Liberalisation and ‘Revealed’ Comparative Advantage.” Manchester \nSchool of Economic and Social Studies 33 (2): 99–123.\nDaudin, Guillaume, Christine Rifflart, and Danielle Schweisguth. 2011. “Who Produces for Whom in \nthe World Economy?” Canadian Journal of Economics 44 (4): 1403–37.\nDean, Judith M., K. C. Fung, and Zhi Wang. 2011. “Measuring Vertical Specialization: The Case of",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 133,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "the World Economy?” Canadian Journal of Economics 44 (4): 1403–37.\nDean, Judith M., K. C. Fung, and Zhi Wang. 2011. “Measuring Vertical Specialization: The Case of \nChina.” Review of International Economics 19 (4): 609–25. \nFeenstra, Robert C., and J. Bradford Jensen. 2012. “Evaluating Estimates of Materials Offshoring \nfrom U.S. Manufacturing.” National Bureau of Economic Research Working Paper 17916.\nGrossman, Gene M., and Esteban Rossi-Hansberg. 2008. “Trading Tasks: A Simple Theory of Off-\nshoring.” American Economic Review 98 (5): 1978–97.\nHummels, David, Jun Ishii, and Kei-Mu Yi. 2001. “The Nature and Growth of Vertical Specialization \nin World Trade.” Journal of International Economics 54 (1): 75–96.\nJohnson, Robert C., and Guillermo Noguera. 2012. “Accounting for Intermediates: Production Shar -\ning and Trade in Value Added.” Journal of International Economics 86 (2): 224–36.\nKoopman, Robert, William Powers, Zhi Wang, Shang-Jin Wei. 2010. “Give Credit Where Credit Is",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 134,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "ing and Trade in Value Added.” Journal of International Economics 86 (2): 224–36.\nKoopman, Robert, William Powers, Zhi Wang, Shang-Jin Wei. 2010. “Give Credit Where Credit Is \nDue: Tracing Value Added in Global Production Chains.” National Bureau of Economic Research \nWorking Paper 16426. \n494\nTHE AMERICAN ECONOMIC REVIEW FEBRUARY 2014\nKoopman, Robert, Zhi Wang, and Shang-Jin Wei. 2008. “How Much of Chinese Exports Is Really \nMade in China? Assessing Domestic Value-Added When Processing Trade is Pervasive.” National \nBureau of Economic Research Working Paper 14109.\nKoopman, Robert, Zhi Wang, and Shang-Jin Wei. 2012. “Estimating Domestic Content in Exports \nWhen Processing Trade Is Pervasive.” Journal of Development Economics 99 (1): 178–89.\nKoopman, Robert, Zhi Wang, and Shang-Jin Wei. 2014. “Tracing Value-Added and Double Counting \nin Gross Exports: Dataset.” American Economic Review. http://dx.doi.org/10.1257/aer.104.2.459.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 135,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Koopman, Robert, Zhi Wang, and Shang-Jin Wei. 2014. “Tracing Value-Added and Double Counting \nin Gross Exports: Dataset.” American Economic Review. http://dx.doi.org/10.1257/aer.104.2.459.\nNarayanan, G. Badri, and Terrie L. Walmsley, eds. 2008. Global Trade, Assistance, and Production: \nThe GTAP 7 Data Base, Center for Global Trade Analysis, Purdue University. http://www.gtap.age-con.purdue.edu/databases/v7/v7_doco.asp.\nNational Research Council. 2006. Analyzing the U.S. Content of Imports and the Foreign Content of \nExports. Washington, DC: National Academies Press.\nNordås, Hildegunn Kyvik. 2005. “International Production Sharing: A Case for a Coherent Policy \nFramework.” World Trade Organization Discussion Paper 11.\nStehrer, Robert, Neil Foster, and Gaaitzen de Vries. 2012. “Value Added and Factors in Trade: A Com-\nprehensive Approach.” Vienna Institute for International Economic Studies Working Paper 80.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 136,
+      "document": "koopman 2014"
+    }
+  },
+  {
+    "text": "Stehrer, Robert, Neil Foster, and Gaaitzen de Vries. 2012. “Value Added and Factors in Trade: A Com-\nprehensive Approach.” Vienna Institute for International Economic Studies Working Paper 80.\nTimmer, Marcel, ed. 2012. “The World Input-Output Database (WIOD): Contents, Sources and Meth-\nods.” WIOD Working Paper 10.\nTsigas, Marinos, Zhi Wang, and Mark Gehlhar. 2012. “How a Global Inter-Country Input-Output \nTable with Processing Trade Account Can be Constructed from GTAP Database.” Unpublished.\nYi, Kei-Mu. 2003. “Can Vertical Specialization Explain the Growth of World Trade?” Journal of Politi-\ncal Economy 111 (1): 52–102.\nYi, Kei-Mu. 2010. “Can Multistage Production Explain the Home Bias in Trade?” American Economic \nReview 100 (1): 364–93.",
+    "metadata": {
+      "source": "koopman 2014.txt",
+      "chunk_id": 137,
+      "document": "koopman 2014"
+    }
+  }
+]

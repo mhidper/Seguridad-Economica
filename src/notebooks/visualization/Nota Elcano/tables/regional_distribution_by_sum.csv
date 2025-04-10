@@ -1,0 +1,46 @@
+industry,tariff_group,ASIA,EU,LATAM,OTHER
+Accumulators primary cells and batteries,0-10%,1.0,0.0,3.0,3.0
+Accumulators primary cells and batteries,11-20%,1.0,27.0,2.0,12.0
+Accumulators primary cells and batteries,21-30%,4.0,0.0,0.0,9.0
+Accumulators primary cells and batteries,31-40%,5.0,0.0,0.0,13.0
+Accumulators primary cells and batteries,>40%,5.0,0.0,0.0,4.0
+Aircraft and spacecraft,0-10%,1.0,0.0,3.0,3.0
+Aircraft and spacecraft,11-20%,1.0,27.0,2.0,12.0
+Aircraft and spacecraft,21-30%,4.0,0.0,0.0,9.0
+Aircraft and spacecraft,31-40%,5.0,0.0,0.0,13.0
+Aircraft and spacecraft,>40%,5.0,0.0,0.0,4.0
+Basic iron and steel,0-10%,1.0,0.0,3.0,3.0
+Basic iron and steel,11-20%,1.0,27.0,2.0,12.0
+Basic iron and steel,21-30%,4.0,0.0,0.0,9.0
+Basic iron and steel,31-40%,5.0,0.0,0.0,13.0
+Basic iron and steel,>40%,5.0,0.0,0.0,4.0
+Basic precious and non-ferrous metals,0-10%,1.0,0.0,3.0,3.0
+Basic precious and non-ferrous metals,11-20%,1.0,27.0,2.0,12.0
+Basic precious and non-ferrous metals,21-30%,4.0,0.0,0.0,9.0
+Basic precious and non-ferrous metals,31-40%,5.0,0.0,0.0,13.0
+Basic precious and non-ferrous metals,>40%,5.0,0.0,0.0,4.0
+Electronic valves tubes etc.,0-10%,1.0,0.0,3.0,3.0
+Electronic valves tubes etc.,11-20%,1.0,27.0,2.0,12.0
+Electronic valves tubes etc.,21-30%,4.0,0.0,0.0,9.0
+Electronic valves tubes etc.,31-40%,5.0,0.0,0.0,13.0
+Electronic valves tubes etc.,>40%,5.0,0.0,0.0,4.0
+Medical surgical and orthopaedic equipment,0-10%,1.0,0.0,3.0,3.0
+Medical surgical and orthopaedic equipment,11-20%,1.0,27.0,2.0,12.0
+Medical surgical and orthopaedic equipment,21-30%,4.0,0.0,0.0,9.0
+Medical surgical and orthopaedic equipment,31-40%,5.0,0.0,0.0,13.0
+Medical surgical and orthopaedic equipment,>40%,5.0,0.0,0.0,4.0
+Office accounting and computing machinery,0-10%,1.0,0.0,3.0,3.0
+Office accounting and computing machinery,11-20%,1.0,27.0,2.0,12.0
+Office accounting and computing machinery,21-30%,4.0,0.0,0.0,9.0
+Office accounting and computing machinery,31-40%,5.0,0.0,0.0,13.0
+Office accounting and computing machinery,>40%,5.0,0.0,0.0,4.0
+Optical instruments & photographic equipment,0-10%,1.0,0.0,3.0,3.0
+Optical instruments & photographic equipment,11-20%,1.0,27.0,2.0,12.0
+Optical instruments & photographic equipment,21-30%,4.0,0.0,0.0,9.0
+Optical instruments & photographic equipment,31-40%,5.0,0.0,0.0,13.0
+Optical instruments & photographic equipment,>40%,5.0,0.0,0.0,4.0
+TV and radio receivers and associated goods,0-10%,1.0,0.0,3.0,3.0
+TV and radio receivers and associated goods,11-20%,1.0,27.0,2.0,12.0
+TV and radio receivers and associated goods,21-30%,4.0,0.0,0.0,9.0
+TV and radio receivers and associated goods,31-40%,5.0,0.0,0.0,13.0
+TV and radio receivers and associated goods,>40%,5.0,0.0,0.0,4.0

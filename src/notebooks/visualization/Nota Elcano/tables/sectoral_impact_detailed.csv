@@ -1,0 +1,802 @@
+supplier_country,industry,tariff,tariff_group,dependency_value,trade_value,region
+LSO,Accumulators primary cells and batteries,50,>40%,0.0,0.0,OTHER
+KHM,Accumulators primary cells and batteries,49,>40%,0.0,0.0,ASIA
+LAO,Accumulators primary cells and batteries,48,>40%,0.0,0.0,ASIA
+MDG,Accumulators primary cells and batteries,47,>40%,0.0,0.0,OTHER
+VNM,Accumulators primary cells and batteries,46,>40%,0.0579684941393264,323.5491638183594,ASIA
+MMR,Accumulators primary cells and batteries,45,>40%,0.0,0.0,ASIA
+LKA,Accumulators primary cells and batteries,44,>40%,0.0,0.0,ASIA
+FLK,Accumulators primary cells and batteries,42,>40%,0.0,0.0,OTHER
+SYR,Accumulators primary cells and batteries,41,>40%,0.0,0.0,OTHER
+MUS,Accumulators primary cells and batteries,40,31-40%,0.0,0.0,OTHER
+IRQ,Accumulators primary cells and batteries,39,31-40%,0.0,0.0,OTHER
+BWA,Accumulators primary cells and batteries,38,31-40%,0.0,0.0,OTHER
+GUY,Accumulators primary cells and batteries,38,31-40%,0.0,0.0,OTHER
+SRB,Accumulators primary cells and batteries,38,31-40%,0.0,0.0,OTHER
+THA,Accumulators primary cells and batteries,37,31-40%,0.0049073146742483,0.0,ASIA
+BGD,Accumulators primary cells and batteries,37,31-40%,0.0,0.0,ASIA
+BIH,Accumulators primary cells and batteries,36,31-40%,0.0,0.0,OTHER
+CHN,Accumulators primary cells and batteries,34,31-40%,0.4278824826383299,2684.37353515625,ASIA
+MKD,Accumulators primary cells and batteries,33,31-40%,0.0,0.0,OTHER
+TWN,Accumulators primary cells and batteries,32,31-40%,0.0237113438464865,217.0702209472656,ASIA
+IDN,Accumulators primary cells and batteries,32,31-40%,0.0227655787769529,72.8472900390625,ASIA
+AGO,Accumulators primary cells and batteries,32,31-40%,0.0,0.0,OTHER
+CHE,Accumulators primary cells and batteries,32,31-40%,0.0,0.0,OTHER
+FJI,Accumulators primary cells and batteries,32,31-40%,0.0,0.0,OTHER
+LBY,Accumulators primary cells and batteries,31,31-40%,0.0,0.0,OTHER
+MDA,Accumulators primary cells and batteries,31,31-40%,0.0,0.0,OTHER
+ZAF,Accumulators primary cells and batteries,31,31-40%,0.0,0.0,OTHER
+DZA,Accumulators primary cells and batteries,30,21-30%,0.0,0.0,OTHER
+NRU,Accumulators primary cells and batteries,30,21-30%,0.0,0.0,OTHER
+PAK,Accumulators primary cells and batteries,30,21-30%,0.0,0.0,OTHER
+TUN,Accumulators primary cells and batteries,28,21-30%,0.0,0.0,OTHER
+IND,Accumulators primary cells and batteries,27,21-30%,0.0008277982989801,0.0,OTHER
+KAZ,Accumulators primary cells and batteries,27,21-30%,0.0,0.0,OTHER
+KOR,Accumulators primary cells and batteries,26,21-30%,0.22642094216743647,1262.8695068359375,ASIA
+JPN,Accumulators primary cells and batteries,24,21-30%,0.2292857026984376,1762.9813232421875,ASIA
+MYS,Accumulators primary cells and batteries,24,21-30%,0.0768738610923895,122.1576690673828,ASIA
+BRN,Accumulators primary cells and batteries,24,21-30%,0.0,0.0,ASIA
+VUT,Accumulators primary cells and batteries,23,21-30%,0.0,0.0,OTHER
+CIV,Accumulators primary cells and batteries,21,21-30%,0.0,0.0,OTHER
+NAM,Accumulators primary cells and batteries,21,21-30%,0.0,0.0,OTHER
+DEU,Accumulators primary cells and batteries,20,11-20%,0.0851239698819348,373.516357421875,EU
+FRA,Accumulators primary cells and batteries,20,11-20%,0.0126943087192545,124.07195281982422,EU
+POL,Accumulators primary cells and batteries,20,11-20%,0.0058203453339184,0.0,EU
+AUT,Accumulators primary cells and batteries,20,11-20%,0.0044080471177477,0.0,EU
+CZE,Accumulators primary cells and batteries,20,11-20%,0.0017994579959458,0.0,EU
+ESP,Accumulators primary cells and batteries,20,11-20%,0.0017830887415582,0.0,EU
+ITA,Accumulators primary cells and batteries,20,11-20%,0.0015106396128777,0.0,EU
+HUN,Accumulators primary cells and batteries,20,11-20%,0.0013097797994464,0.0,EU
+BEL,Accumulators primary cells and batteries,20,11-20%,0.0009606810600712,0.0,EU
+NLD,Accumulators primary cells and batteries,20,11-20%,0.000932560878074,0.0,EU
+ROU,Accumulators primary cells and batteries,20,11-20%,0.0004868307869928,0.0,EU
+SVK,Accumulators primary cells and batteries,20,11-20%,0.0002980341401587,0.0,EU
+SVN,Accumulators primary cells and batteries,20,11-20%,0.0002763635901798,0.0,EU
+PRT,Accumulators primary cells and batteries,20,11-20%,0.0002663662016981,0.0,EU
+BGR,Accumulators primary cells and batteries,20,11-20%,0.0002104183077193,0.0,EU
+GRC,Accumulators primary cells and batteries,20,11-20%,0.0001982900047802,0.0,EU
+SWE,Accumulators primary cells and batteries,20,11-20%,0.0001348676271518,0.0,EU
+DNK,Accumulators primary cells and batteries,20,11-20%,4.854183681081642e-05,0.0,EU
+CYP,Accumulators primary cells and batteries,20,11-20%,0.0,0.0,EU
+EST,Accumulators primary cells and batteries,20,11-20%,0.0,0.0,EU
+FIN,Accumulators primary cells and batteries,20,11-20%,0.0,0.0,EU
+HRV,Accumulators primary cells and batteries,20,11-20%,0.0,0.0,EU
+IRL,Accumulators primary cells and batteries,20,11-20%,0.0,0.0,EU
+JOR,Accumulators primary cells and batteries,20,11-20%,0.0,0.0,OTHER
+LTU,Accumulators primary cells and batteries,20,11-20%,0.0,0.0,EU
+LUX,Accumulators primary cells and batteries,20,11-20%,0.0,0.0,EU
+LVA,Accumulators primary cells and batteries,20,11-20%,0.0,0.0,EU
+MLT,Accumulators primary cells and batteries,20,11-20%,0.0,0.0,EU
+NIC,Accumulators primary cells and batteries,19,11-20%,0.0,0.0,LATAM
+PHL,Accumulators primary cells and batteries,18,11-20%,0.0072245316462565,78.76199340820312,ASIA
+MWI,Accumulators primary cells and batteries,18,11-20%,0.0,0.0,OTHER
+ZWE,Accumulators primary cells and batteries,18,11-20%,0.0,0.0,OTHER
+ISR,Accumulators primary cells and batteries,17,11-20%,0.0010103380567225,0.0,OTHER
+ZMB,Accumulators primary cells and batteries,17,11-20%,0.0,0.0,OTHER
+MOZ,Accumulators primary cells and batteries,16,11-20%,0.0,0.0,OTHER
+NOR,Accumulators primary cells and batteries,16,11-20%,0.0,0.0,OTHER
+VEN,Accumulators primary cells and batteries,15,11-20%,0.0,0.0,LATAM
+NGA,Accumulators primary cells and batteries,14,11-20%,0.0,0.0,OTHER
+GNQ,Accumulators primary cells and batteries,13,11-20%,0.0,0.0,OTHER
+TCD,Accumulators primary cells and batteries,13,11-20%,0.0,0.0,OTHER
+CMR,Accumulators primary cells and batteries,12,11-20%,0.0,0.0,OTHER
+COD,Accumulators primary cells and batteries,11,11-20%,0.0,0.0,OTHER
+SGP,Accumulators primary cells and batteries,10,0-10%,0.0591612385579203,155.6999053955078,ASIA
+GBR,Accumulators primary cells and batteries,10,0-10%,0.009989916653776899,111.64344787597656,OTHER
+TUR,Accumulators primary cells and batteries,10,0-10%,4.615189731090128e-05,0.0,OTHER
+AUS,Accumulators primary cells and batteries,10,0-10%,0.0,0.0,OTHER
+BRA,Accumulators primary cells and batteries,10,0-10%,0.0,0.0,LATAM
+CHL,Accumulators primary cells and batteries,10,0-10%,0.0,0.0,LATAM
+COL,Accumulators primary cells and batteries,10,0-10%,0.0,0.0,LATAM
+LSO,Aircraft and spacecraft,50,>40%,0.0,0.0,OTHER
+KHM,Aircraft and spacecraft,49,>40%,0.0,0.0,ASIA
+LAO,Aircraft and spacecraft,48,>40%,0.0,0.0,ASIA
+MDG,Aircraft and spacecraft,47,>40%,0.0,0.0,OTHER
+VNM,Aircraft and spacecraft,46,>40%,0.0,0.0,ASIA
+MMR,Aircraft and spacecraft,45,>40%,0.0,0.0,ASIA
+LKA,Aircraft and spacecraft,44,>40%,0.0,0.0,ASIA
+FLK,Aircraft and spacecraft,42,>40%,0.0,0.0,OTHER
+SYR,Aircraft and spacecraft,41,>40%,0.0,0.0,OTHER
+MUS,Aircraft and spacecraft,40,31-40%,0.0,0.0,OTHER
+IRQ,Aircraft and spacecraft,39,31-40%,0.0,0.0,OTHER
+BWA,Aircraft and spacecraft,38,31-40%,0.0,0.0,OTHER
+GUY,Aircraft and spacecraft,38,31-40%,0.0,0.0,OTHER
+SRB,Aircraft and spacecraft,38,31-40%,0.0,0.0,OTHER
+BGD,Aircraft and spacecraft,37,31-40%,0.0,0.0,ASIA
+THA,Aircraft and spacecraft,37,31-40%,0.0,0.0,ASIA
+BIH,Aircraft and spacecraft,36,31-40%,0.0,0.0,OTHER
+CHN,Aircraft and spacecraft,34,31-40%,0.0148612837263738,1016.2221069335938,ASIA
+MKD,Aircraft and spacecraft,33,31-40%,0.0,0.0,OTHER
+TWN,Aircraft and spacecraft,32,31-40%,0.0005321720610525,0.0,ASIA
+CHE,Aircraft and spacecraft,32,31-40%,0.0004525071586873,0.0,OTHER
+AGO,Aircraft and spacecraft,32,31-40%,0.0,0.0,OTHER
+FJI,Aircraft and spacecraft,32,31-40%,0.0,0.0,OTHER
+IDN,Aircraft and spacecraft,32,31-40%,0.0,0.0,ASIA
+LBY,Aircraft and spacecraft,31,31-40%,0.0,0.0,OTHER
+MDA,Aircraft and spacecraft,31,31-40%,0.0,0.0,OTHER
+ZAF,Aircraft and spacecraft,31,31-40%,0.0,0.0,OTHER
+DZA,Aircraft and spacecraft,30,21-30%,0.0,0.0,OTHER
+NRU,Aircraft and spacecraft,30,21-30%,0.0,0.0,OTHER
+PAK,Aircraft and spacecraft,30,21-30%,0.0,0.0,OTHER
+TUN,Aircraft and spacecraft,28,21-30%,0.0,0.0,OTHER
+IND,Aircraft and spacecraft,27,21-30%,0.0011169490583162,0.0,OTHER
+KAZ,Aircraft and spacecraft,27,21-30%,0.0,0.0,OTHER
+KOR,Aircraft and spacecraft,26,21-30%,0.0116545877285686,1204.255126953125,ASIA
+JPN,Aircraft and spacecraft,24,21-30%,0.05192095216401211,5863.98193359375,ASIA
+MYS,Aircraft and spacecraft,24,21-30%,0.0010012032634216,0.0,ASIA
+BRN,Aircraft and spacecraft,24,21-30%,0.0,0.0,ASIA
+VUT,Aircraft and spacecraft,23,21-30%,0.0,0.0,OTHER
+CIV,Aircraft and spacecraft,21,21-30%,0.0,0.0,OTHER
+NAM,Aircraft and spacecraft,21,21-30%,0.0,0.0,OTHER
+FRA,Aircraft and spacecraft,20,11-20%,0.1883891346223081,15979.3466796875,EU
+DEU,Aircraft and spacecraft,20,11-20%,0.0845137930164251,5357.53662109375,EU
+ITA,Aircraft and spacecraft,20,11-20%,0.0242886607911015,2236.1103515625,EU
+POL,Aircraft and spacecraft,20,11-20%,0.0136852167737749,1220.4849853515625,EU
+ESP,Aircraft and spacecraft,20,11-20%,0.0061689948251635,0.0,EU
+NLD,Aircraft and spacecraft,20,11-20%,0.0030810212114019,0.0,EU
+BEL,Aircraft and spacecraft,20,11-20%,0.0028852530685556,0.0,EU
+AUT,Aircraft and spacecraft,20,11-20%,0.0011120053647391,0.0,EU
+PRT,Aircraft and spacecraft,20,11-20%,0.0005017061896898,0.0,EU
+ROU,Aircraft and spacecraft,20,11-20%,0.0003101832171895,0.0,EU
+CZE,Aircraft and spacecraft,20,11-20%,0.0001769473644464,0.0,EU
+MLT,Aircraft and spacecraft,20,11-20%,6.742696096128948e-05,0.0,EU
+BGR,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+CYP,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+DNK,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+EST,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+FIN,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+GRC,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+HRV,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+HUN,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+IRL,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+JOR,Aircraft and spacecraft,20,11-20%,0.0,0.0,OTHER
+LTU,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+LUX,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+LVA,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+SVK,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+SVN,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+SWE,Aircraft and spacecraft,20,11-20%,0.0,0.0,EU
+NIC,Aircraft and spacecraft,19,11-20%,0.0,0.0,LATAM
+MWI,Aircraft and spacecraft,18,11-20%,0.0,0.0,OTHER
+PHL,Aircraft and spacecraft,18,11-20%,0.0,0.0,ASIA
+ZWE,Aircraft and spacecraft,18,11-20%,0.0,0.0,OTHER
+ISR,Aircraft and spacecraft,17,11-20%,0.0069768784273428995,786.6036376953125,OTHER
+ZMB,Aircraft and spacecraft,17,11-20%,0.0,0.0,OTHER
+MOZ,Aircraft and spacecraft,16,11-20%,0.0,0.0,OTHER
+NOR,Aircraft and spacecraft,16,11-20%,0.0,0.0,OTHER
+VEN,Aircraft and spacecraft,15,11-20%,0.0,0.0,LATAM
+NGA,Aircraft and spacecraft,14,11-20%,0.0,0.0,OTHER
+GNQ,Aircraft and spacecraft,13,11-20%,0.0,0.0,OTHER
+TCD,Aircraft and spacecraft,13,11-20%,0.0,0.0,OTHER
+CMR,Aircraft and spacecraft,12,11-20%,0.0,0.0,OTHER
+COD,Aircraft and spacecraft,11,11-20%,0.0,0.0,OTHER
+GBR,Aircraft and spacecraft,10,0-10%,0.0739002725265838,5467.74609375,OTHER
+BRA,Aircraft and spacecraft,10,0-10%,0.0236679793110356,2752.865234375,LATAM
+SGP,Aircraft and spacecraft,10,0-10%,0.0182209157544091,1795.2158203125,ASIA
+TUR,Aircraft and spacecraft,10,0-10%,0.0072058702650922,768.8717651367188,OTHER
+AUS,Aircraft and spacecraft,10,0-10%,0.0,0.0,OTHER
+CHL,Aircraft and spacecraft,10,0-10%,0.0,0.0,LATAM
+COL,Aircraft and spacecraft,10,0-10%,0.0,0.0,LATAM
+LSO,Basic iron and steel,50,>40%,0.0,0.0,OTHER
+KHM,Basic iron and steel,49,>40%,0.0,0.0,ASIA
+LAO,Basic iron and steel,48,>40%,0.0,0.0,ASIA
+MDG,Basic iron and steel,47,>40%,0.0,0.0,OTHER
+VNM,Basic iron and steel,46,>40%,0.001651046568651,0.0,ASIA
+MMR,Basic iron and steel,45,>40%,0.0001084239349835,0.0,ASIA
+LKA,Basic iron and steel,44,>40%,0.0,0.0,ASIA
+FLK,Basic iron and steel,42,>40%,0.0,0.0,OTHER
+SYR,Basic iron and steel,41,>40%,0.0,0.0,OTHER
+MUS,Basic iron and steel,40,31-40%,0.0,0.0,OTHER
+IRQ,Basic iron and steel,39,31-40%,0.0,0.0,OTHER
+BWA,Basic iron and steel,38,31-40%,0.0,0.0,OTHER
+GUY,Basic iron and steel,38,31-40%,0.0,0.0,OTHER
+SRB,Basic iron and steel,38,31-40%,0.0,0.0,OTHER
+THA,Basic iron and steel,37,31-40%,0.0005819526302832,0.0,ASIA
+BGD,Basic iron and steel,37,31-40%,0.0,0.0,ASIA
+BIH,Basic iron and steel,36,31-40%,0.0,0.0,OTHER
+CHN,Basic iron and steel,34,31-40%,0.0388435009386525,1642.4447021484375,ASIA
+MKD,Basic iron and steel,33,31-40%,0.0,0.0,OTHER
+TWN,Basic iron and steel,32,31-40%,0.0129105642035711,1084.323974609375,ASIA
+IDN,Basic iron and steel,32,31-40%,0.0042851523187655,0.0,ASIA
+CHE,Basic iron and steel,32,31-40%,0.000246898480237,0.0,OTHER
+AGO,Basic iron and steel,32,31-40%,0.0,0.0,OTHER
+FJI,Basic iron and steel,32,31-40%,0.0,0.0,OTHER
+ZAF,Basic iron and steel,31,31-40%,0.0018613076889165,0.0,OTHER
+MDA,Basic iron and steel,31,31-40%,4.458468585313846e-05,0.0,OTHER
+LBY,Basic iron and steel,31,31-40%,0.0,0.0,OTHER
+DZA,Basic iron and steel,30,21-30%,0.0,0.0,OTHER
+NRU,Basic iron and steel,30,21-30%,0.0,0.0,OTHER
+PAK,Basic iron and steel,30,21-30%,0.0,0.0,OTHER
+TUN,Basic iron and steel,28,21-30%,0.0,0.0,OTHER
+IND,Basic iron and steel,27,21-30%,0.0095622602591208,801.1701049804688,OTHER
+KAZ,Basic iron and steel,27,21-30%,0.0041445606482934,0.0,OTHER
+KOR,Basic iron and steel,26,21-30%,0.0392356403193798,2813.720703125,ASIA
+JPN,Basic iron and steel,24,21-30%,0.035688012657559,1776.0838623046875,ASIA
+MYS,Basic iron and steel,24,21-30%,0.0014866610537766,0.0,ASIA
+BRN,Basic iron and steel,24,21-30%,0.0,0.0,ASIA
+VUT,Basic iron and steel,23,21-30%,0.0,0.0,OTHER
+CIV,Basic iron and steel,21,21-30%,0.0,0.0,OTHER
+NAM,Basic iron and steel,21,21-30%,0.0,0.0,OTHER
+DEU,Basic iron and steel,20,11-20%,0.0170268060476405,1546.5452880859375,EU
+ITA,Basic iron and steel,20,11-20%,0.0102474007384331,961.330078125,EU
+FRA,Basic iron and steel,20,11-20%,0.0021057726764611,0.0,EU
+SWE,Basic iron and steel,20,11-20%,0.0019422995275059,0.0,EU
+AUT,Basic iron and steel,20,11-20%,0.0015965823616842,0.0,EU
+BEL,Basic iron and steel,20,11-20%,0.0015353720998113,0.0,EU
+FIN,Basic iron and steel,20,11-20%,0.0012556798522967,0.0,EU
+ESP,Basic iron and steel,20,11-20%,0.0011482915028179,0.0,EU
+NLD,Basic iron and steel,20,11-20%,0.0010444822511469,0.0,EU
+CZE,Basic iron and steel,20,11-20%,0.0007875186001131,0.0,EU
+POL,Basic iron and steel,20,11-20%,0.0007066864895575,0.0,EU
+LUX,Basic iron and steel,20,11-20%,0.0004388185584901,0.0,EU
+SVK,Basic iron and steel,20,11-20%,0.0002591140016934,0.0,EU
+ROU,Basic iron and steel,20,11-20%,0.0001309558901083,0.0,EU
+SVN,Basic iron and steel,20,11-20%,6.379377609396376e-05,0.0,EU
+BGR,Basic iron and steel,20,11-20%,0.0,0.0,EU
+CYP,Basic iron and steel,20,11-20%,0.0,0.0,EU
+DNK,Basic iron and steel,20,11-20%,0.0,0.0,EU
+EST,Basic iron and steel,20,11-20%,0.0,0.0,EU
+GRC,Basic iron and steel,20,11-20%,0.0,0.0,EU
+HRV,Basic iron and steel,20,11-20%,0.0,0.0,EU
+HUN,Basic iron and steel,20,11-20%,0.0,0.0,EU
+IRL,Basic iron and steel,20,11-20%,0.0,0.0,EU
+JOR,Basic iron and steel,20,11-20%,0.0,0.0,OTHER
+LTU,Basic iron and steel,20,11-20%,0.0,0.0,EU
+LVA,Basic iron and steel,20,11-20%,0.0,0.0,EU
+MLT,Basic iron and steel,20,11-20%,0.0,0.0,EU
+PRT,Basic iron and steel,20,11-20%,0.0,0.0,EU
+NIC,Basic iron and steel,19,11-20%,0.0,0.0,LATAM
+MWI,Basic iron and steel,18,11-20%,0.0,0.0,OTHER
+PHL,Basic iron and steel,18,11-20%,0.0,0.0,ASIA
+ZWE,Basic iron and steel,18,11-20%,0.0,0.0,OTHER
+ISR,Basic iron and steel,17,11-20%,0.0,0.0,OTHER
+ZMB,Basic iron and steel,17,11-20%,0.0,0.0,OTHER
+MOZ,Basic iron and steel,16,11-20%,0.0,0.0,OTHER
+NOR,Basic iron and steel,16,11-20%,0.0,0.0,OTHER
+VEN,Basic iron and steel,15,11-20%,0.0,0.0,LATAM
+NGA,Basic iron and steel,14,11-20%,0.0,0.0,OTHER
+GNQ,Basic iron and steel,13,11-20%,0.0,0.0,OTHER
+TCD,Basic iron and steel,13,11-20%,0.0,0.0,OTHER
+CMR,Basic iron and steel,12,11-20%,0.0,0.0,OTHER
+COD,Basic iron and steel,11,11-20%,0.0,0.0,OTHER
+BRA,Basic iron and steel,10,0-10%,0.0325068618367592,3628.9033203125,LATAM
+TUR,Basic iron and steel,10,0-10%,0.0012435182750357,0.0,OTHER
+GBR,Basic iron and steel,10,0-10%,0.0007167036733411,0.0,OTHER
+AUS,Basic iron and steel,10,0-10%,0.0003605372438576,0.0,OTHER
+SGP,Basic iron and steel,10,0-10%,0.000245441682627,0.0,ASIA
+COL,Basic iron and steel,10,0-10%,0.0002427094408651,0.0,LATAM
+CHL,Basic iron and steel,10,0-10%,0.0,0.0,LATAM
+LSO,Basic precious and non-ferrous metals,50,>40%,0.0,0.0,OTHER
+KHM,Basic precious and non-ferrous metals,49,>40%,0.0,0.0,ASIA
+LAO,Basic precious and non-ferrous metals,48,>40%,0.0,0.0,ASIA
+MDG,Basic precious and non-ferrous metals,47,>40%,0.0001815561965776,0.0,OTHER
+VNM,Basic precious and non-ferrous metals,46,>40%,0.0012217744796817,0.0,ASIA
+MMR,Basic precious and non-ferrous metals,45,>40%,0.0001068809771799,0.0,ASIA
+LKA,Basic precious and non-ferrous metals,44,>40%,0.0,0.0,ASIA
+FLK,Basic precious and non-ferrous metals,42,>40%,0.0,0.0,OTHER
+SYR,Basic precious and non-ferrous metals,41,>40%,0.0,0.0,OTHER
+MUS,Basic precious and non-ferrous metals,40,31-40%,0.0,0.0,OTHER
+IRQ,Basic precious and non-ferrous metals,39,31-40%,0.0,0.0,OTHER
+GUY,Basic precious and non-ferrous metals,38,31-40%,0.0049155517971577,0.0,OTHER
+SRB,Basic precious and non-ferrous metals,38,31-40%,0.0005255384662969,0.0,OTHER
+BWA,Basic precious and non-ferrous metals,38,31-40%,0.0,0.0,OTHER
+THA,Basic precious and non-ferrous metals,37,31-40%,0.0033846680576976,0.0,ASIA
+BGD,Basic precious and non-ferrous metals,37,31-40%,0.0,0.0,ASIA
+BIH,Basic precious and non-ferrous metals,36,31-40%,0.0,0.0,OTHER
+CHN,Basic precious and non-ferrous metals,34,31-40%,0.0934119992123131,1647.47265625,ASIA
+MKD,Basic precious and non-ferrous metals,33,31-40%,0.0,0.0,OTHER
+CHE,Basic precious and non-ferrous metals,32,31-40%,0.0422917109281521,1494.1505126953125,OTHER
+IDN,Basic precious and non-ferrous metals,32,31-40%,0.0021998661452957,0.0,ASIA
+TWN,Basic precious and non-ferrous metals,32,31-40%,0.0012726857423738,0.0,ASIA
+FJI,Basic precious and non-ferrous metals,32,31-40%,8.117282990771635e-05,0.0,OTHER
+AGO,Basic precious and non-ferrous metals,32,31-40%,0.0,0.0,OTHER
+ZAF,Basic precious and non-ferrous metals,31,31-40%,0.055049507334776,3155.859375,OTHER
+LBY,Basic precious and non-ferrous metals,31,31-40%,0.0004495100506488,0.0,OTHER
+MDA,Basic precious and non-ferrous metals,31,31-40%,0.0,0.0,OTHER
+PAK,Basic precious and non-ferrous metals,30,21-30%,0.0001072996877034,0.0,OTHER
+DZA,Basic precious and non-ferrous metals,30,21-30%,0.0,0.0,OTHER
+NRU,Basic precious and non-ferrous metals,30,21-30%,0.0,0.0,OTHER
+TUN,Basic precious and non-ferrous metals,28,21-30%,0.0,0.0,OTHER
+IND,Basic precious and non-ferrous metals,27,21-30%,0.012465164289517898,667.8303833007812,OTHER
+KAZ,Basic precious and non-ferrous metals,27,21-30%,0.0052623421748581,0.0,OTHER
+KOR,Basic precious and non-ferrous metals,26,21-30%,0.0172514468763621,897.4766845703125,ASIA
+JPN,Basic precious and non-ferrous metals,24,21-30%,0.0236025844061935,1306.230224609375,ASIA
+MYS,Basic precious and non-ferrous metals,24,21-30%,0.0021285986177241,0.0,ASIA
+BRN,Basic precious and non-ferrous metals,24,21-30%,0.0,0.0,ASIA
+VUT,Basic precious and non-ferrous metals,23,21-30%,0.0,0.0,OTHER
+NAM,Basic precious and non-ferrous metals,21,21-30%,0.0036089616434231,0.0,OTHER
+CIV,Basic precious and non-ferrous metals,21,21-30%,0.0001541719407518,0.0,OTHER
+DEU,Basic precious and non-ferrous metals,20,11-20%,0.0664731064155643,3594.433349609375,EU
+ITA,Basic precious and non-ferrous metals,20,11-20%,0.0160745048154929,778.606201171875,EU
+BEL,Basic precious and non-ferrous metals,20,11-20%,0.0126075519815578,589.4740600585938,EU
+FRA,Basic precious and non-ferrous metals,20,11-20%,0.0115958637168081,561.367431640625,EU
+NLD,Basic precious and non-ferrous metals,20,11-20%,0.0056976819434286,0.0,EU
+ESP,Basic precious and non-ferrous metals,20,11-20%,0.0052524865667261,0.0,EU
+POL,Basic precious and non-ferrous metals,20,11-20%,0.0029170815571657,0.0,EU
+AUT,Basic precious and non-ferrous metals,20,11-20%,0.0026052877865954,0.0,EU
+FIN,Basic precious and non-ferrous metals,20,11-20%,0.0018956926314104,0.0,EU
+SWE,Basic precious and non-ferrous metals,20,11-20%,0.0016649846229828,0.0,EU
+BGR,Basic precious and non-ferrous metals,20,11-20%,0.0014971942758182,0.0,EU
+GRC,Basic precious and non-ferrous metals,20,11-20%,0.0008798028262912,0.0,EU
+CZE,Basic precious and non-ferrous metals,20,11-20%,0.0007404068604572,0.0,EU
+SVN,Basic precious and non-ferrous metals,20,11-20%,0.0004128886727322,0.0,EU
+LUX,Basic precious and non-ferrous metals,20,11-20%,0.0003882058888367,0.0,EU
+DNK,Basic precious and non-ferrous metals,20,11-20%,0.0003791128349131,0.0,EU
+HUN,Basic precious and non-ferrous metals,20,11-20%,0.0003297186366231,0.0,EU
+JOR,Basic precious and non-ferrous metals,20,11-20%,0.0001980471734023,0.0,OTHER
+EST,Basic precious and non-ferrous metals,20,11-20%,0.0001938151208391,0.0,EU
+PRT,Basic precious and non-ferrous metals,20,11-20%,3.676946829187389e-05,0.0,EU
+CYP,Basic precious and non-ferrous metals,20,11-20%,0.0,0.0,EU
+HRV,Basic precious and non-ferrous metals,20,11-20%,0.0,0.0,EU
+IRL,Basic precious and non-ferrous metals,20,11-20%,0.0,0.0,EU
+LTU,Basic precious and non-ferrous metals,20,11-20%,0.0,0.0,EU
+LVA,Basic precious and non-ferrous metals,20,11-20%,0.0,0.0,EU
+MLT,Basic precious and non-ferrous metals,20,11-20%,0.0,0.0,EU
+ROU,Basic precious and non-ferrous metals,20,11-20%,0.0,0.0,EU
+SVK,Basic precious and non-ferrous metals,20,11-20%,0.0,0.0,EU
+NIC,Basic precious and non-ferrous metals,19,11-20%,0.0055760070681571,499.1732177734375,LATAM
+PHL,Basic precious and non-ferrous metals,18,11-20%,0.0009257840941271,0.0,ASIA
+ZWE,Basic precious and non-ferrous metals,18,11-20%,0.0003010851479903,0.0,OTHER
+MWI,Basic precious and non-ferrous metals,18,11-20%,0.0,0.0,OTHER
+ZMB,Basic precious and non-ferrous metals,17,11-20%,0.0026901433390528,0.0,OTHER
+ISR,Basic precious and non-ferrous metals,17,11-20%,0.0,0.0,OTHER
+NOR,Basic precious and non-ferrous metals,16,11-20%,0.001416822126831,0.0,OTHER
+MOZ,Basic precious and non-ferrous metals,16,11-20%,0.0004398215049022,0.0,OTHER
+VEN,Basic precious and non-ferrous metals,15,11-20%,4.460667910956501e-05,0.0,LATAM
+NGA,Basic precious and non-ferrous metals,14,11-20%,0.0002246641376691,0.0,OTHER
+TCD,Basic precious and non-ferrous metals,13,11-20%,0.0001167505430898,0.0,OTHER
+GNQ,Basic precious and non-ferrous metals,13,11-20%,0.0,0.0,OTHER
+CMR,Basic precious and non-ferrous metals,12,11-20%,0.0001793161068792,0.0,OTHER
+COD,Basic precious and non-ferrous metals,11,11-20%,0.0028618499919803,0.0,OTHER
+CHL,Basic precious and non-ferrous metals,10,0-10%,0.0489955549406135,2893.795654296875,LATAM
+BRA,Basic precious and non-ferrous metals,10,0-10%,0.037757253402799,532.9952392578125,LATAM
+GBR,Basic precious and non-ferrous metals,10,0-10%,0.0334604841809658,1399.9639892578125,OTHER
+AUS,Basic precious and non-ferrous metals,10,0-10%,0.0166492479362229,915.9253540039062,OTHER
+COL,Basic precious and non-ferrous metals,10,0-10%,0.0084486477640641,592.1609497070312,LATAM
+TUR,Basic precious and non-ferrous metals,10,0-10%,0.0024873205669099,0.0,OTHER
+SGP,Basic precious and non-ferrous metals,10,0-10%,0.0020652783534866,0.0,ASIA
+LSO,Electronic valves tubes etc.,50,>40%,0.0,0.0,OTHER
+KHM,Electronic valves tubes etc.,49,>40%,0.0,0.0,ASIA
+LAO,Electronic valves tubes etc.,48,>40%,0.0,0.0,ASIA
+MDG,Electronic valves tubes etc.,47,>40%,0.0,0.0,OTHER
+VNM,Electronic valves tubes etc.,46,>40%,0.0564056061479681,3688.7255859375,ASIA
+MMR,Electronic valves tubes etc.,45,>40%,0.0,0.0,ASIA
+LKA,Electronic valves tubes etc.,44,>40%,0.0,0.0,ASIA
+FLK,Electronic valves tubes etc.,42,>40%,0.0,0.0,OTHER
+SYR,Electronic valves tubes etc.,41,>40%,0.0,0.0,OTHER
+MUS,Electronic valves tubes etc.,40,31-40%,0.0,0.0,OTHER
+IRQ,Electronic valves tubes etc.,39,31-40%,0.0,0.0,OTHER
+BWA,Electronic valves tubes etc.,38,31-40%,0.0,0.0,OTHER
+GUY,Electronic valves tubes etc.,38,31-40%,0.0,0.0,OTHER
+SRB,Electronic valves tubes etc.,38,31-40%,0.0,0.0,OTHER
+THA,Electronic valves tubes etc.,37,31-40%,0.036564279478063996,1777.125732421875,ASIA
+BGD,Electronic valves tubes etc.,37,31-40%,0.0,0.0,ASIA
+BIH,Electronic valves tubes etc.,36,31-40%,0.0,0.0,OTHER
+CHN,Electronic valves tubes etc.,34,31-40%,0.1782245821765022,4025.015869140625,ASIA
+MKD,Electronic valves tubes etc.,33,31-40%,0.0,0.0,OTHER
+TWN,Electronic valves tubes etc.,32,31-40%,0.2163567801953218,4671.3974609375,ASIA
+IDN,Electronic valves tubes etc.,32,31-40%,0.0003291722383638,0.0,ASIA
+CHE,Electronic valves tubes etc.,32,31-40%,7.577349114464699e-05,0.0,OTHER
+AGO,Electronic valves tubes etc.,32,31-40%,0.0,0.0,OTHER
+FJI,Electronic valves tubes etc.,32,31-40%,0.0,0.0,OTHER
+LBY,Electronic valves tubes etc.,31,31-40%,0.0,0.0,OTHER
+MDA,Electronic valves tubes etc.,31,31-40%,0.0,0.0,OTHER
+ZAF,Electronic valves tubes etc.,31,31-40%,0.0,0.0,OTHER
+DZA,Electronic valves tubes etc.,30,21-30%,0.0,0.0,OTHER
+NRU,Electronic valves tubes etc.,30,21-30%,0.0,0.0,OTHER
+PAK,Electronic valves tubes etc.,30,21-30%,0.0,0.0,OTHER
+TUN,Electronic valves tubes etc.,28,21-30%,0.0,0.0,OTHER
+IND,Electronic valves tubes etc.,27,21-30%,0.0,0.0,OTHER
+KAZ,Electronic valves tubes etc.,27,21-30%,0.0,0.0,OTHER
+KOR,Electronic valves tubes etc.,26,21-30%,0.1150723498000314,3297.083251953125,ASIA
+MYS,Electronic valves tubes etc.,24,21-30%,0.2523973475591454,18945.146484375,ASIA
+JPN,Electronic valves tubes etc.,24,21-30%,0.0993595645503063,3181.158447265625,ASIA
+BRN,Electronic valves tubes etc.,24,21-30%,0.0,0.0,ASIA
+VUT,Electronic valves tubes etc.,23,21-30%,0.0,0.0,OTHER
+CIV,Electronic valves tubes etc.,21,21-30%,0.0,0.0,OTHER
+NAM,Electronic valves tubes etc.,21,21-30%,0.0,0.0,OTHER
+DEU,Electronic valves tubes etc.,20,11-20%,0.0177870425459197,727.6257934570312,EU
+IRL,Electronic valves tubes etc.,20,11-20%,0.0170185030741709,868.3726196289062,EU
+AUT,Electronic valves tubes etc.,20,11-20%,0.0019314532932946,0.0,EU
+ITA,Electronic valves tubes etc.,20,11-20%,0.0018350185425777,0.0,EU
+FRA,Electronic valves tubes etc.,20,11-20%,0.0011396357207888,0.0,EU
+NLD,Electronic valves tubes etc.,20,11-20%,0.00099624378949,0.0,EU
+HUN,Electronic valves tubes etc.,20,11-20%,0.000160109481522,0.0,EU
+CZE,Electronic valves tubes etc.,20,11-20%,9.188481613232186e-05,0.0,EU
+BEL,Electronic valves tubes etc.,20,11-20%,8.197888036963995e-05,0.0,EU
+POL,Electronic valves tubes etc.,20,11-20%,6.174514270540499e-05,0.0,EU
+BGR,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+CYP,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+DNK,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+ESP,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+EST,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+FIN,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+GRC,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+HRV,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+JOR,Electronic valves tubes etc.,20,11-20%,0.0,0.0,OTHER
+LTU,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+LUX,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+LVA,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+MLT,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+PRT,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+ROU,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+SVK,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+SVN,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+SWE,Electronic valves tubes etc.,20,11-20%,0.0,0.0,EU
+NIC,Electronic valves tubes etc.,19,11-20%,0.0,0.0,LATAM
+PHL,Electronic valves tubes etc.,18,11-20%,0.0362561034518287,1444.5213623046875,ASIA
+MWI,Electronic valves tubes etc.,18,11-20%,0.0,0.0,OTHER
+ZWE,Electronic valves tubes etc.,18,11-20%,0.0,0.0,OTHER
+ISR,Electronic valves tubes etc.,17,11-20%,0.0006405770339284,0.0,OTHER
+ZMB,Electronic valves tubes etc.,17,11-20%,0.0,0.0,OTHER
+MOZ,Electronic valves tubes etc.,16,11-20%,0.0,0.0,OTHER
+NOR,Electronic valves tubes etc.,16,11-20%,0.0,0.0,OTHER
+VEN,Electronic valves tubes etc.,15,11-20%,0.0,0.0,LATAM
+NGA,Electronic valves tubes etc.,14,11-20%,0.0,0.0,OTHER
+GNQ,Electronic valves tubes etc.,13,11-20%,0.0,0.0,OTHER
+TCD,Electronic valves tubes etc.,13,11-20%,0.0,0.0,OTHER
+CMR,Electronic valves tubes etc.,12,11-20%,0.0,0.0,OTHER
+COD,Electronic valves tubes etc.,11,11-20%,0.0,0.0,OTHER
+SGP,Electronic valves tubes etc.,10,0-10%,0.0558703573595694,782.9131469726562,ASIA
+GBR,Electronic valves tubes etc.,10,0-10%,0.0015515357568997,0.0,OTHER
+AUS,Electronic valves tubes etc.,10,0-10%,0.0,0.0,OTHER
+BRA,Electronic valves tubes etc.,10,0-10%,0.0,0.0,LATAM
+CHL,Electronic valves tubes etc.,10,0-10%,0.0,0.0,LATAM
+COL,Electronic valves tubes etc.,10,0-10%,0.0,0.0,LATAM
+TUR,Electronic valves tubes etc.,10,0-10%,0.0,0.0,OTHER
+LSO,Medical surgical and orthopaedic equipment,50,>40%,0.0,0.0,OTHER
+KHM,Medical surgical and orthopaedic equipment,49,>40%,0.0,0.0,ASIA
+LAO,Medical surgical and orthopaedic equipment,48,>40%,0.0,0.0,ASIA
+MDG,Medical surgical and orthopaedic equipment,47,>40%,0.0,0.0,OTHER
+VNM,Medical surgical and orthopaedic equipment,46,>40%,0.0012259342821512,0.0,ASIA
+MMR,Medical surgical and orthopaedic equipment,45,>40%,0.0,0.0,ASIA
+LKA,Medical surgical and orthopaedic equipment,44,>40%,0.0,0.0,ASIA
+FLK,Medical surgical and orthopaedic equipment,42,>40%,0.0,0.0,OTHER
+SYR,Medical surgical and orthopaedic equipment,41,>40%,0.0,0.0,OTHER
+MUS,Medical surgical and orthopaedic equipment,40,31-40%,0.0,0.0,OTHER
+IRQ,Medical surgical and orthopaedic equipment,39,31-40%,0.0,0.0,OTHER
+BWA,Medical surgical and orthopaedic equipment,38,31-40%,0.0,0.0,OTHER
+GUY,Medical surgical and orthopaedic equipment,38,31-40%,0.0,0.0,OTHER
+SRB,Medical surgical and orthopaedic equipment,38,31-40%,0.0,0.0,OTHER
+THA,Medical surgical and orthopaedic equipment,37,31-40%,0.0004714059168738,0.0,ASIA
+BGD,Medical surgical and orthopaedic equipment,37,31-40%,0.0,0.0,ASIA
+BIH,Medical surgical and orthopaedic equipment,36,31-40%,0.0,0.0,OTHER
+CHN,Medical surgical and orthopaedic equipment,34,31-40%,0.0615423359855319,5134.48388671875,ASIA
+MKD,Medical surgical and orthopaedic equipment,33,31-40%,0.0,0.0,OTHER
+CHE,Medical surgical and orthopaedic equipment,32,31-40%,0.0385357686131921,2957.16650390625,OTHER
+TWN,Medical surgical and orthopaedic equipment,32,31-40%,0.0020906685099264,0.0,ASIA
+IDN,Medical surgical and orthopaedic equipment,32,31-40%,0.0002795464730979,0.0,ASIA
+AGO,Medical surgical and orthopaedic equipment,32,31-40%,0.0,0.0,OTHER
+FJI,Medical surgical and orthopaedic equipment,32,31-40%,0.0,0.0,OTHER
+LBY,Medical surgical and orthopaedic equipment,31,31-40%,0.0,0.0,OTHER
+MDA,Medical surgical and orthopaedic equipment,31,31-40%,0.0,0.0,OTHER
+ZAF,Medical surgical and orthopaedic equipment,31,31-40%,0.0,0.0,OTHER
+PAK,Medical surgical and orthopaedic equipment,30,21-30%,0.0008110630830152,0.0,OTHER
+DZA,Medical surgical and orthopaedic equipment,30,21-30%,0.0,0.0,OTHER
+NRU,Medical surgical and orthopaedic equipment,30,21-30%,0.0,0.0,OTHER
+TUN,Medical surgical and orthopaedic equipment,28,21-30%,9.17145341952782e-05,0.0,OTHER
+IND,Medical surgical and orthopaedic equipment,27,21-30%,0.0011048737882515,0.0,OTHER
+KAZ,Medical surgical and orthopaedic equipment,27,21-30%,0.0,0.0,OTHER
+KOR,Medical surgical and orthopaedic equipment,26,21-30%,0.0031261799081474,0.0,ASIA
+JPN,Medical surgical and orthopaedic equipment,24,21-30%,0.0331234696729272,2446.827392578125,ASIA
+MYS,Medical surgical and orthopaedic equipment,24,21-30%,0.0104973054729778,751.8463134765625,ASIA
+BRN,Medical surgical and orthopaedic equipment,24,21-30%,0.0,0.0,ASIA
+VUT,Medical surgical and orthopaedic equipment,23,21-30%,0.0,0.0,OTHER
+CIV,Medical surgical and orthopaedic equipment,21,21-30%,0.0,0.0,OTHER
+NAM,Medical surgical and orthopaedic equipment,21,21-30%,0.0,0.0,OTHER
+DEU,Medical surgical and orthopaedic equipment,20,11-20%,0.0902188048421692,6134.435546875,EU
+IRL,Medical surgical and orthopaedic equipment,20,11-20%,0.0687166377294587,7824.66064453125,EU
+NLD,Medical surgical and orthopaedic equipment,20,11-20%,0.0177752841609866,0.0,EU
+FRA,Medical surgical and orthopaedic equipment,20,11-20%,0.0164420676787172,1068.2125244140625,EU
+POL,Medical surgical and orthopaedic equipment,20,11-20%,0.0076778075790522,778.067138671875,EU
+ITA,Medical surgical and orthopaedic equipment,20,11-20%,0.0049799248191111,0.0,EU
+BEL,Medical surgical and orthopaedic equipment,20,11-20%,0.0031898910656045,0.0,EU
+AUT,Medical surgical and orthopaedic equipment,20,11-20%,0.0028708515773091,0.0,EU
+DNK,Medical surgical and orthopaedic equipment,20,11-20%,0.001748119212426,0.0,EU
+SWE,Medical surgical and orthopaedic equipment,20,11-20%,0.0008927525875124,0.0,EU
+ESP,Medical surgical and orthopaedic equipment,20,11-20%,0.0007093396140964,0.0,EU
+CZE,Medical surgical and orthopaedic equipment,20,11-20%,0.0006757751495617,0.0,EU
+HUN,Medical surgical and orthopaedic equipment,20,11-20%,0.0006644165232553,0.0,EU
+FIN,Medical surgical and orthopaedic equipment,20,11-20%,9.509849063088517e-05,0.0,EU
+SVK,Medical surgical and orthopaedic equipment,20,11-20%,8.591044074375098e-05,0.0,EU
+BGR,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+CYP,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+EST,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+GRC,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+HRV,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+JOR,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,OTHER
+LTU,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+LUX,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+LVA,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+MLT,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+PRT,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+ROU,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+SVN,Medical surgical and orthopaedic equipment,20,11-20%,0.0,0.0,EU
+NIC,Medical surgical and orthopaedic equipment,19,11-20%,0.0,0.0,LATAM
+PHL,Medical surgical and orthopaedic equipment,18,11-20%,0.0002075290848937,0.0,ASIA
+MWI,Medical surgical and orthopaedic equipment,18,11-20%,0.0,0.0,OTHER
+ZWE,Medical surgical and orthopaedic equipment,18,11-20%,0.0,0.0,OTHER
+ISR,Medical surgical and orthopaedic equipment,17,11-20%,0.0115002193810603,1161.5750732421875,OTHER
+ZMB,Medical surgical and orthopaedic equipment,17,11-20%,0.0,0.0,OTHER
+MOZ,Medical surgical and orthopaedic equipment,16,11-20%,0.0,0.0,OTHER
+NOR,Medical surgical and orthopaedic equipment,16,11-20%,0.0,0.0,OTHER
+VEN,Medical surgical and orthopaedic equipment,15,11-20%,0.0,0.0,LATAM
+NGA,Medical surgical and orthopaedic equipment,14,11-20%,0.0,0.0,OTHER
+GNQ,Medical surgical and orthopaedic equipment,13,11-20%,0.0,0.0,OTHER
+TCD,Medical surgical and orthopaedic equipment,13,11-20%,0.0,0.0,OTHER
+CMR,Medical surgical and orthopaedic equipment,12,11-20%,0.0,0.0,OTHER
+COD,Medical surgical and orthopaedic equipment,11,11-20%,0.0,0.0,OTHER
+GBR,Medical surgical and orthopaedic equipment,10,0-10%,0.0220834752343809,951.4490356445312,OTHER
+SGP,Medical surgical and orthopaedic equipment,10,0-10%,0.0208395593386924,2167.62158203125,ASIA
+AUS,Medical surgical and orthopaedic equipment,10,0-10%,0.0014514553315866,0.0,OTHER
+BRA,Medical surgical and orthopaedic equipment,10,0-10%,0.0011546081913724,0.0,LATAM
+TUR,Medical surgical and orthopaedic equipment,10,0-10%,3.489863876979878e-05,0.0,OTHER
+CHL,Medical surgical and orthopaedic equipment,10,0-10%,0.0,0.0,LATAM
+COL,Medical surgical and orthopaedic equipment,10,0-10%,0.0,0.0,LATAM
+LSO,Office accounting and computing machinery,50,>40%,0.0,0.0,OTHER
+KHM,Office accounting and computing machinery,49,>40%,0.0,0.0,ASIA
+LAO,Office accounting and computing machinery,48,>40%,0.0,0.0,ASIA
+MDG,Office accounting and computing machinery,47,>40%,0.0,0.0,OTHER
+VNM,Office accounting and computing machinery,46,>40%,0.0407830295543857,2181.077880859375,ASIA
+MMR,Office accounting and computing machinery,45,>40%,0.0,0.0,ASIA
+LKA,Office accounting and computing machinery,44,>40%,0.0,0.0,ASIA
+FLK,Office accounting and computing machinery,42,>40%,0.0,0.0,OTHER
+SYR,Office accounting and computing machinery,41,>40%,0.0,0.0,OTHER
+MUS,Office accounting and computing machinery,40,31-40%,0.0,0.0,OTHER
+IRQ,Office accounting and computing machinery,39,31-40%,0.0,0.0,OTHER
+BWA,Office accounting and computing machinery,38,31-40%,0.0,0.0,OTHER
+GUY,Office accounting and computing machinery,38,31-40%,0.0,0.0,OTHER
+SRB,Office accounting and computing machinery,38,31-40%,0.0,0.0,OTHER
+THA,Office accounting and computing machinery,37,31-40%,0.2858361711664662,5599.6748046875,ASIA
+BGD,Office accounting and computing machinery,37,31-40%,0.0,0.0,ASIA
+BIH,Office accounting and computing machinery,36,31-40%,0.0,0.0,OTHER
+CHN,Office accounting and computing machinery,34,31-40%,0.8233908984489358,54091.76171875,ASIA
+MKD,Office accounting and computing machinery,33,31-40%,0.0,0.0,OTHER
+TWN,Office accounting and computing machinery,32,31-40%,0.2955438557382589,10882.474609375,ASIA
+IDN,Office accounting and computing machinery,32,31-40%,0.0001532056623957,0.0,ASIA
+AGO,Office accounting and computing machinery,32,31-40%,0.0,0.0,OTHER
+CHE,Office accounting and computing machinery,32,31-40%,0.0,0.0,OTHER
+FJI,Office accounting and computing machinery,32,31-40%,0.0,0.0,OTHER
+LBY,Office accounting and computing machinery,31,31-40%,0.0,0.0,OTHER
+MDA,Office accounting and computing machinery,31,31-40%,0.0,0.0,OTHER
+ZAF,Office accounting and computing machinery,31,31-40%,0.0,0.0,OTHER
+DZA,Office accounting and computing machinery,30,21-30%,0.0,0.0,OTHER
+NRU,Office accounting and computing machinery,30,21-30%,0.0,0.0,OTHER
+PAK,Office accounting and computing machinery,30,21-30%,0.0,0.0,OTHER
+TUN,Office accounting and computing machinery,28,21-30%,0.0,0.0,OTHER
+IND,Office accounting and computing machinery,27,21-30%,0.0002767169925358,0.0,OTHER
+KAZ,Office accounting and computing machinery,27,21-30%,0.0,0.0,OTHER
+KOR,Office accounting and computing machinery,26,21-30%,0.2136174411853232,4691.556640625,ASIA
+MYS,Office accounting and computing machinery,24,21-30%,0.0871382548177708,1554.6065673828125,ASIA
+JPN,Office accounting and computing machinery,24,21-30%,0.0467679081214074,1152.787109375,ASIA
+BRN,Office accounting and computing machinery,24,21-30%,0.0,0.0,ASIA
+VUT,Office accounting and computing machinery,23,21-30%,0.0,0.0,OTHER
+CIV,Office accounting and computing machinery,21,21-30%,0.0,0.0,OTHER
+NAM,Office accounting and computing machinery,21,21-30%,0.0,0.0,OTHER
+DEU,Office accounting and computing machinery,20,11-20%,0.0147766313008145,1089.18212890625,EU
+IRL,Office accounting and computing machinery,20,11-20%,0.0045374676428482,0.0,EU
+NLD,Office accounting and computing machinery,20,11-20%,0.0028360531662105,0.0,EU
+CZE,Office accounting and computing machinery,20,11-20%,0.0009449346491258,0.0,EU
+POL,Office accounting and computing machinery,20,11-20%,0.0003970970363799,0.0,EU
+HUN,Office accounting and computing machinery,20,11-20%,0.0003646969131654,0.0,EU
+FRA,Office accounting and computing machinery,20,11-20%,8.71426374662726e-05,0.0,EU
+ITA,Office accounting and computing machinery,20,11-20%,5.168723415293741e-05,0.0,EU
+AUT,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+BEL,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+BGR,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+CYP,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+DNK,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+ESP,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+EST,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+FIN,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+GRC,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+HRV,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+JOR,Office accounting and computing machinery,20,11-20%,0.0,0.0,OTHER
+LTU,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+LUX,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+LVA,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+MLT,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+PRT,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+ROU,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+SVK,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+SVN,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+SWE,Office accounting and computing machinery,20,11-20%,0.0,0.0,EU
+NIC,Office accounting and computing machinery,19,11-20%,0.0,0.0,LATAM
+PHL,Office accounting and computing machinery,18,11-20%,0.1445727736123533,2840.646728515625,ASIA
+MWI,Office accounting and computing machinery,18,11-20%,0.0,0.0,OTHER
+ZWE,Office accounting and computing machinery,18,11-20%,0.0,0.0,OTHER
+ISR,Office accounting and computing machinery,17,11-20%,0.0,0.0,OTHER
+ZMB,Office accounting and computing machinery,17,11-20%,0.0,0.0,OTHER
+MOZ,Office accounting and computing machinery,16,11-20%,0.0,0.0,OTHER
+NOR,Office accounting and computing machinery,16,11-20%,0.0,0.0,OTHER
+VEN,Office accounting and computing machinery,15,11-20%,0.0,0.0,LATAM
+NGA,Office accounting and computing machinery,14,11-20%,0.0,0.0,OTHER
+GNQ,Office accounting and computing machinery,13,11-20%,0.0,0.0,OTHER
+TCD,Office accounting and computing machinery,13,11-20%,0.0,0.0,OTHER
+CMR,Office accounting and computing machinery,12,11-20%,0.0,0.0,OTHER
+COD,Office accounting and computing machinery,11,11-20%,0.0,0.0,OTHER
+SGP,Office accounting and computing machinery,10,0-10%,0.0347220840401342,0.0,ASIA
+GBR,Office accounting and computing machinery,10,0-10%,0.0002198875998303,0.0,OTHER
+AUS,Office accounting and computing machinery,10,0-10%,0.0,0.0,OTHER
+BRA,Office accounting and computing machinery,10,0-10%,0.0,0.0,LATAM
+CHL,Office accounting and computing machinery,10,0-10%,0.0,0.0,LATAM
+COL,Office accounting and computing machinery,10,0-10%,0.0,0.0,LATAM
+TUR,Office accounting and computing machinery,10,0-10%,0.0,0.0,OTHER
+LSO,Optical instruments & photographic equipment,50,>40%,0.0,0.0,OTHER
+KHM,Optical instruments & photographic equipment,49,>40%,0.0,0.0,ASIA
+LAO,Optical instruments & photographic equipment,48,>40%,0.0002881314497617,0.0,ASIA
+MDG,Optical instruments & photographic equipment,47,>40%,0.0,0.0,OTHER
+VNM,Optical instruments & photographic equipment,46,>40%,0.0438160662302836,69.6008071899414,ASIA
+MMR,Optical instruments & photographic equipment,45,>40%,0.0004371865616092,0.0,ASIA
+LKA,Optical instruments & photographic equipment,44,>40%,0.0,0.0,ASIA
+FLK,Optical instruments & photographic equipment,42,>40%,0.0,0.0,OTHER
+SYR,Optical instruments & photographic equipment,41,>40%,0.0,0.0,OTHER
+MUS,Optical instruments & photographic equipment,40,31-40%,0.0,0.0,OTHER
+IRQ,Optical instruments & photographic equipment,39,31-40%,0.0,0.0,OTHER
+BWA,Optical instruments & photographic equipment,38,31-40%,0.0,0.0,OTHER
+GUY,Optical instruments & photographic equipment,38,31-40%,0.0,0.0,OTHER
+SRB,Optical instruments & photographic equipment,38,31-40%,0.0,0.0,OTHER
+THA,Optical instruments & photographic equipment,37,31-40%,0.0938933763163514,494.0368957519531,ASIA
+BGD,Optical instruments & photographic equipment,37,31-40%,0.0,0.0,ASIA
+BIH,Optical instruments & photographic equipment,36,31-40%,0.0,0.0,OTHER
+CHN,Optical instruments & photographic equipment,34,31-40%,0.5646108803339697,3793.357666015625,ASIA
+MKD,Optical instruments & photographic equipment,33,31-40%,0.0,0.0,OTHER
+TWN,Optical instruments & photographic equipment,32,31-40%,0.2509206059494906,514.0648803710938,ASIA
+IDN,Optical instruments & photographic equipment,32,31-40%,0.0097139674882014,99.91468811035156,ASIA
+CHE,Optical instruments & photographic equipment,32,31-40%,0.0060783615256087,0.0,OTHER
+AGO,Optical instruments & photographic equipment,32,31-40%,0.0,0.0,OTHER
+FJI,Optical instruments & photographic equipment,32,31-40%,0.0,0.0,OTHER
+LBY,Optical instruments & photographic equipment,31,31-40%,0.0,0.0,OTHER
+MDA,Optical instruments & photographic equipment,31,31-40%,0.0,0.0,OTHER
+ZAF,Optical instruments & photographic equipment,31,31-40%,0.0,0.0,OTHER
+DZA,Optical instruments & photographic equipment,30,21-30%,0.0,0.0,OTHER
+NRU,Optical instruments & photographic equipment,30,21-30%,0.0,0.0,OTHER
+PAK,Optical instruments & photographic equipment,30,21-30%,0.0,0.0,OTHER
+TUN,Optical instruments & photographic equipment,28,21-30%,0.0,0.0,OTHER
+IND,Optical instruments & photographic equipment,27,21-30%,0.0040677941228034,0.0,OTHER
+KAZ,Optical instruments & photographic equipment,27,21-30%,0.0,0.0,OTHER
+KOR,Optical instruments & photographic equipment,26,21-30%,0.1928727580775465,138.74729919433594,ASIA
+JPN,Optical instruments & photographic equipment,24,21-30%,0.2684725330876745,1361.3040771484375,ASIA
+MYS,Optical instruments & photographic equipment,24,21-30%,0.0276416701898537,223.76129150390625,ASIA
+BRN,Optical instruments & photographic equipment,24,21-30%,0.0,0.0,ASIA
+VUT,Optical instruments & photographic equipment,23,21-30%,0.0,0.0,OTHER
+CIV,Optical instruments & photographic equipment,21,21-30%,0.0,0.0,OTHER
+NAM,Optical instruments & photographic equipment,21,21-30%,0.0,0.0,OTHER
+DEU,Optical instruments & photographic equipment,20,11-20%,0.1620728675842291,1037.976806640625,EU
+ITA,Optical instruments & photographic equipment,20,11-20%,0.1334188272206619,1243.3817138671875,EU
+IRL,Optical instruments & photographic equipment,20,11-20%,0.0447707732254992,215.27740478515625,EU
+NLD,Optical instruments & photographic equipment,20,11-20%,0.0234707486633761,69.9043197631836,EU
+FRA,Optical instruments & photographic equipment,20,11-20%,0.0214945909646436,148.0052032470703,EU
+AUT,Optical instruments & photographic equipment,20,11-20%,0.0090330489149607,92.71846771240234,EU
+SWE,Optical instruments & photographic equipment,20,11-20%,0.0082640580663567,93.96829986572266,EU
+CZE,Optical instruments & photographic equipment,20,11-20%,0.0054428807429666,0.0,EU
+BEL,Optical instruments & photographic equipment,20,11-20%,0.0043410870334797,0.0,EU
+HUN,Optical instruments & photographic equipment,20,11-20%,0.0031744185855641,0.0,EU
+POL,Optical instruments & photographic equipment,20,11-20%,0.003146676146797,0.0,EU
+ESP,Optical instruments & photographic equipment,20,11-20%,0.0028399264369559,0.0,EU
+PRT,Optical instruments & photographic equipment,20,11-20%,0.0019863618755323,0.0,EU
+SVN,Optical instruments & photographic equipment,20,11-20%,0.0019349628878335,0.0,EU
+ROU,Optical instruments & photographic equipment,20,11-20%,0.000739699617677,0.0,EU
+DNK,Optical instruments & photographic equipment,20,11-20%,0.0006889554358227,0.0,EU
+LVA,Optical instruments & photographic equipment,20,11-20%,7.294859014332893e-05,0.0,EU
+FIN,Optical instruments & photographic equipment,20,11-20%,5.18819379535121e-05,0.0,EU
+BGR,Optical instruments & photographic equipment,20,11-20%,4.414760233467196e-05,0.0,EU
+CYP,Optical instruments & photographic equipment,20,11-20%,0.0,0.0,EU
+EST,Optical instruments & photographic equipment,20,11-20%,0.0,0.0,EU
+GRC,Optical instruments & photographic equipment,20,11-20%,0.0,0.0,EU
+HRV,Optical instruments & photographic equipment,20,11-20%,0.0,0.0,EU
+JOR,Optical instruments & photographic equipment,20,11-20%,0.0,0.0,OTHER
+LTU,Optical instruments & photographic equipment,20,11-20%,0.0,0.0,EU
+LUX,Optical instruments & photographic equipment,20,11-20%,0.0,0.0,EU
+MLT,Optical instruments & photographic equipment,20,11-20%,0.0,0.0,EU
+SVK,Optical instruments & photographic equipment,20,11-20%,0.0,0.0,EU
+NIC,Optical instruments & photographic equipment,19,11-20%,0.0,0.0,LATAM
+PHL,Optical instruments & photographic equipment,18,11-20%,0.032306601197797,233.76336669921875,ASIA
+MWI,Optical instruments & photographic equipment,18,11-20%,0.0,0.0,OTHER
+ZWE,Optical instruments & photographic equipment,18,11-20%,0.0,0.0,OTHER
+ISR,Optical instruments & photographic equipment,17,11-20%,0.014574099653288103,163.0452880859375,OTHER
+ZMB,Optical instruments & photographic equipment,17,11-20%,0.0,0.0,OTHER
+NOR,Optical instruments & photographic equipment,16,11-20%,6.688954115857161e-05,0.0,OTHER
+MOZ,Optical instruments & photographic equipment,16,11-20%,0.0,0.0,OTHER
+VEN,Optical instruments & photographic equipment,15,11-20%,0.0,0.0,LATAM
+NGA,Optical instruments & photographic equipment,14,11-20%,0.0,0.0,OTHER
+GNQ,Optical instruments & photographic equipment,13,11-20%,0.0,0.0,OTHER
+TCD,Optical instruments & photographic equipment,13,11-20%,0.0,0.0,OTHER
+CMR,Optical instruments & photographic equipment,12,11-20%,0.0,0.0,OTHER
+COD,Optical instruments & photographic equipment,11,11-20%,0.0,0.0,OTHER
+GBR,Optical instruments & photographic equipment,10,0-10%,0.0734954902416529,584.0891723632812,OTHER
+SGP,Optical instruments & photographic equipment,10,0-10%,0.03920661767501,230.72645568847656,ASIA
+AUS,Optical instruments & photographic equipment,10,0-10%,0.0,0.0,OTHER
+BRA,Optical instruments & photographic equipment,10,0-10%,0.0,0.0,LATAM
+CHL,Optical instruments & photographic equipment,10,0-10%,0.0,0.0,LATAM
+COL,Optical instruments & photographic equipment,10,0-10%,0.0,0.0,LATAM
+TUR,Optical instruments & photographic equipment,10,0-10%,0.0,0.0,OTHER
+LSO,TV and radio receivers and associated goods,50,>40%,0.0,0.0,OTHER
+KHM,TV and radio receivers and associated goods,49,>40%,0.0,0.0,ASIA
+LAO,TV and radio receivers and associated goods,48,>40%,0.0030296692405556,0.0,ASIA
+MDG,TV and radio receivers and associated goods,47,>40%,0.0,0.0,OTHER
+VNM,TV and radio receivers and associated goods,46,>40%,0.3906121283295001,990.573974609375,ASIA
+MMR,TV and radio receivers and associated goods,45,>40%,0.0,0.0,ASIA
+LKA,TV and radio receivers and associated goods,44,>40%,0.0,0.0,ASIA
+FLK,TV and radio receivers and associated goods,42,>40%,0.0,0.0,OTHER
+SYR,TV and radio receivers and associated goods,41,>40%,0.0,0.0,OTHER
+MUS,TV and radio receivers and associated goods,40,31-40%,0.0,0.0,OTHER
+IRQ,TV and radio receivers and associated goods,39,31-40%,0.0,0.0,OTHER
+BWA,TV and radio receivers and associated goods,38,31-40%,0.0,0.0,OTHER
+GUY,TV and radio receivers and associated goods,38,31-40%,0.0,0.0,OTHER
+SRB,TV and radio receivers and associated goods,38,31-40%,0.0,0.0,OTHER
+THA,TV and radio receivers and associated goods,37,31-40%,0.0798214046093342,1804.44287109375,ASIA
+BGD,TV and radio receivers and associated goods,37,31-40%,0.0,0.0,ASIA
+BIH,TV and radio receivers and associated goods,36,31-40%,0.0,0.0,OTHER
+CHN,TV and radio receivers and associated goods,34,31-40%,0.7815824031921895,20510.224609375,ASIA
+MKD,TV and radio receivers and associated goods,33,31-40%,0.0,0.0,OTHER
+TWN,TV and radio receivers and associated goods,32,31-40%,0.1078963588635946,1318.164306640625,ASIA
+IDN,TV and radio receivers and associated goods,32,31-40%,0.0157822255538941,342.393310546875,ASIA
+AGO,TV and radio receivers and associated goods,32,31-40%,0.0,0.0,OTHER
+CHE,TV and radio receivers and associated goods,32,31-40%,0.0,0.0,OTHER
+FJI,TV and radio receivers and associated goods,32,31-40%,0.0,0.0,OTHER
+LBY,TV and radio receivers and associated goods,31,31-40%,0.0,0.0,OTHER
+MDA,TV and radio receivers and associated goods,31,31-40%,0.0,0.0,OTHER
+ZAF,TV and radio receivers and associated goods,31,31-40%,0.0,0.0,OTHER
+DZA,TV and radio receivers and associated goods,30,21-30%,0.0,0.0,OTHER
+NRU,TV and radio receivers and associated goods,30,21-30%,0.0,0.0,OTHER
+PAK,TV and radio receivers and associated goods,30,21-30%,0.0,0.0,OTHER
+TUN,TV and radio receivers and associated goods,28,21-30%,0.0,0.0,OTHER
+IND,TV and radio receivers and associated goods,27,21-30%,0.0001570910649512,0.0,OTHER
+KAZ,TV and radio receivers and associated goods,27,21-30%,0.0,0.0,OTHER
+KOR,TV and radio receivers and associated goods,26,21-30%,0.16091175046379108,906.70263671875,ASIA
+JPN,TV and radio receivers and associated goods,24,21-30%,0.12253145362683941,1582.836669921875,ASIA
+MYS,TV and radio receivers and associated goods,24,21-30%,0.0529134488989999,770.1611328125,ASIA
+BRN,TV and radio receivers and associated goods,24,21-30%,0.0,0.0,ASIA
+VUT,TV and radio receivers and associated goods,23,21-30%,0.0,0.0,OTHER
+CIV,TV and radio receivers and associated goods,21,21-30%,0.0,0.0,OTHER
+NAM,TV and radio receivers and associated goods,21,21-30%,0.0,0.0,OTHER
+DEU,TV and radio receivers and associated goods,20,11-20%,0.058583011765286595,623.6388549804688,EU
+HUN,TV and radio receivers and associated goods,20,11-20%,0.0304559586359231,255.61395263671875,EU
+BEL,TV and radio receivers and associated goods,20,11-20%,0.0068825473264286,0.0,EU
+PRT,TV and radio receivers and associated goods,20,11-20%,0.0044487598976771,0.0,EU
+POL,TV and radio receivers and associated goods,20,11-20%,0.0023890143870519,0.0,EU
+NLD,TV and radio receivers and associated goods,20,11-20%,0.0016710040448191,0.0,EU
+SVK,TV and radio receivers and associated goods,20,11-20%,0.0015403945169892,0.0,EU
+CZE,TV and radio receivers and associated goods,20,11-20%,0.0013969704903037,0.0,EU
+SWE,TV and radio receivers and associated goods,20,11-20%,0.0003516511738901,0.0,EU
+IRL,TV and radio receivers and associated goods,20,11-20%,0.0003447844498133,0.0,EU
+FRA,TV and radio receivers and associated goods,20,11-20%,0.0003382746217188,0.0,EU
+ITA,TV and radio receivers and associated goods,20,11-20%,0.0003044690884265,0.0,EU
+ROU,TV and radio receivers and associated goods,20,11-20%,0.0002668844510823,0.0,EU
+DNK,TV and radio receivers and associated goods,20,11-20%,0.0002483434593325,0.0,EU
+SVN,TV and radio receivers and associated goods,20,11-20%,0.0001716648770728,0.0,EU
+AUT,TV and radio receivers and associated goods,20,11-20%,0.0001198199559436,0.0,EU
+ESP,TV and radio receivers and associated goods,20,11-20%,4.360446249849093e-05,0.0,EU
+BGR,TV and radio receivers and associated goods,20,11-20%,3.824077403004442e-05,0.0,EU
+CYP,TV and radio receivers and associated goods,20,11-20%,0.0,0.0,EU
+EST,TV and radio receivers and associated goods,20,11-20%,0.0,0.0,EU
+FIN,TV and radio receivers and associated goods,20,11-20%,0.0,0.0,EU
+GRC,TV and radio receivers and associated goods,20,11-20%,0.0,0.0,EU
+HRV,TV and radio receivers and associated goods,20,11-20%,0.0,0.0,EU
+JOR,TV and radio receivers and associated goods,20,11-20%,0.0,0.0,OTHER
+LTU,TV and radio receivers and associated goods,20,11-20%,0.0,0.0,EU
+LUX,TV and radio receivers and associated goods,20,11-20%,0.0,0.0,EU
+LVA,TV and radio receivers and associated goods,20,11-20%,0.0,0.0,EU
+MLT,TV and radio receivers and associated goods,20,11-20%,0.0,0.0,EU
+NIC,TV and radio receivers and associated goods,19,11-20%,0.0,0.0,LATAM
+PHL,TV and radio receivers and associated goods,18,11-20%,0.0413512876980181,341.7626037597656,ASIA
+MWI,TV and radio receivers and associated goods,18,11-20%,0.0,0.0,OTHER
+ZWE,TV and radio receivers and associated goods,18,11-20%,0.0,0.0,OTHER
+ISR,TV and radio receivers and associated goods,17,11-20%,0.0,0.0,OTHER
+ZMB,TV and radio receivers and associated goods,17,11-20%,0.0,0.0,OTHER
+MOZ,TV and radio receivers and associated goods,16,11-20%,0.0,0.0,OTHER
+NOR,TV and radio receivers and associated goods,16,11-20%,0.0,0.0,OTHER
+VEN,TV and radio receivers and associated goods,15,11-20%,0.0,0.0,LATAM
+NGA,TV and radio receivers and associated goods,14,11-20%,0.0,0.0,OTHER
+GNQ,TV and radio receivers and associated goods,13,11-20%,0.0,0.0,OTHER
+TCD,TV and radio receivers and associated goods,13,11-20%,0.0,0.0,OTHER
+CMR,TV and radio receivers and associated goods,12,11-20%,0.0,0.0,OTHER
+COD,TV and radio receivers and associated goods,11,11-20%,0.0,0.0,OTHER
+GBR,TV and radio receivers and associated goods,10,0-10%,0.0078161515259421,312.3237609863281,OTHER
+SGP,TV and radio receivers and associated goods,10,0-10%,0.0007658218057703,0.0,ASIA
+TUR,TV and radio receivers and associated goods,10,0-10%,0.0006219562926892,0.0,OTHER
+AUS,TV and radio receivers and associated goods,10,0-10%,0.0,0.0,OTHER
+BRA,TV and radio receivers and associated goods,10,0-10%,0.0,0.0,LATAM
+CHL,TV and radio receivers and associated goods,10,0-10%,0.0,0.0,LATAM
+COL,TV and radio receivers and associated goods,10,0-10%,0.0,0.0,LATAM

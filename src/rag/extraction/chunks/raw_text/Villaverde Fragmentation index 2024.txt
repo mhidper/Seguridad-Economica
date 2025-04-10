@@ -1,0 +1,2989 @@
+Are We Fragmented Yet?
+Measuring Geopolitical Fragmentation and Its Causal Effects∗
+Jes´ us Fern´ andez-Villaverde†Tomohide Mineyama‡Dongho Song§
+University of Pennsylvania, CEPR, NBER International Monetary Fund Johns Hopkins University
+August 2, 2024
+Abstract
+After decades of rising global economic integration, the world economy is fragmenting.
+To measure this phenomenon, we introduce an index of geopolitical fragmentation based
+on a dynamic factor model with time-varying parameters and stochastic volatility. We
+then employ structural vector autoregressions and local projections to assess the causal
+effects of changes in fragmentation. Increased fragmentation negatively impacts the
+global economy, with emerging economies suffering more than advanced ones. Notably,
+fragmentation has an immediate negative effect, while the benefits of reduced fragmen-
+tation unfold gradually. A sectoral analysis reveals that industries closely linked to
+global markets are more adversely affected. Finally, we highlight significant differences
+in the impacts of fragmentation across various geopolitical blocs.
+JEL Classification: C11, C33, E00, F01, F2, F4, F6
+Keywords: Dynamic factor model, causality, geopolitical fragmentation, fragmentation index
+∗We thank Torben Andersen, Philip Barrett, Christiane Baumeister, Steven Davis, Xavier Gabaix, James
+Hamilton, Anna Ilyina, Benjamin Kett, Markus Pelger, Andrea Presbitero, Michele Ruta, Allan Timmer-
+mann, Mark Watson, Jonathan Wright and participants at numerous conferences and seminars for their
+comments and suggestions. The views expressed herein are those of the authors and should not be attributed
+to the IMF, its Executive Board, or its management.
+†Fern´ andez-Villaverde: jesusfv@econ.upenn.edu
+‡Mineyama: TMineyama@imf.org
+§Song: dongho.song@jhu.edu
+1
+1 Introduction
+Following decades of increasing global economic integration, the world economy shifted course
+after the 2007-2008 financial crisis. Events such as Brexit, the invasion of Ukraine, and
+conflicts in the Middle East have strained international relations and prompted policymakers
+to reconsider their nations’ economic strategies. Free trade agreements, once common, have
+become rare and the number of trade-restricting measures implemented in 2022 nearly tripled
+compared to 2019. Consequently, households, firms, and governments are reassessing their
+operations amid growing geopolitical and trade complexities. For more detailed discussions
+on this geopolitical fragmentation and its impact on the world economy, see Aiyar et al.
+(2023a) and Gopinath (2023).
+Various indicators reveal discernible trends in this ongoing geopolitical fragmentation: a
+global slowdown in the flows of goods and capital, increased restrictions on trade and foreign
+direct investment, heightened political risks, more frequent sanctions and conflicts, tighter
+capital controls, and growing concerns related to migration. However, no single measure of
+geopolitical fragmentation fully captures the current state of global economic integration, as
+each indicator only addresses one aspect of it. Thus, choosing one indicator over another (or
+an average of them) to study the evolution and implications of geopolitical fragmentation can
+be arbitrary and may lead to incorrect conclusions or policy recommendations.
+Dynamic factor models (DFMs) offer a way to create a comprehensive index of geopolitical
+fragmentation —a numerical measurement of this multifaceted process. The main idea behind
+a DFM, as pioneered by Sargent and Sims (1977), Geweke (1977), and Stock and Watson
+(1989), is that many observed indicators of a phenomenon (such as the business cycle or, in
+our case, geopolitical fragmentation) are driven by a common unobserved factor. While each
+indicator is inherently imperfect and contaminated by idiosyncratic noise, we can employ
+a likelihood-based approach to estimate the unobserved index that captures the underlying
+dynamics of interest.
+The DFM approach has gained popularity because it is data-driven and minimizes the
+subjective decisions a researcher needs to make. Specifically, we propose a state-of-the-art
+DFM with time-varying parameters and stochastic volatility. Our flexible specification can
+accommodate missing observations and handle data with different frequencies.
+There are two main reasons for estimating such a factor. First, it allows us to gauge
+the evolution of geopolitical fragmentation. An increase in the factor indicates that the
+world economy is becoming more fragmented, thus providing a quantitative confirmation (or
+refutation) of more casual assessments and mitigating the possible confirmatory bias present
+in many qualitative evaluations by experts. Second, the estimated factor can be used as an
+input for other empirical analyses, such as a variable in a structural vector autoregression
+(SVAR) or a linear projection (LP) for causality assessment. This enables us to translate
+2
+changes in the factor (e.g., an increase by 1 standard deviation) into concrete effects on
+aggregate variables with a sharp economic interpretation (e.g., a 0.3% reduction in GDP).
+Our principal aim is to establish an index designed for broad usage, serving the needs of
+policymakers, practitioners, and academics alike.
+After introducing the indicators we employ and discussing our econometric methodology,
+we present the evolution of our estimated factor. This index reveals three distinct phases.
+First, there was a period of relative stability in geopolitical fragmentation from 1975 to the
+early 1990s. Fragmentation then decreased as the collapse of the Soviet Union and market-
+oriented reforms across many countries led to a spike in globalization. However, following
+the 2007-2008 financial crisis, geopolitical fragmentation has increased to its highest levels
+in the sample, with no signs of reversal. Our estimation results align broadly with narrative
+approaches that have discussed the evolution of geopolitical fragmentation based on narrative
+evidence (e.g., Gopinath, 2023). We extensively document the robustness of our index and
+compare it with a principal components analysis.
+Next, we use our index as an input for causality analysis exercises with SVARs and LPs.
+Our analysis reveals that a positive one-standard-deviation shock to the fragmentation index
+(considered adverse) has a detrimental impact on the global economy, with more pronounced
+negative effects observed in emerging economies compared to advanced economies. The im-
+pacts reveal an asymmetry: fragmentation has an immediate negative effect on the global
+economy, while the positive effects of reduced fragmentation (viewed as an aspect of globaliza-
+tion) unfold with lags. Our findings remain robust under different identification assumptions
+(e.g., different orderings of variables or a narrative approach), and when considering various
+control variables, as in Caldara and Iacoviello (2022).
+To elucidate the economic channels through which fragmentation influences the economy,
+we scrutinize sectors within OECD economies. The sectoral analysis highlights the adverse
+effects on industries closely linked to global markets, such as manufacturing, construction,
+finance, and wholesale and retail trade. Conversely, sectors like agriculture, forestry, fishing,
+real estate, and public services, which are more insulated from global markets, experience
+only marginal effects. This sectoral pattern is particularly evident in the case of the U.S.
+Finally, we examine the effects of the world economy’s fragmentation into increasingly
+separate geopolitical blocs. We find notable differences in the level of fragmentation among
+different blocs, such as the U.S.-EU bloc vs. the China-Russia bloc. Fragmentation shocks
+in the U.S.-EU bloc lead to more pronounced global effects than those in the China-Russia
+bloc, highlighting the unique characteristics of the latter economic relationship.
+Our paper contributes to the expanding literature on geopolitical fragmentation (e.g.,
+Attinasi et al., 2023, Blanga-Gubbay and Rubinova, 2023, Bolhuis et al., 2023, Campos
+et al., 2023, Cerdeiro et al., 2021, Clayton et al., 2024, G´ oes and Bekkers, 2022, Hakobyan
+et al., 2023, Javorcik et al., 2024, and Utar et al., 2023), building on the summaries provided
+3
+by Aiyar et al. (2023a) and Gopinath (2023). This literature sheds light on the associated
+costs, which include the unwinding of gains from globalization, encompassing trade (e.g.,
+Frankel and Romer, 1999; Feenstra, 2006; Gorodnichenko et al., 2012), technology diffusion
+and adoption (e.g., Bartelme and Gorodnichenko, 2015; Bustos, 2011; Acemoglu et al., 2015),
+cross-border labor and capital flows (e.g., Glennon, 2024; Erten et al., 2021), and international
+risk sharing (e.g., Obstfeld, 1994). Our paper adds to this body of work by quantifying the
+causal effects of fragmentation on aggregate economic variables. While existing papers focus
+on a single or a few indicators of fragmentation (e.g., Antr´ as, 2020, Goldberg and Reed, 2023,
+and Gopinath et al., 2024), our DFM aggregates a wide range of measures of fragmentation.
+Geopolitical tensions contribute to increased uncertainty regarding future policies and the
+ultimate shape of a fragmented world (e.g., Caldara et al., 2020). The direct costs of trade
+disruptions include tariffs, inefficiencies from reduced specialization, resource misallocation,
+diminished economies of scale, and decreased competition (e.g., Melitz and Trefler, 2012).
+Aiyar et al. (2023a) point out that short-term transition costs stemming from trade disrup-
+tions tend to be more pronounced due to the low elasticities of substitution in the short run.
+In contrast, losses from technological decoupling may materialize over the medium and long
+term. Our empirical findings point out the importance of those longer-horizon considerations.
+Moreover, our empirical results confirm the previous findings that the impact of these costs
+may vary across countries. As highlighted by Aiyar et al. (2023a), geoeconomic fragmentation
+disproportionately affects emerging markets and low-income countries that have the potential
+for catch-up through trade and financial and technological integration. Gopinath (2023) and
+Gopinath et al. (2024) add that if disruptions occur primarily between large blocs (e.g., a
+U.S.-Europe bloc and a China-Russia bloc), some countries, particularly in Latin America or
+Southeast Asia, may experience gains as “neutral” bystanders.
+Given the multiple channels of impact and potential heterogeneity described above, the
+examination of the cost of fragmentation is an empirical question. The literature has in-
+vestigated the economic consequences of recent fragmentation episodes, such as Brexit (e.g.,
+Sampson, 2017, and Bloom et al., 2019) and the U.S.-China trade war in 2018-19 (e.g., Flaaen
+and Pierce, 2019; Fajgelbaum and Khandelwal, 2022; Fajgelbaum et al., 2019). A few studies
+(G´ oes and Bekkers, 2022, Cerdeiro et al., 2021, and Bolhuis et al., 2023) develop general
+equilibrium international trade models to estimate the cost of fragmentation. Our SVAR and
+LP estimates add new findings to these previous results.
+Finally, our paper contributes to the existing body of literature focused on formulating
+indices or metrics. This includes assessments of uncertainty (e.g., Jurado et al., 2015, and
+Baker et al., 2016), geopolitical risks (e.g., Caldara and Iacoviello, 2022), economic state eval-
+uations (e.g., Aruoba et al., 2009, and Shapiro et al., 2022), investor sentiment analysis (e.g.,
+Baker and Wurgler, 2007), corporate credit market scrutiny (e.g., Gilchrist and Zakrajˇ sek,
+2012), shadow rate investigations (e.g., Wu and Xia, 2016), and considerations of measures
+4
+related to the COVID-19 pandemic as presented by Arias et al. (2023), along with disruptions
+in the supply chain discussed by Bai et al. (2024).
+The rest of the paper is organized as follows. In Section 2, we examine common empir-
+ical indicators of geopolitical fragmentation. Section 3 introduces a DFM and produces the
+geopolitical fragmentation index. Section 4 explores a principal components alternative to our
+baseline DFM. Section 5 assesses the causal impact of geopolitical fragmentation on economic
+aggregates. Section 6 measures fragmentation by geopolitical blocs. Section 7 concludes. The
+Appendix provides additional information and robustness exercises.
+2 Empirical Indicators of Geopolitical Fragmentation
+We compile 14 widely used indicators of geopolitical fragmentation from the literature, each
+capturing an aspect of the emerging trends. However, no single indicator synthesizes all the
+relevant information. By combining these indicators using a likelihood-based approach, we
+aim to extract a more accurate measure of geopolitical fragmentation.
+The methodology we present in Section 3 is not dependent on the specific choice of these
+14 indicators. Our econometric approach can accommodate more or fewer indicators, and
+as new indicators become available, we can incorporate them into our index or use them to
+replace existing ones. Nonetheless, we argue that the 14 indicators we have selected provide a
+comprehensive survey of existing measures, and our estimates will be robust even if different
+subsets of these indicators are excluded.
+2.1 Data sources for geopolitical fragmentation indicators
+We begin by listing each indicator and its sources:
+1. The trade openness ratio, (export+import)/GDP, from the International Financial
+Statistics (IFS).
+2. The FDI ratio, calculated as FDI/GDP, from the IFS.
+3. The financial flow ratio, (portfolio investment+other investment)/GDP, from the IFS.
+4. The migration flow ratio, net migration flows as a percentage of the population, from
+UN World Population Prospects.
+5. The patent flows, from International Patent and Citations across Sectors (INPACT-S)
+compiled by LaBelle et al. (2023).
+6. The number of trade restrictions, from the Global Trade Alert.
+5
+7. The capital control measure, from Fern´ andez et al. (2016).
+8. The number of sanctions, from Felbermayr et al. (2020).
+9. The geopolitical risk index, from Caldara and Iacoviello (2022).
+10. The trade policy uncertainty, from Caldara et al. (2020).
+11. The energy uncertainty, from Dang et al. (2023).
+12. The migration fear index, from Bloom et al. (2015).
+13. The number of international conflicts, based on the Uppsala Conflict Data Program.
+14. The UN General Assembly kappa score, from H¨ age (2017).
+The detailed descriptions of the indicators are provided in Appendix D.1. Panel (A)
+of Figure 1 presents the time series plot for each indicator. Most of the indicators that
+signal fragmentation (e.g., the capital control measure or the number of sanctions) move
+upward at the end of the sample, while many of the indicators that measure integration
+(e.g., trade openness or the financial flow ratio) stagnate. Panel (B) includes informative
+summary statistics, including the non-stationarity test and pairwise correlations between
+each indicator and trade openness (calculated using annual aggregated data for the available
+sample). The main pattern from these correlations is that, although we observe evidence of
+comovement among indicators, there is also substantial evidence of idiosyncratic behavior.
+This observation reinforces our motivation of aggregating all indicators into a synthetic one.
+2.2 Discussion
+Next, we offer a literature review summarizing the appeal of our 14 indicators of geopolitical
+fragmentation and addressing associated caveats. We categorize these indicators into four
+areas: (i) those measuring economic integration, (ii) those gauging policy implementation,
+(iii) those derived from text mining, and (iv) those offering insights into political dynamics.
+2.2.1 Metrics of economic integration
+Globalization encompasses the interconnectedness and interdependence of economic and po-
+litical systems worldwide. Driven by advancements enabling the free flow of goods, services,
+capital, ideas, and people across borders, its progress is gauged by indicators such as trade
+openness, FDI, financial flows as a proportion of GDP, migration flow relative to population,
+and cross-border patent flows ( indicators 1, 2, 3, 4, and 5 ). For instance, Aiyar et al. (2023b)
+and Gopinath (2023) described different phases of globalization using the trade openness met-
+ric and pointed out that the remarkable increases in trade since the 1980s have stagnated
+6
+Figure 1: Indicators for fragmentation
+(A) Time series
+1980 2000 2020-1-0.500.511.5
+1980 2000 2020-10123
+1980 2000 2020-10123
+1980 2000 2020-2-1012
+1980 2000 2020-1.5-1-0.500.51
+1980 2000 202001234
+1980 2000 2020-1-0.500.511.5
+1980 2000 2020-10123
+1980 2000 2020024
+1980 2000 2020012345
+1980 2000 2020-2-10123
+1980 2000 2020-101234
+1980 2000 2020-2-1012
+1980 2000 2020-2-1012
+(B) Summary statistics
+Category Individual Indicators Sample Freq. ADF test Correlation w/
+(p-value) Trade Openness
+Metrics of economic integration Trade Openness 1975-2022 Q 0.43 1.00
+FDI Ratio 1975-2022 Q 0.07 0.21
+Financial Flow Ratio 1975-2022 Q 0.05 0.30
+Migration Flow Ratio 1975-2021 A 0.01 0.34
+Patent Flows 1980-2019 A 0.10 0.75
+Policy implementation gauges Number of Trade Restrictions 2009-2022 Q 0.06 0.11
+Capital Control 1995-2019 A 0.71 0.78
+Number of Sanctions 1975-2022 A 1.00 0.66
+Text mining-derived indicators Geopolitical Risk Index 1975-2022 Q 0.00 -0.02
+Trade Policy Uncertainty 1975-2022 Q 0.01 -0.29
+Energy Uncertainty 1996-2022 Q 0.00 0.42
+Migration Fear Index 1990-2022 Q 0.13 0.21
+Political reflections Number of Conflicts 1975-2022 Q 0.37 0.41
+UNGA Kappa Score 1975-2015 A 0.01 -0.63
+Notes: For comparison purposes, all indicators are standardized to have zero mean and unit standard devia-
+tion. Indicators, except those derived from text mining, are the average of all countries with available data.
+We report the p-value derived from the augmented Dickey-Fuller test, where the null hypothesis assumes
+non-stationarity.
+7
+since 2008. This phenomenon is often referred to as “slowbalization.” A similar deceleration
+is observed in FDI and financial flows. As Gopinath (2023) puts it:
+“Since 2008, however, the pace of globalization has stagnated—the so-called slow-
+balization—with trade to GDP stabilizing as the forces that helped spur hyper-
+globalization naturally waned.”
+(IMF First Managing Deputy Director Gita Gopinath — the 20th World Congress of the
+International Economic Association, December 2023)
+However, interpreting these dynamics requires caution, as several factors, not exclusively
+tied to globalization or fragmentation, might influence the indicators. For instance, develop-
+ing countries may witness a decline in trade share due to weak domestic aggregate demand
+and shifts in economic structures (e.g., the expansion of non-tradable service sectors in de-
+veloped countries). Moreover, economic and financial cycles play a crucial role in trade,
+financial, and migration flows.
+2.2.2 Policy implementation gauges
+The dynamics of macro aggregates partly mirror underlying policy actions aimed at facilitat-
+ing or impeding international flows, including the imposition or removal of trade restrictions
+(indicator 6 ) and capital control measures ( indicator 7 ). While these policy measures directly
+impact fragmentation, quantifying them is challenging. Policy measures are often specific to
+individual countries, and their significance varies based on particular contexts. The litera-
+ture has devoted much effort to converting qualitative information into quantitative measures.
+For instance, Fern´ andez et al. (2016) developed a quantitative measure of a country’s cap-
+ital control strength using diverse information, including qualitative descriptions from the
+IMF’s Annual Report on Exchange Arrangements and Exchange Restrictions ( indicator 7 ).
+Since international flow restrictions may manifest as economic sanctions, Felbermayr et al.
+(2020) compiled various sanction types, ranging from trade and financial sanctions to military
+assistance ( indicator 8 ).
+However, uncertainties persist regarding the scope of policy actions to be considered
+and the relevance of each measure. Additionally, databases may have limited time periods,
+constrained by the availability of consistently high-quality information over time.
+2.2.3 Text-mining-derived indicators
+Recent advancements in text mining have enabled the extraction of quantitative information
+from extensive text data. In particular, numerous studies in the literature have crafted
+indices relevant to fragmentation. These encompass geopolitical events (e.g., war, terrorism,
+and tensions among countries and political actors) and their associated risks (Caldara and
+8
+Iacoviello, 2022, indicator 9 ); uncertainty regarding trade policies (Caldara et al., 2020,
+indicator 10 ); energy uncertainty, often linked to geopolitical tensions (Dang et al., 2023,
+indicator 11 ); and concerns related to migration flows (Bloom et al., 2015, indicator 12 ).
+Such indices may capture the latest developments in geopolitical situations or individuals’
+sentiments about them, which might not be reflected in “hard” data on economic and financial
+activities.
+2.2.4 Political reflections
+Another crucial aspect of fragmentation is political alignment, where tensions between coun-
+tries can potentially escalate into violent conflicts. The Uppsala Conflict Data Program
+provides a comprehensive set of conflict information based on global and local news articles
+(indicator 13 ). However, political misalignments do not need to translate into direct actions
+against a country. In such instances, previous studies often turn to the voting behavior in
+the United Nations General Assembly (UNGA). These studies gauge the degree of political
+alignment by assessing the similarity in UNGA voting patterns between countries. H¨ age
+(2017) builds on those ideas by constructing the “kappa score,” which adjusts the observed
+variability of countries’ bilateral voting outcomes based on each country’s votes around its
+average vote ( indicator 14 ).
+2.3 Taking stock
+Our previous discussion highlighted the discernible trends in geopolitical fragmentation ap-
+parent across various indicators categorized into four areas. These trends include a global
+deceleration in the flows of goods and capital, heightened restrictions on trade and foreign
+direct investment, increased political risks, sanctions, and conflicts, as well as capital controls
+and concerns related to migration.
+How can we quantify the dynamics of comovements within this set of empirical indicators
+and extract the common information present in all of them? A simple average seems unsatis-
+factory: there is no a priori reason why one indicator should weigh as much as another, and
+an arbitrary weight seems even less appropriate. Can we let the data decide how to weigh
+each indicator? In the next section, we propose a methodology to address this task.
+3 Measuring Geopolitical Fragmentation
+In this section, we argue that we can consider the level of geopolitical fragmentation to
+be an unobservable variable and that each indicator is a noise measure of it. If we take this
+perspective, we can adopt a likelihood-based approach and let the indicators’ dynamics select
+the optimal weights that will yield an estimate of this unobservable variable.
+9
+To do so, we can postulate a flexible DFM with time-varying coefficients and stochastic
+volatility to account for potential parameter instability and changing uncertainty. Our ap-
+proach is designed to capture the evolving comovement among time series by allowing their
+dependence on a common factor to change over time in flexible ways.
+Factor models have been integral to the economist’s toolkit since the unobservable index
+models proposed by Sargent and Sims (1977) and Geweke (1977). The pioneering work
+of Stock and Watson (1989) further solidified their significance, aiming to extract valuable
+information from a broad cross-section of macroeconomic time series for forecasting purposes.
+Our DFM description builds on the foundations of Del Negro and Otrok (2008) and Del Negro
+and Schorfheide (2011), utilizing Bayesian techniques for estimation. This methodology can
+be traced back to Geweke and Zhou (1996) and Otrok and Whiteman (1998).
+3.1 Specification
+Leti∈ {1, ..., N}be the set of indices for the different indicators of geopolitical fragmentation.
+In our case, N= 14, but it could be any other finite natural number, with only the limitation
+of computational capabilities. The value that each indicator takes at time tis then yi,t.
+We assume that the dynamics of the yi,tis driven by a common factor ft:
+yi,t=ai,t+bi,tft+ui,t, (1)
+which we interpret as the true state of geopolitical fragmentation. In equation (1), the mean
+ai,t, slope bi,t, and error ui,tdepend both on the empirical indicator and time. In that way, we
+incorporate much flexibility in how the factor is linked with the empirical indicators. Later,
+in Section 3.6, we will explore the possibility of increasing the number of factors.
+We assume that ai,tandbi,tevolve as:
+ai,t=ai,0+ai,1t,
+bi,t=bi,t−1+σbiϵbi,t, ϵ bi,t∼ N(0,1).
+First, we address non-stationarity in the proxies yi,tby incorporating a deterministic time
+trend ai,torthogonal to the common factor ft. This is crucial, as demonstrated in Panel
+(B) of Figure 1, where some indicators exhibit non-stationarity while others do not. The
+assumption underlying our approach is that the common dynamics across empirical indicators
+are captured by their stationary or cyclical components. Second, we accommodate time-
+varying sensitivities bi,tof individual proxies with respect to the common factor ftthrough a
+random-walk process, capturing potential slow-moving variations. This flexibility is crucial,
+as certain indicators may reveal more about geopolitical fragmentation than others, and their
+importance can change over time.
+10
+In comparison, we model the factor and the error as autoregressive processes:
+ft=ϕf,1ft−1+...+ϕf,pft−p+σf,tϵf,t, ϵ f,t∼ N(0,1),
+ui,t=ϕui,1ui,t−1+...+ϕui,qui,t−q+σui,tϵui,t, ϵ ui,t∼ N(0,1).
+We allow the individual error terms ui,tto exhibit serial correlation, capturing dynamics
+that do not comove and are idiosyncratic to each series. This approach involves relaxing
+the assumption that all dynamics arise solely from the factor. The rationale behind this
+adjustment is to prevent the factor estimates from becoming overly dependent on a subset of
+empirical indicators that exhibit high persistence.
+Finally, the innovation variances, σk,t, are time-varying:
+σk,t=σkexp(hk,t),
+hk,t=hk,t−1+σhkϵhk,t, ϵ hk,t∼ N(0,1), k∈ {f, u 1, ..., u N}.
+This attribute holds for both the innovations to the common factor and those associated with
+the idiosyncratic error terms. The incorporation of stochastic volatility is crucial not only
+for modeling the non-Gaussian features inherent in the data, but also for capturing outlier
+events that may occur in certain years, both for the factor and the idiosyncratic terms. This
+dynamic approach allows the model to adapt to changing volatility patterns, offering a more
+robust representation of the underlying dynamics in the empirical indicators.
+Compiling all the previous equations, we get the complete specification of our DFM:
+yi,t=ai,t+bi,tft+ui,t,
+ai,t=ai,0+ai,1t,
+bi,t=bi,t−1+σbiϵbi,t, ϵ bi,t∼ N(0,1),
+ft=ϕf,1ft−1+...+ϕf,pft−p+σf,tϵf,t, ϵ f,t∼ N(0,1),
+ui,t=ϕui,1ui,t−1+...+ϕui,qui,t−q+σui,tϵui,t, ϵ ui,t∼ N(0,1),
+σk,t=σkexp(hk,t),
+hk,t=hk,t−1+σhkϵhk,t, ϵ hk,t∼ N(0,1), k∈ {f, u 1, ..., u N}. (2)
+3.2 Priors
+We pick loose priors for the model parameters to introduce greater flexibility and reduce
+the sensitivity of estimation results to the choice of prior distributions. More concretely,
+our priors exhibit symmetry across a range of empirical indicators related to geopolitical
+11
+fragmentation i∈ {1, ..., N}, where for k∈ {f, ui}andg∈ {ui, hf, hui}:
+ai="
+ai,0
+ai,1#
+∼ N "
+0
+0#
+,"
+1 0
+01
+2#!
+,
+ϕk∼ N1
+2,1
+2
+,
+σ2
+bi∼ IG
+10,1
+10
+,
+σ2
+g∼ IG (1,1). (3)
+Our priors embody the belief that the degree of time variation in the factor loading σ2
+bi
+is smaller than the variations in the idiosyncratic error terms or the stochastic volatilities.
+However, for both cases, the weight of the prior relative to the sample for variances is not
+adjusted, leading to a substantial reduction in the impact of the prior as the sample length
+increases. We additionally explore a scenario wherein the factor loading biremains constant
+over time, and we adopt a loose prior, which is centered around one with a substantial variance
+ofN 
+1,1
+2
+. Section 3.8 will discuss the robustness of our results to different priors.
+3.3 Estimation
+The estimation procedure for our DFM utilizes a Gibbs sampler to draw samples from the
+exact finite sample joint posterior distribution of both the parameters and the latent state
+variables, including the common factor. We extend the Gibbs sampler proposed by Del Negro
+and Otrok (2008), focusing on addressing the challenges associated with handling missing data
+and discrepancies in data frequencies, specifically pertaining to stock variables rather than
+flow variables. Appendix A describes the modifications we introduce.
+We set the lag order for ftandui,tto be one, and we pick the time frame for our 14
+indicators to be from 1975:Q1 to 2022:Q4. We also standardized them to have zero sample
+mean and unit standard deviation. The purpose of this standardization is to ensure that all
+the indicators contribute to the measurement of geopolitical fragmentation comparably. The
+trade openness ratio, the FDI ratio, the financial flow ratio, the migration flow ratio, and the
+patent flows are multiplied by −1 to account for their inverse correlation with the underlying
+object of interest. This adjustment facilitates the imposition of symmetric priors for factor
+loading across the various empirical indicators.
+In instances where data are only accessible on an annual basis, the variables are charac-
+terized as stock rather than flow variables. These variables capture values at specific points
+in time, much like snapshots of the economy. Handling missing observations in this context
+is straightforward as discussed in Aruoba et al. (2009). For the annual series, we assume that
+the individual error terms associated with them are not serially correlated.
+12
+In equation (1), there exist three sets of latent states: ft,bi,t, and hk,t. All of these
+necessitate initialization or normalization. To mitigate the indeterminacy concerning sign
+and magnitude for factor loadings bi,tand factor levels ft, we initialize the values for bi,0to
+one. The initialization values for f0andhk,0are set to zero, with the specific value for f0
+being non-crucial. In addition, we set the variance of innovation to the common factor to one,
+denoted as σf= 1. Del Negro and Otrok (2008) present a more comprehensive discussion on
+the identification of a DFM with time-varying loadings and stochastic volatilities.
+3.4 Results
+In Figure 2, we display the posterior median (smoothed) estimates of ft,our geopolitical
+fragmentation index, alongside 90% credible intervals. To aid interpretation, we overlay
+major historical events influencing globalization. As shown in Figure 1, certain indicators
+were unavailable until the mid-1990s, leading to wider credible intervals up to that period.
+Thus, our estimate is more sensitive to individual indicators during the initial periods from
+1975 to 1995 but becomes more robust post-1995.
+Figure 2: Estimated fragmentation index
+1975 1980 1985 1990 1995 2000 2005 2010 2015 2020-1-0.500.511.522.5
+Notes: Posterior median-smoothed estimates of ftaccompanied by 90% credible intervals. We overlay with
+major historical events.
+Our estimated fragmentation index aligns well with the narrative understanding of geopo-
+13
+litical fragmentation, as noted in Gopinath (2023). Our median estimate of fragmentation
+was stable between 1975 and the early 1990s. While trade openness was increasing, the world
+economy was still divided between the market economy and socialist blocs. Other indicators,
+like the FDI ratio or the financial flow rate, did not show much of an upward trend.
+Our index reports an upward trajectory in globalization starting from the mid-1990s. Key
+events contributing to this trend include the breakup of the Soviet Union, the Maastricht
+Treaty and the formation of the European Union, the establishment of the World Trade
+Organization (WTO), and China’s entry into the WTO. In fact, these were the years when
+the term ”globalization” became popular outside of economics.
+This trend shifted post-2008, experiencing a notable upswing coinciding with the 2007-
+2008 financial crisis. The subsequent decade witnessed a significant surge, reflecting height-
+ened challenges in global trade and capital flows driven by geopolitical events (e.g., conflicts,
+trade tensions) and the global pandemic. The process of geopolitical fragmentation has not
+reverted by the end of the sample, although there are some weak indications of a slowdown
+in fragmentation after the end of the worst phase of the COVID-19 pandemic.
+Figure 3: Posterior estimates: Factor loadings and volatilities for idiosyncratic error terms
+1980 1990 2000 2010 2020-101
+1980 1990 2000 2010 2020-101
+1980 1990 2000 2010 2020012
+1980 1990 2000 2010 2020-1012
+1980 1990 2000 2010 2020-0.500.51
+1980 1990 2000 2010 202000.511.52
+1980 1990 2000 2010 2020-0.500.5
+1980 1990 2000 2010 2020-1-0.500.51
+1980 1990 2000 2010 2020012
+1980 1990 2000 2010 2020012
+1980 1990 2000 2010 2020012
+1980 1990 2000 2010 2020-3-2-10
+1980 1990 2000 2010 2020012
+1980 1990 2000 2010 202000.511.5
+1980 1990 2000 2010 2020123
+1980 1990 2000 2010 2020123
+1980 1990 2000 2010 20200.511.522.5
+1980 1990 2000 2010 2020123
+1980 1990 2000 2010 20200.10.20.30.40.5
+1980 1990 2000 2010 20200.511.522.5
+1980 1990 2000 2010 20200.10.20.30.4
+1980 1990 2000 2010 20200.20.40.60.811.21.4
+1980 1990 2000 2010 20200.511.5
+1980 1990 2000 2010 20200.511.52
+1980 1990 2000 2010 20200.20.40.60.81
+1980 1990 2000 2010 20200.511.52
+1980 1990 2000 2010 20201234
+1980 1990 2000 2010 20200.20.40.6
+Notes: Posterior median estimates accompanied by 90% credible intervals.
+To understand better which observations are driving our estimated index, Figure 3 reports
+the posterior estimates and 90% credible intervals for the factor loadings and volatilities of
+the idiosyncratic error terms.1For instance, the estimated factor loads significantly on energy
+uncertainty and the number of trade sanctions indicators, while it considers the FDI ratio
+1Figure A-2 in the Appendix reports posterior estimates for the constants, persistence, and volatilities.
+14
+to be less important. These results are intuitive. Energy uncertainty comes directly from
+the availability of energy in international markets, and trade sanctions are at the core of
+the ability to trade. On the other hand, FDI might signal both more integration (e.g., a
+multinational opens a factory in country A because it is part of the international added value
+chain) and less integration (e.g., a multinational opens a factory in country A to supply the
+local market because imports become subject to stiff trade restrictions).
+3.5 Economic outcomes vs. policy implementation
+Our baseline estimation exploits indicators that measure both policy (e.g., the number of
+trade restrictions) and the outcomes resulting from these policies (e.g., the openness ratio).
+Figure 4 establishes how our DFM (2) varies when it is estimated using either only the empiri-
+cal indicators from the “metrics of economic integration” or only the “policy implementation
+gauges.” Panel (A) compares the baseline case with the estimation using “metrics of eco-
+nomic integration.” Panel (B) compares the baseline case with the estimation using “policy
+implementation gauges.”
+Figure 4: Estimated fragmentation using economic outcomes vs. policy implementation
+(A) Economic outcomes (B) Policy implementation
+1980 1990 2000 2010 2020-2-1012
+Baseline case
+Outcome-variables only in the estimation1980 1990 2000 2010 2020-2-1012
+Baseline case
+Policy-variables only in the estimation
+Notes: Estimated fragmentation index using only indicators from the “metrics of economic integration” (red
+line) and “policy implementation gauges” (green line), compared to the baseline estimate (blue line).
+The main lesson from Figure 4 is that all three specifications give us roughly the same
+answer. In other words, as we will document in Section 3.8, our measurements are not unduly
+sensitive to specific choices of indicators.
+There are a few interesting differences, though. First, while most indicators under “metrics
+of economic integration” are available throughout the estimation sample, those under “policy
+implementation gauges” are not. This limited data availability leads to large increases in
+15
+estimation uncertainty in Panel (B) and an index that moves less (as extracting the signal
+from noise becomes harder). Second, the sharp uptick in fragmentation in the post-COVID-
+19 pandemic period primarily stems from policy changes rather than from outcome variables.
+Third, this exercise suggests that the use of a single factor is enough, as the fragmentation
+estimates from the two separate analyses are highly correlated with each other. Nonetheless,
+the question of determining the number of factors deserves a more detailed exploration.
+3.6 A two-factor model
+To formally explore whether we need one or more factors to extract the relevant information
+from the data, we expand the baseline specification (2) to include two factors, f1,tandf2,t,
+positing that the common dynamics are driven by two distinct patterns:
+yi,t=ai,t+bi,tf1,t+ci,tf2,t+ui,t,
+ai,t=ai,0+ai,1t,
+f1,t=ϕf1,1f1,t−1+...+ϕf1,pf1,t−p+σf1,tϵf1,t, ϵ f1,t∼ N(0,1),
+f2,t=ϕf2,1f2,t−1+...+ϕf2,pf2,t−p+σf2,tϵf2,t, ϵ f2,t∼ N(0,1),
+bi,t=bi,t−1+σbiϵbi,t, ϵ bi,t∼ N(0,1),
+ci,t=ci,t−1+σciϵci,t, ϵ ci,t∼ N(0,1),
+ui,t=ϕui,1ui,t−1+...+ϕui,qui,t−q+σui,tϵui,t, ϵ ui,t∼ N(0,1),
+hj,t=hj,t−1+σhjϵhj,t, σ j,t=σjexp(hj,t), ϵ hj,t∼ N(0,1). (4)
+Although expanding the specification to three or more factors is possible, our results below
+will show that it does not seem necessary. Appendix B describes the estimation process.
+Estimating the DFM (4) necessitates identification assumptions on bi,tandci,t. These
+assumptions can be thought of as an exclusion restriction, where a subset of indicators loads
+exclusively on one factor. Otherwise, we could reallocate any portion of the loadings between
+the factors without affecting the overall likelihood. Furthermore, we need a normalization
+that separates both factors. A simple (and economically intuitive) choice is that all variables
+classified under the “metrics of economic integration” always load on the first factor.
+Then, we explore all possible scenarios for how the remaining three categories of indicators
+(“policy implementation gauges,” “text-mining-derived indicators,” and “policy reflections”)
+can load on both factors.2If we ensure that each category loads on at least one factor and
+avoid duplicates due to label-switching between the two factors, we have a total of 40 cases.
+One trivial case among those 40 is when the four categories load on the first factor but none
+on the second: this is just our baseline specification with only one factor.3
+2The first category can load on the second factor as well if another category is excluded from it.
+3In principle, we could also have restrictions on each of the components of each category, multiplying
+16
+Figure 5: Estimated factors under various identification assumptions on factor loadings
+(A) Estimated factors
+1980 1990 2000 2010 2020-2-1012
+1980 1990 2000 2010 2020-2-10121980 1990 2000 2010 2020-2-1012
+1980 1990 2000 2010 2020-2-10121980 1990 2000 2010 2020-2-1012
+1980 1990 2000 2010 2020-2-10121980 1990 2000 2010 2020-2-1012
+1980 1990 2000 2010 2020-2-1012
+(B) Exclusion restrictions on factor loadings
+Category ( I1) ( I2) ( I3) ( I4)
+1st2nd1st2nd1st2nd1st2nd
+Metrics of economic integration 1 0 1 0 1 1 1 0
+Policy implementation gauges 0 1 0 1 1 0 1 1
+Text-mining-derived indicators 0 1 1 1 1 1 1 1
+Political reflections 0 1 0 1 1 0 1 1
+Notes: Panel (A) compares the estimates (indicated by red lines) with those from our baseline single-factor
+case, indicated by blue lines. For clarity, we label the two factors f1,tandf2,tas the 1stand 2ndfactors,
+respectively. In panel (B), a value of 0 denotes an exclusion restriction applied during the estimation,
+indicating that the factor loading is set to zero for the corresponding entry.
+Instead of reporting the results for each of the 40 cases, we select four representative
+cases described in Panel (B) of Figure 5 that are sufficient to make our point. Case ( I1)
+implements the most extreme exclusion restrictions: the “metrics of economic integration”
+load exclusively on the first factor, while all other indicators load only on the second factor,
+ensuring no overlap between the two factors. Despite this separation, as shown in the first
+column of Panel (A) of Figure 5, each factor estimate still exhibits strong comovement with
+our baseline factor (depicted by the blue lines), indicating a high correlation between the two
+factors, albeit with varying levels of estimation uncertainty.
+In contrast, cases ( I2), (I3), and ( I4) are increasingly less restrictive, allowing some
+indicators to load on both factors. For instance, ( I2) also loads category “text-mining-
+exponentially the number of possible cases. Not only does this strategy seem more arbitrary than our choice
+of excluding categories as a whole but, given the results below, it is unlikely to result in different findings.
+17
+derived indicators” on the first factor while ( I4) only excludes the first category “metrics of
+economic integration” from the second factor (the absolute minimal exclusion we can have
+to ensure identification). In these alternative cases, the second factor contributes minimally
+to the model, with the majority of the comovement captured by the first factor. Notice that
+these cases are similar to, but more general than, what we presented in Figure 4.
+In summary, the data strongly support the assumption that a single factor is sufficient.
+Therefore, we will use a single-factor model for the remainder of the paper.
+3.7 Stochastic trends
+Our baseline DFM specification (2) assumes that the common dynamics across empirical
+indicators are captured by their stationary components, while deterministic time trends for
+each indicator are modeled as orthogonal to the common factor.
+Figure 6: Estimated fragmentation when the factor includes stochastic trends
+1980 1990 2000 2010 2020-1-0.500.511.522.5
+Notes: Estimated factor, with 90% credible intervals, under the assumption that the factor follows a random-
+walk process, shown in red.
+Now, we modify this assumption by allowing the common factor itself to be nonstationary,
+potentially capturing stochastic common trends. We achieve this by setting ftin the DFM
+(2) to be a random-walk process. This adjustment enables us to incorporate trends in both
+idiosyncratic components (through deterministic processes) and common components (via
+stochastic processes). As shown in Figure 6, the results are very similar to those of the
+baseline case, with a correlation of 0.98 compared to those from our baseline case.
+18
+3.8 Alternative selection of indicators and prior choices
+In our next exercise, we demonstrate the robustness of our DFM estimation results by show-
+casing their consistency across alternative prior choices and selections of indicators.
+Figure 7 plots the median estimate of our baseline specification plus a set of ten variations.
+We ensure consistency by scaling all lines to match the standard deviation of the baseline
+case. This allows for straightforward comparison across all lines. For clarity, we designate
+the baseline scenario as “All series & Priors 1,” indicating our utilization of all 14 series of
+indicators in Figure 1 and adherence to the prior choices outlined in (3).
+Figure 7: Estimated fragmentation index: Alternative selection of indicators and prior choices
+1975 1980 1985 1990 1995 2000 2005 2010 2015 2020-1.5-1-0.500.511.522.5 All series & Priors 1 - Baseline
+All series & Priors 2
+All series & Priors 3
+All series & Priors 4
+Core 7 series
+Core 7 series & TR & MF
+Core 7 series & TR & MF & EU
+Core 7 series & TR & MF & EU & CC
+Core 7 series & TR & MF & EU & CC & KS
+Core 7 series & TR & MF & EU & CC & KS & MFs
+Core 7 series & TR & MF & EU & CC & KS & PF
+Notes: Median-smoothed estimates of the fragmentation index under baseline specification and ten varia-
+tions.
+Now, we explain the different lines. First, we examine three distinct sets of prior selections
+for the variance parameters listed below while preserving all 14 series. We focus exclusively
+on adjusting priors for the variance parameters, as the priors for the remaining parameters
+have already been set to sufficiently broad values.
+The rationale for organizing these choices according to their importance level is as fol-
+lows. First, varying options for σ2
+biare critical as they dictate the degree of time variations
+in the factor loading, thereby influencing our estimation outcomes. Second, the priors for
+σ2
+uidirectly impact the signal-to-noise ratio by determining the variance magnitude of the
+unexplained idiosyncratic component, rendering them potentially significant for estimation.
+Last, the priors for σ2
+hfandσ2
+hiregulate the extent of time variations in stochastic volatility,
+19
+consequently affecting the signal-to-noise ratio. Specifically, we consider:
+Priors 2: σ2
+bi∼ IG (10,1), σ2
+ui∼ IG (10,10), σ2
+hf, σ2
+hi∼ IG (10,10),
+Priors 3: σ2
+bi∼ IG (10,0.1), σ2
+ui∼ IG (1,2), σ2
+hf, σ2
+hi∼ IG (10,1),
+Priors 4: σ2
+bi∼ IG (10,0.1), σ2
+ui∼ IG (1,0.5), σ2
+hf, σ2
+hi∼ IG (10,1).
+Subsequently, having gauged the implications of alternative prior choices for estimation
+outcomes, we revert to the prior choices for the baseline scenario as delineated in equation (3),
+and examine variations in the set of indicators. The “Core 7” denotes the scenario wherein
+we exclusively utilize trade openness, the FDI ratio, the financial flow ratio, the number of
+sanctions, the geopolitical risk index, the trade policy uncertainty, and the number of con-
+flicts. We call these indicators the “Core 7” owing to their quarterly frequency availability
+throughout the entire estimation period from 1975 to 2022. Next, we incrementally incor-
+porate (in different combinations) the number of trade restrictions (TR), the migration fear
+index (MF), the energy uncertainty (EU), the capital control (CC), the UNGA kappa score
+(KS), the migration flow ratio (MFs), and the patent flows (PF).
+Figure 7 juxtaposes the median-smoothed estimates of the fragmentation index across
+these adjustments. Remarkably, the time-series plots of our estimated fragmentation index
+remain highly similar throughout these modifications. They consistently depict a robust cor-
+relation, averaging approximately 0.95, with the lowest observed correlation hovering around
+0.85. This compelling evidence strongly reinforces our assertion that a specific set of empir-
+ical indicators does not influence the estimation but rather that it captures the underlying
+dynamics of fragmentation.
+4 A PCA Empirical Strategy
+Our DFM is a flexible tool designed to capture a wide range of time variations, such as changes
+in factor loadings or innovation variances. Nonetheless, a researcher could be concerned
+that its technical requirements may obscure information that a simple alternative, such as a
+principal components analysis (PCA), could more transparently document.
+To check this, in this section, we rely on Hamilton and Xi (2024), who outline a PCA pro-
+cedure for uncovering common cyclical factors driving a mix of stationary and non-stationary
+variables. Hamilton (2018) shows that it is possible to use OLS to estimate an h-period-
+ahead forecast of the level of any variable as a linear function of its own lags without
+knowing the nature of the non-stationarity. We set hto 5 years and lto 2 years to esti-
+mate yi,t+h=ξ0+Pl
+j=1ξjyi,t−j+1+νi,t+h. Then, we conduct PCA using the forecast errors
+ˆνi,t+h=yi,t+h−ˆξ0−Pl
+j=1ˆξjyi,t−j+1of the “Core 7” variables following the method in Hamilton
+and Xi (2024). We focus on the “Core 7” because they are available at a quarterly frequency
+20
+Figure 8: Estimated fragmentation when the factor is derived from PCA
+1980 1990 2000 2010 2020-1-0.500.511.522.5
+Notes: The exclusion of the initial seven years ( h= 5 and l= 2) of data accounts for the missing data in the
+first PCA.
+while the other variables are available only annually and with different sample lengths.
+We plot the first principal component in Figure 8 (green line) and compare it with our
+baseline factor (blue line). The patterns of both estimates are quite similar, including the
+decaying fragmentation from the mid-1990s and the increase following the 2007-2008 financial
+crisis and the overall correlation between the first principal component and the baseline
+estimate is approximately 0.61. The only significant difference is the drop in the first principal
+component at the end of the sample, which we attribute to the limited information available
+to the procedure.4Therefore, we decide to keep our DFM as our baseline specification.
+5 The Causal Effects of Geopolitical Fragmentation
+We can now delve into exploring the causal link between geopolitical fragmentation and global
+economic activity. Our investigation employs two widely accepted empirical techniques for
+causality assessment in time series: structural vector autoregressions (SVARs) and local pro-
+jections (LPs). SVARs and LPs are alike in their fundamental nature, estimating dynamic
+relationships among observed variables within a linear projection model class; see Plagborg-
+4We also estimated the baseline model using the forecast errors, ˆ νi,t+h, by setting ai,tin (2) to zero. The
+correlation between these estimates and the baseline estimates is around 0.55. One issue with the approach
+` a la Hamilton (2018) is the exclusion of the initial seven years of data, which results in large and persistent
+credible intervals. These intervals tend to expand toward the end of the sample, particularly encompassing
+the period including the pandemic. Due to space constraints, these results are not reported here.
+21
+Møller and Wolf (2021). In a finite sample and under model specification uncertainty, SVARs
+efficiently regulate the structure of relationships among variables. Conversely, LPs offer a
+more flexible model specification framework, exhibiting resilience against the curse of dimen-
+sionality. Their complementarities justify the use of both approaches to have a more complete
+assessment of the causal effects of geopolitical fragmentation.
+We apply SVARs and LPs to quarterly panel data, covering a comprehensive set of macro
+and financial variables across a total of 61 economies: 34 advanced economies (AEs) and 27
+emerging markets (EMs) with available data. Appendix E.2 provides descriptive statistics
+for these variables.
+We begin with a panel SVAR to scrutinize the impact of fragmentation on a country’s
+macro and financial variables. Afterward, we transition to a panel LP analysis to explore
+potential heterogeneity across the sample. We complete our empirical investigation with a
+sectoral impact employing LPs.
+5.1 Aggregate impact: A panel SVAR approach
+The panel SVAR comprises 11 variables categorized into global and country components.
+The global bloc encompasses (i) our geopolitical fragmentation index, (ii) the VIX, (iii) the
+log of the S&P 500 index, (iv) the log of the WTI price of oil, (v) the yield on two-year U.S.
+Treasuries, (vi) the Chicago Federal Reserve National Financial Conditions Index (NFCI),
+and (vii) the log of world real GDP, aligning with the variable selection methodology of
+Caldara and Iacoviello (2022). The global variables control for the interactions between the
+fragmentation index and the aggregate variables of a country, aiding in the identification
+of the causal effects of shocks to the fragmentation index. Notably, U.S. financial market
+indicators are treated as “global” variables due to their influential role in the global market.
+The country bloc consists of (viii) the log of a country’s stock price index (SP it), (ix) the
+industrial production index (IP it), (x) the log of fixed investment (I it), and (xi) the log of per
+capita GDP (GDP it).5
+The SVAR incorporates two lags and utilizes quarterly data from 1986:Q1 to 2022:Q4,
+with the starting point of the sample determined by the availability of the VIX. To capture
+country-specific factors, the panel SVAR is estimated with country fixed effects (FEs). Data
+are sourced from the IMF International Financial Statistics (IFS), and observations with
+changes from the previous period in the top or bottom 1.25th percentile are excluded as
+outliers. The sample, constituting an unbalanced panel, consists of 2,359 observations from 26
+5For the panel VAR estimation, we construct for each country:
+Y′
+it=Fragmentation Indext,VIX t,ln(S&P t),ln(WTI t),U.S. Treasuryt,NFCI t,
+ln(World GDP t), ln(SP it), IPit, ln(Iit), ln(GDP it)
+.
+22
+countries (17 AEs and 9 EMs). The sample size is smaller than in the subsequent LP analysis,
+since VARs necessitate the availability of all variables simultaneously. In comparison, LPs can
+be executed for each variable independently, resulting in more observations for regressions.
+Standard errors are clustered by time due to the absence of cross-sectional variations in
+global variables. A fragmentation shock is identified through Cholesky decomposition, with
+the fragmentation index ordered first. This identification assumption relies on the hypoth-
+esis that geopolitical fragmentation is driven more by low-frequency forces (e.g., changes in
+international relations driven by demographics or ideological shifts) than by contemporary
+quarterly shocks to aggregate economic variables.
+Figure 9: Economic impact of fragmentation: SVAR
+0 4 8 12 16-0.6-0.5-0.4-0.3-0.2-0.10
+0 4 8 12 16-1-0.8-0.6-0.4-0.200.2
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-3-2-10
+Notes: Derived from a combined sample of AEs and EMs. Percent responses to a one-standard-deviation
+fragmentation shock. Shaded areas indicate the 90th percentiles where standard errors are clustered by time.
+Figure 9 presents the impulse response functions (IRFs) of country variables to a one-
+standard-deviation fragmentation shock. Given the assumption of identical coefficients in
+the VAR system across countries, these IRFs can be interpreted as the average effects of a
+fragmentation shock within the sample. Following a positive innovation to the fragmentation
+index (deemed adverse), all four country variables—GDP per capita, industrial production,
+fixed investment, and stock prices—experience declines. The negative effects become most
+pronounced approximately one to two years after the initial shock. The impact is substantial
+and persistent, with the peak effect of a one-standard-deviation fragmentation shock resulting
+in approximately a 0.3% decline in GDP.
+5.2 Assessing the robustness of SVAR results
+Next, we report the key findings of our robustness checks. Appendix E.3 provides more
+details. Despite different prior choices or different sets of empirical indicators, the consistency
+in SVAR outcomes across these variations strengthens the credibility of our findings.
+23
+5.2.1 Examination of estimation modifications
+We assess the robustness of our results by systematically examining various estimation mod-
+ifications. In addition, we investigate a scenario where trade openness serves as the sole
+indicator for geopolitical fragmentation, a common practice in the literature. Our findings
+reveal that adverse shocks to trade openness, indicative of increased fragmentation, indeed
+exert a negative impact on economic activity. Yet, this impact is markedly transitory, endur-
+ing only up to one year and displaying subsequent mean reversion (Appendix Figure A-5).
+In contrast, our baseline results unveil a divergent narrative, highlighting the prolonged per-
+sistence of observed effects for an extended duration, exceeding three to four years. This
+suggests that our fragmentation measure presents a materially different picture, which holds
+greater significance for the global economy.
+5.2.2 Imposing alternative identification strategies
+We assess the robustness of our SVAR results by employing two alternative identification
+strategies: switching the Cholesky ordering and a narrative approach.6
+First, we change the ordering of variables in the Cholesky decomposition. This approach
+gauges the importance of our identification assumption. Panel (A) of Figure 10 presents the
+IRFs in which the fragmentation index is ordered last in the Cholesky ordering. One can
+think about this ordering as the worst-case scenario for the hypothesis that fragmentation
+shocks matter. More concretely, this assumption implies that fragmentation shocks do not
+have any contemporaneous impacts on global or country variables.
+Not surprisingly, under this assumption, the magnitude of the IRFs diminishes, as antic-
+ipated, compared to the baseline case where the fragmentation index is placed first in the
+Cholesky ordering. However, most variables still indicate a significant effect of fragmentation
+shocks and the shape of responses remains qualitatively unchanged. Appendix E.3 presents
+the results with alternative orderings and confirms that they lie between the two scenarios
+depicted in Figure 10.
+Our second identification strategy employs narrative restrictions in the tradition of Mertens
+and Ravn (2013). We identify significant fragmentation and globalization episodes and em-
+ploy them as external instruments for fragmentation shocks. To ensure orthogonality with all
+other shocks, we select episodes that are unexpected or unrelated to the state of the global
+economy. Consequently, events that influenced fragmentation but were rooted in global eco-
+nomic conditions or directly impacted them, such as the 2007-2008 financial crisis and the
+6We avoid using a long-run identification strategy because there are no sharp theoretical predictions about
+the long-run effects of economic fragmentation. For example, while economic theory usually predicts that
+welfare (a non-observable) would be lower when there is less international trade, (measured) output might
+go up or down, depending on factor endowments and their relative prices. A similar argument precludes the
+use of identification strategies based on heteroskedasticity.
+24
+Figure 10: Economic impact of fragmentation: Assessing SVAR results robustness
+(A) Cholesky restrictions in identification
+0 4 8 12 16-0.6-0.4-0.200.2
+Chol. first
+Chol. last
+0 4 8 12 16-1-0.500.5
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-3-2-101
+(B) Narrative restrictions in identification
+0 4 8 12 16-1-0.50
+Narrative
+Cholesky
+0 4 8 12 16-2-1.5-1-0.50
+0 4 8 12 16-3-2.5-2-1.5-1-0.50
+0 4 8 12 16-8-6-4-20
+Notes: Derived from a combined sample of AEs and EMs. Percent responses to a one-standard-deviation
+fragmentation shock. Shaded (dashed) areas indicate the 90th percentiles where standard errors are clustered
+by time. Panel (A): Blue and green lines display the IRFs in which the fragmentation index is ordered first
+and last in the Cholesky decomposition, respectively. The ordering of other variables is kept unchanged.
+Panel (B): The blue line shows the baseline case of the Cholesky decomposition with the fragmentation index
+ordered first. The red is obtained through the narrative restrictions described above.
+COVID-19 pandemic, are excluded.
+Table 1 lists the narrative episodes we select, categorized into three sections. Compre-
+hensive details of these episodes are available in Appendix D.3. Narrative events reflecting
+geopolitical fragmentation (globalization) are indicated with an asterisk (dagger). We assign
+a value of 1 to events reflecting fragmentation and -1 to those reflecting globalization. There
+is a correlation of approximately 0.15 between the reduced-form residuals of the VAR model
+and the narrative series.
+Panel (B) of Figure 10 plots the IRFs of a fragmentation shock instrumented by the
+narrative series.7Notably, the impacts are considerably larger compared to the baseline case,
+7The first-stage regression is conducted by regressing the VAR reduced-form residuals on narrative series.
+uf
+it=−0.004
+(0.012)+ 0.080
+(0.030)zt+eit,where uf
+itis the residuals of the fragmentation index obtained from the panel
+25
+Table 1: Narrative episodes: Geopolitical fragmentation
+(A) Surprise war outbreaks, international conflicts, terrorism
+Iraqi invasion of Kuwait* (1990:Q3), Gulf War* (1991:Q1),
+NATO intervention in Serbia* (1994:Q2) and Kosovo* (1999:Q1), 9.11* (2001:Q3),
+Iraq War* (2003:Q1), U.S. strike on ISIL* (2014:Q3) and its breakup †(2017:Q4),
+Russia’s invasion of Ukraine* (2022:Q1)
+(B) Unforeseen geopolitical shifts
+Fall of the Berlin Wall †(1989:Q4), USSR dissolution events †(1988-1991),
+Arab Spring* (2010:Q4), Brexit vote* (2016:Q2)
+(C) Enactment of trade deals, currency unions, or trade restrictions
+NAFTA †(1994:Q1), WTO †(1995:Q1), Mercosur †(1995:Q1), Euro †(1999:Q1),
+U.S.-China trade war* (2018-2019)
+Notes: See Table A-3 in Appendix D.3 for more details. We list 18 events, but we further break down
+historical occurrences, such as the dissolution of the USSR and the U.S.-China trade war, into multiple events.
+Hence, we present a total of 22 narrative episodes. Narrative episodes reflecting geopolitical fragmentation
+(globalization) are marked with an asterisk (dagger). For (C), while these events were typically agreed upon or
+announced beforehand, their implementation signifies material alterations in measures that impact economic
+activities. We verified that the exclusion of events under category (C) does not affect our result.
+leading to a 0.7% decline in GDP per capita in response to a one-standard-deviation shock.
+This outcome suggests the presence of measurement errors in the fragmentation index, which
+are effectively corrected by the instruments.
+Taken together, our two alternative identification strategies underscore the robustness of
+our SVAR results under a reasonable set of identification assumptions.
+5.3 Aggregate impact: A panel LP approach
+We implement a panel LP by estimating the following equation:
+yi,t+h−yi,t−1=βhst+LX
+l=1αh
+l∆yi,t−l+LX
+l=1γh
+lst−l+δhXi,t+µh
+i+ϵh
+i,t, (5)
+forh= 0,1,2,... where yi,t+hrepresents the outcome variable in country iat time t+h,
+i.e.,yi,t+h={ln(GDP it+h),IPit+h,ln(Iit+h),ln(SP it+h)}, and stis the fragmentation shock
+VAR, and ztis the narrative series. Standard errors are clustered by time and shown in parentheses. The
+coefficient of the narrative series is significant at the 1% level. The second stage takes steps described by
+Mertens and Ravn (2013).
+26
+obtained in the SVAR. However, it is crucial to highlight the robustness of our results to
+alternative identification schemes, as illustrated in Appendix E.3.5. Following Montiel Olea
+and Plagborg-Møller (2021), we include lagged outcome and explanatory variables, ∆ yi,t−l
+andst−l, to address serial correlation, choosing a lag length of two.
+In terms of regressors, Xi,tis a vector of global and country-specific controls, encompassing
+the first and second lagged terms of a country’s per capita GDP growth rate and the global
+variables used in the VAR analysis, i.e., the VIX, the S&P 500 index, the WTI oil price, the
+yield on two-year U.S. Treasuries, the NFCI, and world GDP. The WTI oil price and world
+GDP are taken as log-difference. µh
+idenotes country FEs and ϵh
+i,tis an error term. Standard
+errors are clustered by time, as in the SVAR.
+The sequence of estimated coefficients, βhforh= 0,1,2,..., represents the IRFs. The
+estimation period textends until 2019:Q4 to ensure a consistent sample across the horizon
+h.We run the regression for each country variable separately. The number of observations
+differs across variables depending on data availability: 5,543 for GDP per capita (34 AEs
+/ 27 EMs), 4,153 for industrial production, 5,010 for fixed investment, and 2,430 for stock
+prices in the longest horizon of the estimation ( h= 16).
+As depicted in Panel (A) of Figure 11, a fragmentation shock exhibits adverse effects on
+country variables, showing qualitative similarity to the SVAR result. Notably, the estimated
+magnitude is somewhat larger in the LP analysis. For instance, the peak response of GDP
+per capita is approximately 0.9%. This variance is partly attributed to the broader inclusion
+of EMs in the sample.
+In Panels (B)-(F) of Figure 11, we investigate state dependence across country and shock
+characteristics by incorporating distinct coefficients, thus examining variations in the regres-
+sion outcomes for different countries and shocks categorized as positive vs. negative:
+yi,t+h−yi,t−1=
+1i,t−1βh
+1+ (1−1i,t−1)βh
+0
+st
++LX
+l=1αh
+l∆yi,t−l+LX
+l=1γh
+lst−l+δhXi,t+µh
+i+ϵh
+i,t, (6)
+where 1i,tis an indicator variable that takes one for the sample with a feature of interest.
+In Panel (B), fragmentation negatively impacts both AEs and EMs. The adverse reper-
+cussions are more pronounced for EMs. This suggests that countries with lower income levels
+experience more severe consequences from fragmentation, indicating greater potential benefits
+from globalization.
+Transitioning to Panel (C), we classify sample countries based on their voting patterns
+in the United Nations General Assembly Resolution on March 2, 2022, condemning Russia’s
+aggression against Ukraine. The “East” group, comprising nations like Russia, China, India,
+and South Africa, which either opposed or abstained from voting on the resolution, exhibits
+27
+Figure 11: Economic impact of fragmentation: LP
+(A) All countries
+−1.5−1−.50.5
+0 4 8 12 16
+QuartersGDP per capita
+−2−101
+0 4 8 12 16
+QuartersIndustrial Production
+−3−2−101
+0 4 8 12 16
+QuartersFixed Investment
+−8−6−4−202
+0 4 8 12 16
+QuartersStock Price
+(B) AEs ( red) vs. EMs ( blue)
+−1.5−1−.50.5
+0 4 8 12 16
+QuartersGDP per capita
+−3−2−101
+0 4 8 12 16
+QuartersIndustrial Production
+−4−3−2−101
+0 4 8 12 16
+QuartersFixed Investment
+−15−10−505
+0 4 8 12 16
+QuartersStock Price
+(C) West ( red) vs. East ( blue)
+−2−1.5−1−.50
+0 4 8 12 16
+QuartersGDP per capita
+−3−2−101
+0 4 8 12 16
+QuartersIndustrial Production
+−6−4−202
+0 4 8 12 16
+QuartersFixed Investment
+−15−10−505
+0 4 8 12 16
+QuartersStock Price
+(D) High trade share ( red) vs. other countries ( blue)
+−1.5−1−.50.5
+0 4 8 12 16
+QuartersGDP per capita
+−3−2−101
+0 4 8 12 16
+QuartersIndustrial Production
+−2−101
+0 4 8 12 16
+QuartersFixed Investment
+−10−505
+0 4 8 12 16
+QuartersStock Price
+(E) High trade share with U.S. ( red) vs. other countries ( blue)
+−1.5−1−.50.5
+0 4 8 12 16
+QuartersGDP per capita
+−3−2−101
+0 4 8 12 16
+QuartersIndustrial Production
+−3−2−101
+0 4 8 12 16
+QuartersFixed Investment
+−10−505
+0 4 8 12 16
+QuartersStock Price
+(F) Fragmentation ( red) vs. globalization ( blue): All countries
+−2−1012
+0 4 8 12 16
+QuartersGDP per capita
+−4−2024
+0 4 8 12 16
+QuartersIndustrial Production
+−4−2024
+0 4 8 12 16
+QuartersFixed Investment
+−15−10−50510
+0 4 8 12 16
+QuartersStock Price
+Notes: Percent responses to a one-standard-deviation fragmentation shock. Shaded areas and dashed lines
+indicate the 90th percentiles. In Panel (A), all countries include AEs and EMs. In Panel (B), AEs and EMs
+follow the classification of the IMF World Economic Outlook. In Panel (C), the term “West” encompasses
+countries that supported the United Nations General Assembly Resolution on March 2, 2022 (ES-11/1), while
+“West” comprises countries that either voted against the resolution or abstained. In Panel (D), countries with
+trade share are defined as those with (export+import)/GDP above the median of the sample. In Panel (E),
+the trade share with the U.S. is calculated using country-pair trade flows in the BACI database. In Panel (F),
+a positive shock to the fragmentation index is denoted as a “fragmentation” shock, while a negative shock is
+referred to as a “globalization” shock.
+28
+more substantial declines in the aftermath of a fragmentation shock. This result is interesting
+as some of these nations tend to be less supportive of a rules-based international order from
+which they benefit more.
+In Panels (D) and (E), we explore the relationship between the impact of fragmentation
+shocks and a country’s trade openness, measured by the trade share (i.e., the sum of exports
+and imports relative to GDP). Panel (D) highlights that nations with higher trade shares are
+more susceptible to the effects of fragmentation shocks. Conversely, a reversal is observed
+when trade openness is linked to the U.S. Panel (E) shows that countries with higher trade
+shares with the U.S. exhibit lower vulnerability to the impacts of fragmentation shocks.
+Lastly, Panel (F) delves into disparities between positive (fragmentation) and negative
+(globalization) shocks by estimating these IRFs separately in the state-dependency regression
+(6). This figure illustrates that fragmentation shocks exert immediate adverse impacts on
+the global economy, whereas the effects of globalization shocks unfold gradually over 2 to 3
+years, demonstrating greater persistence.
+5.4 Sectoral impact: A panel LP approach
+5.4.1 OECD countries
+So far, we have shown that fragmentation has adverse effects on the overall economy. Our
+focus now shifts to examining how fragmentation influences various sectors within a country,
+with a particular emphasis on OECD countries.
+The OECD conducts an annual breakdown of GDP across ten major sectors, aligning
+closely with the 2-digit U.S. Standard Industrial Classification (SIC) system used in the
+subsequent section. This GDP breakdown covers the 38 OECD member countries. Utilizing
+VAR-identified fragmentation shocks and employing the set of control variables from the
+preceding section, we perform a panel LP analysis of (5). The dataset, an unbalanced panel,
+spans from 1986 to 2022, with most countries’ data becoming available only in the late 1990s.
+Panel (A) of Figure 12 reports the responses at impact to a fragmentation shock to
+sectoral GDP in OECD countries. Sectors with greater exposure to global economic and
+financial activities, such as manufacturing, construction (investment activities), wholesale
+and retail trade, information and communication, and professional services, demonstrate more
+pronounced responses. In contrast, domestically oriented sectors like agriculture, forestry, and
+fishing, real estate, and public services exhibit muted reactions. Importantly, this discernible
+sectoral pattern is also observed in the case of the U.S. economy, a point we delve into in the
+following section.
+29
+Figure 12: Fragmentation impact on sectoral GDP
+(A) OECD countries
+GDP
+Agriculture, forestry and fishing
+Manufacturing
+Construction
+Wholesale, retail trade, etc.
+Information and communication
+Finance and insurance
+Real estate
+Professional, etc.
+Public, etc.
+Other serviceIndustries
+−3 −2 −1 0 1
+Full sample
+(B) U.S.
+GDP
+All Private
+Agriculture
+Mining
+Construction
+Manufacturing
+Durable Goods
+Non−durable
+Transportation
+Information
+Wholesale
+Retail
+FIRE
+Service
+GovernmentIndustries
+−6 −4 −2 0 2 4
+Notes: Panel (A): Sample of 38 OECD countries. Percent responses of 1-year-ahead GDP to a one-standard-
+deviation shock to the factor. Bars indicate the 90th percentiles. “Wholesale, retail trade, etc.” includes
+wholesale, retail trade, repairs, transport, accommodation, and food services. “Professional, etc.” represents
+professional, scientific, and support services. “Public, etc.” is the sum of public administration, defense,
+education, health, and social work. Panel (B): Sample of 8 BEA regions with sectoral breakdown. Percent
+responses of 1-year-ahead GDP to a one-standard-deviation shock to the factor. Bars indicate the 90th
+percentiles. Since the BEA stopped updating GDP by state before 1997, we map the previous SIC to
+the current NAICS. Specifically, the SIC “communications” sector is connected to “information” under the
+NAICS; the SIC “service” is the sum of “professional and business services,” “management of companies and
+enterprises,” “educational service, health care, and social assistance,” and “arts, entertainment, recreation,
+accommodation, and food services”; other sectors are connected to the sectors with the same labels in the
+SIC and the NAICS.
+5.4.2 The U.S.
+Next, we explore sectoral data within the U.S. Using annual GDP data compiled by the
+Bureau of Economic Analysis (BEA) since 1977 (with quarterly data available from 2005:Q1
+30
+onward), we employ a panel LP approach outlined in equation (5) covering the period from
+1986 to 2022. The control variables include U.S. aggregate GDP growth and the same global
+variables utilized in the cross-country analysis. The fragmentation shocks, aggregated annu-
+ally, serve as the central variable of interest.
+Panel (B) of Figure 12 illustrates the responses at impact to a fragmentation shock in
+U.S. sectoral GDP. Our focus is on the ten major private sectors and the government sector
+at the 2-digit level of the SIC within regional GDP. The figure highlights the concentrated
+adverse effects of fragmentation in specific sectors, including manufacturing, durable goods,
+transportation, and wholesale, likely attributed to the heightened exposure of these sectors
+to global economic activities.
+6 Geopolitical Bloc Fragmentation
+Is the global trend of fragmentation distributed evenly or unevenly across different regions of
+the world? For instance, an extreme consequence of fragmentation would be the division of
+the world into separate economic blocs, each with its own dynamics.
+While the world economy has not yet fully divided into these separate blocs, we can
+measure the extent to which fragmentation between and within blocs is already significant.
+Does the degree of fragmentation within different geopolitical blocs affect the bloc’s aggregate
+dynamics? Does fragmentation in different regions impact the global economy differently?
+To answer these questions, we explore fragmentation within geopolitical blocs and examine
+the potentially heterogeneous effects of each bloc’s fragmentation on the global economy.
+6.1 Measuring geopolitical bloc fragmentation
+We expand our baseline DFM by considering three geopolitical blocs: the U.S.-EU bloc, the
+China-Russia bloc, and the Others bloc. For each bloc, we collect eight empirical indicators
+reflecting geopolitical fragmentation and are chosen based on their availability: trade open-
+ness, FDI ratio, financial flow ratio, trade restrictions, capital control measures, sanctions,
+geopolitical risk index, and the UNGA kappa score. The data used for estimation are detailed
+in Appendix D.4.
+Specifically, we express equation (2) for each of these three blocs. With the exception of
+the treatment of the factor, all other aspects are treated symmetrically. We utilize the same
+priors as those employed in our baseline case. When considering the factor for the global bloc,
+we utilize a hierarchical structure, expressing it as weighted averages of the local factors:
+ft=X
+j∈{U.S.-EU,CHN-RUS, Others }wjf(j)
+t, (7)
+31
+where ftrepresents the global fragmentation factor, while f(j)
+tdenotes the local fragmentation
+bloc factor in bloc j. We estimate the entire specification jointly, including the weights wj.
+We impose the prior wj∼ N 1
+3,1
+100
+for the weights. Appendix C reports the details.
+Figure 13: Estimated geopolitical bloc fragmentation indices
+1980 1990 2000 2010 2020-0.500.5
+1980 1990 2000 2010 2020-0.500.5
+1980 1990 2000 2010 2020-0.500.5
+1980 1990 2000 2010 2020-0.500.5
+Notes: We present the posterior median-smoothed estimates of f(j)
+taccompanied by 90% credible intervals
+where j={U.S.-EU, CHN-RUS, Others }. The global index is obtained by ft=P3
+j=1wjf(j)
+t.
+Figure 13 displays the estimated bloc fragmentation indices. These indices share broad
+patterns with the global index, including the trend toward globalization before the 2007-2008
+financial crisis and fragmentation afterward. However, a closer look reveals several notable
+differences across geopolitical blocs.
+In the U.S.-EU bloc, a globalization trend started in the 1980s and further advanced in
+the early 1990s. The timing corresponds to the era of greater trade and capital flows under
+the floating exchange rate regime, particularly among advanced economies. The advance of
+globalization in the early 1990s picks up at the end of the Cold War. This result is intuitive
+as the U.S. and the EU were among the first economies to embrace liberalization policies in
+the late 1970s and early 1980s.
+The globalization of the other blocs lagged and started around the mid-1990s when trade
+liberalization gained momentum in large emerging economies. The movement was under-
+pinned by regional trade agreements, such as NAFTA and Mercosur, as well as global in-
+stitutions, such as the WTO. Growing trade and increasing financial flows into emerging
+economies reinforced the trend, but it largely reverted after the 2007-2008 financial crisis.
+32
+The dynamics of the China-Russia bloc’s factor are affected by individual events, such as
+the dissolution of the USSR in 1991 and China’s move toward a market economy, including
+its participation in the WTO in 2001 and the gradual deregulation of capital flows. The pro-
+nounced width of the credible interval for the China-Russia bloc fragmentation index until
+the mid-1990s is a reflection of the limited availability of most empirical indicators. The dy-
+namics of the Other bloc’s factor resemble those depicted in Figure 2, possibly attributable to
+similarities in the empirical indicators compared to those corresponding to global indicators.
+Finally, the estimated global fragmentation index closely mirrors the pattern illustrated
+in Figure 2, with a correlation of around 0.87. This observation is not unexpected, given
+our earlier insights from Figure 7, where the robust estimation of the global fragmentation
+index remained consistent across various empirical indicators. However, there is a discernible
+contrast in the smoothness of the factor. While the overarching low-frequency dynamics
+align, the global index exhibits slight fluctuations due to its reliance on the U.S.-EU bloc
+fragmentation index, which displays more variability. This difference results in the correlation
+dipping just below 0.9.
+6.2 Assessing the causal effects of geopolitical bloc fragmentation
+Next, we explore the ramifications of bloc fragmentation dynamics for global and regional
+economies. We employ sign restrictions to identify bloc fragmentation shocks.
+Initially, we estimate a VAR model encompassing the following global and bloc variables:
+Y′
+t="
+fU.S.-EU
+t −ft, fCHN-RUS
+t −ft, fOthers
+t−ft, f t, VIX t,
+ln(S&P t), ln(WTI t),U.S. Treasuryt,NFCI t,ln(World GDP t)#
+.(8)
+Here, the first three entries represent the differentials of local and global fragmentation factors.
+Local fragmentation shocks are defined as those that increase (decrease) global fragmentation
+and render the own bloc more (less) fragmented than other blocs. This is achieved by imposing
+the following sign restrictions:
+
+uU.S.-EU
+t −uGlobal
+t
+uCHN-RUS
+t −uGlobal
+t
+uOthers
+t−uGlobal
+t
+uGlobal
+t...
+=
+✚? ? ···
+?✚?···
+? ? ✚···
+✚ ✚ ✚ ···
+............
+
+εU.S.-EU
+t
+εCHN-RUS
+t
+εOthers
+t...
+, (9)
+where u(j)
+tis the reduced-form residuals from the VAR and ε(j)
+tis the bloc-driven fragmen-
+tation shocks. The sign restrictions are imposed for four quarters after the shock and reflect
+standard intuition. For example, more fragmentation between the U.S. and the EU leads to
+33
+larger reduced-form VAR residuals from the U.S.-EU bloc than in the world as a whole. This
+reflects the fact that the joint aggregate dynamics of the U.S. and the EU are more affected
+by fragmentation within their own bloc than by fragmentation in other blocs.
+Figure 14: Economic impact of bloc-driven fragmentation: SVAR
+0 4 8 12 16-0.6-0.4-0.200.2
+Bloc shock
+Global shock
+0 4 8 12 16-1-0.500.5
+0 4 8 12 16-2-1.5-1-0.50
+0 4 8 12 16-4-202
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-2-10
+0 4 8 12 16-6-4-2024
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-6-4-20
+Notes: Sample of AEs and EMs. Percent responses to a one-standard-deviation shock. Shaded areas indicate
+the 90th percentiles where standard errors are clustered by time. The horizon of sign restrictions is set to 4
+quarters. The IRFs to the baseline global fragmentation shock (Cholesky decomposition) are shown in gray
+as a reference.
+Then, the identified local fragmentation shocks are added to the baseline panel VAR.8
+Each bloc’s shock is included in the VAR separately. The local fragmentation shock is ordered
+first in the Cholesky decomposition when calculating the IRFs.
+Figure 14 presents the results. The U.S.-EU and Others fragmentation shocks have im-
+mediate adverse effects on the global economy. In contrast, the China-Russia fragmentation
+shocks initially have subtle positive impacts and persistent negative effects in later years.
+8The resulting VAR has 12 variables:
+Y′
+it=
+ε(j)
+t, f t, VIX t,ln(S&P t),ln(WTI t),U.S. Treasuryt,
+NFCI t,ln(World GDP t),ln(SP it), IPit, ln(Iit), ln(GDP it)
+34
+The delayed impacts of the China-Russia shocks may suggest that the advance of China
+into the global market increased competition and partly substituted for the presence of other
+countries. Similarly, there is most likely a trade relocation in the U.S. from China to other
+emerging economies following the U.S.-China trade war in 2018-19.
+Appendix E.3 presents the IRFs of countries within each bloc (or all blocs) to various
+fragmentation shocks. We observe that the U.S.-EU and other blocs exhibit similar responses,
+aligning with those of the global economy. In contrast, the responses of the China-Russia bloc
+are ambiguous, lacking clear patterns, indicating the unique dynamics of their economies.
+7 Conclusions
+After decades of global economic integration, recent trends point to a shift toward frag-
+mentation. We offer a measure of geopolitical fragmentation, drawn from diverse empirical
+indicators, to precisely assess the current state and contribute to understanding its causal
+effects on the global economy. Leveraging a widely used method extended for maximum flex-
+ibility, our estimated DFM with time-varying parameters and stochastic volatility captures
+the evolving dynamics of global fragmentation.
+Our analysis, employing SVAR and LP, reveals the causal relationships between changes
+in fragmentation and their impacts on the global economy. We find that heightened frag-
+mentation, indicated by a positive one-standard-deviation shock to the fragmentation index,
+detrimentally affects the global economy, with emerging economies disproportionately affected
+compared to advanced ones. Importantly, we uncover an inherent asymmetry: while fragmen-
+tation immediately impairs the global economy, the benefits of reduced fragmentation, often
+associated with the positive aspects of globalization, unfold gradually over time. Addition-
+ally, our examination of sectors within OECD economies highlights the adverse repercussions
+of fragmentation for industries intricately connected to global markets, including manufac-
+turing, construction, finance, and wholesale and retail trade.
+35
+References
+Acemoglu, D., Gancia, G., and Zilibotti, F. (2015). Offshoring and directed technical change.
+American Economic Journal: Macroeconomics , 7:84–122.
+Ahir, H., Bloom, N., and Furceri, D. (2022). The World Uncertainty Index. Working Paper
+29763, National Bureau of Economic Research.
+Aiyar, S., Chen, J., Ebeke, C., Ebeke, C. H., Garcia-Saltos, R., Gudmundsson, T., Ilyina, A.,
+Kangur, A., Kunaratskul, T., Rodriguez, M. S. L., et al. (2023a). Geo-economic Fragmen-
+tation and the Future of Multilateralism . International Monetary Fund.
+Aiyar, S., Presbitero, A., and Ruta, M. (2023b). Geoeconomic Fragmentation: The Economic
+Risks from a Fractured World Economy . CEPR Press.
+Antr´ as, P. (2020). De-globalisation? Global value chains in the post-COVID-19 age. Mimeo.
+Arias, J. E., Fern´ andez-Villaverde, J., Rubio-Ram´ ırez, J. F., and Shin, M. (2023). The causal
+effects of lockdown policies on health and macroeconomic outcomes. American Economic
+Journal: Macroeconomics , 15(3):287–319.
+Aruoba, S. B., Diebold, F. X., and Scotti, C. (2009). Real-time measurement of business
+conditions. Journal of Business and Economic Statistics , 27(4):417–427.
+Attinasi, M. G., Boeckelmann, L., and Meunier, B. (2023). The economic costs of supply
+chain decoupling. ECB Working Paper No. 2023/2839.
+Bai, X., Fern´ andez-Villaverde, J., Li, Y., and Zanetti, F. (2024). The causal effects of global
+supply chain disruptions on macroeconomic outcomes: Evidence and theory. Manuscript.
+Baker, M. and Wurgler, J. (2007). Investor sentiment in the stock market. Journal of
+Economic Perspectives , 21(2):129–152.
+Baker, S. R., Bloom, N., and Davis, S. J. (2016). Measuring economic policy uncertainty.
+Quarterly Journal of Economics , 131(4):1593–1636.
+Bartelme, D. and Gorodnichenko, Y. (2015). Linkages and economic development. Working
+Paper 21251, National Bureau of Economic Research.
+Blanga-Gubbay, M. and Rubinova, S. (2023). Is the global economy fragmenting? World
+Trade Organization Staff Working Paper 2023-10.
+Bloom, N., Bunn, P., Chen, S., Mizen, P., Smietanka, P., and Thwaites, G. (2019). The
+impact of Brexit on UK firms. NBER Working Paper No. 26218.
+36
+Bloom, N., Davis, S., and Baker, S. (2015). Immigration fears and policy uncertainty. VOXEU
+Column, 15 December, 2015.
+Bolhuis, M. A., Chen, J., and Kett, B. (2023). Fragmentation in global trade: Accounting
+for commodities. IMF Working Paper WP/23/73, International Monetary Fund.
+Bustos, P. (2011). Trade liberalization, exports, and technology upgrading: Evidence on the
+impact of MERCOSUR on Argentinian firms. American Economic Review , 101:304–340.
+Caldara, D. and Iacoviello, M. (2022). Measuring geopolitical risk. American Economic
+Review , 112(4):1194–1225.
+Caldara, D., Iacoviello, M., Molligo, P., Prestipino, A., and Raffo, A. (2020). The economic
+effects of trade policy uncertainty. Journal of Monetary Economics , 109:38–59.
+Campos, R. G., Estefania-Flores, J., Furceri, D., and Timin, J. (2023). Geopolitical fragmen-
+tation and trade. Journal of Comparative Economics , 51(4):1289–1315.
+Carter, C. K. and Kohn, R. (1994). On Gibbs sampling for state space models. Biometrika ,
+81(3):541–553.
+Cerdeiro, D. A., Eugster, J., Mano, R. C., Muir, D., and Peiris, S. J. (2021). Sizing up the
+effects of technological decoupling. IMF Working Paper, WP/21/69.
+Clayton, C., Maggiori, M., and Schreger, J. (2024). A theory of economic coercion and
+fragmentation. Manuscript.
+Dang, T. H.-N., Nguyen, C. P., Lee, G. S., Nguyen, B. Q., and Le, T. T. (2023). Measuring
+the energy-related uncertainty index. Energy Economics , 124(106817).
+Del Negro, M. and Otrok, C. (2008). Dynamic factor models with time-varying parameters:
+Measuring changes in international business cycles. Federal Reserve Bank of New York
+Staff Reports no. 326 .
+Del Negro, M. and Schorfheide, F. (2011). Bayesian macroeconometrics. In Geweke, J.,
+Koop, G., and van Dijk, H., editors, The Oxford Handbook of Bayesian Econometrics ,
+pages 293–389. Oxford University Press.
+Durbin, J. and Koopman, S. J. (2001). Time Series Analysis by State Space Methods . Oxford
+University Press.
+Erten, B., Korinek, A., and Ocampo, J. A. (2021). Capital controls: Theory and evidence.
+Journal of Economic Literature , 59(1):45–89.
+37
+Fajgelbaum, P. D., Goldberg, P. K., Kennedy, P. J., and Khandelwal, A. K. (2019). Return
+to protectionism. Quarterly Journal of Economics , 135:1–55.
+Fajgelbaum, P. D. and Khandelwal, A. K. (2022). The economic impacts of the US–China
+trade war. Annual Review of Economics , 14:205–228.
+Feenstra, R. C. (2006). New evidence on the gains from trade. Review of World Economics
+/ Weltwirtschaftliches Archiv , 142(4):617–641.
+Felbermayr, G., Kirilakha, A., Syropoulos, C., Yalcin, E., and Yotov, Y. V. (2020). The
+global sanctions data base. European Economic Review , 129:103561.
+Fern´ andez, A., Klein, M. W., Rebucci, A., Schindler, M., and Uribe, M. (2016). Capital
+control measures: A new dataset. IMF Economic Review , 64:548–574.
+Flaaen, A. and Pierce, J. (2019). Disentangling the effects of the 2018-2019 tariffs on a
+globally connected U.S. manufacturing sector. Finance and Economics Discussion Series
+2019-086, Federal Reserve Board.
+Frankel, J. A. and Romer, D. H. (1999). Does trade cause growth? American Economic
+Review , 89(3):379–399.
+Geweke, J. (1977). The dynamic factor analysis of economic time series. In Aigner, D. J. and
+Goldberger, A. S., editors, Latent Variables in Socio-Economic Models , chapter 19. North
+Holland, Amsterdam.
+Geweke, J. and Zhou, G. (1996). Measuring the pricing error of the arbitrage pricing theory.
+Review of Financial Studies , 9(2):557–587.
+Gilchrist, S. and Zakrajˇ sek, E. (2012). Credit spreads and business cycle fluctuations. Amer-
+ican Economic Review , 102(4):1692–1720.
+Glennon, B. (2024). How do restrictions on high-skilled immigration affect offshoring? Evi-
+dence from the H-1B program. Management Science , 70:907–930.
+G´ oes, C. and Bekkers, E. (2022). The impact of geopolitical conflicts on trade, growth, and
+innovation. World Trade Organization, Staff Working Paper ERSD-2022-09.
+Goldberg, P. K. and Reed, T. (2023). Is the global economy deglobalizing? And if so, why?
+And what is next? NBER Working Paper No. 31115.
+Gopinath, G. (2023). Cold War II? Preserving economic cooperation amid geoeconomic
+fragmentation. Plenary Speech at the 20th World Congress of the International Economic
+Association, Colombia, December 11, 2023.
+38
+Gopinath, G., Gourinchas, P.-O., Presbitero, A., and Topalova, P. (2024). Changing global
+linkages: A new Cold War? IMF Working Paper No. 2024/076.
+Gorodnichenko, Y., Mendoza, E. G., and Tesar, L. L. (2012). The Finnish Great Depression:
+From Russia with love. American Economic Review , 102(4):1619–44.
+H¨ age, F. M. (2017). Chance-corrected measures of foreign policy similarity (FPSIM Version
+2). Harvard Dataverse, V2.
+Hakobyan, S., Meleshchuk, S., and Zymek, R. (2023). Divided we fall: Differential exposure
+to geopolitical fragmentation in trade. IMF Working Paper No. 2023/270.
+Hamilton, J. D. (2018). Why you should never use the Hodrick-Prescott filter. Review of
+Economics and Statistics , 100(5):831–843.
+Hamilton, J. D. and Xi, J. (2024). Principal component analysis for nonstationary series.
+Manuscript.
+Javorcik, B. S., Kitzmueller, L., Schweiger, H., and Yıldırım, M. A. (2024). Economic costs
+of friendshoring. The World Economy , 00:1–38.
+Jurado, K., Ludvigson, S. C., and Ng, S. (2015). Measuring uncertainty. American Economic
+Review , 105(3):1177–1216.
+Kim, S., Shephard, N., and Chib, S. (1998). Stochastic volatility: Likelihood inference and
+comparison with ARCH models. Review of Economic Studies , 65(3):361–393.
+LaBelle, J., Martinez-Zarzoso, I., Santacreu, A. M., and Yotov, Y. (2023). Cross-border
+patenting, globalization, and development. Federal Reserve Bank of St. Louis Working
+Paper 2023-031.
+Melitz, M. J. and Trefler, D. (2012). Gains from trade when firms matter. Journal of
+Economic Perspectives , 26(2):91–118.
+Mertens, K. and Ravn, M. O. (2013). The dynamic effects of personal and corporate income
+tax changes in the United States. American Economic Review , 103(4):1212–1247.
+Montiel Olea, J. L. and Plagborg-Møller, M. (2021). Local projection inference is simpler
+and more robust than you think. Econometrica , 89(4):1789–1823.
+Obstfeld, M. (1994). Risk-taking, global diversification, and growth. American Economic
+Review , 84:1310–1329.
+Otrok, C. and Whiteman, C. H. (1998). Bayesian leading indicators: Measuring and predict-
+ing economic conditions in Iowa. International Economic Review , 39(4):997–1014.
+39
+Plagborg-Møller, M. and Wolf, C. K. (2021). Local projection and VARs estimate the same
+impulse. Econometrica , 89(2):955–980.
+Sampson, T. (2017). Brexit: The economics of international disintegration. Journal of
+Economic Perspectives , 31:163–184.
+Sargent, T. J. and Sims, C. A. (1977). Business cycle modeling without pretending to have
+too much a priori economic theory. In New Methods in Business Cycle Research . FRB
+Minneapolis, Minneapolis.
+Shapiro, A. H., Sudhof, M., and Wilson, D. J. (2022). Measuring news sentiment. Journal
+of Econometrics , 228(2):221–243.
+Stock, J. H. and Watson, M. W. (1989). New indices of coincident and leading economic
+indicators. In Blanchard, O. J. and Fischer, S., editors, NBER Macroeconomics Annual
+1989, volume 4, pages 351–394. MIT Press, Cambridge.
+Utar, H., Ruiz, L. B. T., and Zurita, A. C. (2023). The US-China trade war and the relocation
+of global value chains to Mexico. CESifo Working Paper No. 10638.
+Wu, J. C. and Xia, F. D. (2016). Measuring the macroeconomic impact of monetary policy
+at the zero lower bound. Journal of Money, Credit and Banking , 48(2-3):253–291.
+40
+Appendix
+A Estimating the DFM with One Factor
+The DFM with time-varying parameters is specified as follows:
+yi,t=ai,t+bi,tft+ui,t,
+ai,t=ai,0+ai,1t,
+ft=ϕf,1ft−1+...+ϕf,pft−p+σf,tϵf,t, ϵ f,t∼ N(0,1),
+bi,t=bi,t−1+σbiϵbi,t, ϵ bi,t∼ N(0,1),
+ui,t=ϕui,1ui,t−1+...+ϕui,qui,t−q+σui,tϵui,t, ϵ ui,t∼ N(0,1),
+hj,t=hj,t−1+σhjϵhj,t, σ j,t=σjexp(hj,t), ϵ hj,t∼ N(0,1), (A-1)
+where i∈ {1, ..., N}andj∈ {f, u 1, ..., u N}. To simplify the explanation, we gather the
+parameters in (A-1) as:
+a0=
+a0,1
+...
+a0,N
+, a 1=
+a1,1
+...
+a1,N
+, b t=
+b1,t
+...
+bN,t
+, σ b=
+σb1...
+σbN
+, ϕ f=
+ϕf,1
+...
+ϕf,p
+,
+ϕui=
+ϕui,1
+...
+ϕui,q
+, ϕ u=
+ϕu1...
+ϕuN
+, σ u=
+σu1...
+σuN
+, σ hu=
+σhu1...
+σhuN
+. (A-2)
+The model unknowns can be categorized into three sets: Θ f={fT, ϕf, σf, hT
+f, σhf}, Θb=
+{bT, σb}, an Θ u={a0, a1, ϕu, σu, hT
+u, σhu}.
+A.1 Gibbs sampler
+We use the Gibbs sampler to estimate the model unknowns. For the k-th iteration:
+(G1) Appendix A.2: Run Kalman filter and smoother using the algorithm to update Θ(k)
+f
+conditional on Θ(k−1)
+f,Θ(k−1)
+b,Θ(k−1)
+u.
+(G2) Appendix A.3: Run Kalman filter and smoother using the algorithm to update Θ(k)
+b
+conditional on Θ(k)
+f,Θ(k−1)
+b,Θ(k−1)
+u.
+(G3) Appendix A.4: Update the remaining parameters, including ones associated with the
+serially correlated innovation Θ(k)
+uconditional on Θ(k)
+f,Θ(k)
+b,Θ(k−1)
+u.
+For ease of exposition, we omit the superscript ( k) when describing the procedure below.
+A-1
+A.2 Updating the factor and the associated parameters Θf
+We re-express (A-1) as:
+˜yi,t= ˜ai,t+˜bi,t˜ft+σui,tϵui,t,
+˜yi,t= (yi,t−ϕui,1yi,t−1...−ϕui,qyi,t−q),
+˜ai,t=ai,0(1−ϕui,1...−ϕui,q) +ai,1(t−ϕui,1(t−1)...−ϕui,q(t−q)),
+˜bi,t=h
+bi,t−bi,t−1ϕui,1. . .−bi,t−qϕui,qi
+. (A-3)
+Note that (A-3) implies the following state-space representation:
+
+˜y1,t
+...
+˜yN,t
+=
+˜a1,t
+...
+˜aN,t
++
+˜b1,t
+...
+˜bN,t
+·
+ft
+ft−1
+...
+ft−q
++
+σu1,tϵu1,t
+...
+σuN,tϵuN,t
+,
+
+ft
+ft−1
+...
+ft−q
+=
+ϕf,1. . . ϕ f,p. . .
+1. . . 0. . .
+0....... . .
+. . . 0 1 . . .
+
+ft−1
+ft−2
+...
+ft−q−1
++
+σf,tϵf,t
+0
+...
+0
+. (A-4)
+Based on the state-space representation in (A-4), we draw fTbased on the forward filtering
+and backward smoothing algorithm explained in Appendix A.5. Conditional on the drawn
+fT, we draw {ϕf, σf, hT
+f, σhf}based on the procedure described in Appendix A.6.
+A.3 Updating the factor loading and the associated parameters Θb
+For each i∈ {1, ..., N}, we re-express (A-1) as
+ˆyi,t= ˆai,t+ˆftˆbi,t+σui,tϵui,t,
+ˆyi,t= (yi,t−ϕui,1yi,t−1...−ϕui,qyi,t−q),
+ˆai,t=ai,0(1−ϕui,1...−ϕui,q) +ai,1(t−ϕui,1(t−1)...−ϕui,q(t−q)),
+ˆft=h
+ft−ft−1ϕui,1. . .−ft−qϕui,qi
+,
+ˆbi,t=
+bi,t
+bi,t−1
+...
+bi,t−q
+=
+1. . .0. . .
+1. . .0. . .
+0....... . .
+. . . 0 1 . . .
+
+bi,t−1
+bi,t−2
+...
+bi,t−q−1
++
+σbiϵbi,t
+0
+...
+0
+. (A-5)
+A-2
+Based on the state-space representation in (A-5), we draw bT
+ibased on the forward filtering
+and backward smoothing algorithm explained in Appendix A.5. Conditional on the drawn
+bT
+i, we draw σbibased on the procedure described in Appendix A.6.
+A.4 Updating the remaining parameters: Θu
+First, conditional on {ϕu, σu, hT
+u}, we re-express (A-1) as:
+¯yi,t=ai¯xi,t+σuiϵui,t, (A-6)
+where:
+¯yi,t=ˆyi,t−ˆftˆbi,t
+exp(hui,t),¯xi,t=h
+1−ϕui,1...−ϕui,q
+exp(hui,t),t−ϕui,1(t−1)...−ϕui,q(t−q)
+exp(hui,t)i
+,
+and ˆyi,t,ˆft, and ˆbi,tare provided in (A-5). We draw aibased on the procedure described in
+Appendix A.6. Second, conditional on the updated a, we re-express (A-1) as
+ui,t=yi,t−ai,t−bi,tft (A-7)
+and update the associated parameters and stochastic volatilities {ϕu, σu, hT
+u, σhu}of the seri-
+ally correlated errors based on the procedure described in Appendix A.6.
+A.5 Forward filtering and backward smoothing algorithm
+To illustrate the forward filtering and backward smoothing algorithm by Carter and Kohn
+(1994), we will use a generic expression for the state-space model:
+ot=A+Ztst+ηt, η t∼ N(0,Ωt),
+st= Φst−1+εt, ε t∼ N(0,Σt).
+We summarize the Kalman filter as described in Durbin and Koopman (2001). Suppose that
+st−1|yt−1∼ N(st−1|t−1, Pt−1|t−1). Then, the Kalman forecasting and updating equations are:
+st|t−1= Φst−1|t−1
+Pt|t−1= ΦPt−1|t−1Φ′+ Σ t
+st|t=st|t−1+ (ZtPt|t−1)′(ZtPt|t−1Z′
+t)−1 
+ot−A−Ztst|t−1
+Pt|t=Pt|t−1−(ZtPt|t−1)′(ZtPt|t−1Z′
+t)−1(ZtPt|t−1).
+In turn, st|ot∼ N(st|t, Pt|t).
+A-3
+The backward smoothing algorithm developed by Carter and Kohn (1994) is applied to
+generate draws from the distributions sτrecursively |sτ+1, ..., s T, oT(ignoring dependency on
+model unknowns) for τ=T−1, T−2, . . . , 1. The last elements of the Kalman filter recursion
+provide the initialization for the simulation smoother:
+sτ|τ+1=sτ|τ+Pτ|τΦ′P−1
+τ+1|t 
+sτ+1−Φsτ|τ
+Pτ|τ+1=Pτ|τ−Pτ|τΦ′P−1
+τ+1|τΦPτ|τ
+draw sτ∼N(sτ|τ+1, Pτ|τ+1), τ =T−1, T−2, ...,1.
+A.6 Drawing persistence, variance, and stochastic volatility of the
+autoregressive model
+To illustrate the procedure, we will use a generic expression for the autoregressive model. To
+simplify, we assume an AR(1) model with stochastic volatility as described in (A-8)
+xt=ρxxt−1+σxexp(ht)ϵx,t, ϵ x,t∼ N(0,1). (A-8)
+Drawing ρx.In order to obtain the posterior for ρx, we assume that for t≤0,ht= 0. Under
+this assumption, x0is generated from a stationary distribution. Express the unconditional
+distribution as
+x0∼ N(0,Σx0),
+where Σ x0=1
+(1−ρ2x). From (A-8), we get var(x1) = ρ2
+xvar(x0) + exp(2 h1) = Sx0, where
+Sx0=ρ2
+xΣx0+ exp(2 h1).
+We write the conditional likelihood of the first factor element as:
+L(x1|h1, ρx) =1√2πSx0exp
+−1
+2Sx0x2
+1
+, (A-9)
+and the remaining T−1 elements as:
+L(x2, ..., x T|h1:T, ρx) =TY
+t=21p
+2πexp(2 ht)exp
+−1
+2(xt−ρxxt−1
+exp(ht))′(xt−ρxxt−1
+exp(ht))
+∝exp1
+2(e0−E0ρx)′(e0−E0ρx)
+(A-10)
+where:
+e0=
+x2
+exp(h2)...
+xT
+exp(hT)
+, E 0=
+x1
+exp(h2)...
+xT−1
+exp(hT)
+.
+A-4
+We use ρx∼ N(V−1
+ρx(¯Vρx¯ρx+E′
+0e0), V−1
+ρx) as a proposal distribution, where Vρx=¯Vρx+E′
+0E0.
+In a Metropolis-Hastings step, we accept the draw ρxgenerated from the proposal distribution
+with probability
+min(
+L(x1|h1, ρ(k)
+x)
+L(x1|h1, ρ(k−1)
+x),1)
+.
+Drawing σ2
+x.The posterior for σ2
+xis given by:
+σ2
+x∼ IG¯T+T
+2,¯v+ (e0−E0ρx)′(e0−E0ρx)
+.
+Drawing hT.The last step of the Gibbs sampler draws the stochastic volatilities conditional
+on all other parameters. Define γtsuch that:
+γt=xt−ρxxt−1
+σx
+= exp( ht)ϵx,t.
+Taking squares and then logs of ztproduces,
+z∗
+t= 2ht+u∗
+t (A-11)
+ht=ρhht−1+σhεt. (A-12)
+where z∗
+t= ln( γ2
+t+ 0.001) and u∗
+t= ln( ϵ2
+x,t).Observe that εtandu∗
+tare not correlated.
+The resulting state-space representation is linear but not Gaussian since the measurement
+error u∗
+tis distributed as a ln( χ2
+1).We approximate ln( χ2
+1) using a mixture of normals and
+transform the system into a Gaussian one following Kim et al. (1998). Express the distribution
+ofu∗
+tas:
+f(u∗
+t) =KX
+k=1qkfN(u∗
+t|ιt=k),
+where ιtis the indicator variable selecting which member of the mixture of normals has
+to be used at time t. The function fN(·) denotes the pdf of a normal distribution, and
+qk= Pr( ιt=k). Kim et al. (1998) select a mixture of seven normals ( K= 7) with component
+probabilities qk, means mk−1.2704, and variances r2
+k.
+Conditional on ι1:T, the system has an approximate linear and Gaussian state-space form
+to which the standard Kalman filtering algorithm and the backward recursion of Carter and
+Kohn (1994) can be applied. Drawing hTis, then, straightforward. The parameters associated
+A-5
+Table A-1: Approximating constants: {qk, mk, rk}
+ι q k=Pr(ι=k) mk r2
+k
+1 0.00730 -10.12999 5.79596
+2 0.10556 -3.97281 2.61369
+3 0.00002 -8.56686 5.17950
+4 0.04395 2.77786 0.16735
+5 0.34001 0.61942 0.64009
+6 0.24566 1.79518 0.34023
+7 0.25750 -1.08819 1.26261
+with hTcan be generated from the following posterior distributions:
+ρh∼ N 
+V−1
+ρh(¯Vρh¯ρh+σ−2
+hh′
+1:T−1h2:T), V−1
+ρh
+σ2
+h∼ IG¯Th+T
+2,¯vh+d2
+h
+where Vρh=¯Vρh+σ−2
+hh′
+1:T−1h1:T−1andd2
+h= (h2:T−ρhh1:T)′(h2:T−ρhh1:T).
+The final task is to draw a new sample of indicators, ι1:Tconditional on u∗
+tandht:
+Pr(ιt=k|u∗
+t, ht)∝qkfN(u∗
+jt|2ht+mk−1.2704, r2
+k).
+B Estimating the DFM with Two Factors
+The DFM with time-varying parameters is specified as follows:
+yi,t=ai,t+bi,tf1,t+ci,tf2,t+ui,t,
+ai,t=ai,0+ai,1t,
+f1,t=ϕf1,1f1,t−1+...+ϕf1,pf1,t−p+σf1,tϵf1,t, ϵ f1,t∼ N(0,1),
+f2,t=ϕf2,1f2,t−1+...+ϕf2,pf2,t−p+σf2,tϵf2,t, ϵ f2,t∼ N(0,1),
+bi,t=bi,t−1+σbiϵbi,t, ϵ bi,t∼ N(0,1),
+ci,t=ci,t−1+σciϵci,t, ϵ ci,t∼ N(0,1),
+ui,t=ϕui,1ui,t−1+...+ϕui,qui,t−q+σui,tϵui,t, ϵ ui,t∼ N(0,1),
+hj,t=hj,t−1+σhjϵhj,t, σ j,t=σjexp(hj,t), ϵ hj,t∼ N(0,1), (A-13)
+A-6
+where i∈ {1, ..., N}andj∈ {f1, f2, u1, ..., u N}. To simplify the explanation, we gather the
+parameters in (A-13) as:
+a0=
+a0,1
+...
+a0,N
+, a 1=
+a1,1
+...
+a1,N
+, b t=
+b1,t
+...
+bN,t
+, c t=
+c1,t
+...
+cN,t
+,
+σb=
+σb1...
+σbN
+, σ c=
+σc1...
+σcN
+, ϕ f1=
+ϕf1,1
+...
+ϕf1,p
+, ϕ f2=
+ϕf2,1
+...
+ϕf2,p
+,
+ϕui=
+ϕui,1
+...
+ϕui,q
+, ϕ u=
+ϕu1...
+ϕuN
+, σ u=
+σu1...
+σuN
+, σ hu=
+σhu1...
+σhuN
+,
+hT
+u=
+hu1,1···huN,1
+......
+hu1,T···huN,T
+.
+The model unknowns can be categorized into three sets:
+Θf={fT
+1, ϕf1, σf1, hT
+f1, σhf1, fT
+2, ϕf2, σf2, hT
+f2, σhf2},Θb={bT, σb, cT, σc},
+Θu={a0, a1, ϕu, σu, hT
+u, σhu}.
+B.1 Gibbs sampler
+We use the Gibbs sampler to estimate the model unknowns. For the k-th iteration:
+(G1) Appendix B.2: Run Kalman filter and smoother using the algorithm to update Θ(k)
+f
+conditional on Θ(k−1)
+f,Θ(k−1)
+b,Θ(k−1)
+u.
+(G2) Appendix B.3: Run Kalman filter and smoother using the algorithm to update Θ(k)
+b
+conditional on Θ(k)
+f,Θ(k−1)
+b,Θ(k−1)
+u.
+(G3) Appendix B.4: Update the remaining parameters, including ones associated with the
+serially correlated innovation Θ(k)
+uconditional on Θ(k)
+f,Θ(k)
+b,Θ(k−1)
+u.
+For ease of exposition, we omit the superscript ( k) when describing the procedure below.
+A-7
+B.2 Updating the factor and the associated parameters Θf
+We re-express (A-13) as:
+˜yi,t= ˜ai,t+˜bi,t˜ft+σui,tϵui,t,
+˜yi,t= (yi,t−ϕui,1yi,t−1...−ϕui,qyi,t−q),
+˜ai,t=ai,0(1−ϕui,1...−ϕui,q) +ai,1(t−ϕui,1(t−1)...−ϕui,q(t−q)),
+˜bi,t=h
+bi,t−bi,t−1ϕui,1. . .−bi,t−qϕui,qci,t−ci,t−1ϕui,1. . .−ci,t−qϕui,qi
+,
+˜ft=h
+f1,tf1,t−1. . . f 1,t−qf2,tf2,t−1. . . f 2,t−qi′
+. (A-14)
+Note that (A-14) implies the following state-space representation:
+
+˜y1,t
+...
+˜yN,t
+=
+˜a1,t
+...
+˜aN,t
++
+˜b1,t
+...
+˜bN,t
+·
+f1,t
+f1,t−1
+...
+f1,t−q
+f2,t
+f2,t−1
+...
+f2,t−q
++
+σu1,tϵu1,t
+...
+σuN,tϵuN,t
+,
+
+f1,t
+f1,t−1
+...
+f1,t−q
+f2,t
+f2,t−1
+...
+f2,t−q
+=
+"
+ϕ′
+f101×(q+1−p)
+Iq 0q×1#
+0(q+1)×(q+1)
+0(q+1)×(q+1)"
+ϕ′
+f201×(q+1−p)
+Iq 0q×1#
+
+f1,t−1
+f1,t−2
+...
+f1,t−q−1
+f2,t−1
+f2,t−2
+...
+f2,t−q−1
++
+σf1,tϵf1,t
+0
+...
+0
+σf2,tϵf2,t
+0
+...
+0
+.
+(A-15)
+Based on the state-space representation in (A-15), we draw fT
+1, fT
+2based on the forward
+filtering and backward smoothing algorithm explained in Appendix A.5. Conditional on the
+drawn fT
+i, where i∈ {1,2}, we draw {ϕfi, σfi, hT
+fi, σhfi}based on the procedure described in
+Appendix A.6.
+A-8
+B.3 Updating the factor loading and the associated parameters Θb
+For each i∈ {1, ..., N}, we re-express (A-13) as
+ˆyi,t= ˆai,t+ˆftˆbi,t+σui,tϵui,t,
+ˆyi,t= (yi,t−ϕui,1yi,t−1...−ϕui,qyi,t−q),
+ˆai,t=ai,0(1−ϕui,1...−ϕui,q) +ai,1(t−ϕui,1(t−1)...−ϕui,q(t−q)),
+ˆft=h
+f1,t−f1,t−1ϕui,1. . .−f1,t−qϕui,qf2,t−f2,t−1ϕui,1. . .−f2,t−qϕui,qi
+,
+ˆbi,t=
+bi,t
+bi,t−1
+...
+bi,t−q
+ci,t
+ci,t−1
+...
+ci,t−q
+=
+"
+1 0 1×q
+Iq0q×1#
+0(q+1)×(q+1)
+0(q+1)×(q+1)"
+1 0 1×q
+Iq0q×1#
+
+bi,t−1
+bi,t−2
+...
+bi,t−q−1
+ci,t−1
+ci,t−2
+...
+ci,t−q−1
++
+σbiϵbi,t
+0
+...
+0
+σciϵci,t
+0
+...
+0
+.(A-16)
+Based on the state-space representation in (A-16), we draw {bT
+i, cT
+i}based on the forward
+filtering and backward smoothing algorithm explained in Appendix A.5. Conditional on the
+drawn {bT
+i, cT
+i}, we draw {σbi, σci}based on the procedure described in Appendix A.6.
+B.4 Updating the remaining parameters: Θu
+We re-express (A-13) as:
+¯yi,t=ai¯xi,t+σuiϵui,t, (A-17)
+where:
+¯yi,t=ˆyi,t−ˆftˆbi,t
+exp(hui,t),¯xi,t=h
+1−ϕui,1...−ϕui,q
+exp(hui,t),t−ϕui,1(t−1)...−ϕui,q(t−q)
+exp(hui,t)i
+,
+and ˆyi,t,ˆft, and ˆbi,tare provided in (A-16). We draw aibased on the procedure described in
+Appendix A.6. Second, conditional on the updated a, we re-express (A-13) as
+ui,t=yi,t−ai,t−bi,tf1,t−ci,tf2,t (A-18)
+and update the associated parameters and stochastic volatilities {ϕu, σu, hT
+u, σhu}of the seri-
+ally correlated errors based on the procedure described in Appendix A.6.
+A-9
+C Estimation of the Extended DFM
+A bloc is indexed by j(where j∈ {1, ..., J}), and multiple empirical indicators, denoted by
+i∈ {1, ..., N}, exhibit a shared dynamic behavior described by the function f(j)
+t:
+y(j)
+i,t=a(j)
+i,t+b(j)
+i,tf(j)
+t+u(j)
+i,t,
+a(j)
+i,t=a(j)
+i,0+a(j)
+i,1t,
+f(j)
+t=ϕ(j)
+f,1f(j)
+t−1+...+ϕ(j)
+f,pf(j)
+t−p+σ(j)
+f,tϵ(j)
+f,t, ϵ(j)
+f,t∼ N(0,1),
+b(j)
+i,t=b(j)
+i,t−1+σ(j)
+biϵ(j)
+bi,t, ϵ(j)
+bi,t∼ N(0,1),
+u(j)
+i,t=ϕ(j)
+ui,1u(j)
+i,t−1+...+ϕ(j)
+ui,qu(j)
+i,t−q+σ(j)
+ui,tϵ(j)
+ui,t, ϵ(j)
+ui,t∼ N(0,1),
+h(j)
+k,t=h(j)
+k,t−1+σ(j)
+hkϵ(j)
+hk,t, σ(j)
+k,t=σ(j)
+kexp(h(j)
+k,t), ϵ(j)
+hk,t∼ N(0,1), k∈ {f, u 1, ..., u N}.
+(A-19)
+Variables without the superscript jsignify that they are generated globally or derived from
+cross-bloc averages.
+We assume that the global factor is expressed as weighted averages of the local factors
+through the following equations:
+yi,t=ai,t+bi,tJX
+j=1wjf(j)
+t
++ui,t,
+ai,t=ai,0+ai,1t,
+bi,t=bi,t−1+σbiϵbi,t, ϵ bi,t∼ N(0,1),
+ui,t=ϕui,1ui,t−1+...+ϕui,qui,t−q+σui,tϵui,t, ϵ ui,t∼ N(0,1),
+hk,t=hk,t−1+σhkϵhk,t, σ k,t=σkexp(hk,t), ϵ hk,t∼ N(0,1), k∈ {f, u 1, ..., u N}.(A-20)
+For ease of exposition, we partition the model unknowns into:
+Θ(j)
+f−={ϕ(j)
+f, σ(j)
+f, h(j),T
+f, σ(j)
+hf},Θ(j)
+b={b(j),T, σ(j)
+b},Θ(j)
+u={a(j)
+0, a(j)
+1, ϕ(j)
+u, σ(j)
+u, h(j),T
+u, σ(j)
+hu},
+where j∈ {1, ..., J}indexes a bloc and
+Θf+={f(1),T, ..., f(J),T},Θw={w1, ..., w J},Θb={bT, σb},Θu={a0, a1, ϕu, σu, hT
+u, σhu}.
+In total, the model unknowns are summarized as follows
+Θ =
+Θf+,Θw,Θb,Θu,{Θ(j)
+f−,Θ(j)
+b,Θ(j)
+u}J
+j=1
+. (A-21)
+A-10
+C.1 Modified Gibbs sampler
+We adapt the Gibbs sampler to estimate the model unknowns Θ as follows. Without loss of
+generality, let’s assume that we are at the k-th iteration:
+(M1) Update
+{Θ(j)
+f−,Θ(j)
+b,Θ(j)
+u}J
+j=1(k+1)conditional on Θ(k)
+f+,Θ(k)
+w,Θ(k)
+b,Θ(k)
+u: For each bloc
+j∈ {1, ..., J}, we iterate through (G1), (G2), and (G3), as summarized in Appendix A.1.
+(M2) Update Θ(k+1)
+b and Θ(k+1)
+u conditional on
+{Θ(j)
+f−,Θ(j)
+b,Θ(j)
+u}J
+j=1(k+1), Θ(k)
+f+, and Θ(k)
+w: We
+iterate through (G2), and (G3), as summarized in Appendix A.1. At this step, when we
+condition on the set of local factors, the parameters and states governing local dynamics
+{Θ(j)
+f−,Θ(j)
+b,Θ(j)
+u}J
+j=1(k+1)do not impact the update of global parameters.
+(M3) Update Θ(k+1)
+f+conditional on ,Θ(k)
+w,Θ(k+1)
+b,Θ(k+1)
+u and
+{Θ(j)
+f−,Θ(j)
+b,Θ(j)
+u}J
+j=1(k+1). Ap-
+pendix C.2 provides detailed instructions.
+(M4) Update Θ(k+1)
+w conditional on Θ(k+1)
+f+,Θ(k+1)
+b,Θ(k+1)
+u and
+{Θ(j)
+f−,Θ(j)
+b,Θ(j)
+u}J
+j=1(k+1). Ap-
+pendix C.3 provides detailed instructions.
+C.2 Drawing the local factors
+We re-express (A-19) as:
+˜y(j)
+i,t= ˜a(j)
+i,t+˜b(j)
+i,t˜f(j)
+t+σ(j)
+ui,tϵ(j)
+ui,t,
+˜y(j)
+i,t= (y(j)
+i,t−ϕ(j)
+ui,1y(j)
+i,t−1...−ϕ(j)
+ui,qy(j)
+i,t−q),
+˜a(j)
+i,t=a(j)
+i,0(1−ϕ(j)
+ui,1...−ϕ(j)
+ui,q) +a(j)
+i,1(t−ϕ(j)
+ui,1(t−1)...−ϕ(j)
+ui,q(t−q)),
+˜b(j)
+i,t=h
+b(j)
+i,t−b(j)
+i,t−1ϕ(j)
+ui,1. . .−b(j)
+i,t−qϕ(j)
+ui,qi
+. (A-22)
+Note that (A-22) implies the following state-space representation:
+
+˜y(j)
+1,t...
+˜y(j)
+N,t
+=
+˜a(j)
+1,t...
+˜a(j)
+N,t
++
+˜b(j)
+1,t...
+˜b(j)
+N,t
+·
+f(j)
+t
+f(j)
+t−1...
+f(j)
+t−q
++
+σ(j)
+u1,tϵ(j)
+u1,t
+...
+σ(j)
+uN,tϵ(j)
+uN,t
+,
+
+f(j)
+t
+f(j)
+t−1...
+f(j)
+t−q
+=
+ϕ(j)
+f,1. . . ϕ(j)
+f,p. . .
+1. . . 0. . .
+0....... . .
+. . . 0 1 . . .
+
+f(j)
+t−1
+f(j)
+t−2...
+f(j)
+t−q−1
++
+σ(j)
+f,tϵ(j)
+f,t
+0
+...
+0
+. (A-23)
+A-11
+For ease of illustration, we re-express the state-space representation in (A-23) as
+˜y(j)
+t=˜a(j)
+t+˜b(j)
+tf(j)
+t+σ(j)
+u,t⊙ϵ(j)
+u,t,
+f(j)
+t=ϕ(j)
+ff(j)
+t−1+σ(j)
+f,t⊙ϵ(j)
+f,t. (A-24)
+The measurement equation of (A-20) can be expressed similarly as:
+˜yt=˜at+˜btJX
+j=1wjf(j)
+t
++σu,t⊙ϵu,t. (A-25)
+We concatenate (A-24) and (A-25) in:
+
+˜yt
+˜y(1)
+t
+...
+˜y(J)
+t
+=
+˜at
+˜a(1)
+t
+...
+˜a(J)
+t
++
+w1˜btw2˜bt. . . w J˜bt
+˜b(1)
+t 0. . . 0
+............
+0 0 . . . ˜b(J)
+t
+
+f(1)
+t
+...
+f(J)
+t
++
+σu,t⊙ϵu,t
+σ(1)
+u,t⊙ϵ(1)
+u,t
+...
+σ(J)
+u,t⊙ϵ(J)
+u,t
+,
+
+f(1)
+t
+...
+f(J)
+t
+=
+ϕ(1)
+f. . . 0
+.........
+0. . .ϕ(J)
+f
+
+f(1)
+t−1...
+f(J)
+t−1
++
+σ(1)
+f,t⊙ϵ(1)
+f,t...
+σ(J)
+f,t⊙ϵ(J)
+f,t
+. (A-26)
+Based on the state-space representation in (A-26), we draw [ f(1)
+t′
+. . .f(J)
+t′
+] for all t∈
+{1, ..., T}, i.e., Θ f+, based on the forward filtering and backward smoothing algorithm ex-
+plained in Appendix A.5.
+C.3 Drawing the weights associated with the local factors
+We re-arrange (A-25) as follows:
+˜yt−˜at=h
+˜btf(1)
+t˜btf(2)
+t...˜btf(J)
+ti
+w1
+w2
+...
+wJ
++σu,t⊙ϵu,t. (A-27)
+By defining byt≡ ˜yt−˜at
+⊘σu,tandbxt≡h
+˜btf(1)
+t⊘σu,t˜btf(2)
+t⊘σu,t...˜btf(J)
+t⊘σu,ti
+,
+where A⊘Bmeans Ais divided by Belement-wise, we can re-express (A-27) as
+byt=bxtw+ϵu,t. (A-28)
+We refer to Appendix A.6 for drawing w.
+A-12
+D Data
+D.1 Geopolitical fragmentation indicators
+Descriptions and data sources are found below.
+1.The trade openness ratio
+Description. The trade openness ratio is defined as the sum of exports and imports
+of goods and services divided by nominal GDP. The global indicator is constructed
+as the sum of all countries’ exports and imports divided by world nominal GDP in
+current U.S. $. The definition is isomorphic to a country’s trade openness weighted by
+the nominal GDP share. The bloc indicators are calculated accordingly for a group of
+countries in each bloc.
+Frequency. Quarterly.
+Sources. Exports and imports are obtained from the balance of payment (BoP) statistics
+in the International Financial Statistics (IFS). GDP is also taken from the IFS, and
+missing values are imputed by the linear interpolation of the annual GDP series in the
+World Economic Outlook (WEO) Database. Since Chinese trade data have a limited
+period (since 2005:Q1) in the IFS, they are imputed by trade partners’ exports and
+imports available in the IMF Direction of Trade Statistics.
+2.The FDI ratio
+Description. The foreign direct investment (FDI) ratio is the sum of FDI inflows and
+outflows in the BoP statistics divided by nominal GDP. The global and bloc indicators
+are constructed in the same way as the trade openness ratio.
+Frequency. Quarterly.
+Sources. The IFS and WEO database. The same as the trade openness ratio.
+3.The financial flow ratio
+Description. The financial flow ratio is calculated as the sum of inflows and outflows
+associated with portfolio investment and other investments in the BoP statistics as a
+share of nominal GDP. The global indicator and bloc indicators are constructed in the
+same way as the trade openness ratio.
+Frequency. Quarterly.
+Sources. The IFS and WEO database. The same as the trade openness ratio.
+4.The migration flow ratio
+Description. Migration flows are defined as the absolute number of net migration
+flows in each country as a share of the population. The global and bloc indicators are
+calculated as the weighted average of a respective group of countries using population
+weights.
+A-13
+Frequency. Annual.
+Sources. Data are obtained from the World Population Prospects 2022 by the United
+Nations.
+5.The patent flows
+Description. Cross-border patents are those filed in one country by a resident of another.
+Patent data are from International Patent and Citations across Sectors (INPACT-S)
+compiled by LaBelle et al. (2023). The database is based on PATSTAT Global Autumn
+2021—a commonly used patent dataset—but LaBelle et al. (2023) impute missing data
+using available information and recover a large number of observations. The global and
+bloc indicators are calculated as the sum of a respective group of countries.
+Frequency. Annual.
+Sources. Data are obtained from INPACT-S compiled by LaBelle et al. (2023).
+6.The number of trade restrictions
+Description. The Global Trade Alert (GTA) compiles a government statement that
+includes a credible announcement of a meaningful and unilateral change in the relative
+treatment of foreign vs. domestic commercial interests. The foreign commercial inter-
+ests considered by the GTA are trade in goods and services, investment, and labor force
+migration. All documented changes reflect unilateral government action and thus ex-
+clude changes coordinated within bilateral trade agreements or the multilateral trading
+system. We count the number of announcements made (with equal weights), since the
+information regarding the magnitude of their economic impacts is not available. Bloc
+indicators are the sum of the announcements made by countries in each bloc.
+Frequency. Monthly data are converted to quarterly series.
+Source. Data are obtained from the Global Trade Alert.
+7.The capital control measure
+Description. We follow Fern´ andez et al. (2016) for the definition of capital control mea-
+sures. The IMF’s Annual Report on Exchange Arrangements and Exchange Restrictions
+(AREAER) reports the presence of rules and regulations for international transactions
+by asset categories for each country. Fern´ andez et al. (2016) use the narrative de-
+scription in the AREAER to determine whether there are restrictions on international
+transactions, with 1 representing the presence of a restriction and 0 representing no
+restriction according to several rules. For instance, if the narrative of control involves
+“authorization,” “approval,” “permission,” or “clearance,” from a public institution, the
+control is deemed to be in place, while it is not if a requirement is “reporting,” “reg-
+istration,” or “notification.” A quantity restriction on investment (e.g., “ceiling”) is
+regarded as a control. Also, if restrictions are imposed on sectors that are not deemed
+to have a macroeconomic effect or are associated with a particular country or small
+A-14
+group of countries for non-macroeconomic reasons, they are not categorized as capital
+controls. They construct 1 or 0 indicators in each country for inflows and outflows of
+10 asset categories (equity, bonds, money market instruments, collective investment,
+financial credits, foreign direct investment, derivatives, commercial credits, financial
+guarantees, and real estate). Then, a country indicator is calculated as the average of
+the 20 sub-indicators. The global and bloc indicators are calculated as the weighted
+average of a respective group of countries using PPP GDP weights. It is worth noticing
+that the index does not take into consideration controls related to sanctions or national
+security reasons.
+Frequency. Annual.
+Sources. Fern´ andez et al. (2016). The extended series, updated on August 12, 2021, is
+available on the website. PPP GDP is obtained from the WEO Database.
+8.The number of sanctions
+Description. The number of sanctions is taken from the Global Sanctions Data Base
+(GSDB) constructed by Felbermayr et al. (2020). The GSDB defines sanctions as
+binding restrictive measures applied by individual nations, country groups, the United
+Nations (UN), and other international organizations to address different types of vio-
+lations of international norms by inducing target countries to change their behavior or
+to constrain their actions. The database focuses on effective sanctions while exclud-
+ing threats. The GSDB classifies sanctions by type into five categories covering trade
+(e.g., export/import ban), financial activity (e.g., freezing a bank account), arms (e.g.,
+restrictions on arms sales), military assistance (e.g., prohibiting monetary or personal
+assistance), and travel (e.g., travel ban), plus a residual category collecting other sanc-
+tions. If a sanction spans multiple categories, it is regarded as one action. The database
+version 3, published in June 2023, includes 1,325 sanctions that were enforced over the
+1949-2023 period. The global indicator is the total number of sanctions in place at
+each time point. The bloc indicators are the sum of those imposed by countries in the
+bloc or imposed on them. When a sanction is implemented by a group of countries
+or an international organization, it is counted in a bloc if at least one country joins
+the sanction. For instance, a sanction imposed by the UN is counted in each of the
+U.S.-EU, CHN-RUS, and Others blocs.
+Frequency. Annual.
+Source. Felbermayr et al. (2020). The extended series is available on the website.
+9.The geopolitical risk index
+Description. The geopolitical risk (GPR) index provides a news-based measure of ad-
+verse geopolitical events and associated risks. It is constructed by counting the number
+of articles related to adverse geopolitical events in each newspaper each month as a share
+A-15
+of the total number of news articles. The search is organized into eight categories: War
+Threats, Peace Threats, Military Buildups, Nuclear Threats, Terror Threats, Beginning
+of War, Escalation of War, and Terror Acts. We use the historical index, which started
+in 1900 and is based on three major newspapers in the U.S.: the Chicago Tribune, the
+New York Times, and the Washington Post. The bloc indicators are the weighted aver-
+age of country-specific indices for each bloc with PPP GDP weights. Country-specific
+indices are constructed by counting the monthly share of all newspaper articles that
+both (1) meet the criteria for inclusion in the GPR index and (2) mention the name
+of the country or its major cities. They are available for 44 different advanced and
+emerging countries. The resulting indices capture the U.S. perspective on risks posed
+by, or involving, the country in question.
+Frequency. Monthly data are converted to quarterly series.
+Source. Caldara and Iacoviello (2022). The extended series is available on the website.
+PPP GDP is obtained from the WEO Database.
+10.The trade policy uncertainty
+Description. The trade policy uncertainty (TPU) index is based on the frequency
+of joint occurrences of trade policy and uncertainty terms across major newspapers.1
+It covers seven newspapers: Boston Globe, Chicago Tribune, Guardian, Los Angeles
+Times, New York Times, Wall Street Journal, and Washington Post. The index is
+calculated by counting the monthly frequency of articles discussing trade policy uncer-
+tainty (as a share of the total number of news articles) for each newspaper. The index
+is then normalized to 0 for a 1% article share. No country-specific or bloc indicators
+are available.
+Frequency. Monthly data are converted to quarterly series.
+Source. Caldara et al. (2020). The extended series is available on the website.
+11.The energy-related uncertainty index
+Description. The energy-related uncertainty index (EUI) is constructed by text analysis
+of the monthly country report of the Economist Intelligence Unit for 28 developed and
+developing countries. An economic uncertainty index is constructed for each country
+following the approach in the World Uncertainty Index by Ahir et al. (2022), i.e., by
+counting the frequency of terms such as “uncertainty” as a share of total words in the
+same report. Then, the same approach is taken to calculate an energy-related index
+from the same source by focusing on keywords, including “energy,” “oil,” “OPEC,” and
+“climate change.” A global index is a simple average of countries’ indices or weighted
+by GDP. We use the GDP-weighted index. As country-specific series are not published,
+1Caldara et al. (2020) constructed indicators from 3 sources: newspaper coverage, firms’ earnings calls,
+and tariff rates. We use the one based on newspaper coverage, which was updated in recent months.
+A-16
+we cannot create bloc indices.
+Frequency. Monthly data are converted to quarterly series.
+Source. Dang et al. (2023). The series is downloaded from the website.
+12.The migration fear index
+Description. The migration fear index is constructed by counting the number of news-
+paper articles with at least one term related to migration (e.g., “border control”) and
+fear (e.g., “fear,” “concern”), and then dividing by the total count of newspaper arti-
+cles. The index is available for four countries: the UK, Germany, France, and the U.S.
+The global index is a simple average of these countries’ standardized indices.
+Frequency. Monthly data are converted to quarterly series.
+Source. Bloom et al. (2015). The series is downloaded from the website.
+13.The number of international conflicts
+Description. In the Uppsala Conflict Data Program (UCDP) database, armed conflicts
+are incidences of the use of armed force by an organized actor against another organized
+actor or against civilians that result in at least one direct death. International conflicts
+are defined as armed conflicts across states or internationalized intra-state conflicts. As
+the UCDP database records the start and end of each conflict, we calculate the global
+indicator by counting the number of international conflicts in place each month. Bloc
+indicators are not constructed because the incidences of conflicts are concentrated in
+the Others bloc and the U.S.-EU and the China-Russia blocs do not show meaningful
+dynamics.
+Frequency. Monthly data are converted to quarterly series.
+Source. The data are taken from the UCDP Onset Dataset version 23.1 available on
+the website.
+14.The UN General Assembly Kappa Score
+Description. The measure represents similarities in voting patterns in the United Na-
+tions General Assembly. Compared to a simple measure of the sum of the squared
+actual deviation between their votes (scaled by the sum of the squared maximum pos-
+sible deviations between their votes), the kappa score corrects the observed variability
+of the countries’ bilateral voting outcomes with the variability of each country’s voting
+outcomes around its own average outcome and the difference between the two countries’
+average outcomes. The global indicator is the simple average of all country pairs. Bloc
+indicators are calculated as the simple average score of each bloc’s countries.
+Frequency. Annual.
+Source. The data are downloaded from the database built by H¨ age (2017).
+A-17
+D.2 Sample countries
+Table A-2: List of countries for the LP
+Category Countries
+AEs
+(34 countries)Australia, Austria, Belgium , Canada , Switzerland, Cyprus, Czech ,
+Germany, Denmark , Spain, Estonia , Finland , France , U.K. , Greece, Hong
+Kong, Ireland, Israel, Italy , Japan , Korea , Lithuania , Luxembourg, Latvia ,
+Malta, Netherlands , Norway, New Zealand , Portugal, Singapore, Slovakia ,
+Slovenia, Sweden, U.S.
+EMs
+(27 countries)Argentina, Bulgaria, Brazil , Chile , Colombia, Costa Rica, Ecuador,
+Croatia , Hungary , India , Indonesia, Jamaica, Jordan, Kazakhstan, Mexico ,
+North Macedonia, Philippines, Poland , Romania, Russia , Saudi Arabia, El
+Salvador, Serbia, Thailand, T¨ urkiye , Ukraine, South Africa
+Notes: Country classification of AEs and EMs follows the IMF WEO. Underlined countries have data available
+for the panel VAR analysis.
+D.3 Narrative episodes
+Table A-3: Fragmentation and globalization episodes
+Period Event DescriptionsImpact (1
+for fragmen-
+tation and -1
+for
+globalization)
+1 1988:Q4First state
+sovereignty in the
+USSROn November 16, 1988, Estonia was the first Soviet
+republic to declare state sovereignty. The event is often
+characterized as a trigger of the dissolution of the USSR.-1
+2 1989:Q4Fall of the Berlin
+WallOn November 9, 1989, following a press conference led by
+G¨ unter Schabowski, the party leader in East Berlin and
+the top government spokesman, East Germans began
+gathering at the Berlin Wall and finally let the
+checkpoints open.-1
+3 1990:Q1First independence
+from the USSROn March 11, 1990, Lithuania became the first republic
+that declared full independence restored from the Soviet
+Union. This was followed by other republics’
+independence.-1
+4 1990:Q3Iraqi invasion of
+KuwaitOn August 2, Iraq launched an invasion of Kuwait. After
+defeating Kuwait on August 4, Iraq went on to militarily
+occupy the country.1
+A-18
+Table A-4: Fragmentation and globalization episodes (cont.)
+Period Event DescriptionsImpact (1
+for fragmen-
+tation and -1
+for
+globalization)
+5 1991:Q1 Gulf WarOn January 16, 1991, the U.S.-led multinational coalition
+started an aerial bombing campaign. The attack followed
+the no response by Iraq to the UNSC Resolution 678,
+adopted on November 29, 1990, and due by January 15,
+1991, that required Iraq to withdraw from Kuwait.1
+6 1991:Q3USSR 1991 August
+coupDuring August 19-22, 1991, top military and civilian
+officials of the USSR attempted a coup to seize control of
+the country from Mikhail Gorbachev. Though the coup
+failed, it reduced the power of Gorbachev’s regime and
+accelerated the resolution of the USSR.-1
+7 1991:Q4Dissolution of the
+USSROn December 8, 1991, Boris Yeltsin, Leonid Kravchuk,
+and Stanislav Shushkevich—the leaders of Russia,
+Ukraine, and Belarus—signed the Belovezha Accords,
+which declared that the Soviet Union had ceased to exist
+and established the Commonwealth of Independent
+States (CIS).-1
+8 1994:Q1NAFTA
+implementationOn January 1, 1994, the North American Free Trade
+Agreement (NAFTA) came into force among the U.S.,
+Canada, and Mexico, superseding the 1988 Canada-U.S.
+FTA.-1
+9 1994:Q2NATO intervention
+in SerbiaOn April 10, 1994, NATO launched an air support
+mission bombing several Serb targets at the request of
+UN commanders, followed by the increases in NATO
+involvement in Bosnia.1
+10 1995:Q1WTO formation /
+Mercosur
+implementationOn January 1, 1995, the World Trade Organization
+(WTO) commenced operations, replacing the General
+Agreement on Tariffs and Trade (GATT). As of January
+1, 1995, Mercosur, a South American trade area, became
+a customs union with common external tariffs.-1
+11 1999:Q1Introduction of the
+EuroOn January 1, 1999, the euro was introduced in
+non-physical form, with the irrevocable conversion rates
+for the euro for each participating currency set by the
+“joint communiqu´ e on the determination of the
+irrevocable conversion rates for the euro” of May 2, 1998.-1
+12 1999:Q1NATO intervention
+in KosovoOn March 24, 1999, NATO started the bombing
+campaign against Yugoslavia during the Kosovo War.-1
+13 2001:Q3 9.11On September 11, 2001, coordinated Islamist suicide
+terrorist attacks were carried out by Al-Qaeda against
+the U.S.1
+14 2003:Q1 Iraq WarOn March 20, 2003, the U.S., joined by the UK,
+Australia, and Poland, launched a bombing campaign,
+followed by a ground invasion of Iraq.1
+A-19
+Table A-5: Fragmentation and globalization episodes (cont.)
+Period Event DescriptionsImpact (1
+for fragmen-
+tation and -1
+for
+globalization)
+15 2010:Q4 Arab SpringProtests in Tunisia escalated after the self-immolation of
+Tunisian Mohamed Bouazizi on December 17, 2010,
+which led to a democratization in Tunisia (Jasmine
+Revolution) and spread across the Arab world (Arab
+Spring).1
+16 2014:Q3 U.S. attack on ISILOn August 8, 2014, the U.S. began airstrikes against the
+Islamic State of Iraq and the Levant (ISIL) in Iraq. This
+followed the declaration by the group to rename itself as
+an Islamic State and a worldwide caliphate on June 29,
+2014.1
+17 2016:Q2 Brexit voteOn June 23, 2016, the “Brexit” referendum, which asked
+the electorate whether the country should remain a
+member of, or leave, the European Union (EU), took
+place in the UK. The referendum resulted in favor of
+leaving the EU, triggering the process of the country’s
+withdrawal from the EU (Brexit).1
+18 2017:Q4 Breakup of ISILOn October 17, 2017, the Syrian Democratic Forces
+announced the full capture of Raqqa in Syria, the de
+facto capital city of ISIL. In December 2017, it was
+reported that ISIL had lost all strategic territory in Iraq.-1
+19 2018:Q3U.S.-China trade
+war (phases 1-3)On July 6, 2018, U.S. tariffs on $34 billion of Chinese
+goods (announced on June 16) came into effect (phase 1).
+On August 23, tariffs of 25% on additional Chinese
+products worth $16 billion (announced on August 8)
+became effective (phase 2). On September 24, a 10%
+tariff on $200 billion worth of Chinese goods began
+(announced on September 17) (phase 3).1
+20 2019:Q2U.S.-China trade
+war (increase in
+phase 3)On May 10, 2019, the U.S. raised the tariff on phase 3
+products from 10% to 25% (announced on May 5).1
+21 2019:Q3U.S.-China trade
+war (phase 4)On September 1, 2019, the U.S. imposed new 15% tariffs
+on about $112 billion of Chinese products.1
+22 2022:Q1Russian invasion of
+UkraineOn February 24, 2022, Russia invaded Ukraine. The
+invasion became the largest attack on a European
+country since World War II.1
+A-20
+D.4 Country classification and indicators for local indices
+We consider three geopolitical blocs: the U.S. and EU countries bloc (U.S.-EU), China and
+Russia bloc (CHN-RUS), and the remaining countries bloc (Others). EU countries are the
+member states of the European Union each period. The union republics of the Union of
+Soviet Socialist Republics (USSR) are included in the CHN-RUS bloc before its dissolution
+in 1991Q4. Table A-6 lists the countries and Figure A-1 presents the fragmentation indicators
+for individual blocs.
+Table A-6: List of countries in each bloc
+Category Countries
+U.S.-EU
+blocU.S., Belgium, France, Germany, Italy, Luxembourg, Netherlands
+(founders); Denmark, Ireland (1973Q1-); Greece (1981Q1-); Spain
+(1986Q1-); Austria, Finland, Sweden (1995Q1-); Portugal (1996Q1-);
+Cyprus, Czechia, Estonia, Hungary, Latvia, Lithuania, Malta, Poland,
+Slovakia, Slovenia (2004Q2-); Bulgaria, Romania (2007Q1-); Croatia
+(2013Q3-); UK (-2019Q4)
+CHN-RUS
+blocChina, Russia, Ukrainian SSR (Ukraine), Byelorussian SSR (Belarus),
+Uzbek SSR (Uzbekistan), Kazakh SSR (Kazakhstan), Georgian SSR
+(Georgia), Azerbaijan SSR (Azerbaijan), Lithuanian SSR (Lithuania),
+Moldavian SSR (Moldova), Latvian SSR (Latvia), Kirghiz SSR (Kyrgyz),
+Tajik SSR (Tajikistan), Armenian SSR (Armenia), Turkmen SSR
+(Turkmenistan), Estonian SSR (Estonia) (-1991Q4)
+Others bloc All other countries
+Figure A-1: Bloc indicators
+1980 1990 2000 2010 2020-1012US-EU bloc
+CHN-RUS bloc
+Others bloc
+1980 1990 2000 2010 2020-10123
+1980 1990 2000 2010 2020-20246
+1980 1990 2000 2010 2020-101234
+1980 1990 2000 2010 2020-2-101
+1980 1990 2000 2010 2020-10123
+1980 1990 2000 2010 2020024
+1980 1990 2000 2010 2020-2-1012
+A-21
+E Supplementary Figures and Tables
+E.1 Posterior estimates
+Figure A-2: Posterior estimates: Constants, persistence, volatilities
+2 4 6 8 10 12 14-202
+2 4 6 8 10 12 14-0.02-0.0100.010.02
+0.90.951
+1980 1990 2000 2010 202000.20.40.6
+2 4 6 8 10 12 1400.51
+2 4 6 8 10 12 1401234
+Notes: Posterior median estimates accompanied by 90% credible intervals. The numerical assignment for
+each indicator aligns with the sequential order in which the indicators are displayed in Panel (A) of Figure 1.
+A-22
+E.2 Descriptive statistics
+Table A-7: Descriptive statistics of countries
+Variable N. of Mean Median Std. Dev. 10th 90th
+observations percentile percentile
+All countries
+GDP per capita (1,000 PPP $) 5,837 32.1 30.4 19.2 10.6 53.5
+GDP growth per capita (%) 5,958 2.2 2.3 5.3 -3.0 7.7
+Exports share (% of GDP) 6,019 48.3 37.3 38.2 19.3 83.2
+Imports share (% of GDP) 6,019 47.9 37.5 34.4 20.4 79.6
+Trade share (% of GDP) 6,019 96.2 74.6 72.2 40.1 161.2
+Currency peg (1 for peg) 6,025 0.25 0 0.43 0 1
+AEs
+GDP per capita (1,000 PPP $) 3,583 42.4 40.2 17.0 26.1 58.8
+GDP growth per capita (%) 3,735 2.1 2.1 4.7 -2.5 7.1
+Exports share (% of GDP) 3,765 56.2 40.4 44.9 20.4 122.2
+Imports share (% of GDP) 3,765 53.6 38.7 40.3 21.1 114.3
+Trade share (% of GDP) 3,765 109.9 79.9 85.1 41.9 240.1
+Currency peg (1 for peg) 3,765 0.22 0 0.41 0 1
+EMs
+GDP per capita (1,000 PPP $) 2,254 15.8 14.5 7.6 8.2 25.0
+GDP growth per capita (%) 2,223 2.4 3.0 6.1 -3.8 8.3
+Exports share (% of GDP) 2,254 34.9 32.1 15.3 18.1 54.3
+Imports share (% of GDP) 2,254 38.3 34.6 17.3 19.0 65.0
+Trade share (% of GDP) 2,254 73.2 67.7 31.3 37.5 118.7
+Currency peg (1 for peg) 2,260 0.30 0 0.46 0 1
+Notes: Pooled sample during 1986 to 2019. Currency peg is an indicator variable that takes zero for the float-
+ing exchange rate regime and one otherwise, according to the IMF Annual Report on Exchange Arrangements
+and Exchange Restrictions (AREAER).
+A-23
+E.3 Robustness checks
+E.3.1 Alternative selection of indicators: Replicating the SVAR results
+Figure A-3: Sensitivity to the choice of indicators in factor estimation
+(A) Core 7 indicators (Trade Openness, FDI, Financial flows, Sanctions, GRI, TPU, Conflicts)
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-20
+(B) All indicators in (A) & Trade Restrictions & Migration Fear Index
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-20
+(C) All indicators in (B) & Energy Uncertainty
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-20
+(D) All indicators in (B) & Capital Control
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-20
+(E) All indicators in (B) & Energy Uncertainty & Capital Control
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-20
+Notes: Sample of AEs and EMs. Percent responses to a one-standard-deviation shock to the factor. Shaded
+areas indicate the 90th percentile. The Core 7 indicators are available on a quarterly basis throughout the
+entire sample period.
+A-24
+E.3.2 Alternative prior choices: Replicating the SVAR results
+Figure A-4: Sensitivity to the prior specification of factor estimation
+(A) Priors 1: σ2
+bi∼ IG 
+1,1
+10
+, σ2
+ui∼ IG (1,1), σ2
+hf, σ2
+hi∼ IG (1,1)
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-20
+(B) Priors 2: σ2
+bi∼ IG (10,1), σ2
+ui∼ IG (10,10), σ2
+hf, σ2
+hi∼ IG (10,10)
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-20
+(C) Priors 3: σ2
+bi∼ IG 
+10,1
+10
+, σ2
+ui∼ IG (1,2), σ2
+hf, σ2
+hi∼ IG (10,1)
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-20
+(D) Priors 4: σ2
+bi∼ IG 
+10,1
+10
+, σ2
+ui∼ IG 
+1,1
+2
+, σ2
+hf, σ2
+hi∼ IG (10,1)
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-20
+(E) Priors 5: Constant loading case bi∼ N 
+1,1
+2
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-1-0.50
+0 4 8 12 16-1.5-1-0.50
+0 4 8 12 16-4-20
+Notes: Sample of AEs and EMs. Percent responses to a one-standard-deviation shock to the factor. Shaded
+areas indicate the 90th percentile. Unless specified otherwise, we adhere to the previously discussed priors
+for the remaining parameters.
+A-25
+E.3.3 Using Trade openness instead: Replicating the SVAR results
+Figure A-5: Sensitivity to replacing the fragmentation index with trade openness
+0 4 8 12 16-0.200.20.40.60.8
+0 4 8 12 16-0.500.511.5
+0 4 8 12 16-0.500.511.5
+0 4 8 12 16024
+Notes: The fragmentation index is replaced with the trade share in the SVAR. Sample of AEs and EMs.
+Percent responses to a one-standard-deviation shock to each indicator. The sign of the responses is flipped.
+Shaded areas indicate the 90th percentile.
+E.3.4 Alternative Cholesky ordering: Replicating the SVAR results
+Figure A-6: SVAR with different Cholesky ordering
+0 4 8 12 16-0.8-0.6-0.4-0.200.2
+Chol. order 1
+Chol. order 2
+Chol. order 3
+Chol. order 4
+Chol. order 5
+Chol. order 6
+0 4 8 12 16-0.8-0.6-0.4-0.200.2
+Chol. order 7
+Chol. order 8
+Chol. order 9
+Chol. order 10
+Chol. order 11
+Notes: Sample of AEs and EMs. Percent responses to a one-standard-deviation fragmentation shock. Dif-
+ferent lines display the IRFs in which the fragmentation index is ordered in the i-th place in the Cholesky
+decomposition. The ordering of other variables is kept unchanged. Shaded areas and dashed lines indicate
+the 90th percentiles where standard errors are clustered by time.
+A-26
+E.3.5 Alternative identification schemes: Replicating the LP results
+Figure A-7: Sensitivity to alternative identification schemes
+(A) Identified through differencing
+−1−.50.5
+0 4 8 12 16
+QuartersGDP per capita
+−2−1.5−1−.50.5
+0 4 8 12 16
+QuartersIndustrial Production
+−3−2−10
+0 4 8 12 16
+QuartersFixed Investment
+−8−6−4−202
+0 4 8 12 16
+QuartersStock Price
+(B) Identified through Cholesky decomposition
+−1−.50.5
+0 4 8 12 16
+QuartersGDP per capita
+−2−1.5−1−.50.5
+0 4 8 12 16
+QuartersIndustrial Production
+−3−2−10
+0 4 8 12 16
+QuartersFixed Investment
+−8−6−4−202
+0 4 8 12 16
+QuartersStock Price
+Notes: Sample of AEs and EMs. Percent responses to a one-standard-deviation shock to the factor. Shaded
+areas indicate the 90th percentile. In Panel (A), the first difference of the factor is used as a shock. In Panel
+(B), a global VAR with the first seven variables of the baseline panel VAR is run with the sample period of
+1986:Q2 to 2022Q4, and the fragmentation shock is identified through the Cholesky decomposition.
+A-27
+E.3.6 Local and global fragmentation shocks: SVAR
+Figure A-8: IRFs to local and global fragmentation shocks in local economies
+(A) Bloc fragmentation shocks (sign restrictions)
+0 4 8 12 16-0.6-0.4-0.200.2
+0 4 8 12 16-0.4-0.200.2
+0 4 8 12 160246
+0 4 8 12 16-0.4-0.200.2
+0 4 8 12 16-1-0.50
+0 4 8 12 16-0.6-0.4-0.200.2
+0 4 8 12 16-2024
+0 4 8 12 16-0.8-0.6-0.4-0.20
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-0.5-0.4-0.3-0.2-0.10
+0 4 8 12 16-2-1012
+0 4 8 12 16-0.5-0.4-0.3-0.2-0.10
+(B) Global fragmentation shocks (Cholesky)
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 16-0.6-0.4-0.20
+0 4 8 12 160246
+0 4 8 12 16-0.6-0.4-0.20
+Notes: Percent responses to a one-standard-deviation shock. Shaded areas indicate the 90th percentiles
+where standard errors are clustered by time. The first columns correspond to the baseline analysis in which
+all countries are included in a panel VAR. In Panel (A), the horizon of sign restrictions is set to 4 quarters.
+A-28
