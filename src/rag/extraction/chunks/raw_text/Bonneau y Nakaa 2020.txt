@@ -1,0 +1,432 @@
+#TrésorEconomics  No. 274  December 2020  p.1 Direction générale du Trésor
+No. 274  December 2020
+Vulnerability of French and European imports
+Christophe Bonneau, Mounira Nakaa
+The COVID-19 crisis has revived the debate on th e vulnerability  of global value chains, particularly the dependence 
+on imports for domestic production.
+Over the past 20 years, France has gradually integrated itself into global value chains: its manufacturing production 
+directly uses nearly 40% foreign inputs, more than half of whic h come from European countries. This phenomenon 
+is common to all European countr ies and France is less dependen t than Germany on foreign inputs.
+In order to identify which goods  are "vulnerable", we analysed the extra-European imports  of about 5,000 product 
+categories, taking into account (1) the concentration of import s of each product based on the number of non-EU 
+supplier countries, and (2) the centrality of the product, i.e.  whether alternative sources  exist in other countries.
+According to this methodology, th e vulnerability of French impo rts from outside the EU appears to be low: we 
+counted 121 products for which imports appear to be concentrate d (see chart on this page),  including chemicals and 
+pharmaceuticals, metals and some capital goods 
+(e.g. LED lamps, machine tools, accumulators, 
+etc.). Among these concentrated products, we 
+identified 12 vulnerable p roducts, i.e . with low 
+diversification potentia l. France has a lower 
+number of vulnerable pr oducts than its main 
+European neighbours. For a quarter of these products, the main non-European supplier is 
+China. 
+The identification  of these vulnerab ilities should not 
+obscure the advantages of sourcing from abroad, 
+both in terms of economic efficiency and security of supply, including in  times of crisis.French imports by vulnerability 
+Sources: BACI (2020) data for 2018 on a total of around 5,000 products (HS6), 
+and DG Trésor calculations.
+
+Direction générale du Trésor #TrésorEconomics  No. 274  December 2020  p.21. France's producti on, like that of its ne ighbours, mostly dep ends on EU 
+suppliers
+1.1 France's participation in global value chains 
+has generated both benefits and dependencies
+Like all major economies, France has gradually 
+become part of global value  chains (GVCs), in which 
+production process are broken up between several 
+countries and involve produc ts crossing an increasing 
+number of borders during manufacturing.1 Participation 
+in GVCs has led to  higher competitiv eness for firms, 
+since outsourcing some segments of production has allowed them to focus on higher value-added activities, 
+such as R&D, design and  some manufacturing 
+activities, and has increas ed their competitiveness on 
+both the export and  domestic markets.
+2 Increasing 
+integration into G VCs has also resulted in gains in 
+purchasing power for  French consumers.3 
+This development has als o pushed up the share of 
+foreign inputs in manufacturing production from 29% to 39% over the last 20 years ( see Chart 1). The sector 
+most dependent on foreign input is the energy sector, 
+which relies on commodities s uch as crude oil, followed 
+by the textile industry, which has experienced the 
+largest increase in dependen cy over the past 20 years 
+(from 24% in 2000  to 60% in 2019). Conversely, the 
+food industry relies mostly  on French-made inputs. In 
+addition to the loss of manufacturing jobs, which has 
+partly been caused by the increase in imports over 
+recent decades,
+4 this trend raises questions about how 
+exposed the French industr ial sector is to risks of 
+disruption of supply from abroad. Chart 1: The share of foreign inputs in France's 
+manufacturing production5
+Source: MRIO6 and DG Trésor calculations.
+Note: The share of foreign inputs corresponds to the volume of 
+imported intermediary goods used in manufacturing production. 
+1.2 This increased reliance on foreign inputs is 
+also observed in France's European neighbours
+France's industrial manufacturing production for 2019 
+was more dependent on foreign inputs than that of Italy 
+and Spain, but less than t hat of Germany, Poland and 
+the Netherlands (see Chart 2).7 These six countries 
+have experienced a significant increase in their dependence on foreign inputs  over the past 20 years. 
+European countries are first and foremost integrated 
+into European value chains:
+8 the EU-27 is the direct 
+source of the majority of fore ign inputs for five of the six 
+countries in our sample (the Netherlands being the 
+exception). Despite the risi ng participation of emerging 
+countries in global trade flo ws, this share has remained 
+stable over the past 20 years,9 and has even increased 
+(1) Berthaud, F., "France's Trade in Value Added", Trésor-Economics  No. 207, October 2017.
+(2) World Bank, "Trading for Development in the Age of Global Va lue Chains", World Development Report , 2020, p. 67.
+(3) Emlinger, C. and Fontagné, L., "(Not) Made in France", La Le ttre du CEPII N° 333, June 2013. Estimate computed from the 201 0 database.
+(4) Malgouyres, C., "The Impact o f Chinese Import Competition on  the Local Structure of Employment and Wages: Evidence from Fra nce", 
+Journal of Regional Science , 57(3), 2017.
+(5) For the sake of readability, some industrial sectors (such a s paper, leather, plastics and wood) are not detailed in the br eakdown but are 
+included in the total.
+(6) Asian Development Bank, "Compilation and Uses of the Multi-C ountry Input-Output Tables: Lessons from the ADB MRIO Database" , July 
+2019.
+(7) The data in this study on t he exposure of some countries to foreign supply may be overestima ted because of the "Rotterdam e ffect", by 
+which some goods are counted as  imports (and then exports) by s imply passing through the country in question, a phenomenon whi ch is 
+particularly marked in countries  with large logistics hubs. In addition, relatively smaller ec onomies naturally rely on more e xternal supply to 
+meet their demand.
+(8) The geographical origin retained in this study is that of di rect imports into the countries  studied, and not the ultimate o rigin of the value-
+added through the value chains. See section 2.1.
+(9) Comparisons with 2000 are based on the current perimeter of the EU-27. 
+
+#TrésorEconomics   No. 274   December 2020   p.3  Direction générale du Trésorfor France, Germany, Italy and Poland. As regards 
+inputs imported fro m China, value-added trade data 
+show a limited level of dep endence in 2019, between 
+1.4% and 2.0% for every European country in our 
+sample, with the notable exception of the Netherlands (4.7%). Even taking into account indirect dependencies 
+(e.g. electronic goods im ported from Germany but 
+which incorporate Chines e components), studies 
+showed the actual level of French dependence on 
+Chinese inputs to be 3.2% in 2014.
+10
+Analysing trade in value-added terms makes it possible 
+to highlight a country's sec toral dependencies on its 
+partners. However, it does not allow for an identification 
+of the supply disruption risks which might hamper production, including when  the products in question 
+only represent a small part of production. Chart 2: The share  of foreign inputs  in manufacturing 
+production in 2019
+Source: MRIO and DG Trésor calculations.
+Note: The share of foreign inputs corresponds to the volume of 
+imported intermediary goods used in manufacturing production. 
+2. France's supply vulnerabilit ies are limited compared to its main 
+neighbours
+2.1 An analysis of the vulnerability of imports at a 
+granular level
+Through an analysis of bilateral trade data11 at a 
+disaggregated level (about 5,000 products),12 it is 
+possible to identify the degr ee of vulnerability of each 
+imported product.13 
+A product is considered vulnerable if its imports are 
+concentrated among a limited number of third countries 
+(those outside the EU-27) c ombined with low potential 
+for diversifying supplier countries14 (see Box 1 for a 
+methodological overview) . One limitat ion of this 
+methodology is that it is b ased solely on import data and does not include country -specific production data. 
+Indeed, using both trade and production data would not 
+allow for vulnerability analysi s at such a detailed level,15 
+or for comparative analysi s with other countries. 
+Another limitation lie s in the impossibilit y of isolating re-
+export flows in these data, and thus of detecting indirect 
+vulnerabilities through Tier  2 or higher suppliers.16 The 
+results presented below therefore constitute a 
+preliminary approach to t he analysis of supply 
+vulnerabilities, which in some aspects might be 
+overstated (in particular b ecause of potential local 
+production) and in others un derstated (in particular 
+because of indirec t vulnerabilities).
+(10) Gerschel E., Martinez A. and Méjean I., "Propagation of Sho cks in Global Value Chains: The Coronavirus Case", IPP Policy Brief  No. 53, 
+March 2020.39%45%
+30%36%64%
+41%
+22%27%
+17%19%30%
+26%
+0%10%20%30%40%50%60%70%
+France Germany Italy Spain Netherlands PolandForeign share EU share
+(11) Guillaume Gaulier and Soledad Zignago, (2010) "BACI: Intern ational Trade Database at the Product-Level. The 1994-2007 Vers ion", CEPII 
+Working Paper 2010-23. The data used is for 2018. 
+(12) Products are defined using the Harmonized System (HS) nomen clature at the 6-digit level. Ev en at this granular level of di saggregation, 
+each category may still contain products with different technic al characteristics. 
+(13) The present analysis focus es on imported products regardles s of their final use (intermediat e consumer goods, final consum er goods or 
+capital goods).
+(14) Throughout this study, the term "supplier" refers to countr ies rather than firms, as global trade data do not allow for in dividual firm data to be 
+distinguished.
+(15) Concordance tables match one category of production activit y to several categories of im ported goods, resulting in a loss of detailed 
+information.
+(16) For example, if France impor ts a good from Germany, these d ata do not make it possible to  distinguish whether it is the sa me good from 
+China, imported into Germany and re-exported to France, or a go od produced in Germany and exported to France.
+Direction générale du Trésor #TrésorEconomics  No. 274  December 2020  p.4Box 1: Vulnerability analysis methodology for imports
+The vulnerability of a c ountry's imports is assessed here in re lation to non-EU-27 countries for each imported 
+product. The products examined i n this analysis are solely thos e with low availability on  the Europea n market, 
+which is measured by extra-Europ ean imports above 50% of total imports. The analysi s is based on two 
+indicators: 
+1. The degree of concentration of  non-EU-27 supplier countries in the product's imports. Concentration is 
+measured using the Herfindahl-Hirschman Index (HHI).a The higher the index value, the more imports are 
+concentrated among a small number of trading partner countries.
+2. The diversification potential  of the product in the short ru n, measured as the risk of "centrality"b of the product, 
+or how dependent the global supply is on a limited number of su pplier countries. The centr ality risk of a product 
+is considered to be high when it is above 2.5 (the level at whi ch the leading exporter of a given product supplies 
+about two-thirds of global exports).
+We looked at HHI values above 0. 5 to identify the most concentr ated and therefore most vulnerable imports.c
+Representing products according to  their levels of concentratio n and centrality makes it  possible to establish a 
+mapping of imported products (see Figure 1):
+Products which are vulne rable because of a high 
+level of concentration and a limited potential for 
+diversification: the conc entration and centrality 
+indices are both high (res pectively above 0.5 and 
+2.5), reflecting a high conc entration of imports with 
+limited scope for diversific ation with other supplier 
+countries.
+Products with a high conc entration level for which 
+diversification is possible: the concentration index is high (above 0.5), but the le vel of centrality is low to 
+moderate (below 2.5). In  the event of a shock, 
+therefore, even if  imports are highly concentrated, 
+there are alternative supplier countries, making 
+diversification possible . This potential for 
+diversification does not  eliminate the risk of 
+disruptions in the imports of this category of products 
+in the short term, as sourc ing from new suppliers 
+may require additional time and costs.Products with limited concentration: these are imported products with a low to moderate concentration index (less than 0.5).
+Figure 1: Map of products ac cording to their levels of 
+concentration and centrality
+Source: DG Trésor calculations.
+a. The HHI is calculated for each product as the sum of the squa res of the market shares of each partner country. It varies bet ween 0 and 1.
+b. Centrality is measured by comparing the export flows of the s upplier countries for each produc t. For more details regarding the construction of 
+the index, see Y. Korniyeko, M. Pinat and B. Dew (2017), "Asses sing the Fragility of Global Tra de: The Impact of Localized Sup ply Shocks 
+Using Network Analysis", IMF Working paper  No. 17/30. Centrality risk is  measured for each product indepe ndently of the country studied. 
+c. As an illustration, an import HHI of 0.5 may correspond to a situation in which the two main non-EU suppliers account for ab out 75% of total 
+extra-European imports. 
+
+#TrésorEconomics   No. 274   December 2020   p.5  Direction générale du Trésor2.2 The vulnerabilities of France's imports are 
+limited
+An analysis of vulnerabilitie s in French imports from 
+outside Europe (using the method detailed in Box 1) 
+identifies 121 highly concentrated products out of some 5,000 imported products, i.e. nearly 1% of the total 
+value of imports in 2018 (see Chart 3). These products 
+include chemicals and pharma ceuticals such as some 
+antibiotics,
+17 metallurgical products including some 
+rare-earth metals18 and capital goods such as 
+accumulators and some machine tools.19 China is most 
+often the leading supplier of these vulnerable products, 
+followed by the United St ates and Switzerland. 
+Chart 3: France's vulnerable extra-EU imports 
+Source: BACI (2020) data for 2018 and DG Trésor calculations.
+Note: The higher the concentration index, the more imports are 
+concentrated among a small number of partners. The higher the r isk 
+of centrality, the more the global supply of the product depend s on a 
+limited number of supplier countri es (see Box 1). The "China" d ots 
+refer to products for which Ch ina is France's main supplier.
+The average centra lity risk of these concentrated 
+products is fairly low, wh ich means that the global 
+supply of these products i s ensured by a sufficient 
+number of countries and th at it would therefore be 
+possible to diversify suppl y sources if necessary. 
+Nevertheless, we count 12 concentrated products 
+which also have a hi gh level of centrality.20 Among 
+these products, which can be labelled as "vulnerable", 
+are some categories of LED lamps for which China is 
+the main global supplier, which constitutes a high risk of shortage in ca se of a shock.2.3 France is less vulnerable than its European 
+neighbours in terms of imports from non-EU countries
+France's imports include re latively fewer vulnerable 
+products (in number) than t he imports of its main 
+European partners (see Table 1). From a sectoral point of view, agri-food products, chemicals and 
+pharmaceuticals account for a significant share of 
+vulnerable imports from the six countries under study. Italy has a significant proportion of vulnerable products 
+in textiles, and Spain is highly vulnerable when it comes 
+to construction materials and metallurgical products. 
+Approximately 10% of the concentrated products of 
+each of these s ix countries show l ow potential for 
+diversification, and therefo re greater fr agility in the 
+event of failure of the supplier country or countries.
+For each of the six countries, China is the main non-EU 
+supplier of concentrated products. For Italy, Poland and 
+the Netherlands in particu lar, and Spain to a lesser 
+extent, China is the main non- EU supplier of virtually all 
+vulnerable products. 
+However, this comparison must take into account the 
+economic characteristics of each country. The moderate number and volume of vulnerable imports in 
+France and Germany are mainly explained by their 
+larger share of intra-EU imp orts, which automatically 
+reduces their vuln erability to non-EU  imports. Other 
+factors, such as a country's openness rate and sectoral 
+specialisation, also acco unt for the differences.
+Comparing the data between these six countries 
+reveals some common conc entrated products and 
+some risks of indirect concentrations due to re-export 
+flows. Approximately 20% of France's concentrated 
+products are also vulnerabl e for three or more other 
+countries (including phosphorus and some magnesium derivatives). In addition, the Netherlands' concentrated 
+products include approximat ely 20 products for which 
+the Netherlands is also France's largest supplier. These products could the refore also constitute, indirectly 
+through Dutch re-exports, an additional concentration 
+risk for France.
+(17) Streptomycin and chloramphenicol.
+(18) Scandium and yttrium, which a re used in advanced electronic s.
+(19) Devices used to manufacture tires.
+(20) The 12 vulnerable products identified are LED lamps, flight  simulators, synthetic fibre blankets, two categories of decora tive artificial plants, 
+some garden furniture, four types  of clock products, engravings  and antiques.
+
+Direction générale du Trésor #TrésorEconomics  No. 274  December 2020  p.6Sources: BACI (2020), World Development Indicators, Eu rostat and DG Trésor calculations. Data is for 2018.
+Note: The openness rate corresponds here to imports of goods an d services as a share of the country's GDP. Vulnerable products  are identified 
+for each country using the method detailed in Box 1.
+2.4 Vulnerability is lower at European level than at 
+country level
+If we replicate the previous analysis at the consolidated 
+EU-27 level, we find that, out of more than 5,000 
+imported products, 483 of them21 (or 7% of the volume 
+of imports from non-EU  countries) have a high 
+dependency on a small number of non-EU countries.22 
+China is the main supplier of approximately 40% of 
+these products, including laptops, antibiotics, some rare-earth metals and mag nesium derivatives. The 
+latter two have been iden tified by the European Commission as critical c ommodities for strategic 
+sectors (3D printing, the  defence sector, etc.).
+23 
+Half of the products which are concentrated at the 
+individual level for the six countries studi ed are not 
+concentrated for the EU-27 as  a single trade entity (of 
+the 121 concentrated products identified for France, 66 
+are not concentrated at the EU -27 level). This indicates 
+a potential for di versification wit h other non-EU 
+countries which France i s not exploiting but its 
+neighbours are.
+3. Securing supply chains is a c oncern for firms, governments a nd the 
+European Union
+3.1 The COVID-19 crisis has highlighted the 
+importance of global supply chains
+Although we do not yet have the benefit of hindsight, 
+the COVID-19 crisis d oes not appear to have 
+fundamentally challenged  the organisation of 
+production and tra de in value chains. The ability of 
+countries to procu re from multiple foreign supply 
+partners has contr ibuted to resilienc e in the face of an 
+explosion in demand for certain goods, as the 
+differentiated exposure of countries to the pandemic and the spread of the shoc k over time also helped 
+supply adjust to demand (see Chart 4).
+With regard to healthcare goods, the previous analysis 
+does not identify any vuln erabilities amon g COVID-19 
+medical supplies,24 which shows that the supply 
+disruptions observed at the beginning of the crisis were 
+more related to a surge in global demand for these 
+goods than to a pr e-existing fragilit y related to the 
+geographical organisation of GVCs for these 
+products.25Table 1: Key figures on countries' vulnerabilities
+France Germany Italy Spain Netherlands Poland
+Openness rate, extra-EU (% GDP) 13% 19% 16% 19% 65% 23%
+Total imports of goods (€bn) 573 1,087 426 330 547 228
+Number of concentrated products 121 166 227 269 390 199
+Number of concentrated products in common with 
+France/3 4 2 9 3 94 2 2 0
+Number of concentrated products for which China 
+is the largest supplier28 55 85 88 127 68
+Number of vulnerable pro ducts (concentrated and 
+with low diversification potential)12 19 24 37 36 15
+(21) The number of concentrated products for the EU may seem lar ge compared to that of the six countries studied, but it reflec ts the shift from 6 
+to 27 countries, which do not nec essarily have many concentrate d products in common. In addition, a number of products which a re 
+concentrated at the country level are reflected at the EU level  because of the country's weight in the EU's international trad e (e.g. Germany 
+and France). Finally, some countri es are the only importers of certain concentrated products, wh ich effectively increases the number of 
+products at the EU level.
+(22) Measured by an HHI of non-EU imports greater than 0.5 (as i n the analysis of countr y vulnerabilities).
+(23) European Commission (2020), S tudy on the EU's list of Criti cal Raw Materials – Final Report.
+(24) List of 44 goods established by  the World Customs Organizat ion, including masks, gowns , testing materials, etc.
+(25) This observation remains lim ited by the lack of analysis of  national production data for all countries.
+#TrésorEconomics   No. 274   December 2020   p.7  Direction générale du TrésorChart 4: The global trade of COVID-19 
+medical supplies in 2020
+Source: UNCTAD,26 estimated data.
+This crisis nevertheless hi ghlights the vulnerabilities 
+created by GVCs, in a context of increasing risks of 
+external shocks likely to d isrupt supply chains (shocks 
+due to public health, prote ctionism, environment, 
+climate, technology, etc.).
+The previous analysis provides  a first level of reading, 
+offering a disaggregated dia gnosis on a product basis 
+and suggesting possible answers based on the 
+potential for diversification of highly concentrated 
+imports. This analysis could be expanded, first by having industrial stakeholders  identify which inputs are 
+considered critical among  vulnerable imports, and 
+second by cross-referencing trade data with country-specific (or European) product ion data in these critical 
+sectors. A mapping of the various indirect suppliers 
+along the production chain would also be useful. 
+3.2 There are several ways to reduce supply chain 
+vulnerabilities
+The risks which weigh on supply chains must first of all 
+lead firms to implement str ategies to secure them, 
+including diversifying their suppliers.27 Government should also play a role in  sensitive sectors where 
+supply chain disruptions would cause negative externalities for society as a whole (e.g. health and 
+security). 
+A public strategy for securing these sensitive goods or 
+sectors could combine searching for greater diversification of supply channels and suppliers (for 
+example through public procurement for some goods), 
+building up safety stocks, d eveloping recycling (for 
+example for raw materials), and if necessary providing 
+public support for the development of new domestic 
+productive capacities.  In this respect, the France 
+Relance  recovery plan includes a €600m measure 
+called "Relocate: securing our strategic supplies" 
+whose objective is to support private investment, targeted to certain sectors (such as health, agri-food, 
+telecommunications, electroni cs and critical industrial 
+inputs).
+28 These principles also guided the design of the 
+action plan to relocate research projects and production 
+sites of healthcare product s to France, a plan which 
+was presented by the gov ernment on 18 June 2020. 
+At European level, a concerted approach makes sense, 
+particularly given the s trong interdependencies 
+between Member States and  the economic security 
+which the single market of fers in the face of rising 
+protectionism across the gl obe. The European "open 
+strategic autonomy" init iative, launched by the 
+European Commission in spring 2020, provides a 
+framework for consultation  on the issue of supply 
+vulnerabilities and could lead to the development of a 
+common definition of goods and services deemed 
+"critical". Similar consultati ons could take place at the 
+multilateral level (e.g. OECD , WTO) in order to ensure 
+that initiatives to secure  supply chains comply with 
+world trade rules guaranteeing fair and equitable competition between countr ies. To do otherwise would 
+work against the primary objective of ensuring sufficient 
+availability of critical supplie s at the global level and for 
+each country.
+(26) UNCTAD, "Global Trade Update", October 2020.
+(27) Manyika, J, Smit, S. and Woet zel, J., "Risk, Resilience, an d Rebalancing in Global Value Chains", McKinsey Global Institute , August 2020.
+(28)www.gouvernement.fr/france-relance
+Direction générale du Trésor #TrésorEconomics  No. 274  December 2020  p.8 
+Publisher:
+Ministère de l’Économie, des 
+Finances, et de la Relance
+Direction générale du Trésor 139, rue de Bercy
+75575 Paris CEDEX 12
+Publication manager:
+Agnès Bénassy-Quéré
+Editor in chief:
+Jean-Luc Schneider
+(01 44 87 18 51)
+tresor-eco@dgtresor.gouv.fr
+English translation:
+Centre de traduction
+des ministères économiqueet financier
+Layout:
+Maryse Dos Santos
+ISSN 1962-400X
+eISSN 2417-9698
+Derniers numéros parus
+This study was prepared under the authority of the Direct orate General of the Treasury (DG Trésor) and does not 
+necessarily reflect the position of the Ministry  of Economy and Finance.Décember 2020
+No. 273  The contribution of creative des truction to productivity growth  in France
+Clémentine David, Romai n Faquet, Chakir Rachiq
+No. 272  The economic determinants of s ocial crises in Latin America
+Colette Debever
+November 2020
+No. 271  Digitalisation in Fr ance’s business sector
+Romain Faquet, Vincent Malardé
+No. 270  What do we know about the econom ic impacts of remote work?
+Cyprien Batut, Youri Tabet
+https://www.tresor.economie.gouv.fr/Articles/tags/Tresor-Eco
+ Direction générale du Trésor
+ @DGTrésor
+Pour s'abonner à Trésor-Éco : tresor-eco@dgtresor.gouv.fr
+

@@ -1,0 +1,894 @@
+ 
+  
+ 
+  
+
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+EUROPEAN COMMISSION 
+Directorate-General for Internal Market, Industry, Entrepreneurship and SMEs 
+Directorate A – Strategy & Economic Analysis 
+Unit A.1 – Chief Economist Unit 
+The opinions expressed in this paper are the authors’ alone and cannot be attributed to the European Commission.  
+Contact: Román Arjona, William Connell, Cristina Herghelegiu  
+Corresponding authors:  Roman.ARJONA-GRACIA @ec.europa.eu ; William.CONNELL-GARCIA @ec.europa.eu ;  
+Cristina-Daniela.HERGHELEGIU @ec.europa.eu  
+European Commission 
+B-1049 Brussels  
+ 
+ 
+ 
+Acknowledgements : The authors are grateful for the useful discussions on the topic and for the comments on previous 
+versions of the paper to DG GROW management and staff including Outi Slotboom, Paolo Pasimeni, Josefina Monteagudo, 
+Francesco Di Comite, Maria Garrone and Frank Vandermeeren. We would also like to thank Joana Almodovar, Edouard 
+Bourcieu, Martijn Haas, Pedro Martins Ferreira, Malthe Mikkel Munkøe, Diego Rubio, Jose Manuel Rueda Cantuche, and 
+Beatriz Velazquez for their suggestions. All remaining errors are the sole responsibility of the authors.  
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+An enhanced methodology to 
+monitor the EU’s strategic 
+dependencies and vulnerabilities  
+ 
+Single Market Economics Papers 
+ 
+ 
+Román Arjona 
+William Connell 
+Cristina Herghelegiu  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+LEGAL NOTICE 
+This document has been prepared for the European Commission however, it reflects the views only of the authors, and the 
+European Commission is not liable for any consequence stemming from the reuse of this publication. More information on the 
+European Union is available on the Internet ( http://www.europa.eu ). 
+PDF  ISBN 978-92-68-02647-2 ISSN 2529-332X Doi 10.2873/768035  ET-AF-23-001-EN-N 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Manuscript completed in March 2023 
+1st edition 
+ 
+Luxembourg: Publications Office of the European Union, 2023 
+ 
+© European Union, 2023 
+ 
+The reuse policy of European Commission documents is implemented by the Commission Decision 2011/833/EU of 12 
+December 2011 on the reuse of Commission documents (OJ L 330, 14.12.2011, p. 39  Unless otherwise noted, the reuse of this 
+document is authorised under a Creative Commons Attribution 4.0 International (CC BY 4.0) licence 
+(https://creativecommons.org/licenses/by/4.0/). This means that reuse is allowed provided appropriate credit is given and any 
+changes are indicated. 
+For any use or reproduction of elements that are not owned by the European Union, permission may need to be sought directly 
+from the respective rightholders.  
+ 
+
+5 
+ An enhanced methodology to monitor the 
+EU’s strategic dependencies and 
+vulnerabilities 
+ 
+Román Arjona, William Connell and Cristina Herghelegiu1 2 3  
+Abstract 
+This article develops an enhanced bottom-up and data-driven methodology to detect EU 
+strategic dependencies using highly disaggregated product-level trade data. It identifies 204 
+products in sensitive industrial ecosystems where the EU experiences an important level of 
+foreign dependencies. A subset of these products are then identified as particularly 
+problematic given that their world trade networks can experience Single Point of Failures 
+(SPOF). Since dependent products bear important risks in the event of unexpected 
+disruptions, identifying them is the first step towards building resilience. Consequently, this 
+analysis provides evidence based solutions to the EU’s open strategic autonomy agenda, 
+including the efforts to diversify EU supply chains, to pursue partnerships with like-minded 
+partners, and to strengthen the EU’s internal industrial capacity. 
+ 
+Keywords : dependencies, supply chain disruptions, single points of failure, 
+substitutability, trade networks, early warning.  
+JEL classification : L52, L60, F14, F61  
+  
+                                                           
+1 The opinions expressed are those of the authors only and should not be considered as representative of the 
+European Commission’s official position.  
+2 European Commission, Directorate-General for Internal Market, Industry, Entrepreneurship and SME; Av. d'Auderghem 45, 
+1040 Brussels, Belgium; +32 2-299-4570; Roman.ARJONA-GRACIA@ec.europa.eu, William.CONNELL-
+GARCIA@ec.europa.eu, Cristina-Daniela.HERGHELEGIU@ec.europa.eu 
+3 The authors are grateful for the useful discussions on the topic and for the comments on previous versions of the paper to DG 
+GROW management and staff including Outi Slotboom, Paolo Pasimeni, Josefina Monteagudo, Francesco Di Comite, Maria 
+Garrone and Frank Vandermeeren. We would also like to thank Joana Almodovar, Edouard Bourcieu, Martijn Haas, Pedro 
+Martins Ferreira, Malthe Mikkel Munkøe, Diego Rubio, Jose Manuel Rueda Cantuche, and Beatriz Velazquez for their 
+suggestions. All remaining errors are the sole responsibility of the authors.  
+6 
+ 1. Introduction 
+Over the past decades, the EU has faced increasingly complex challenges in the 
+social, environmental and economic spheres such as climate change, the ageing of 
+its population, and a massive ongoing digitisation. While it is clear that some of these 
+challenges can create several opportunities,4 they also exercised some pressures on 
+Europe’s economy, industry and society. Moreover, these threats have been 
+exacerbated over the recent past with the impact of an open-ended “permacrisis”5 or 
+“age of disorder”,6 characterised by continuous disruptions and persistent high 
+degrees of uncertainty (European Commission, 2022b). Indeed, the previous 
+challenges are magnified through the reinforcing effects of global events such as the 
+COVID-19 pandemic, the Russian aggression of Ukraine, and the energy crisis. 
+Consequently, a great share of contemporary disruptions risk having medium-term 
+consequences in the form of increasing geopolitical tensions, including those linked 
+to the scarce availability of energy sources and raw materials, as well as an 
+underpinning and deep redefinition of the architecture and dynamics of global supply 
+chains.  
+Some interrelated factors can simultaneously affect the world map of strategic 
+dependencies and the ongoing reshape of global value chains in the long run. First, 
+over the last decades, there has been a continuous process of de-industrialization 
+that led to a loss of manufacturing capacity in the EU and other high-income 
+economies, particularly for industries based on cost competitiveness and with low 
+productive investments (Vu et al., 2021). Second, the ongoing “shoring” practices, 
+with firms increasingly taking different strategies when it comes to localisation 
+decisions, are driven by updated parameters. Among others, these parameters 
+include the intensity of supply chain distress, the availability of raw materials, the 
+probability of being hit by a logistics crunch, the availability of skills, R&D 
+investments, and the generosity of the business environment (Fernández-Miguel et 
+al., 2022; Alguacil et al., 2023). Third, a progressive shift in dependencies occurs as 
+a result of the current energy transition. In this regard, the EU is moving away from 
+fossil fuels, for which Eastern Europe has traditionally been a key EU provider, into 
+raw materials, where EU demand has conventionally been met by supply from 
+foreign markets.7 In this respect, the International Energy Agency (IEA) (2021) 
+forecasts an insufficient raw material supply to cover global demand in inputs such as 
+cobalt, which is essential to develop batteries. Another example are permanent 
+magnets, where China dominates global supply chains, from mining and refinement 
+                                                           
+4 For example, in order to suppo the opportunities from digitalisation the Digital Decade Policy Programme 2030 was adopted, 
+with objectives and targets in the area of skills and infrastructure, the digitalisation of businesses, online public services and 
+EU’s digital rights and principles. See https://eur-lex.europa.eu/eli/dec/2022/2481/oj .   
+5 See statement of Thierry Breton, EU Commissioner for the Internal Market, 19 September 2022, Brussels: 
+https://ec.europa.eu/commission/presscorner/detail/en/STATEMENT_22_5651   
+6 Forthcoming book by Alex Stubb, former Finnish Prime Minister and Director of the School of Transnational Governance at the 
+European University Institute.  
+7 https://ec.europa.eu/commission/presscorner/detail/en/STATEMENT_22_5523   
+7 
+ through to production (Gauß et al., 2021), which are critical for the production of e-
+vehicles and wind turbines.  
+Fourth, wide-ranging supply chain disruptions are inducing important changes in the 
+structure of supply chains. Indeed, the EU benefits from an open and integrated 
+participation in global value chains in terms of efficiency and resilience (Camarero et 
+al., 2023), and this is particularly the case in years without disruptive events. 
+However, recent developments revealed how supply distress, initially confined to the 
+health ecosystem (e.g. personal protective equipment), later expanded onto most 
+other ecosystems (e.g. electronics, mobility, renewable energy, construction, energy 
+intensive industries) have affected global supply chains. Supply challenges, from 
+energy products (e.g. gas), basic raw materials (e.g. magnesium) to high-tech 
+products (e.g. semiconductors), risk delaying the EU’s economic recovery and 
+slowing down our pursuit of the twin transitions (green and digital). Such supply 
+distress gets amplified by supply chain concentration, increases in global demand 
+driven by structural shifts, logistics crunches or trade policy restrictions (Benoît et al., 
+2022; Amaral et al., 2022).8 Fifth, skills mismatches, including labour shortages, arise 
+as a key factor that limits industrial production, together with insufficient demand and 
+material constraints (Kiss et al., 2022). Given that this factor is particularly worrisome 
+in some country-sectors, it can have an impact on global supply chains if some of 
+these shortages are not corrected.  
+It is against this backdrop that the EU is pursuing a new approach to industrial policy 
+underpinned by the concept of “open strategic autonomy”, which rests on two goals. 
+The first one is the relevance of the EU as a geographical area open to international 
+trade based on stable rules. Indeed, access to international trade and international 
+supply chains have proven most effective in promoting the productivity of European 
+firms (Shu and Steinwender, 2019), their innovation (Akcigit and Melitz, 2021; 
+European Commission, 2022b), and resilience (Baldwin and Freeman, 2021). The 
+second objective is to create internal domestic capacity there where needed, and 
+notably in strategic areas such as in health related products, batteries, hydrogen, 
+electronic chips or raw materials. In this respect, similar strategies have also been 
+adopted by the EU’s main trading partners.9  
+Based on these two objectives, the EU published its updated industrial strategy in 
+2021, European Commission (2021a), with a focus on curbing the EU’s strategic 
+dependencies where the EU faces excessive reliance on foreign sources combined 
+                                                           
+8 Benoît et al. (2022) show that during the COVID-19 pandemic, concentrated global supply chains and structural global 
+demand shifts were an important driver of import price pressures. More precisely, the most important price increases occurred 
+for: (1) products that combine a strong reliance on foreign imports with a particularly high import concentration and (2) products 
+experiencing a higher structural demand prior to the COVID-19 shock. In addition, Amaral et al. (2022) combined dynamic 
+indicators on the evolution of import prices and quantities useful to alert policy makers on ongoing supply chain disruptions, with 
+the concept of structural dependencies allowing to identify ex-ante risks of disruptions. 
+9 For the US, see Executive Order on America’s Supply Chains of 24 February 2021 and dedicated follow up reports 
+(https://www.whitehouse.gov/wp-content/uploads/2022/02/Capstone-Report-Biden.pdf ), as well as US Inflation Reduction Act 
+(https://www.whitehouse.gov/cleanenergy/inflation-reduction-act-guidebook/ ).  
+8 
+ with limited domestic production capacity, through a better understanding of both 
+technological and industrial vulnerabilities.  
+Recent developments, including the COVID-19 pandemic, the Russian war of 
+aggression against Ukraine and the energy price hike have reinforced the political 
+objective of the EU to roll out its open strategic autonomy agenda to avoid risks 
+associated with the “non-availability” of critical intermediate and final products. The 
+European Chips Act,10 the Single Market Emergency Instrument (SMEI)11 and the 
+European Critical Raw Materials Act, the latter announced by the European 
+Commission President in her State of the Union speech of September 2022,12 are 
+clear steps in that direction. Given the rapidly evolving political and policy backdrop, it 
+appears more relevant than ever before to regularly revisit and enhance the 
+methodology introduced by the European Commission (2021b) to monitor and 
+anticipate strategic dependencies in sensitive industrial ecosystems.  
+ 
+2. An overview of empirical analyses to detect strategic 
+dependencies 
+Previous empirical analyses that detected strategic dependencies rest on five main 
+types of methodological approaches.  
+The first type of empirical analyses focuses on the aggregate sectoral level and finds 
+mostly EU dependencies in industrial ecosystems such as electronics or energy 
+intensive industries. Relying on databases linking country-sector pairs in global 
+supply chains, Dachs et al. (2022) investigate the strategic position of the EU27 in 
+global value chains and production networks and find that the EU industrial 
+ecosystems that show high dependencies on Chinese electronics include energy 
+intensive industries, aerospace and defence. They also detect dependencies on 
+energy intensive industries vis-à-vis Russia, and energy intensive industries and 
+retail from the US.   
+The second category of analyses uses product level data capturing global trade flows 
+and it offers the advantage of using higher data granularity in order to detect specific 
+world-level vulnerabilities. In other words, these work strands aim at measuring risks 
+in global supply chains by detecting potential global “single points of failures” 
+(SPOFs), which are nodes in the global trade system that, due to their centrality and 
+weight, can have a major impact on supply chains and even put a halt on their 
+                                                           
+10 Proposal for a Regulation of the European Parliament and of the Council establishing a framework of measures for 
+strengthening Europe's semiconductor ecosystem (Chips Act), COM/2022/46 final: https://eur-lex.europa.eu/legal-
+content/EN/TXT/?uri=celex:52022PC0046    
+11 The Commission proposed to create a new Single Market Emergency Instrument (SMEI) which is a crisis governance 
+framework that aims to preserve the free movement of goods, services and persons and the availability of essential goods and 
+services in the event of future emergencies, to the benefit of citizens and businesses across the EU. (See 
+https://ec.europa.eu/commission/presscorner/detail/en/ip_22_5443 for more details).  
+12 https://ec.europa.eu/commission/presscorner/detail/en/speech_22_5493   
+9 
+ operations. For example, Korniyenko et al. (2017) developed a methodology, based 
+on indicators on global players that allowed them to determine products 
+characterised by “choke points” in global trade networks. The authors conclude that 
+most of these products fall under broad categories, such as machinery and 
+mechanical appliances, transport equipment, pharmaceutical products, rubber 
+articles and precision instruments. Reiter and Stehrer (2021) extended this analysis 
+in order to compute a “product riskiness indicator” at global level. This was done by 
+adding the Hirschmann-Herfindahl index (HHI) on world exports and an additional 
+indicator identifying products targeted by non-tariff measures.  
+Third, while these studies aim at detecting vulnerable products or trade nodes at the 
+world level, the trade portfolio of each country appears rather heterogeneous. This 
+supports the need for targeted studies that concentrate on particular world regions. 
+Three examples of such work follow. In the context of the COVID-19 pandemic, 
+Bonneau and Nakaa (2020) examined French extra-EU dependencies by looking at 
+the import concentration level and centrality in product-level trade networks. Using 
+six-digit level Harmonized System (HS6) data, they reduced the number of product 
+categories from around 5,000 to 12 products where vulnerabilities were particularly 
+present in France. Furthermore, European Commission (2021b), as part of its 
+updated industrial strategy in 2021, presented a methodology to identify EU’s 
+strategic dependencies and vulnerabilities. They depart from highly disaggregated 
+trade data and encompass 5,200 HS6 products. Building indicators and 
+corresponding criteria that look at import concentration, relevance of extra EU 
+imports, and the possibility to replace with internal capacity, the European 
+Commission identified 137 products in sensitive industrial ecosystems for which the 
+EU shows foreign dependencies. In addition, they reduced the list to 34 vulnerable 
+products with low capacity for further diversification and substitution. Finally, in a 
+similar spirit, Guinea and Sharma (2022) classified EU traded products into four 
+groups according to the degree of import dependency, relying on the more granular 
+8-digit Combined Nomenclature classification of products (CN8).13  
+Fourth, while the previous types of empirical analyses use trade in goods, 
+confidential firm level data can be used to expand the level of granularity. In this 
+regard, Jaravel and Méjean (2021) added the firm level dimension by looking at the 
+import concentration on a few foreign firms. Out of around 9000 CN8 product 
+categories analysed, they concluded that 122 products were particularly vulnerable to 
+production concentration in a few country-firm pairs. The most predominant origins of 
+dependencies were found to be the US and China.  
+Finally, additional studies use targeted information to explore specific products, 
+areas, technologies or services.  For example, European Commission (2020) 
+identified 30 raw materials as critical by evaluating over 80 individual raw materials 
+                                                           
+13 Note that trade flows at CN8 level can only be done using the EU as a reference point. 
+10 
+ with two criteria, namely, the economic importance and the supply risk. In addition, 
+given the complexity of analysing dependencies in service technologies in a 
+systematic manner, the European Commission (2021b, 2022a) assessed 
+vulnerabilities using qualitative and quantitative information in areas of strategic 
+importance such as cloud and edge computing, solar panel technologies, 
+cybersecurity and IT software, clean hydrogen among others.  
+ 
+3. A refined methodology to detect and monitor strategic 
+dependencies  
+Using the latest data developments, this article builds on the identification strategy 
+proposed by the European Commission (2021b) and improves it by introducing a 
+number of changes that permit to enrich the data-driven approach to identify the EU’s 
+foreign dependencies.   
+ 
+3.1 The European Commission’s benchmark methodology  
+The methodology proposed by the European Commission (2021b) used the BACI 
+database,14 which covers global bilateral trade flows for 200 countries at the product 
+level.15 BACI is an optimal source of trade information at it reconciles global trade 
+flows and it allows to compare values of imports and exports of each country. Three 
+core dependency indicators (CDIs) were used to identify products with low level of 
+import diversification, for which foreign sources were particularly relevant for the EU, 
+and where the substitutability potential with EU supply was limited.  
+The first indicator (CDI 1) captures products with a low level of import diversification. 
+CDI1 thus targets products for which EU imports (in values) are highly concentrated 
+in a few extra EU countries using the well-known Herfindahl-Hirschman Index 
+(HHI):16  
+𝐶𝐷𝐼ଵ=෍(𝑠௜ଶ)௡
+௜ୀଵ 
+The second indicator (CDI 2) identifies how important foreign sources are for the EU 
+being a proxy for EU scarcity. By measuring the importance of extra-EU imports in 
+total EU imports (i.e. extra- and intra-EU imports), CDI 2 helps to detect products 
+where foreign sources are particularly important for the EU: 
+                                                           
+14  See Gaulier, G. and Zignago, S. (2010) for more details.   
+15 The BACI database relies on raw data from the UN statistical Division (COMTRADE dataset). 
+16 𝑠௜ represents the market share of the extra EU supplying country i in EU’s imports, and n is the total number of extra EU 
+supplying countries.   
+11 
+ 𝐶𝐷𝐼ଶ=𝑒𝑥𝑡𝑟𝑎 𝐸𝑈 𝑖𝑚𝑝𝑜𝑟𝑡 𝑣𝑎𝑙𝑢𝑒
+𝑡𝑜𝑡𝑎𝑙 𝐸𝑈 𝑖𝑚𝑝𝑜𝑟𝑡 𝑣𝑎𝑙𝑢𝑒 
+The third indicator (CDI 3) explores to what degree extra-EU imports can be 
+substituted by EU production. Using EU total exports as a proxy for the internal 
+production capacity, CDI 3 captures whether EU production can cover the extra EU 
+import needs in the event of trade disruptions. 
+𝐶𝐷𝐼ଷ=𝑒𝑥𝑡𝑟𝑎 𝐸𝑈 𝑖𝑚𝑝𝑜𝑟𝑡 𝑣𝑎𝑙𝑢𝑒ா௎
+𝑡𝑜𝑡𝑎𝑙 𝑒𝑥𝑝𝑜𝑟𝑡 𝑣𝑎𝑙𝑢𝑒ா௎ 
+Then, the identification of specific foreign dependencies was based on the 
+application of pre-defined thresholds on the three indicators described.  Each of the 
+5200 HS6 traded goods was evaluated based on the described indicators, and 
+products that satisfied pre-defined specific thresholds were selected. For CDI 1, the 
+chosen threshold was 0.4, indicating that the EU import value originates mainly from 
+2.5 foreign countries. For CDI 2, the threshold of 0.5 was selected, indicating that the 
+value of extra EU imports accounts for more than 50% of the total EU import value. 
+Finally, for CDI 3, the threshold was 1, indicating that the value of extra EU imports is 
+higher than the value of total EU exports, which includes intra and extra EU exports. 
+Applying the three indicators and their respective thresholds to the sample of trade 
+flows in 2018, allowed to identify around 390 products across all ecosystems where 
+the EU faced foreign dependencies. Out of these, 137 products were located in 
+sensitive ecosystems, identified as those related to: (1) security and safety, (2) health 
+and (3) the green and digital transformation.  
+These 137 products represented around 6% of the EU’s total import value of goods 
+from extra-EU sources in 2018, with China accounting for more than 52% of the total 
+import value of dependent products, followed by Vietnam and Brazil. Moreover, the 
+majority of the identified dependencies were intermediate goods. In terms of sectors, 
+the majority of these foreign dependencies belong to raw/processed materials and 
+chemicals, some of which are extremely important for the green transition, such as 
+lithium, cobalt, nickel or manganese among others. Then, the methodology reduced 
+further the list to 34 HS6 products by using the world concentration of exports and 
+the absolute difference of EU import and EU export prices. These 34 products are 
+characterised by a limited global potential for diversification and substitution.  
+  
+12 
+  3.2 The enhanced methodology in three steps  
+The analysis to identify EU foreign dependencies conducted by European 
+Commission (2021b) in the context of the industrial strategy update was a first of its 
+kind. However, there is now a need to enhance it in order to incorporate the latest 
+data and developments in the methodology.  
+The first step in the enhanced methodology is the use of a more suitable dataset to 
+control for product re-exports.  Trade statistics record flows from an origin to a 
+destination country for a specific HS6 product code, in values and volumes. There 
+are however well-known “trade asymmetries” or mismatches between exports for a 
+given origin-destination (country A to B) and imports of the mirror flow (country B 
+from A). As previously mentioned, for this reason, the European Commission (2021b) 
+used the BACI-CEPII database to identify EU foreign dependencies instead of relying 
+on raw trade data such as COMTRADE. However, BACI also experiences some well-
+known limitations. In particular, there is a bias when identifying strategic 
+dependencies if products get re-exported through different intermediate countries, 
+before being imported to the final destination. This can affect the outcome of the 
+dependencies analysis, as it can artificially reduce (or increase) dependency levels of 
+some products. To circumvent this problem, we rely on the TRADE-FIGARO-
+EUROSTAT database that uses a methodology to identify trade flows categorised as 
+re-exports (Ferreira, 2018; Remond-Tiedrez and Rueda-Cantuche, 2019).17 The 
+advantage of this database compared to BACI is that it permits to distinguish 
+between products imported from a given location where the product is domestically 
+produced and those destinations where the product goes in the form of transit.18 
+However, despite its clear advantage, it has also a limitation compared to more 
+regional trade databases (e.g. COMEXT), which contain more granular information 
+on the traded products but do not include trade flows between third countries.19  
+The second step  concerns the adoption of a dynamic perspective. In order to detect 
+EU dependencies, the previous analysis relied on trade data from 2018. However, 
+relying on a specific year risks hiding structural vulnerabilities that can be made more 
+apparent over time. For this reason, this upgrade on the methodology will rely on a 
+longer time window, namely 4 years.  
+                                                           
+17 The FIGARO database is jointly compiled by Eurostat in collaboration with the European Commission’s Joint Research 
+Centre and provides a consistent overview of national accounts with data on business, trade and jobs for EU Member States, 18 
+main EU trading partners and a rest of the world region. In this paper, we used the underlying (unpublished) version of a 
+balanced view of trade in  goods statistics, as described in Remond-Tiedrez and Rueda-Cantuche (2019, chapter 6), with 
+thousands of products, for HS codes at 6 digit level and a correct treatment of re-exports combining UN Comtrade and EU 
+Comext information. 
+18 The treatment of re-exports is extensively performed for the EU and, to the extent possible, for other third countries. Given 
+that there are some asymmetries in the treatment of re-exports across countries, the TRADE-FIGARO-EUROSTAT dataset is 
+very well suited to study EU foreign dependencies and less suited to draw comparisons between the dependencies of the EU 
+and those of third countries. To that end the BACI dataset, which ensures an even treatment of all countries, is more 
+appropriate, even though it suffers from the drawback of not considering re-exports.  
+19 While a high disaggregation (e.g. CN8 or TARIC 10 digits) would provide a much finer level of granularity, our analysis has to 
+rely on HS6 product categories (HS 2017), for which total global trade flows are available.   
+13 
+ The choice for a multi-year time frame is justified by the idea that while dependencies 
+are normally structural in nature, they can vary as a result of multiple factors, which 
+includes trade instruments, domestic subsidies or supply chain disruptions. For 
+example, in a specific year, a trade measure on a product-origin pair could artificially 
+affect the observed number of dependencies.  
+The analysis is thus performed individually on each of the four years considered and, 
+to give higher informative value to the most updated information, a product is 
+considered as foreign dependent if it is identified in the list of dependencies in: (1) 
+2020 (the most recent data point), and/or (2) two out the three years prior to 2020 
+(e.g. 2019 and 2017, 2018 and 2017).  
+The third step  relates to the complementary use of two methods to identify foreign 
+dependencies. The benchmark methodology used specific thresholds to identify 
+dependent products. Their economic rationale is explained in European Commission 
+(2021b) and in the previous sub-section. It has the main benefit of simplicity but it is 
+affected by the arbitrary choice of thresholds. For this reason, we complement the 
+threshold approach with an analysis using the whole distribution of the dependency 
+indicators. Notably, the article uses the three indicators described in the benchmark 
+methodology ( 𝐶𝐷𝐼ଵ,𝐶𝐷𝐼ଶ,and 𝐶𝐷𝐼ଷ) in order to identify products that are “highly 
+concentrated”, “significantly imported” and “low substitutable”. As in the benchmark 
+methodology, we apply the pre-defined specific thresholds defined in the previous 
+sub-section to each of the indicators. We then use a complementary approach, which 
+relies on the top 10% products in the aggregate level of dependency, drawing on the 
+ranks of all three described indicators.  
+More precisely, each of the three indicators is ranked based on their dependency 
+risk, with the highest risk identified with the highest rank.20 To obtain an overall 
+dependency indicator, we aggregate the individual ranks of each indicator by using a 
+simple average. Then, the most dependent products are those situated in the top 
+10% products in terms of aggregated rank, indicating a higher risk of dependency. 
+EU dependencies are then identified for products that satisfy both approaches, 
+namely, the “threshold” and the “rank”. 
+Each of these three developments will affect the benchmark analysis carried out by 
+the European Commission (2021b) in a different manner. The first enhancement 
+related to the treatment of re-exports can either increase or decrease the number of 
+dependencies on foreign sources. When it comes to the concentration of extra-EU 
+imports, the bias induced by not treating re-exports can be two-fold. First, if a product 
+is imported by the EU through different intermediate countries, despite the ultimate 
+origin being the same, the concentration observed on EU imports can be artificially 
+                                                           
+20 For the concentration indicator, products with the highest concentration levels are given a high rank. In second indicator, 
+products where non-EU imports account for the highest share are identified as having the highest risk. Finally, for the third 
+indicator, products where the EU exports account for a lower share of extra-EU imports are considered as experiencing higher 
+risks and get assigned higher ranks. 
+14 
+ underestimated. Second, if a product is imported by the EU from a single 
+intermediate country, despite multiple sources being at the origin of the product in 
+question, the concentration observed on EU imports can be artificially overestimated. 
+Furthermore, treating re-exports is also important when computing the indicators 
+referring to EU scarcity and production capacity. More precisely, if re-exports are not 
+taken into account total EU imports and exports are overestimated. This would lead 
+to an underestimation of the EU scarcity and an overestimation of the EU production 
+capacity (proxied through total EU exports). To sum up, not treating re-exports would 
+create a bias in the identification of EU foreign dependencies.21  
+The second step is also expected to increase the number of identified dependencies 
+as we are expanding the time frame by taking into account the 2017-2020 period. 
+The expansion of the time window under analysis leads to the identification of a 
+higher number of dependencies, which will be then restricted by taking into account 
+the more structural dependencies besides the most updated information. Finally, the 
+third and last step  is expected to decrease the number of identified dependencies as 
+we are adding a new condition for the classification of foreign dependencies, which is 
+based on the distribution of the overall level of dependency on top of economic 
+thresholds. 
+ 
+4.  Results 
+As a result of the three previous upgrades, out of approximately 5,400 HS6 
+products,22 564 are identified as those satisfying the above mentioned criteria.23 They 
+represent around 13% of total extra-EU imports, approximately 19% belong to 
+“Chemicals and allied industries”, almost 17% to “Textiles”, 9% to “Animal products”, 
+almost 8% to “Vegetable products” and 7% to “Mechanical appliances and electrical 
+equipment”. As regards to the origin of these dependencies, China is the first source 
+providing 211 products, which represent more than half of the import value of all 
+dependent goods. The US is the second source with 62 products and 8% in terms of 
+import values. Other important countries in terms of import value include Vietnam 
+(6%), UK (3%), Norway (3%) and Russia (2%).  
+Next, as in the original methodology, we focus on products within critical ecosystems.  
+In particular, we concentrate on HS6 products relevant for areas such as security and 
+                                                           
+21 When replicating the European Commission (2021b) exercise based on the TRADE-FIGARO-EUROSTAT database, which 
+takes into account re-exports, the number of EU foreign dependent products increases by approximately 27% compared with 
+the benchmark exercise based on the BACI dataset, which identified 388 EU dependent products in all ecosystems. This 
+suggests that, in the case of the EU, not considering re-exports leads to an underestimation of EU dependencies.  
+22 The enhanced methodology exploits 5,400 HS6 products in the HS2017 classification. The benchmark methodology in 
+European Commission (2021b) used the 5,200 HS6 products in the HS2012 classification. 
+23 Slightly less than 50% of the 564 foreign dependencies are very persistent/structural, as they are identified in all years over 
+the 2017-2020 period. 
+15 
+ safety, health, and the green and digital transitions. As a result, 360 out of the 564 
+HS6 product categories were disregarded.24 25 26 27  
+Following the previous steps, we obtain 204 HS6 product categories characterised as 
+foreign dependent in strategic ecosystems.28 Within the energy intensive industries, 
+the list of dependent products cover raw materials, which are used as inputs across 
+other industrial ecosystems. This includes manganese, nickel, aluminium, chromium, 
+rare earth metals, molybdenum, borates, uranium, silicon, permanent magnets.29 In 
+addition, we also find dependencies in traditional energy inputs such as coal or 
+petroleum coke and gases. Within the health ecosystem, we find products such as 
+heterocyclic compounds, some medicines, vitamins, alkaloids, iodine, amino-acids, 
+medical instruments (e.g. scintigraphic apparatus, mechano-therapy or orthopaedic 
+appliances), as well as COVID-19 related goods such as surgical gloves or protective 
+garments.30  
+Among goods within the renewable ecosystem, foreign dependencies include raw 
+materials that are heavily used in this context and final products such as photovoltaic 
+cells or LED lamps.31 Within the digital ecosystem, we observe products such as 
+laptops, mobile phones, monitors or projectors.32 Among the products with defence 
+applications, we identify products such as navigational instruments for aeronautical 
+and space navigation, rough movement watches, inflatable rafts, radio broadcast 
+receivers or electric generators. This ecosystem also includes more rudimentary 
+inputs such as camping equipment, which can be particularly useful in catastrophic 
+events or in terms of foreign aid.  
+Finally, while the agri-food ecosystem was left out of the analysis, some agri-related 
+products can have a direct impact on the safety of European citizens. For this 
+reason, we decided to keep those products used as important inputs in the 
+                                                           
+24 While the agri-food ecosystem is strategic in nature, we consider individual products as non-strategic due to their 
+substitutability potential. Within this ecosystem, products disregarded include different types of fishes, different parts of sheep, 
+crustaceans, molluscs, nuts, fruits, spices, exotic vegetables such as manioc and sweet potatoes or whiskies. 
+25 Among the HS6 product categories within textiles, we disregarded the following products: tanned and crust skins/hides, 
+artificial fur, silk and silk products, different types of cotton yarn, fabrics made of woven, yarn, carpets, type of footwear, toilet 
+and kitchen linen or small cases made of different materials among others.  
+26 Among HS6 product categories related to construction, we disregarded types of (tropical) wood, various products made of 
+bamboo, ceramic statuettes or products within the ceramic ecosystem such as feldspar or leucite. 
+27 Other products include Christmas lights, umbrellas, sets of cutlery, hair dryers, music boxes, cooking appliances, weighing 
+machines, photographic cameras, different types of design wrist-watches (non-defense related), sport’s equipment (e.g. skates, 
+tennis balls, athletics and gymnastics equipment, water sport equipment among others).   
+28 While each of these products has applications in strategic ecosystems, assessing their level of strategic importance is beyond 
+the scope of this data-driven exercise.  
+29 Comprehensive exercises allow to have a comparison of dependent products across the whole economy. However, some 
+targeted exercises can be potentially better equipped to capture the specificities of some sectors. In the case of raw materials, 
+the European Commission conducted a more targeted exercise to identify a list of critical raw materials by looking at their 
+economic importance and supply risk ( https://single-market-economy.ec.europa.eu/sectors/raw-materials/areas-specific-
+interest/critical-raw-materials_en ). Despite the methodological differences driven by different objectives, our comprehensive 
+exercise also identifies more than half of the products included in the list of critical raw materials.  
+30 The most updated trade data goes back to 2020. As a result of the EU industrial actions resulting from COVID-19 pandemic, 
+some of the identified dependencies in COVID-19 related goods could have been reduced.  
+31 Soya beans are also included in this category of products given their role in the production of biodiesel. See Soybeans for 
+Biodiesel Production – Farm Energy (extension.org) for more details.  
+32 Video games are kept in the list of products due to the vast “productive” applications  of the attached human capital (transferable 
+skills), as some of these applications might be being critical inputs across different ecosystems. 
+16 
+ production of food. In this group, we identify a number of fertilizers, as well as critical 
+inputs in farming and fishing with examples such as soya beans or fishing rods. 
+The 204 products get then distributed according to their geographical origin of 
+dependency and the specific sector (i.e. HS section) they belong to taking into 
+account that these products represent around 9.2% of total extra-EU imports. 
+Approximately 43% belong to “Chemicals and allied industries”, around 14% to 
+“Mechanical Appliances and electrical equipment”, almost 12% to “Base metals and 
+its articles”, 11% to “Mineral products” and 6% to “Precision and medical instruments” 
+(see Figure 1).  
+Figure 1: Distribution of 204 dependent products across trade sections (%)  
+ 
+ 
+Source: GROW Chief Economist team’ calculations based on the database - Trade-Figaro-Eurostat.  
+ 
+In terms of the origin of these dependencies, China is the first source for 
+approximately 31% of all 204 products (i.e. 64 goods), accounting for more than half 
+of the value of these products.33 The US represents the main source for almost 19% 
+of the 204 dependent products in sensitive ecosystems (i.e. 38 products) and 
+amounts to 9% of the import value. Russia accounts for 7% of the 204 products (i.e. 
+15 goods) and 3% in terms of import value (see Figure 2 and Figure 3).34  
+ 
+ 
+  
+                                                           
+33 For simplicity of illustration, Figure 2 distributes products based on the main source of EU imports. However, second origins 
+can be particularly important in some cases. Note that all origins are entirely accounted for in Figure 3, which considers the 
+value of imports.  
+34 In the analysis of the European Commission (2021b), China represented around 52% of the total value of imports of the most 
+foreign dependent products, which is broadly consistent with our new results. However, the other two main sources are 
+different. While the current study points to the US and Russia as main sources of dependencies after China, the previous study 
+highlighted Vietnam and Brazil.   0 10 20 30 40 50Products of the chemical or allied…Mechanical appliances; electrical…Base metals & articles of base metalMineral productsPrecision & medical instrumentsTextilesPlastics & rubber articlesTransport equipmentPrecious or semi-precious stonesMiscellaneous manufactured articlesVegetable products
+% of the total 204 products
+17 
+ Figure 2: Distribution of 204 dependent products across origins (number of products)  
+ 
+ 
+Source: GROW Chief Economist team’ calculations based on the database - Trade-Figaro-Eurostat.  
+ 
+ 
+Figure 3: Distribution of 204 dependent products across origins (% value of total 
+imports) 
+ 
+Source: GROW Chief Economist team’ calculations based on the database - Trade-Figaro-Eurostat.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+18 
+ 5. Introducing the concept of global single points of 
+failures (SPOFs) 
+The list of EU dependencies in strategic ecosystems can be complemented with the 
+characteristics of the global network for each of the 204 identified products. This will 
+allow to detect those goods whose production is highly concentrated at a world level, 
+and which can be considered as highly vulnerable in case of supply chain 
+disruptions. To address this concern, previous economic literature has pointed to the 
+need to identify global SPOFs when analysing the risk of global disruptions. The 
+trade data used in this analysis contains a level of disaggregation (i.e. HS6 product 
+categories) which makes it possible to analyse global trade flows, including 
+exchanges between non-EU countries. Hence, it is possible to assess the risk of 
+SPOFs by targeting products with two features: (1) a central node in world trade 
+networks, and (2) high concentration of world exports. To do so, two indicators have 
+to be defined.  
+First, to assess the ex-ante risk of experiencing a SPOF for a particular product, we 
+use an indicator, which is widely exploited in network analysis, in order to capture the 
+risk of centrality.35 It allows to identify situations where an exporter is central to a 
+large number of countries in a trade network on the assumption that it might be 
+problematic to global trade if there is a trade disruption that affects a central node in 
+the trade network. The higher the value of this indicator, the higher the risk of 
+centrality. 
+Second, a certain number of identified dependencies can be considered as more 
+vulnerable given their risk of experiencing excessive production concentration in a 
+given country. To evaluate this risk, we define a measure for concentration of world 
+exports using the HHI index and relying on the total export flows of each country for a 
+given product. A high level of concentration of world exports for a given product can 
+indicate that its production is more likely to be concentrated in a single country, 
+generating negative spillover effects across the globe in case of a supply shock. 
+                                                           
+35 Based on Korniyenko et al. (2017) and Reiter and Stehrer (2021), the indicator computes the standard deviation of the 
+weighted outdegree centrality of each product and measures the risk of centrality in a network or, in other words, the presence 
+of weighty central players, which might create risk in case of a trade disruption. A measure of outdegree centrality is obtained 
+first as the sum of ties that a country directs outwards, to other countries, as a share of the total number of other countries. This 
+measure is weighted to take into account the value of the trade flows. In formal terms, the weighted centrality of each country 
+and for each product network is as follows: 
+𝐶௜௞௢௨௧=෍𝑤௜௝௞
+𝑤ఫ௞തതതത ௡ିଵ
+௝ୀଵ 
+ where 𝐶௜௞௢௨௧ is the weighted outdegree centrality of country i in product k, n is the total number of countries in the trade network, 
+𝑤௜௝ is the value of the exports of country i to country j in product k, and 𝑤ఫ௞തതതത is the average value of  j’s imports for each product k. 
+Next, we use the standard deviation of outdegree centrality to measure the risk of each product, which arises from having very 
+few central exporters.  
+𝐶௞௢௨௧=ඨ∑൫𝐶௜௞௢௨௧−𝐶௞௢௨௧തതതതതത൯ଶ௡ିଵ
+௜ୀଵ
+𝑛−1 
+ where 𝐶௞௢௨௧തതതതതത is the average centrality of countries for product k. 
+19 
+ The calculated risk of global SPOF is obtained by combining these two indicators. 
+First, we obtain the rank for each individual product and each of the two indicators. 
+Second, we combine these ranks into a single average rank, which determines the 
+level of risk of SPOF. Finally, we group products into deciles (i.e. 10 groups) based 
+on the aggregate risk of SPOF.36  
+Products with the highest aggregate risk of SPOF are situated in the upper decile 
+(i.e. decile 10) of all HS6 products, while products with the lowest risk of SPOF are in 
+the lowest deciles. Figure 4 shows that out of the 204 dependent products around 
+19% are in the category of the highest risk of global SPOF, whereas only 6% are in 
+the category of the lowest risk. Within the highest risk, we find products across 
+different industrial ecosystems, including health (antibiotics, vitamins, medical 
+apparatus and COVID-19 goods), digital (laptops and parts, radio-broadcast 
+receivers or mobile phones), or renewables (LED lights or part of cycles). Risks of 
+SPOF are also detected in humanitarian emergency-related goods such as tents or 
+travelling blankets.  
+Figure 4: Distribution of the 204 products according to the risk of global SPOF  
+ 
+ 
+Source: GROW Chief Economist team’ calculations based on the database - Trade-Figaro-Eurostat.  
+ 
+ 
+  
+                                                           
+36 The aggregate risk of SPOF is a relative concept, where each traded product is compared with all the others, with the 
+objective of identifying different levels of risk.  0% 5% 10% 15% 20% 25%Low Risk - Decile 1Decile 2Decile 3Decile 4Decile 5Decile 6Decile 7Decile 8Decile 9High Risk - Decile 10
+% of the 204 products
+20 
+ 6. Conclusion  
+Against the backdrop of the effects stemming from the “permacrisis” dynamics, 
+triggered by events such as the COVID pandemics, the Russian aggression of 
+Ukraine, and the energy crisis, this article provides an enhanced methodology in 
+support of an improved understanding and monitoring of EU strategic dependencies, 
+drawing on European Commission (2021b).   
+Enhancing this monitoring capacity is particularly timely given the ongoing process of 
+redefinition of the architecture and dynamics of global supply chains influenced by 
+the ongoing de-industrialization in the EU and other high-income economies, the 
+emergence of updated shoring practices, a progressive shift in dependencies from 
+fossil fuels into raw materials, disruptions in global supply chains, as well as skills 
+mismatches and labour shortages.  
+The article proposes an enhanced methodology that uses the latest disaggregated 
+data at product level to identify 204 products in sensitive industrial ecosystems where 
+the EU faces foreign dependencies. We detect that around 70% of the products 
+identified by European Commission (2021b) are present in the results from this 
+enhanced methodology, suggesting that factors such as the EU economic and 
+industrial structure, as well as historical trade relations underlie these dependencies.  
+Two findings derive from this exercise. First, mapping vulnerabilities across EU 
+supply chains, including the risks of non-availability of critical goods, can prove 
+valuable to develop early warning systems to monitor supply chain distress. The 
+enhanced methodology permits to differentiate between products with potential for 
+diversification (i.e. low risk of single points of failure or SPOFs) and those where 
+further trade diversification might be limited (i.e. high risk of SPOF). It thus helps to 
+detect ex-ante vulnerabilities stemming from structural dependencies associated with 
+higher risks of supply distress.  
+Finally, the methodology allows to identify products for which substitutability can only 
+happen through the increase of the EU’s internal capacity. As previously shown, 
+some of the detected and persistent EU dependencies experience high risk of 
+SPOFs at a global scale. Consequently, disruptions in these products are particularly 
+prone to bear an impact on the EU’s resilience, resulting in non-availability in the 
+event of idiosyncratic shocks. The development of internal EU capacity around those 
+products (e.g. within the electronics ecosystem), including through strong 
+investments and R&D deployment, can contribute to increase substitutability. Policy 
+initiatives such as the European Chips Act, the Single Market Emergency Instrument 
+(SMEI) or the European Critical Raw Materials Act are all steps in that direction.  
+ 
+21 
+ References 
+AKCIGIT, U. AND MELITZ, M. (2022), “International Trade and Innovation”,  National Bureau of 
+Economic Research  Working Paper , number 29611, DOI 10.3386/w29611, December 2021.  
+ALGUACIL M., MARTÍ J., AND ORTS V. (2023), “Firms’ characteristics and their international 
+location strategy: Micro-level evidence from European countries”, International Review of 
+Economics & Finance,  Volume 83, pp. 97-113, https://doi.org/10.1016/j.iref.2022.08.017. 
+AMARAL, A., CONNELL, W., DI-COMITE, F., HERGHELEGIU , C. (2022), “SCAN” (Supply Chain 
+Alert Notification) monitoring system”, European Commission, DG GROW Single Market 
+Economics Papers , no. 3. 
+BALDWIN, R. AND FREEMAN, R. (2021), “Risks and global supply chains: What we know and 
+what we need to know”, National Bureau of Economic Research  Working Paper , number 
+29444, DOI 10.3386/w29444, October 2021.  
+BENOIT, F., CONNELL-GARCIA, W., HERGHELEGIU , C. AND PASIMENI, P. (2022), “Detecting and 
+analysing supply chain disruptions”, European Commission, DG GROW Single Market 
+Economics Papers , no. 1. 
+BONNEAU, C., AND NAKAA, M. (2020), "Vulnérabilité des approvisionnements français et 
+européens.", Ministère de l’Economie, des Finances et de la Relance, Trésor-Eco 274.  
+CAMARERO M, LÓPEZ-VILLAVICENCIO , A. AND TAMARIT, C. (2023), “Globalization and 
+unemployment in the EU: new insights on the role of global value chains and workforce 
+composition”, European Commission, DG GROW Single Market Economics Papers , no. 10.  
+DACHS, B., NEULÄNDTNER , M. AND STEHRER, R. (2022), The EU and Global Production 
+Networks: The Length of Value Chains, Patterns and Dynamics of Industrial Ecosystems , 
+Marschinski, R. editor(s), Publications Office of the European Union, Luxembourg, 2022, 
+ISBN 978-92-76-57682-2, doi:10.2760/4901, JRC130873.   
+GAUß R., BURKHARDT C., CARENCOTTE F., GASPARON M., GUTFLEISCH O., HIGGINS I., AND 
+KARAJIĆ M., KLOSSEK A., MÄKINEN M., SCHÄFER B., SCHINDLER R., AND VELURI B. (2021), 
+Rare Earth Magnets and Motors: A European Call for Action , report by the Rare Earth 
+Magnets and Motors Cluster of the European Raw Materials Alliance. Berlin 2021.  
+EUROPEAN COMMISSION (2020), Study on the EU's list of critical raw materials (2020) : final 
+report, Directorate-General for Internal Market, Industry, Entrepreneurship and SMEs, 
+Publications Office of the European Union, 2020, https://data.europa.eu/doi/10.2873/11619 . 
+EUROPEAN COMMISSION (2021A), Updating the 2020 New Industrial Strategy: Building a 
+stronger Single Market for Europe’s recovery, COM(2021)350 final, https://eur-
+lex.europa.eu/legal-content/GA/TXT/?uri=CELEX:52021DC0350 .   
+EUROPEAN COMMISSION (2021B), Strategic dependencies and capacities , Brussels, Staff 
+Working Document SWD(2021)352 final, https://eur-lex.europa.eu/legal-
+content/EN/TXT/?uri=SWD:2021:352:FIN .   
+EUROPEAN COMMISSION (2022A), EU strategic dependencies and capacities: second stage of 
+in-depth reviews , Brussels, Staff Working Document SWD(2022)41final, 
+https://ec.europa.eu/docsroom/documents/48878 .   
+EUROPEAN COMMISSION (2022B), Science, research and innovation performance of the EU 
+2022 : building a sustainable future in uncertain times , Directorate-General for Research and 
+Innovation, Publications Office of the European Union, 2022, 
+https://data.europa.eu/doi/10.2777/78826 .  
+22 
+ FERNÁNDEZ -MIGUEL, A., RICCARDI, M.P., VEGLIO, V., GARCÍA-MUIÑA, F.E., FERNÁNDEZ DEL 
+HOYO, A.P., AND SETTEMBRE -BLUNDO, D. (2022), “Disruption in Resource-Intensive Supply 
+Chains: Reshoring and Nearshoring as Strategies to Enable Them to Become More Resilient 
+and Sustainable”, Sustainability, 14, 10909. https://doi.org/10.3390/su141710909 
+FERREIRA, P. M., (2018), "3QDR methodology: understanding trade flows in the EU.", 
+EURONA — Eurostat Review on National Accounts and Macroeconomic Indicators — Issue 
+No 2/2018, Article 3, https://ec.europa.eu/eurostat/cros/system/files/euronaissue2-2018-
+article3.pdf .   
+GAULIER, G. Y ZIGNAGO, S. (2010), “BACI: International Trade Database at the Product-Level. 
+The 1994-2007 Version”, CEPII Working Paper , N°2010-23, 
+http://www.cepii.fr/pdf_pub/wp/2010/wp2010-23.pdf . 
+GUINEA, O. AND SHARMA, V., (2022), “Should the EU pursue a strategic ginseng policy? Trade 
+dependency in the brave new world of geopolitics”, European Centre for International 
+Political Economy (ECIPE) Policy Brief , no. 5, https://ecipe.org/wp-
+content/uploads/2022/04/ECI_22_PolicyBrief_TradeDependency_05_2022_LY02.pdf .   
+IEA (2021), The Role of Critical Minerals in Clean Energy Transitions , IEA, Paris 
+https://www.iea.org/reports/the-role-of-critical-minerals-in-clean-energy-transitions .  
+JARAVEL, X. AND MÉJEAN I. (2021), « Quelle stratégie de résilience dans la mondialisation ? », 
+Notes du conseil d’analyse économique , 2021/4 (n° 64), p. 1-12. DOI : 
+10.3917/ncae.064.0001, https://www.cairn.info/revue-notes-du-conseil-d-analyse-
+economique-2021-4-page-1.htm . 
+KISS, A., TURRINI, A., AND VANDEPLAS , A. (2022), “Slack vs. tightness in euro area labour 
+markets: growing mismatch after COVID-19?”, European Commission, Directorate-General 
+for Economic and Financial Affairs, Discussion Paper , no. 178, December 2022, Brussels.  
+KORNIYENKO , Y., PINAT M., AND DEW, B. (2017), “Assessing the fragility of global trade: The 
+impact of localized supply shocks using network analysis”, International Monetary Fund 
+Working Papers , 2017/030.  
+REMOND-TIEDREZ, I. AND RUEDA-CANTUCHE, J.M. (2019), “EU inter-country supply and 
+use tables – Full International and Global Accounts for research in Input-Output analysis 
+(FIGARO)”. Eurostat Statistical Working Paper Series. Luxembourg: Publications Office of 
+the EU. https://ec.europa.eu/eurostat/web/products-statistical-working-papers/-/ks-tc-19-002 
+REITER, O., AND STEHRER, R. (2021), “Learning from tumultuous times: An analysis of 
+vulnerable sectors in international trade in the context of the corona health crisis”, wiiw 
+Research Report , No. 454, July 2021.   
+SHU, P. AND STEINWENDER , C. (2019), “The impact of trade liberalization on firm productivity 
+and innovation”, Innovation Policy and the Economy , 19:39–68. 
+VU K., HARAGUCHI N., AND AMANN J. (2021),  “Deindustrialization in developed countries amid 
+accelerated globalization: Patterns, influencers, and policy insights”, Structural Change and 
+Economic Dynamics, Volume 59, pp. 454-469, https://doi.org/10.1016/j.strueco.2021.09.013.  
+  
+23 
+ GETTING IN TOUCH WITH THE EU 
+In person 
+All over the European Union there are hundreds of Europe Direct centres. You can find the address of 
+the centre nearest you online ( european-union.eu/contact-eu/meet-us_en ) 
+On the phone or in writing 
+Europe Direct is a service that answers your questions about the European Union. You can contact 
+this service: 
+– by freephone: 00 800 6 7 8 9 10 11 (certain operators may charge for these calls), 
+– at the following standard number: +32 22999696, 
+– via the following form: european-union.europa.eu/contact-eu/write-us_en . 
+ 
+FINDING INFORMATION ABOUT THE EU  
+Online 
+Information about the European Union in all the official languages of the EU is available on the Europa 
+website ( european-union.europa.eu)  
+EU publications  
+You can view or order EU publications at op.europa.eu/en/publications . Multiple copies of free 
+publications can be obtained by contacting Europe Direct or your local documentation centre  
+(european-union.europa.eu/contact-eu/meets-us_en ). 
+EU law and related documents 
+For access to legal information from the EU, including all EU law since 1951 in all the official language 
+versions, go to EUR-Lex ( eur-lex.europa.eu ). 
+EU open data  
+The portal ( data.europa.eu ) provides access to open datasets from the EU institutions, bodies and 
+agencies. These can be downloaded and reused for free, for both commercial and non-commercial 
+purposes. The portal also provides access to a wealth of datasets from European countries.  
+ 
+  doi: 10.2873/768035   
+ISBN 978-92-68-02647-2  
+ 
+ ET-AF-23-001-EN-N   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                                                              
+ 
+ 
+ 
+ 
+doi: [number]    
+ISBN [number] 
+ 
+ 
+ 
+ 
+ 
+   
+

@@ -1,0 +1,252 @@
+Listado de rutas de carpetas
+El número de serie del volumen es C874-6BAF
+C:.
+¦   .gitignore
+¦   estructura_directorio.txt
+¦   README.md
+¦   requirements.txt
+¦   
++---docs
+¦   +---images
+¦   ¦       Logo Elcano.png
+¦   ¦       logo upo.png
+¦   ¦       
+¦   +---latex
+¦   ¦   ¦   frog.jpg
+¦   ¦   ¦   sample.bib
+¦   ¦   ¦   
+¦   ¦   +---Descripción código
+¦   ¦   ¦       código de clases.tex
+¦   ¦   ¦       
+¦   ¦   +---Imagenes
+¦   ¦   ¦       geopolitica.png
+¦   ¦   ¦       Logo Elcano.png
+¦   ¦   ¦       logo upo.png
+¦   ¦   ¦       Nuclear fig.png
+¦   ¦   ¦       scatter.png
+¦   ¦   ¦       tabla clusters.png
+¦   ¦   ¦       
+¦   ¦   +---Presentación
+¦   ¦   ¦       presentación RIELCANO oct 24.tex
+¦   ¦   ¦       
+¦   ¦   +---Tablas
+¦   ¦   ¦       tabla.tex
+¦   ¦   ¦       
+¦   ¦   +---Tex
+¦   ¦           clusters de países.tex
+¦   ¦           documento codigo.tex
+¦   ¦           main.tex
+¦   ¦           
+¦   +---metodología
+¦   ¦       Anexo Metodológico riesgo clusters.docx
+¦   ¦       
+¦   +---policy brief USA
+¦       +---images
+¦               usa_dependencias_can_mex.png
+¦               usa_dependency_defensa_y_aeroespacial.png
+¦               usa_dependency_network_defensa_y_aeroespacial.png
+¦               usa_dependency_network_semiconductores_y_electrónica.png
+¦               usa_dependency_network_vehículo_eléctrico_y_automóvil.png
+¦               usa_dependency_semiconductores_y_electrónica.png
+¦               usa_dependency_vehículo_eléctrico_y_automóvil.png
+¦               usa_industries_count.png
+¦               usa_industry_details_defensa_y_aeroespacial.png
+¦               usa_industry_details_semiconductores_y_electrónica.png
+¦               usa_industry_details_vehículo_eléctrico_y_automóvil.png
+¦               usa_sector_comparison.png
+¦               usa_top_industries_weighted.png
+¦               usa_weighted_dependency_components.png
+¦               us_china_sectoral_dependencies.png
+¦               us_dependencies.png
+¦               
++---models
+¦   +---chunks
++---src
+    ¦   __init__.py
+    ¦   
+    +---data
+    ¦   ¦   __init__.py
+    ¦   ¦   
+    ¦   +---external
+    ¦   ¦       countries_codes_and_coordinates.csv
+    ¦   ¦       
+    ¦   +---processed
+    ¦   ¦   ¦   resultados_dependencias.pkl
+    ¦   ¦   ¦   top_dependencies_by_country.csv
+    ¦   ¦   ¦   
+    ¦   ¦   +---comunidades
+    ¦   ¦   ¦       agglomerative_clustering_results.csv
+    ¦   ¦   ¦       estadisticas_por_cluster.csv
+    ¦   ¦   ¦       estadisticas_por_cluster_restructurado.csv
+    ¦   ¦   ¦       paises_por_cluster.csv
+    ¦   ¦   ¦       paises_por_cluster_nombrado.csv
+    ¦   ¦   ¦       
+    ¦   ¦   +---Dependencias consolidadas
+    ¦   ¦           dependencias.gz
+    ¦   ¦           
+    ¦   +---raw
+    ¦   ¦   +---ITP
+    ¦   ¦           ITPD_E_R02.csv.parte0.gz
+    ¦   ¦           ITPD_E_R02.csv.parte1.gz
+    ¦   ¦           ITPD_E_R02.csv.parte2.gz
+    ¦   ¦           ITPD_E_R02.csv.parte3.gz
+    ¦   ¦           ITPD_E_R02.csv.parte4.gz
+    ¦   ¦           ITPD_E_R02.csv.parte5.gz
+    ¦   ¦           ITPD_E_R02.csv.parte6.gz
+    ¦   ¦           
+    ¦   +---__pycache__
+    ¦           __init__.cpython-39.pyc
+    ¦           
+    +---notebooks
+    ¦   +---analysis
+    ¦   ¦       comunidades.ipynb
+    ¦   ¦       dependency.ipynb
+    ¦   ¦       
+    ¦   +---visualization
+    ¦       ¦   figuras.ipynb
+    ¦       ¦   __init__.py
+    ¦       ¦   
+    ¦       +---__pycache__
+    ¦               load_data.cpython-311.pyc
+    ¦               load_data.cpython-39.pyc
+    ¦               load_data_new.cpython-312.pyc
+    ¦               
+    +---rag
+    ¦   ¦   main.py
+    ¦   ¦   readme.md
+    ¦   ¦   
+    ¦   +---bibliography
+    ¦   ¦       2023-09-wirtschaftsstandort-data - Dependencies Germany.pdf
+    ¦   ¦       Aiyar y Ohnsorge 2024.pdf
+    ¦   ¦       Aiyar, Malacrino Presbitero 2024.pdf
+    ¦   ¦       Alessandro Borin, Gianmarco Cariola, Elena Gentili, Andrea Linarello 2023.pdf
+    ¦   ¦       Alfaro y Chor 2024.pdf
+    ¦   ¦       Arjona, Connell y Herghelegiu 2023.pdf
+    ¦   ¦       bailey-et-al-2015.pdf
+    ¦   ¦       Benedictis, 2014.pdf
+    ¦   ¦       Bonneau y Nakaa 2020.pdf
+    ¦   ¦       Cadot  Celine Carrere 2014.pdf
+    ¦   ¦       cerina F 2015.pdf
+    ¦   ¦       Christine Arriola, Mattia Cai, Przemyslaw Kowalski, Sébastien Miroudot, Frank van Tongeren OCDE 2024.pdf
+    ¦   ¦       Comission swd-strategic-dependencies-capacities_en 2021.pdf
+    ¦   ¦       ECB_OSA_March2023.pdf
+    ¦   ¦       EC_Strategic Dependencies 2022.pdf
+    ¦   ¦       Fabry_Kohler-Suzuk_Lamy_Sibona_ 2024.pdf
+    ¦   ¦       fagiolo 2010.pdf
+    ¦   ¦       Gopinath, Gourinchas, Presbitero, Topaloba 2025.pdf
+    ¦   ¦       Hidalgo et al 2007.pdf
+    ¦   ¦       Ibrahim Nana,IsmaëlOuedraogo 2023.pdf
+    ¦   ¦       Inomata 2022.pdf
+    ¦   ¦       Irina Balteanu, Katja Schmidt and Francesca Viani 2025.pdf
+    ¦   ¦       Jean, Ariell Reshef, Vicard 2023.pdf
+    ¦   ¦       Johnson y NOguera 2012.pdf
+    ¦   ¦       JRC Supply chain 2023.pdf
+    ¦   ¦       JRC.2021.open_strategic_autonomy_2040_online_1.pdf
+    ¦   ¦       koopman 2014.pdf
+    ¦   ¦       Korniyenko, Pinat and Drew 2017.pdf
+    ¦   ¦       Maria Grazia Attinasi, Demosthenes Ioannou, Laura Lebastard and Richard Morris 2023 (BCE).pdf
+    ¦   ¦       Michaely 1963.pdf
+    ¦   ¦       SimchiLevi-IdentifyingRisksMitigating-2015.pdf
+    ¦   ¦       Tamar den Besten, Paola Di Casola, Maurizio Michael Habib 2024 Geopolitical fragmentation.pdf
+    ¦   ¦       Vicard and Wibaux 2023.pdf
+    ¦   ¦       Villaverde Fragmentation index 2024.pdf
+    ¦   ¦       
+    ¦   +---config
+    ¦   +---db
+    ¦   ¦       __init__.py
+    ¦   ¦       
+    ¦   +---extraction
+    ¦   ¦   ¦   0.0.16
+    ¦   ¦   ¦   0.0.350
+    ¦   ¦   ¦   0.0.6
+    ¦   ¦   ¦   pdf_extractor.ipynb
+    ¦   ¦   ¦   text_processing.ipynb
+    ¦   ¦   ¦   __init__.py
+    ¦   ¦   ¦   
+    ¦   ¦   +---chunks
+    ¦   ¦       +---processed
+    ¦   ¦       ¦       2023-09-wirtschaftsstandort-data - Dependencies Germany_chunks.json
+    ¦   ¦       ¦       Aiyar y Ohnsorge 2024_chunks.json
+    ¦   ¦       ¦       Aiyar, Malacrino Presbitero 2024_chunks.json
+    ¦   ¦       ¦       Alessandro Borin, Gianmarco Cariola, Elena Gentili, Andrea Linarello 2023_chunks.json
+    ¦   ¦       ¦       Alfaro y Chor 2024_chunks.json
+    ¦   ¦       ¦       all_chunks.json
+    ¦   ¦       ¦       Arjona, Connell y Herghelegiu 2023_chunks.json
+    ¦   ¦       ¦       bailey-et-al-2015_chunks.json
+    ¦   ¦       ¦       Benedictis, 2014_chunks.json
+    ¦   ¦       ¦       Bonneau y Nakaa 2020_chunks.json
+    ¦   ¦       ¦       Cadot  Celine Carrere 2014_chunks.json
+    ¦   ¦       ¦       cerina F 2015_chunks.json
+    ¦   ¦       ¦       Christine Arriola, Mattia Cai, Przemyslaw Kowalski, Sébastien Miroudot, Frank van Tongeren OCDE 2024_chunks.json
+    ¦   ¦       ¦       Comission swd-strategic-dependencies-capacities_en 2021_chunks.json
+    ¦   ¦       ¦       ECB_OSA_March2023_chunks.json
+    ¦   ¦       ¦       EC_Strategic Dependencies 2022_chunks.json
+    ¦   ¦       ¦       Fabry_Kohler-Suzuk_Lamy_Sibona_ 2024_chunks.json
+    ¦   ¦       ¦       fagiolo 2010_chunks.json
+    ¦   ¦       ¦       Gopinath, Gourinchas, Presbitero, Topaloba 2025_chunks.json
+    ¦   ¦       ¦       Hidalgo et al 2007_chunks.json
+    ¦   ¦       ¦       Ibrahim Nana,IsmaëlOuedraogo 2023_chunks.json
+    ¦   ¦       ¦       Inomata 2022_chunks.json
+    ¦   ¦       ¦       Irina Balteanu, Katja Schmidt and Francesca Viani 2025_chunks.json
+    ¦   ¦       ¦       Jean, Ariell Reshef, Vicard 2023_chunks.json
+    ¦   ¦       ¦       Johnson y NOguera 2012_chunks.json
+    ¦   ¦       ¦       JRC Supply chain 2023_chunks.json
+    ¦   ¦       ¦       JRC.2021.open_strategic_autonomy_2040_online_1_chunks.json
+    ¦   ¦       ¦       koopman 2014_chunks.json
+    ¦   ¦       ¦       Korniyenko, Pinat and Drew 2017_chunks.json
+    ¦   ¦       ¦       Maria Grazia Attinasi, Demosthenes Ioannou, Laura Lebastard and Richard Morris 2023 (BCE)_chunks.json
+    ¦   ¦       ¦       Michaely 1963_chunks.json
+    ¦   ¦       ¦       SimchiLevi-IdentifyingRisksMitigating-2015_chunks.json
+    ¦   ¦       ¦       Tamar den Besten, Paola Di Casola, Maurizio Michael Habib 2024 Geopolitical fragmentation_chunks.json
+    ¦   ¦       ¦       Vicard and Wibaux 2023_chunks.json
+    ¦   ¦       ¦       Villaverde Fragmentation index 2024_chunks.json
+    ¦   ¦       ¦       
+    ¦   ¦       +---raw_text
+    ¦   ¦               2023-09-wirtschaftsstandort-data - Dependencies Germany.txt
+    ¦   ¦               Aiyar y Ohnsorge 2024.txt
+    ¦   ¦               Aiyar, Malacrino Presbitero 2024.txt
+    ¦   ¦               Alessandro Borin, Gianmarco Cariola, Elena Gentili, Andrea Linarello 2023.txt
+    ¦   ¦               Alfaro y Chor 2024.txt
+    ¦   ¦               Arjona, Connell y Herghelegiu 2023.txt
+    ¦   ¦               bailey-et-al-2015.txt
+    ¦   ¦               Benedictis, 2014.txt
+    ¦   ¦               Bonneau y Nakaa 2020.txt
+    ¦   ¦               Cadot  Celine Carrere 2014.txt
+    ¦   ¦               cerina F 2015.txt
+    ¦   ¦               Christine Arriola, Mattia Cai, Przemyslaw Kowalski, Sébastien Miroudot, Frank van Tongeren OCDE 2024.txt
+    ¦   ¦               Comission swd-strategic-dependencies-capacities_en 2021.txt
+    ¦   ¦               ECB_OSA_March2023.txt
+    ¦   ¦               EC_Strategic Dependencies 2022.txt
+    ¦   ¦               Fabry_Kohler-Suzuk_Lamy_Sibona_ 2024.txt
+    ¦   ¦               fagiolo 2010.txt
+    ¦   ¦               Gopinath, Gourinchas, Presbitero, Topaloba 2025.txt
+    ¦   ¦               Hidalgo et al 2007.txt
+    ¦   ¦               Ibrahim Nana,IsmaëlOuedraogo 2023.txt
+    ¦   ¦               Inomata 2022.txt
+    ¦   ¦               Irina Balteanu, Katja Schmidt and Francesca Viani 2025.txt
+    ¦   ¦               Jean, Ariell Reshef, Vicard 2023.txt
+    ¦   ¦               Johnson y NOguera 2012.txt
+    ¦   ¦               JRC Supply chain 2023.txt
+    ¦   ¦               JRC.2021.open_strategic_autonomy_2040_online_1.txt
+    ¦   ¦               koopman 2014.txt
+    ¦   ¦               Korniyenko, Pinat and Drew 2017.txt
+    ¦   ¦               Maria Grazia Attinasi, Demosthenes Ioannou, Laura Lebastard and Richard Morris 2023 (BCE).txt
+    ¦   ¦               Michaely 1963.txt
+    ¦   ¦               SimchiLevi-IdentifyingRisksMitigating-2015.txt
+    ¦   ¦               Tamar den Besten, Paola Di Casola, Maurizio Michael Habib 2024 Geopolitical fragmentation.txt
+    ¦   ¦               Vicard and Wibaux 2023.txt
+    ¦   ¦               Villaverde Fragmentation index 2024.txt
+    ¦   ¦               
+    ¦   +---interface
+    ¦   ¦       __init__.py
+    ¦   ¦       
+    ¦   +---models
+    ¦   ¦   +---configs
+    ¦   ¦   +---embeddings
+    ¦   ¦   +---indexes
+    ¦   +---processing
+    ¦           __init__.py
+    ¦           
+    +---__pycache__
+            __init__.cpython-39.pyc
+            

@@ -1,0 +1,1466 @@
+Working Paper 24-012
+Global Supply Chains: 
+The Looming "Great 
+Reallocation"
+Laura Alfaro
+Davin Chor
+Global Supply Chains: The 
+Looming "Great Reallocation"
+Laura Alfaro
+Harvard Business School
+Davin Chor
+Tuck School of Business, Dartmouth
+Working Paper 24-012
+Copyright © 2023 by Laura Alfaro and Davin Chor.
+Working papers are in draft f orm. This working paper is distributed for purposes of comment and discu ssion only. 
+It may not be reproduced without p ermission of the copyright holder. Copies of wor king papers are available from 
+the author.
+Paper prepared for the Jackso n Hole Symposium, 24-26 Aug  2023, organized by the Federal R eserve Bank of 
+Kansas City. We are grateful to Kadee Russ for her discu ssion of our paper. We also  thank Chad Bown, Anush a 
+Chari, Penny Goldberg, Rob Jo hnson, Nina Pavcnik, and Kei- Mu Yi for helpful conversation s, and Tarek Hassan, 
+fDi Intelligence, and Kenneth Peterson (Harvard Business Scho ol Library) for suppo rt in acquiring data. We thank 
+Pablo A. Picardo, Bashudha Dh amala, Raúl Gerardo Reyes, Gede Virananda, and Kuitai Wang for excellent 
+research assistance.
+Funding for this research was provided in part b y Har vard Business School. 
+ 
+Global Supply Chains: The Looming “Great Reallocation”  * 
+ 
+ 
+Laura Alfaro  
+Harvard Business School,  
+CEPR and NBER  Davin Chor  
+Tuck School of Business at Dartmouth  
+and NBER  
+Paper prepared for the Jackson Hole  Symposium, 24- 26 Aug 2023, 
+organized by the Federal Reserve Bank of Kansas City  
+ 
+Draft: 30 August  2023  
+Abstract:  
+Global supply chains have come under unprecedented stress as a result of US -China trade tensions, 
+the Covid- 19 pandemic, and geopolitical shocks. We document shifts in the pattern of US 
+participation in global value chains over the last four decades, in terms of partner countries, 
+products, and modes, with a focus on the last five years (2017- 2022). The available data point to 
+a looming “great reallocation” in supply chain activity: Direct US sourcing from China has decreased, with low -wage locations (principally: Vietnam) and nearshoring/friendshoring 
+alternatives (notably: Mexico) gaining in import share. The production line positioning of the US’ imports has also become more upstream, which is indicative of  some reshoring of production 
+stages. We sound several cautionary notes over the polic ies that have set this reallocation in 
+motion : It is unclear if these measures  will reduce US dependence on supply chains linked to 
+China, and there are moreover already signs that prices of imports from Vietnam and Mexico  are 
+on the rise .   
+JEL codes: E3,  F1, F2, F52, F6 . 
+Keywords: Global value chains;  offshoring;  foreign direct investment; unit values; 
+upstreamness; deglobalization. 
+  
+ 
+* We are grateful to Kadee Russ for her discussion of our paper. We also thank Chad Bown, Anusha Chari,  Penny 
+Goldber g, Rob Johnson, Nina Pavcnik, and Kei -Mu Yi for helpful conversations, and Tarek Hassan, fDi 
+Intelligence, and Kenneth Peterson  (Harvard Business School Library) for support in acquiring data. We thank Pablo 
+A. Picardo, Bashudha Dhamala, Raúl Gerardo Reyes, Gede Virananda,  and Kuitai Wang for excellent research 
+assistance.  All errors are on our own. Author emails: lalfaro@hbs.edu ; davin.chor@dartmouth.edu  
+ 1 1 Introduction 
+Global supply chains have been in the spotlight over the past several decades among 
+international business and policy circles. In the late 1990s and early 2000s, much attention was drawn to how cross -border production and supply chain arrangements – often referred to as 
+global  value chains (GVCs) – could improve the efficiency of even the most complex 
+manufacturing processes. Spurred by advances in communication technologies and a liberalizing trade policy environment, firms started to reap the benefits of specialization more extensively by performing production stages or procuring inputs across  a host of locations, each particularly 
+adept at delivering on their slice of the value chain. This in turn opened up opportunities for growth for those emerging economies who successfull y gained roles in GVC -related production 
+(World Bank 2020).  
+ Lately , however, this optimistic view of GVCs has soured considerably. In its place, concerns are 
+being voiced over the wisdom of sprawling supply chains that can expose firms and countries to the risk of disruptions. A confluence of recent events has shown that this risk now present s itself 
+in myriad forms. Extreme weather events (associated with climate change) and natural disasters (such as the Tohoku earthquake) have sent shockwaves through global supply chains by 
+disrupting the flow of critical inputs (Barrot  and Sauvagnat 2016;  Boehm et al. 2019). Public 
+health shocks have emerged as a novel source of risk, epitomized by the shortages of medical 
+equipment and other critical necessities at the height of the Covid- 19 pandemic. There is a 
+renewed awareness too of geopolitical risk . Russia’s invasion of Ukraine exposed the 
+vulnerability of European countries’ natural gas supplies. Meanwhile, the brewing US -China 
+big-power rivalry has prompted a major policy rethink in the US of its reliance on supply chains 
+linke d to China, particularly for goods deemed to be of strategic or national security importance.  
+ This reconsideration of GVCs is fused at a deeper level with the broader backlash against globalization currently seen in many developed countries (Colantone et  al. 2022;  Goldberg and 
+Reed 2023). The underlying causes of this backlash are complex and vary somewhat from country to country. But an influential line of research has found one common thread, linking this disaffection to the longstanding decline in manufacturing sector jobs in advanced economies that can be attributed (at least in part) to import competition from China (Autor et al. 2013, 2016;  
+Dauth et al. 2014;  Colantone and Stanig 2018).
+1 In countries such as the US, this has contributed 
+to a strong under -current of reservation among segments of the general public about engaging 
+with China as a trade and supply chain partner (Alfaro et al. 2023).   
+ But sentiment aside, what do the data actually tell us about the state -of-play in global supply 
+chains? In this paper, we take a broad- ranging look at the evolution of patterns of global supply 
+chain activity, with a focus on the particularly eventful last five years (2017- 2022). We do so by 
+assembling information from a range of datasets that speak to sour cing within cross -border value 
+ 
+1 These studies focus on the direct impact of the “China shock” in displacing local manufacturing jobs. O n the other 
+hand, other studies have shown that low -priced inputs from China have made US manufacturing firms more 
+competitive (Amiti et al. 2020)  and allowed for non- manufacturing employment growth that has more than 
+outstripped job losses in manufacturing (Caliendo et al. 2019). These potential gains however do not appear to have 
+as much traction in shaping the general public’s views on trade liberalization with China; see Alfaro et al. (2023) for 
+survey- based experimental evidence on this front.  
+ 2 chains . We document changes  over time in terms of partner countries , produc ts, and modes ; 
+more specifically, we keep an eye out for discernible signs of friendshoring, nearshoring, or 
+reshoring in recent years .  
+ 
+Accordingly, the principal source of data we use will be product -level trade statistics (from UN 
+Comtrade), which speak to direct import sourcing patterns over time. We combine this with 
+measures of upstreamness, based on Fally (2011) and Antràs et al. (20 12), to characterize the 
+positioning of industries and countries within GVCs. We further supplement our analysis with 
+information from various sources on multinational activity  and FDI , on companies’ earnings 
+calls, as well as on the state of the US manufacturing sector .  
+ Our goal in working with these data sources is to provide an early assessment of recent shifts  in 
+global supply chains . More detailed assessments that use firm -level administrative data or 
+updated World Input -Output Tables to construct  more refined measures of GVC trade will surely 
+be conducted as such resources become available.  That said, we view it as important to highlight 
+such trends as may already be evident from these more readily acc essible sources of data. In 
+what follows, w e will largely focus on shifts from the perspective of the US, given the US’ role 
+as a key nexus from which many GVCs are organized and in which much of the output from GVCs is ultimately absorbed ; we will neverth eless draw some  brief comparisons to changes seen 
+in other major developed economies (namely, Europe and the UK ).  
+ We start by documenting trends in US imports over the past four decades to ground our discussion of supply chain patterns in a longer -run pe rspective. In terms of locations , the bulk of 
+the US’ direct import sourcing has historically been (and continues to be) from other high-income economies . A wave of shifts toward low -wage countries did get underway during the 
+1990s, with Japan and Canada los ing import share in the US to China and Mexico. It is important 
+to note , though, that Japan and Canada have remained closely engaged with the US economy, as 
+FDI – especially from Japan – replaced trade as a mode for accessing the US market.  
+ In terms of product composition, the 1990s we re also a period during which the US establishe d 
+itself as an exporter of relatively upstream products  (e.g., electronic integrated circuits, 
+machinery and parts , and other material inputs for processing and assemb ly overseas ), while 
+being an importer of final goods ( e.g., electronics, textiles) . The late 2000s , in turn, saw a 
+significant (albeit often overlooked) shift in the US’ trade profile, as its  growing energy 
+independence led to a decrease in imports of petroleum and related products.
+2 
+ We then zoom in on developments in the past five years. While this recent period has been 
+marked by intensifying anti -globalization sentiment, we confirm the broad assessment in  other 
+studies (e.g., Antràs 2021 ; Baldwin 2022; Aiyar et al. 2023;  Goldberg and Reed 2023) that this 
+has not led yet to an outright retrenchment in global trade  as a share of world GDP. In fact, the 
+aggregate value of key trade flows, such as US goods imports, rebounded strongly after the 
+Covid- 19 pandemic to all -time highs in 2022.  
+ However, th e aggregate level of trade masks substantial shifts that are afoot in the  source -
+country composition of US imports . China’s share of US  goods  imports peaked at 21.6% in 2017 
+ 
+2 This stands in contrast to the situation in Europe, which remains reliant on imports of energy -related resources.  
+ 3 and has since fallen to 16.5% in 2022. Put otherwise, what we are seeing in the data are the early 
+phases of a “great reallocation” in US sourcing away from China. The locations that have (thus 
+far) been the main beneficiaries of this shift comprise other low -wage manufacturing countries , 
+with Vietnam most notably  seeing a two -percentage point increase in its share of US imports, as 
+well as friendshoring or nearshoring alternatives, such as Mexico.3 
+ 
+We moreover find that this reallocation has been occurring at the product level: Across HS4 
+products, decreases  between 2017- 2022 in China ’s share of US imports are systematically 
+correlated with gains in the import shares held by Vietnam and Mexico (even after accounting for pre -trends in these countries’ shares of the US market) . Both Vietnam and Mexico picked up 
+import market share in various categories  of electrical and electronic equipment. But there have 
+been subtle differences too in the product mix of observed shifts , with Vietnam gaining ground 
+in telephone sets, apparel and textiles , and Mexico increasing  its US import share in auto mobile  
+parts, as well as glass, iron , and steel products.  
+ 
+This reallocation in the trade statistics lines up with evidence from other complementary data 
+sources.  Indeed, we find that references to  friends horing, nearshoring, or reshoring have been on 
+the rise in companies’ earnings calls since 2018 and that a good share of these discussions 
+pertains  to potential moves away from China toward Vietnam or Mexico. At the same time, 
+China has dropped off in prom inence as a preferred destination for greenfield FDI originating 
+from the US (as well as from other FDI source countries).  
+ 
+Last but not least, we present preliminary evidence that this reallocation away from China is 
+being accompanied by some reshoring. We find that the upstreamness of US imports rose 
+slightly over the past five years, which suggests that more finishing stages of production in GVCs are now being performed within the US. The data up to 2022 also indicate that , for some 
+subsector s, the  long- run decline in US manufacturing activity has bottomed out. While  this is 
+partly attributable to developments that occurred prior to 2017 (such as the Obama 
+administration ’s policies  to revive the US automobile industry), there are signs too of an uptick 
+in the last two years in establishment and employment counts  in specific industries (e.g., 
+semiconductors) that likely reflect recent efforts to promote domestic manufacturing capability in these areas .  
+ What are the causes of this “great reallocation” away from China? And what are its likely consequences? The first question has a relatively straightforward answer: The ongoing shift in 
+production and sourcing patterns is largely the result of intentional government policies , as noted 
+also by other observers .
+4 Starting in 2018, the Trump administration reversed the US’ decades -
+long approach in favor of trade liberalization, by introducing a series of tariffs that eventually 
+covered virtually all of the US’  imports from China.5 While US -based corporations may initially 
+ 
+3 Several other articles have noted this trend, including: Nicita (2019), Bown (2022), Grossman et al. (2023), Freund 
+et al. (2023), and Fajgelbaum et al. (2023). Relative to these studies, we further show that products in which China 
+lost ground in the US market also tend to be products in which Vietnam and Mexico gained in import share, and document movements in the unit values of these imports fr om Vietnam and Mexico.  
+4 For example,  Aiyar et al. (2023) attributes much of ongoing geoeconomic fragmentation to countries’ pursuit of 
+protectionist policies.  
+5 For a detailed timeline on the US -China tariff actions, see Bown (2023). See Flaaen and Pierce (2019), Fajgelbaum 
+et al. (2020), Fl aaen et al. (2020), and Handley et al. (2020) for studies of the impact of the tariffs on economic 
+ 4 have been hesitant  to incur the fixed and sunk costs of reconfiguring their global supply chains, 
+the continued use  of these tariffs under the Biden administration has since started to tip many 
+companies out of a “wait -and-see” approach .6 At the same time,  US government officials have 
+been encouraging friendshoring and nearshoring in order to mitigate supply chain risk, 
+particularly risk of a geopolitical nature .7 The Biden administration’s turn toward large -scale 
+industrial policies, as announced in the Inflation Reduction Act (IRA) and the CHIPS and 
+Science Act, ha s further laid  bare its intent to bolster domestic manufacturing  with the help of 
+generous subsidies. T hese policy directions are unlikely to change in the foreseeable future  even 
+past the next presidential election in 2024, given what appears to be bipartisan support for policies that support US manufacturing jobs .  
+ With their broad scope and ambition, these policy measures are poised to profoundly reshape 
+production and sourcing decisions in cross -border supply chains that emanate from the US. 
+However, we seek to register two cautionary notes. First, the policies which have set this 
+reallocation in motion may ultimately not even achieve their stated goal of reducing the US ’ 
+dependence on supply chains linked to China. Alread y, we can see in the trade data that while 
+China’s share in US imports has fallen, its share in Europe’s imports has risen. China has moreover stepp ed up its trade and FDI in both Vietnam and Mexico in recent years. This means 
+that the US  could well remain  indirectly connected to China through its trade and GVC links 
+with these third -party countries.  
+ Second, this ongoing reallocation of global supply chain activity comes attached with costs that need to be monitored and assessed more rigorously. There is now a body of empirical work showing that the US tariffs on Chinese goods have been borne almost entirely by US buyers through higher prices  (Amiti et al. 2019; Fajgelbaum et al. 2020; Cavallo et al. 2021) . We will 
+further show in this paper that decreases in product -level import shares from China are 
+associated with rising unit values for imports from Vietnam and Mexico, which likely reflects rising costs of production in these locations . More work is needed to investigate how much this 
+reallocation away from direct imports from China might be contributing to higher US prices and inflation. Likewise, there is a  need for more frameworks to be developed to formally assess 
+whether the dynamic gains from reshoring – arising say from agglomeration effects or increased 
+innovation in the US manufacturing sector – can in fact offset the static welfare losses incurred  
+from pursuing this goal.   
+ 
+The rest of the paper is organized as follows. After making several data- related remarks in 
+Section 2, we turn in Section 3 to describe longer -term patterns in US import sourcing. Section 4 
+then focuses on the last five years (2017- 2022) , particularly the shifts toward friendshoring and 
+ 
+outcomes in the US, including on employment and the performance of firms in the US manufacturing sector. See 
+Chor and Li (2021) for evidence of the effects of the tariffs on economic activity in China.  
+6 Companies have likely taken their cue from statements by Biden administration officials signaling that a unilateral 
+easing of US tariffs on China remains unlikely. For example, in testimony to the US Senate Appropriations Committee in June 2022, US Trade Representative Katherine Tai noted that: “The China tariffs are, in my view, a 
+significant piece of leverage, and a trade negotiator never walks away from leverage ” (Reuters 2022).  
+7 For example, at an address  to the Atlantic Council in April 2022, US Treasury Secretary Janet Yellen stated that: 
+“Favoring the friendshoring of supply chains to a large number of trusted countries, so we can continue to securely 
+extend market access, will lower the risks to our economy as well as to our trusted trade partners ” (Yellen 2022).  
+ 5 nearshoring to Vietnam and Mexico. Section 5 describes the preliminary signs of reshoring. We 
+conclude with a discussion of implications in Section 6.   2  Data  Approach   
+ 
+Before presenting our findings, it is useful to briefly discuss the broader data approach we are 
+taking in this paper to shed light on cross -border supply chain activity . In terms of data sources, 
+our study uses most extensively the rich trade statistics from UN Comtrade . These have the 
+advantage of being up- to-date (with the most recent available year being 2022), while  providing 
+a reasonable level of detail on products (which we will exploit at the HS4  digit level).   
+ 
+Readers who are familiar with the recent literature on GVCs will however recognize that these gross trade flows only pick up on patterns of direct sourcing. In an age of cross -border supply 
+chains, goods that ar e received at US ports in principle embody value added that has been 
+contributed by multiple countries and industries further upstream. Focusing on the gross value of direct imports alone, one is likely to understate the extent of some countries’ involvement in GVCs – and hence, the US’ dependence on these countries as supply chain partners – particularly for those source countries that are engaged in upstream stages.   
+ To address this concern, researchers have over the past two decades developed accounting methodologies to trace  and measur e the value that is added at different stages along GVCs  
+(Johnson and Noguera 2012;  Koopman et al. 2014;  Borin and Mancini 2023).
+8 These draw  on 
+information contained in World Input -Output Tables – on transactions between country -by-
+industry pairs (e.g., purchases by the automobile industry in the US from the auto parts industry in Mexico) – in order to infer the country and industry sources from which value added 
+originates. However, t he work that goes  into assembling such World Input -Output Tables is 
+extensive, and so these tables are only available with a time lag: For example, the latest release 
+of the World Input -Output Database extends up to 2014, while the OECD Inter -Country Input -
+Output Tables ar e only available up to 2018. These are ill -suited unfortunately to the more 
+pressing task of studying shifts in global supply chains over the past five years.  
+ 
+Absent the data to implement a full accounting of GVC trade , our approach will thus be to focus 
+on the evolution of  direct sourcing patterns as observed from product -level trade flows.  To 
+nevertheless shed light on countries’ positioning within GVCs, we will combine the trade data with industry measures of upstreamness (Fally 2011; Antràs  et al. 2012), in order to illustrate 
+how the global production line positioning of the US – as reflected in the profile of its imports and exports – has been shifting over time.
+ 9 We will supplement the above with additional 
+sources of information: (i) on multinational affiliate sales (from the US Bureau of Economic Analysis) and on greenfield FDI (from fDi Markets), that shed light on GVCs that operate through multinational corporations; (ii) from compan y earnings conference call s (from NL 
+Analytics ), that facilitate a topical analysis  of firms’ priorities ; and (iii) on the recent state of the 
+US manufacturing sector (from the Bureau of Labor Statistics) , to speak to the issue of reshoring.  
+ 
+8 See Johnson (2018), as well as Section 2 in Antràs and Chor (2022), for an overview of GVC measurement issues 
+and methodologies.  
+9 This follows the approach in Chor et al. (2021). We use the  UN correspondences across different Harmonized 
+System vintages to concord the data over time consistently to HS 2017 codes.  
+ 6  
+3  The US in Global Value Chains: Background  
+ In this section, we provide an overview of the rise of trade in GVCs over the last four decades . 
+As the US’ participation in global supply chains expanded, this period was one marked by shifts 
+in sourcing locations, products, and modes. This discussion wil l form the backdrop against which 
+to compare the more recent changes of the past five years.   
+ 
+3.1 Trade Flows: Trends   World trade grew steadily and in a virtually uninterrupted manner in the four decades leading up 
+to the Global Financial Crisis. In the early nineties , the ratio of trade in goods and services to 
+GDP stood at 38% for the W orld, 20% in the US, and 22% in China. By 2006, China’s trade- to-
+GDP  ratio had exploded to close to 65%, while that for the World and the US had grown to 60% 
+and 27% respectively.
+10 
+ The reasons for this boom in international trade are well -documented. Favorable political 
+developments  – including the end of the Cold War, political and economic reforms in Latin 
+America and Asia, and China’s opening up to the world – brought more countries into the fold of the world trade system . This was further facilitated by policy moves that progressively lowered  
+tariff and non -tariff barriers to trade, such as the establishment of regional trade agreements (e.g., 
+the EU, NAFTA) and the expansion of the World Trade Organization (culminati ng in China’s 
+accession in 2001). Notably too, the fragmentation of production processes and supply chains across country borders  generated an increase in trade in intermediate inputs, which by some 
+estimates now constitutes as much as two -thirds of gross world trade flows (Johnson and 
+Noguera 2012).  
+ This growth in international t rade, however, slowed down in the aftermath of the Global 
+Financial Crisis  of 2008- 2009. By 2020, China ’s trade- to-GDP ratio had decreased to 35%, while 
+that for the US had slipped to 23%, prompting the observation that the world had perhaps reached “peak globalization” (Baldwin 2022).
+11 With the benefit of hindsight , there appears to be 
+a consensus now that the prior rate of increase in the trade -to-GDP ratio was unsustainable, and 
+so some slowdown was inevitable  (Antr às 2021; Baldwin 2022; Goldberg and Reed 2023). It 
+would nevertheless be premature to interpret this slowdown as an outright “deglobalization” or the “end of an age”.  While the past five years have been marked by various shocks – such as the 
+ 
+10 Sum of exports and imports of goods and services as a share of GDP (from the World Bank’s World Development 
+Indicators, WDI).  
+11 Baldwin (2022) cautions against over -interpreting these trends, noting that the so- called peak in trade as a share of 
+GDP has not been synchronized across countries: While the ratio has tapered off in China, it has not peaked in some 
+large trading economies . He further notes that some of the apparent slowdown in the value of world trade has been an 
+artefact of the decline in commodities prices in the mid -2010s. On a separate note, there have been changes over time 
+in the system of national income accounts, f or example relating to the treatment of software in 1999 and intellectual 
+property in 2013. The Balance of Payments methodology was moreover substantially updated from BPM5 to BPM6 
+in 2009; countries adopted the new methodology and harmonize d older series at different times, with the US 
+incorporating these changes in 2014. To our knowledge, there is no systematic analysis of how these accounting 
+changes might have affected observed trends in trade in goods and services over GDP. Note that there is evidence that 
+these account for some of the perceived reduction in labor shares (Koh et al. 2020).  
+ 7 US-China tariff war and the Covid- 19 pandemic – which  dealt momentary setbacks to trade 
+flows , global trade has held steady at just under 60%  of world GDP rather than gone into freefall 
+(see Appendix Figure 1 ).12  
+ 
+Turning to the US, its engagement in international trade over time mirrors thi s broad pattern of 
+growth up till the mid -2000s, followed by a slowdown. Between 1994- 2005, the US saw the 
+growth rates in the value of its goods exports and imports reach 5.3% and 8.8% per annum respectivel y.
+13 This was followed by a distinct dropoff  in the pace of growth between 2006 -2022, 
+to 4.5% for exports and 3.6% for imports  (Table 1, Panel A ). This slowdown was even more 
+pronounced after accounting for price effects: In chained real dollar terms, US exports and imports grew respectively at 2.6% and 2.2% per annum in this latter period ( Table 1, Panel B ).   
+ 
+Table 1 : US Trade, Growth Rates ( 1994- 2022)  
+ 
+Source: Trade data (Census Basis) from the US Census Bureau ; downloaded in June 2023 . Real services  
+data from the Federal Reserve Bank of St. Louis , FRED.   
+ Two further points are worth highlighting about these US trade patterns. First, the overall growth 
+rates mask a substantial shift in composition in US trade , as the US evolved from being a net 
+importer of oil and gas products to being a net exporter. In 1994, petroleum products  represented 
+close to 4% of US exports and 23% of imports; by 2022, the export share stood at 10%, while the 
+ 
+12 Goldberg and Reed (2023)  have made the cogent observation that  “global trade was remarkably resilient during 
+the pandemic, and supply shortages would likely have be en more severe in the absence of trade”.  
+13 Table 1 starts in 1994 due to the availability of the real goods trade data from the US Census Bureau . The date 
+marks the  enactment of NAFTA, the conclusion of the Uruguay Round of GATT -WTO negotiations, and the early 
+years of China’s trade liberalization.  Casting an eye further back, the US trade balance turned negative in 1971 for 
+the first time since 1893; see Bordo (1992 ), Eichengreen (1996, 2000) , and Irwin (2017) for historical perspectives 
+on US policy on trade and capital flows.  
+ 8 import share had fallen  to a mere 6%. In line with this shift, the annual growth rate in the US’ 
+real petroleum imports turned negative ( -3.0%) in 2006- 2022, compared to a growth rate of 3.5% 
+in 1994- 2005. On the other hand, the US’  real imports of non- petroleum products recorde d 
+steady growth of 3.0% between 2006- 2022 ( Table 1, Panel B ).  
+ 
+Second, it is useful ( for the sake of completeness) to point out that there has been a similar 
+slowdow n in the US’ trade in services: between 2006- 2022, the growth rate in the real value of 
+US service exports  and imports moderated to 2.5% and 2.1% per annum  respectively ( Table 1, 
+Panel B ). That said, note that the US maintained a surplus in services trade throughout  this 
+period. The rest of our analysis below will focus on goods trade, which ha s dominated the debate 
+on the future of global supply chains . 
+ 
+3.2 Trade Partners  
+ Underlying these aggregate trends, Table 2 displays the evolution of the trade shares of the US’ main trade partners from 1994- 2022. Several points, generally recognized, deserve emphasis.  
+ The US has over the years conducted most of its trade with high- income countries. In 1994, its 
+primary trade  partners were Canada, the European Union (cum UK), and Japan. Around 22 % of 
+US exports in that year went to Canada, from which the US received 19% of its imports . The EU 
+cum UK accounted for a similar share of US exports (22%) and imports (18%). Japan’s share 
+was slightly smaller, receiving about 10% of US exports while being the source of about 18% of the US ’ imports.  Among the US’ other significant trading partners, the East  Asian economies of 
+South Korea, Taiwan and Singapore comprised around 10% of both US exports and imports .  
+ 
+By the dawn of the millennium, however, China and Mexico had emerged as major US  trade 
+partners . China’s rapid and dramatic rise as an export powerhouse has been studied 
+extensively.
+14 China’s share in US imports leaped from nearly 6% in 1994 to a peak of around 
+22% in 2017, making China the single largest source country partner of the US. On the other hand, exports to China which were just 2% o f total US exports in 1994, peaked  at 9% in 2020, 
+and stood at  approximately 7% in 2022. Turning to Mexico, the enactment of NAFTA in 1994 
+(known as the USMCA post -2020) was a pivotal moment for its bilateral trade with the US.
+15  
+The US ’ imports from Mexico rose consistently from nearly 7% in 1994 to 14% in 2022, while  
+Mexico’s share of US exports expanded from around 10% in 1994 to nearly 16% in 2022.  
+ 
+ 
+14 See, for example, Hanson (2012) and Frankel (2016) for an overview of trends in China’s external trade. After the 
+US ended a longstanding t rade embargo , President Nixon landed in the People’s Republic of China in 197 2 and 
+established formal diplomatic relations in 1978. The 1980 bilateral trade agreement conditionally granted China the 
+“Most Favored Nation” treatment reducing tariffs on Chine se imports to the US.  The US became a net importer of 
+Chinese goods in 1985. See Greenland et al. (2020) for an evaluation of the US’ granting of Permanent Normal 
+Trade Relations (PNTR) to China . 
+15 In 1965, the US and Canada entered the Auto Pact, agreeing  to the  duty-free, two -way movement of new vehicles 
+and parts. That same year , the Mexican government introduced the Border Industrialization program, lifting foreign 
+ownership restrictions along its border and allowing US manufacturers to build factories,  import materials duty -free, 
+hire local labor for assembly, and reexport the finished products ; this eventually served as a basis for the NAFTA 
+agreement (Hansen 2003). Given that the NAFTA agreement dominates the analysis period, we will refer to the 
+trade agreement between Mexico, Canada, and  the US by that name in most of this paper.  
+ 9 Table 2 : US Trade, Partner Country Shares  (1994 -2022)  
+ 
+Source: Goods trade data (Census Basis) and services trade data ( BOP basis) are from the US Census Bureau;  downloaded in 
+June 2023.  Differences between Census basis and BOP basis series are small ; see: https://www.census.gov/foreign -
+trade/statistics/historical/goods.pdf . Regions are as follows: European Union & UK: All current 27 EU member s, plus the UK.  
+NAFTA: Canada and  Mexico. Rest of Western Hemisphere: Argentina, Brazil, Chile, Colombia, Costa Rica, El Salvador, 
+Guatemala, Honduras, Nicaragua, Panama, Peru, Venezuela, Bermuda, Dominican Republic & UK Caribbean Virgin Islands. 
+Middle East: Bahrain, Israel, Jordan, Oman & Saudi Arabia. Africa: All the countries within the continent.     
+         
+As China  and Mexico rose in prominence as US trading partners, it has primarily been Canada 
+and Japan who lost market share, particularly in the ir share of US imports. In 2022, Canada 
+ 10 accounted for 13% of US imports (down from 19% in 1994), while Japan’s share had fallen to 
+only 5% (from 18% in 1994). One other country worth highlighting here is Vietnam, in anticipation of our later discussion on more recent supply chain shifts . Vietnam’s exports to the 
+US have increased steadily since the 2000s, following its normalization of relations with the US in 1995 and the entry into force of its bilateral trade agreement in 2001 (McCaig and Pavcnik 
+2018) ; this intensified after 2017, with Vietnam’s share of US imports doubling from 2% to 
+about 4% by 2022.  
+ 
+In sum, the last four decades  have  seen a discernible  shift in the origin countries of the US ’ direct  
+imports  as the US moved toward sourcing more from low -income, low -wage locations , 
+specifically China, Mexico, and (to a lesser extent) Vietnam. There is nevertheless a sense in which the pattern o f US imports has remained stable since 1994, in that its import shares from 
+broad geographical regions have held relatively steady: The EU (cum UK) continues to be the source of around 20% of the US ’ imports , while the corresponding shares accounted for by 
+NAFTA and the Asia -Pacific region remains around 30% and 40% respectively. This suggests 
+that US trading relationships continue to be characterized by regional value chains ( Baldwin and 
+Gonzalez- Lopez 2015) .
+16 
+ 3.3 Products  
+ We turn next to examine the product composition of US trade flows, to shed light on the US’ positioning within GVCs and how this has evolved over time.   For this purpose, we adopt the approach in Chor et al. (2021) to compute measures that summarize the upstreamness of the US’ export and import profiles respectively, to characterize the positioning of these trade flows with respect to final demand. This is based in turn on the concept of industry upstreamness developed in Fally (2011) and Antràs et al. (2012) : Making use 
+of the information on production linkages across industries reported in Input -Output Tables , 
+these papers define and construct a measure of the number of stages that an industry’s output will on average traverse before it is absorbed in fin al uses (i.e., in consumption or investment) .
+17 The 
+procedure for constructing this upstreamness measure at the industry level is detailed in the Appendix;  we apply this on the US Input -Output Tables, using 2012 as a convenient benchmark 
+year that precedes the US -China tariff actions , and further map these industry upstreamness 
+values to HS4 product codes with the concordance in Pierce and Schott (20 12).  
+ The upstreamness measure we compute takes on a minimum value of 1 and ranges up to a 
+maximum value of 4.58. An upstreamness value of 1 indicates that the entirety of the output of 
+that product is directly absorbed in final uses  (i.e., the product is exactly one stage removed from 
+final demand). Product s that have low upstreamness values include: automobiles, toys, furniture, 
+and apparel. On the other hand, products that have high upstreamness  values tend to go through 
+ 
+16 Note that the stable import share held overall by the EU (cum UK) masks some subtle shifts, as high- income trad e 
+partners  (Germany, France, the UK) have each lost market s hare to lower -wage source countries in Eastern Europe.  
+17 See also Antràs and Chor (2018) for a further discussion of the theoretical foundations and properties of the 
+upstreamness measure. Antràs and Chor (2013) and Alfaro et al. (2019) show that industry upstreamness is relevant 
+for understanding whether firms  tend to source inputs from that industry by integrating their supplier within firm 
+boundaries or via an arm’s -length outsourcing relationship instead.   
+ 11 multiple stages of production before they become final goods ; examples of these include: raw 
+materials and agricultural  commodities , as well as petroleum -related and chemical products. ( See 
+Appendix Table 1 for the upstreamness values of the US’ largest traded products.)  
+ To translate these into a country measure of import (respectively,  export ) upstreamness, we take 
+a weighted average of the product -level upstreamness values as follows:  
+ 
+𝑈𝑈𝑈𝑈𝑈𝑈,𝑡𝑡𝑀𝑀=∑𝑀𝑀𝑝𝑝𝑝𝑝
+𝑀𝑀𝑝𝑝𝑁𝑁
+𝑝𝑝=1𝑈𝑈𝑝𝑝,    𝑈𝑈𝑈𝑈𝑈𝑈,𝑡𝑡𝑋𝑋=∑𝑋𝑋𝑝𝑝𝑝𝑝
+𝑋𝑋𝑝𝑝𝑁𝑁𝑝𝑝=1𝑈𝑈𝑝𝑝.   (1) 
+ 
+where Mpt/Mt is the value o f imports of product p expressed as a share of the US’ total imports in 
+year t , and X pt/Xt is the corresponding share of product p in total US exports. A country’s import 
+(respectively, export) upstreamness naturally takes on higher values if a larger shar e of its 
+imports (respectively, exports) is composed of relatively upstream products that tend to be separated by multiple stages  from final demand.  
+ We illustrate the export and import upstreamness of the US over the two decades leading up to 2022. As seen in Figure 1, Panel A , the US’ exports are persistently more upstream than its 
+imports (in relation to final demand). This reflects the fact that the US’ main exports include such goods as electronic integrat ed circuits, machinery, and other goods- in-process that are sent 
+overseas for further assembly  and processing. Th e US’  export upstreamness has moreover risen 
+over this period, given the increases in the US’ agricultural exports and its transition to being a net exporter of petroleum products.
+18 In exchange, the US tends to import goods that are 
+relatively finished, which are then used in final consumption or investment in the US economy.19  
+ 
+Figure 1: US Export and Import Upstreamness (2002-2022) 
+A. All Products 
+  B. Less HS 27 (petroleum products) 
+  
+Notes: Authors ’ calculations  based on the methodology in Chor et al. (2021) , using UN Comtrade data and the 2012 
+US Input -Output  Tables . 
+ 
+18 From Appendix Table 1 , the US’ main exported products by 2017- 2022 average value include petroleum oi ls 
+(HS2709), petroleum gases (HS2711), soybeans (HS1201), electronic integrated circuits (HS8542), machines for 
+semiconductor manufacture (HS8486), motor vehicle parts (HS8708), and civilian aircraft (HS8800).  
+19 From Appendix Table 1 , the US’ main importe d products by 2017- 2022 average value include motor cars 
+(HS8703), telephone sets (HS8517), medicaments (HS3004), and furniture (HS9403). Note that there is a fair amount of two- way trade in some product categories, such as motor vehicles and various forms  of machinery.   
+
+ 12 Note that while there was a rise in the upstreamness of US imports leading up to 2007, this was 
+largely the result of the surge in oil prices following the 2001 dot -com recession until just prior 
+to the Global Financial Crisis; in particular, Panel B  confirms that the time series for the 
+upstreamness of US imports is much smoother when petroleum products (HS code 27) are excluded from the sample.
+20 It is moreover useful to point out that the US’ exports continue to be 
+more upstream on average than its  imports even when we restrict the construction of the country-
+level measures in (1) to products classified as manufacturing goods ( Appendix Figure 2 ), so the 
+high upstreamness of US exports is not driven by agricultural products per se . 
+ 
+3.4 Modes  of Globaliz ation : Trade and  FDI  
+ 
+Multinational corporations  (MNCs) have been instrumental in the growth of GVC s, given that a 
+good share of cross -border production and trade occurs between MNCs and their foreign 
+affiliates.  For example, u p to 40% of the value of US t rade takes place within the ownership 
+boundaries of MNCs .21 As we will see below, it is important to take multinational activity into 
+account, without which we would end up with an incomplete picture of the extent of the US’ supply chain links to key countries.   
+ While the US has in recent years been sourcing more  via trade from lower- income locations , the 
+bulk of its  foreign  direct investment (FDI) remains of a North -North nature , taking place with  
+countries with relative factor endowments and factor prices similar to the US ( Antràs and Yeaple 
+2013;  Alfaro and Charlton 2009) .
+22 Japan has been the leading source of FDI for the US, 
+accounting for close to 15% of the stock of all US inward direct inves tment; this is followed by 
+Germany, Canada, and the UK (10- 13% each), and Ireland and France (around 7% each). These 
+nations, along with the Netherlands  and Switzerland , contribute roughly 70 -80% of FDI in the 
+US.23 More than 40%  of this inward investment  is in the manufacturing sector ; most of th is 
+investment is in industries where GVCs feature prominently in firms’ integration strategies, namely:  chemicals, computers and electronic  products , and transportation equipment . 
+ It is instructive to examine the trajectory of Japanese firms in US manufacturing over the last four decades, as this illustrates various mechanisms through which trade and institutional barriers 
+have shaped firms’ production and sourcing strategies . In th e post -war era, Japanese FDI in the 
+US consisted mainly of trading companies and financial institutions whose goal was to facilitate Japan’s trade with the US  (Wilkins 1990).
+24 But in the 1970s, amid escalating US trade deficits  
+and rising concerns over US protectionism , Japanese firms started to establish production 
+ 
+20 The price of a barrel of West Texas intermediate crude rose from $26 to $99 during this time; prices from the US 
+Energy Information Administration, retrieved from the Federal Reserve Bank of St. Louis, FRED.  
+21 From the US Census Bureau  Related Party trade database, for the year 2021.  
+22 Beyond the US , the picture is more nuanced . From the IMF CDIS database (stock, BOP FDI positions), around half 
+of all FDI assets globally are North -North in nature, and this share has been stable over our period of study. From  fDi 
+Markets data (flows, greenfield projects), North -South FDI in the manufacturing sector has instead grown in 
+importance in terms of both count s and capital expenditures.  See Horn et al.  (2021, 2022) and Alfaro and Kanczuk 
+(2022) for the role of China as an international lender .   
+23 Data from the US Bureau of Economic Analysis, for 2022; by country of the ultimate beneficial owner.  The total 
+inward position in the US of FDI from abroad was close to $5.25 trillion at the end of 2022, while that of US FDI 
+abroad was close to $6.58 trillion.  
+24 Mitsui & Co ’s New York office in 1870 was the earliest recorded Japanese FDI. See Wilkins (1990) and Yoshino 
+(1974) for a historical overview, and for later trends, see Oldenski and Moran (2015).  
+ 13 facilities  in the US  to get around potential import barriers against goods made in Japan . An 
+antitrust lawsuit prompted S ony to break ground in 1971 on the first Japanese manufacturing 
+factor y. Similarly, a n antitrust case against NEC in 1975 ( though later dismissed) jolted  the 
+semiconductor sector, resulting in NEC purchasing its first American company in 1978.25 In 
+anticipation of protectionist measures, major Japanese electronics firms set up US production 
+facilities via acquisitions and green field investments.26 This pat tern was repeated in the 
+automobile sector:  In the 1980s, Japan ese car manufacturers responded to the threat of US 
+protectionism by “voluntarily” limiting their exports to the US, moving their production for the American market to US factories , and upgradi ng their products.
+27 
+ This discussion brings forth two main implications. First, as a “mode” of globalization, FDI can either function as a complement or substitute to trade. F irms can  replicate  a subset of activities 
+overseas by setting up plants and directly selling to the foreign market instead of exporting 
+(horizontal FDI). But firms can also exploit GVCs via vertically -integrated plants ( vertical FDI ); 
+if different stages of production are fragmented across country borders , trade in intermediate 
+inputs is a complementary part of the rise of such multinational activity.  Bearing this in mind, 
+decreases in trade or in a country’s share of US imports need not signify deglobalization, since 
+firms may be catering to the US market through an alternative “mode”  (e.g., horizontal FDI).  
+ Underscoring this point, Figure 2 combines data on multinational affiliate sales in the US (from 
+the Bureau of Economic Analysis) together with the data on imports  (used in the preceding 
+sections) .
+28 The affiliate sales of foreign -owned multinationals were three  times the value of US 
+direct imports in 1995. While this ratio of affiliate sales to imports slipped to around two in 2020, affiliate sales for MNCs from advanced economies like Japan, Germany, the UK, and France still vastly exceed imports from those countries  (see also Appendix Table 2 ).  
+ Looking more specifically at the case of Japan, after accounting for affiliate sales in addition to import penetration, the share of sales  of Japanese origin in the US market  is around 14% . Put 
+otherwise , the 5% share that Japan holds in US imports (reported earlier in Table 2 ) likely 
+understates the continued role that Japanese goods and supply chains play in the US economy. Moreover, after accounting for affiliate sales, advanced economies clearly hold a much larger share than China in the US market, reflecting the relatively low level of affiliate sales by China -
+owned multinationals in the US.   
+ 
+25 Hitachi, Fujitsu, Toshiba, and Mitsubishi opened plants between 1979 a nd 1983. As a result of US Defense 
+Department concerns, several Japanese corporations –  including Toyo Bearing in 1971 and Fujitsu in 1988 –  opted 
+instead to start their own factories on US soil.  
+26 Matsushita set up domestic facilities in 1974, Sanyo in 1977, Toshiba in 1978, and Sharp and Hitachi in 1979.  
+27 Honda transitioned its motorcycle plant to cars in 1982; Nissan, Isuzu- Subaru and Toyota followed in 1983- 1988. 
+See jama.org. Interestingly, Japanese industrial policy did not explicitly target passenge r vehicles as a high -priority 
+sector nor did it directly support Honda: the 1961 Specified Industry Promotion Bill aimed for only Toyota and Nissan 
+to export large cars and sought to merge smaller manufacturers (see Spar 1988).  
+28 The US Bureau of Economic Analysis does not disclose information from select data cells for confidentiality 
+reasons; such instances of redactions are denoted by a black dot in Figure 2 . The MNC sales used are for nonbank 
+affiliates from 1990 -2006. From 2007 onward, the data are for  nonbank affiliates for Canada, Japan, Germany, the 
+UK, and France, but includes bank affiliates for all other economies. The figure is qualitatively similar if data on all affiliates (bank and nonbank) is used consistently throughout the period (available  on request).   
+ 14 Figure 2: US Imports and MN C Affiliate Sales, by  Source Country, USD bn  (1991- 2020)  
+ 
+Source: BEA ; data downloaded in July 2023 . Black dots indicate multinational affiliate sales data that are affected 
+by disclosure redactions.  The source country for MNC affiliate sales refers to the country of the ultimate beneficial 
+owner. MNC sales are for nonbank affiliates from 1990 -2006 . From 2007 onward, the MNC sales data are for 
+nonbank affiliates for CA, JP, DE, GB, and FR , but include bank affiliates for all other economies.  
+ 
+Second, the experience of Japan’s MNCs shows that firms turned to FDI as a strategy both to 
+navigate host -country restrictions on trade, as well as to mitigate the effects of rising production 
+costs at home. In particular, the threat of US tariffs on Japan prompted Japanese firms to expand their manufacturing capabilities in the US,  and ever -rising costs at home eventually led many 
+Japanese firms to relocate production also to lower -cost countries in Asia.
+29  
+ There are some lessons to be drawn here for the current situation with China. Given the 
+prevailing geopolitical climate, it seems improbable  that China will be able to emulate the US -
+based production approach that Japanese MNCs successfully implemented in terms of speed, scale, or scope. W e will nevertheless see in Section 4.4 that there are already signs that Chinese 
+firms have been expanding their FDI footprint in lower -cost locations, through which they 
+potentially remain connected with US supply chains.  
+ 
+4 The “Great Reallocation” in Global Supply Chains  
+ 
+In this section, we focus on key developments in the pattern of global supply chain activity over 
+the last five years (2017- 2022). Even as overall trade volumes have been resilient following the 
+recent wave of policy and economic shocks, a significant reallocation in global supply chains has 
+been set in motion, most notably along the dimension of sourcing partner countries. We document the key shifts  both at the country level, as  well as in the cross -product variation.  
+ 
+ 
+29 The first round of Endaka or high yen following the Plaza Accord of 1985, led Japanese firms to produce in the 
+US, while the second round in the mid- 1990s, led them to Asia . 
+
+ 15 4.1 Trade Patterns : Reallocation across Partner Countries  
+ 
+Figure 3 presents the year -to-year evolution of  the share in US imports held by the US’ top trade 
+partners ( based on the value of total US imports by source country in 2017). This is illustrated 
+for the years following the Global Financial Crisis , i.e., 2012- 2022; this can be further divided 
+into two s ubperiods  of interest, respectively prior to and following the introduction of the US -
+China tariffs in 2017. At a broad level, the figure confirms the gradual shift in US imports away 
+from richer and toward lower -income source countries : In the run- up to 2017, US import shares 
+were rising for China, Mexico, and Vietnam. H owever , China’s import share peaked in 2017 at 
+21.6% , while that for Mexico and Vietnam continued to register steady growth.  
+ The years following 2017 were marked by a se ries of shocks to the global economy, including 
+the US -China tariffs and the Covid- 19 pandemic. By 2022 though, world trade flows were 
+rebounding strongly.
+30 In level terms, the US’ imports from China in fact expanded from 
+approximately $505.1 billion in 2017 to $531.3 billion in 2022; t his represents an annual nominal 
+growth rate of 1.2% . This growth came despite the sharp ups -and-downs in trade volumes in the 
+intervening pandemic years, and despite the fact that Chinese goods were losing ground relative to imports from other source countries in the US market  during these five years.
+31 
+ 
+Figure 3:  Evolution of US Trade Partners ’ Import Market Shares  
+ 
+Source: UNComtrade. Top trade partners in 2017. Data Downloaded in April 2023.  
+ 
+30 With the large year -to-year swings observed in trade flows at the height of the Covid- 19 pandemic, one needs to 
+exercise caution about start and end dates when computing changes over time, to avoid comparisons that might be 
+skewed by the peak- pandemic yea rs.   
+31 At the same time, US exports to China expanded at an annual rate of 3.4% from $129.9 billion in 2017 to $154.0 
+billion in 2022. The US’ trade with most of its significant trade partners grew in level terms between 2017- 2022. In 
+2022, US imports wer e lower than in 2017 for only Venezuela, H ong Kong, Russia, Nigeria, Kuwait, and Iraq ; for 
+US exports, these were lower than in 2017  for Hong Kong,  Russia, Saudi Arabia, Venezuela, Kuwait, Afghanistan, 
+and Norway . 
+
+ 16 Figure 4 underscores the reallocation in sourcing patterns that has occurred, by zoom ing in  on 
+the change in import share in 2017 versus  2022 for the same set of top US trade partner countries 
+(as in Figure 3 ). Despite the growth in absolute levels , China ’s imports  witnessed a significant 
+loss in market share of around 5 percentage points . As seen from the figure and documented by 
+others ( Bown 2022;  Grossman et al. 2023;  Freund et al. 2023; Fajgelbaum et al. 2023) , countries 
+in Asia have emerged as big winners. Vietnam emerged  as the most significant gainer, with a 
+close to 2  percentage point increase in its share of US imports . Higher -income East Asian 
+economies  such as Taiwan and Korea , and South Asian countries s uch as India , registered more 
+modest but still noticeable gains . Despite their already high import share, NAFTA nations , 
+particularly Mexico, also emerged as beneficiaries ; Canada even experienced a revers al in its 
+declining share of the US market. Elsewhere  though, Japan and other high- income European 
+countries, such as Germany, the UK, France, and Italy, saw their share of US imports continue to 
+fall.32 
+ 
+Figure 4:  Changes in US Import Market Share  
+ 
+Source:  UN Comtrade. Data Downloaded in April 2023.  
+ 
+ 
+4.2 Reallocation across Product s and Partners  
+ Thus far, we have shown that the US has been moving away from China as a source of its imports.  We now show that this reallocation toward other source countries, including Vietnam 
+and Mexico, is evident across a wide range of traded products.  
+ As a first take, Figure 5  visually represents  the shifts in import market share within four sectors 
+often c entral to US trade and policy discussions: automobiles, auto parts, electronics, and 
+semiconductors. In these sectors, direct imports from China are significant , except in finished 
+ 
+32 Due to the health emergency  during the pandemic , trade in vaccines and other pharmaceutical products 
+intensified ; the increase in trade in such products (HS codes 3002 and 3004) accounts for the rise in Ireland’s and 
+Switzerland’s share of US imports.  
+
+ 17 automobiles. The decline in China’s import share after 2017  is clear in auto parts, electronics, 
+and semiconductors. The figure  further highlights the gains by Mexico and Vietnam across these 
+key product categories (except in autos, where imports by the US from Vietnam are negligible). 
+In semiconductors, high- income economies  in Asia , such as Taiwan, have seen a notable 
+increase in their market share.   
+Figure 5: Change in US Import Market Share (2017-2022) 
+Auto s, Auto Parts, Semiconductors, and Electronics  
+ 
+Source: UN Comtrade. Sectors correspond to the following NAICS codes , which are matched to HS using the  Pierce 
+and Schott (20 12) concordance. Autos (less parts): Motor Vehicle Manufacturing  (3361), Motor Vehicle Body and 
+Trailer Manufacturing  (3362); Auto parts : Motor  Vehicle Parts  Manufacturing  (3363 ); Semiconductors:  
+Semiconductor and other Electronic Component Manufacturing ( 3344), Semiconductor Machinery Manufacturing 
+(332442); Electronics and Electrical: Computer and Electronic Product Manufacturing (334)  less 3344, Electrical 
+Equipment, Appliance, and Component Manufacturing (335).  
+ 
+Looking at more specific products, China lost import market share between 2017-2022 in such 
+key items as telephone sets (HS 8517, close to 16.4 percentage points) and machinery (HS 8473, 
+around 46.6 percentage points). Pr oducts such as tapes (HS 8523), printing machines (HS 8443), 
+monitors (HS 8528), electrical equipment (HS 8504 and 8543), apparel (HS 6110) and footwear 
+(HS 6403) also saw decreases in the China share of US imports ( of between 9.7 to 39.3 
+percentage points each ).33   
+ We now present more systematic regression -based evidence of these trends . We approach this by 
+exploring whether product- level changes in the US’ share of imports from China are correlated 
+with changes in the import shares and other observable dimensions of the US’ imports from third -countries, particularly from Vietnam and Mexico.  
+ 
+ 
+33 On the other hand, p roducts where China g ained share  in US imports during this period include: electric storage 
+batteries (HS 8507) , medicaments (HS 30 02 and 3004), and diagnostic  reagents  (HS 3822) . 
+
+ 18 For this purpose, we use the following specification: 
+ 
+∆yp,22-17 = β1∆CHNsh p,22-17 + β2∆yp,17-12 + D p0 + εp ,                                 ( 2) 
+ 
+where ∆CHNsh p,22-17 is the change between 2017- 2022 in the share of the US’ imports of HS4 
+product p that are from China.  
+ 
+The variable y denotes product -level outcomes drawn from the UN Comtrade data. For a start, 
+we will explore as the dependent variable ∆yp,22-17 the corresponding five -year change in the US’ 
+import share of product p from other source locations. As we have seen in Figure 3 , the import 
+shares from specific partner countries might exhibit pre -trends in the US’ propensity to source 
+from that location, and so we also control in ( 2) for the lagged five -year change (between 2012 -
+2017) in this outcome variabl e. The regression furt her includes HS2 fixed effects (denoted by 
+Dp0) to account for differences in product characteristics at this broader level.  
+ 
+Note that we focus on a five -year difference rather than on year -to-year changes in trade patterns 
+which have been very volatile over this period of study. In other words, we should interpret the 
+regression as an assessment of the cumulative impact of the various major shocks – the US -
+China tariffs, and the Covid- 19 pandemic – that have occurred during the  five-year period. The 
+estimated coefficient β1 is thus intended to capture at a descriptive level how shifts in the 
+propensity to import from China are correlated with shifts in the propensity to import from alternative source locations . 
+ 
+Table 3: Change in US Import Share ( 2017- 2022 ) 
+ 
+  
+Table 3 reports these regression results . We have grouped the alternative import locations as 
+follows in successive columns: (i) Vietnam; (ii) Mexico; (iii) Canada; (iv) a set of four low -wage 
+Asian economies (India, Indones ia, Malaysia, Thailand); (v) a set of high -wage Asian locations 
+(Korea, Singapore, Taiwan); (vi) Ireland and Switzerland ( from which there was an increase in 
+import s of pharmaceuticals and medical goods); and (vii) the rest of the world. We use 
+
+ 19 regression weights equal to the initial 2017 value of HS4- digit imports from China, and we 
+report standard errors clustered by HS2- digit codes.  
+ 
+The negative and significant β1 coefficient in Columns 1 and 2 implies that the share of US 
+imports from Vietnam and Mexico (respectively) indeed rose on average for products that saw a 
+decline in the share imported from China. This confirms that the reallocation of import shares away from China is not just anecdotal but rather a systematic feature in the pattern of US product -level imports. We see this pattern of substitution away from China play out too in favor 
+of the other key import partners (Columns 3- 6); note that after accounting for these alternative 
+source locations, the share of US imports for the residual rest -of-the-world category does not 
+respond significantly to changes in the import  share from China. When considering instead the 
+log value (rather than the share) of imports for the outcome variable y, Appendix Table 3 
+verifies  that product -level decreases in the import share from China were accompanied by a 
+broad increase in the value of imports from across many other source countries, including Vietnam and Mexico (Columns 1- 2). 
+ In what follows, we will take a closer look at these two alternative source countries, Vietnam and Mexico, which a re emblematic of “fri endshoring” and “nearshoring.”  As mentioned earlier, 
+Vietnam saw the most significant market share gain from the US’ shift away from China, while Mexico has seen its share of US imports steadily rise since the 1990s and particularly in the past 5 to 10 years ( Figures 3 and 4).   
+ 
+Figure 6:  Correlations  between  Import  Share from China versus Vietnam and Mexico  
+(2017- 2022)
+A: Vietnam 
+ B: Mexico  
+ 
+Notes: Residualized scatterplots  based on the specification in ( 2), with the 2017 -2022 change in the Vietnam 
+(respectively, Mexico) share in US imports on the vertical axes. For the t op 300 HS4- digit products by 2017 import 
+value from China.  
+ 
+ Figure 6  illustrates the negative relationship between shi fts in import shares from China, on the 
+one hand, and shifts in import shares from Vietnam and Mexico, respectively, focusing on the 
+
+ 20 top 300 products by the 2017 value of US imports from China.34 The figures moreover provide a 
+sense of the products in whic h Vietnam and Mexico picked up significant import share. Both 
+countries gained ground in various types of electrical and electronic equipment, such as 
+microphones (HS 8518), electric generating sets (HS 8502) , and telephone sets (HS 8517)  in the 
+case of Vietnam, and discs, tapes and storage devices (HS 8523) and calculating machines (HS 
+8470) in the case of Mexico. But there have also been differences in the product mix of the 
+observed shifts. Vietnam’s import share in plastic floor coveri ngs (HS 3918) and various forms 
+of apparel (HS 6112, 6114) rose more than for the average product. Likewise, Mexico ’s import s 
+in automobiles and automobile parts ( HS 87) , as well as glass, iron, and steel products (HS 7007, 
+7308, 7310) , performed particularly well.   
+ 
+On a related note, we show i n Appendix Table 4  that this negative relationship with changes in 
+the import shares of Vietnam and Mexico is  robust  if we remove petroleum -related products (HS 
+codes starting with “27”); if we were to run a purely cross -sectional regression without HS2 
+fixed effects; or if we were to focus on just the top 300 products by value that were imported by the US from China in 2017.   Heterogeneity in responses: Table 4 further explores the  heterogeneity in product -level 
+responses across Vietnam and Mexico, vis -à-vis which products gained more  import share in the 
+US market  following decreases in the import share held by China . We do so by augmenting the 
+regression specification in ( 2) with interaction terms with several product -level characteristics of 
+interest, specifically: the upstreamness of the product p, the labor share ( computed from 2012 US 
+Input -Output  Tables),  and the tariff on Chinese imports of product p imposed by the Trump 
+administration.
+35  
+ The results reveal interesting differences when comparing which products in Vietnam and Mexico experienced greater shifts in their market shares in tandem with corresponding decreases in China’s import share. For Vietnam, a greater increase in its import s hare is seen for products 
+that are more upstream, that have a lower labor share, or that saw their imports from China hit with higher US tariffs (Columns 1- 4). This is broadly consistent with the observation that 
+Vietnam was, during these years, shifting m ore into the production of electrical and electronic 
+parts and components that are relatively more upstream and less labor -intensive compared to 
+goods (such as textiles) that it had previously been exporting. ( Appendix Figure 3 provides 
+corroboration for this finding that Vietnam has been inserting itself into progressively more upstream stages in US supply chains. There, we show using a trade -weighted measure analogous 
+to (1) that the upstreamness of Vietnam’s bilateral exports to the US  has been rising, particularly 
+over 2017- 2022.)   
+   
+ 
+34 To generate these scatterplots, we follow the specification in ( 2) to residualize each horizontal and vertical axis 
+variable by the variation explained by HS2- digit fixed effects and the respective lagged dependent variable in each 
+panel, while weighting by the initial value of product -level imports from China.   
+35 The upstreamness measure is as described in Section 3.3; the labor share measure is computed as the ratio of 
+employee compensation to total output, as computed from the 2012 US Input -Output Tables, and mapped to HS4 
+product codes using the Peirce and Schott (2012) concordance (in an analogous manner as for the upstreamness 
+measure); the tariff measure is based on Bown (2021), as processed by Chor and Li (2021).  
+ 21 Table 4: Change in US Import Share for Vietnam and Mexico (2017 -2022)  
+Interaction Terms with Upstreamness, Labor Share, US Tariffs  on China  
+ 
+ 
+ For Mexico , on the other hand, the increase in import share has been more pronounced in 
+products that are less upstream, that feature a higher labor share, and whose imports from China were subject to higher US tariffs ( Columns 5- 8). That Mexico’s imports increased in relatively 
+less upstream products could be a by- product of its proximity to the US, and hence it s being a 
+natural location for the final stages of assembly of goods, such as motor vehicles, destined for the US market.  
+ Interestingly, the one common thread uncovered for both Vietnam and Mexico in Table 4  is the 
+negative and significant interaction effect involving the US product -level tariff on China, a 
+finding which underscores the policy- driven nature of this reallocation in the US’ sourcing 
+patterns away  from China.  
+ Implications for unit prices:  Table 5  provides hints that the reallocation in the pattern of 
+imports is likely already hav ing an impact on the prices of goods that arrive in the US  from these 
+alternative source countries . We run here the specification in ( 2), but use instead log product -
+level unit values – calculated as the value of import flows divided by recorded quantity – as the outcome variable y. 
+ 
+
+ 22 Of note, we find that decreases in the share of imports obtained from China are associated  with 
+increases in the unit values of goods purchased by the US from Vietnam and Mexico (Columns 
+1-2).36 This suggests that either cost -push or demand- pull factors associated with the rise in US 
+import purchases from Vietnam and Mexico have contributed to increases in goods prices from these locations. It is useful to recall here that the trade- weighted average decrease across 
+products in the share of US imports from China is around 5 percentage points. Taking our point estimates in Table 5  at face value, o ur analysis indicates that such a 5 percentage- point decrease 
+in the China import share would be associated with non- trivial increases in the unit prices of 
+imports; the size of the implied increases is respectively 9.8% for Vietnam (Column 1) and 3.2% for Mexico  (Column 2). (Note that there is also a significant effect in Column 5 on the unit 
+values of imports from Korea, Taiwan and Singapore ; the size of this effect is smaller though, 
+with a 5 percentage -point decrease in sourcing from China being associated with a 2.3% increase 
+in goods prices from these locations.)  
+ 
+Table 5: Change in Import Unit Values (2017- 2022) 
+ 
+  Figure 7  displays this relationship with import unit values. Similar to Figure 6 , we focus on the 
+top 300 products by initial import  value  from China, and use the residualized log change in unit 
+values from Vietnam and Mexico as the respective vertical axis variables. The two panels clearly highlight the strong correlation across HS4 -digit products between decreased importing from 
+China and higher unit prices of goods from Vietnam and Mexico.  
+ These findings add a new dimension to a body of existing evidence on the price effects of the US tariffs on China. While it is now well -understood that the US tariffs have raised the unit prices of 
+goods imported from China with a near -complete tariff pass -through ( Amiti et al. 2019; 
+Fajgelbaum et al. 2020; Cavallo et al. 2021), the above findings suggest that trade diversion to countries such as Vietnam and Mexico has also been associated with quantita tively significant 
+ 
+36 We compute the change in unit values over time using the Davis -Haltiwanger -Schuh approximation to a log 
+change, in order to accommodate products which were not imported from Vietnam or Mexico in 2017, but for which 
+importing commenced in 2022.  
+
+ 23 increases in import prices from these alternative source locations. Although Amiti et al. (2019) 
+highlight the complexity of aligning trade data with Consumer Price Index data in a  
+comprehensive manner, it is likely that some portion of these rising prices from third -countries is 
+being passed on to the US firms or consumers purchasing these goods. This reinforces a concern that the policy -driven reallocation is likely to generate increased price and wage pressures in the 
+US. 
+ 
+Figure 7: Correlations  between  Import  Share from China versus Unit Values in Vietnam and 
+Mexico (2017- 2022) 
+A: Vietnam 
+ B: Mexico  
+ 
+ 
+Notes: Residualized scatterplots  based on the specification in ( 2), with the 2017 -2022 change in the log unit value of 
+US imports from Vietnam (respectively, Mexico) on the vertical axes. For the t op 300 HS4- digit products by 2017 
+import value from China.  
+ 
+ It has been argued that for several decades leading up to 2017, the correlation between prices and wage pressures in the US has been attenuated due to increased importing and outsourcing (Forbes 2019; Obstfeld 2019). Consequently, the recent policy restrictions to shift sourcing patterns or even to encourage substitut ion toward domestic inputs are poised to add to wage and 
+cost pressures in the US (Amiti et al. 2023; Comin et al. 2023).  
+ 4.3 Corroborating E vidence on Friendshoring and Nearshoring  
+ We provide two pieces of corroborating evidence that indicate that the c hanges in US import 
+patterns we have documented with trade data are indeed a reflection of purposeful decisions being made at the level of individual firms to shift activity away from China.   First, we examine the frequency with which the terms “friendshoring”, “nearshoring”, or “reshoring” appear in earnings conference calls conducted by listed firms, particularly when these terms are raised in the context of sourcing from China. This follows the novel work of Hassan et al. (2019)  and Hassan et al. (2021) , who demonstrate the feasibility of extracting this 
+textual data to identify business -relevant issues commanding the attention of corporations and 
+their investors. Figure 8 below illustrates the trends over time (by quarter) in the occurrence of 
+such term s that speak to potential  shifts in offshoring arrangements away from China; this draws 
+
+ 24 on the call transcripts in Refinitiv Eikon that have been processed by NL Analytics.37 While 
+these data are subject to the caveat that earnings calls are typically conducted only by listed firms 
+who need to engage publicly with their investors and stakeholders, these are nevertheless useful as a timely gauge of key issues of concern among m ajor companies.  
+ 
+Figure 8: Friendshoring/Nearshoring/Reshoring in Earnings Calls  (2005Q1- 2023Q3)
+A: Broad Trends  
+ B: By country 
+ 
+Notes: Friendshoring/Nearshoring/Reshoring in call transcripts in Refinitiv Eikon processed by NL Analytics ; 
+counts are three -quarter rolling averages.  
+ Figure 8 confirms a sharp rise in the use of phrases pertaining to friendshoring, nearshoring, or reshoring away from China. Two spikes are evident. The first coincides with the rise in US -
+China trade tensions in mid -2017 under the Trump administration through to the early phases of 
+the Covid- 19 pandemic in mid- 2020. After a short lull, there has been a resurgence in this topic 
+in earnings calls starting in 2022, suggesting that a significant number of firms are engaging in 
+discussions about their China sourcing strategies in light of the Biden administration’s continued use of discretionary tariffs and its public turn toward industrial policy. This increased attention 
+on whether to source from China was  driven by manufacturing companies ( Panel A) . Vietnam 
+features prominently – and Mexico to a lesser extent – among the countries that are mentioned 
+alongside  these discussions about shifting sourcing away from China ( Panel B ).
+38 
+ A second piece of corroborating evidence comes from the pattern of foreign direct investment 
+(FDI) flows , which as we have seen is an alternative mode through which firms can structure and 
+organize their participation in GVCs. Below, we use data from the Fi nancial Times’ fDi Markets, 
+which tracks news and announcements on new greenfield FDI projects around the world. What 
+fDi Markets observes is a limited slice of global FDI activity, given that it excludes mergers and 
+acquisitions. That said, with the high sunk and fixed costs that are incurred when firms undertake FDI, decisions over whether to commence greenfield FDI should, in principle , be particularly 
+sensitive to country policies that actively seek to reorient patterns of global production and sourcing. 
+ 
+37 Specifically, to capture text that speaks to a potential shift in sourcing from China to another country (sa y 
+Vietnam), our measure counts the number of occurrences of: (i) the root form of “reshor*”, “nearshor*”, or 
+“friendshor*” that appear in tandem with “China” and “Vietnam”, and: (ii) the phrase “China to Vietnam”.  
+38 The earnings call data unfortunately do not permit a breakdown by detailed manufacturing industries.  
+
+ 25  
+Figure 9:  US Outward Greenfield FDI (2005- 2022)  
+ 
+Source: Financial Times’ fDi Markets.  
+ 
+ In Figure 9, we illustrate trends over time in the counts of outward greenfield FDI projects from the US.
+39 Based on this measure, the US’ outbound manufacturing F DI was already on a 
+downward trend since the early 2010s, with (not surprisingly) a steady but marked decrease in greenfield projects in China ( Panel A ).
+40 This drop in FDI is visible across key sectors, including 
+automobiles, semiconductors, and electronics ( Panels B -D, respectively). In the case of 
+automobiles and electronics (excluding semiconductors), FDI to Mexico has noticeably taken up some of the sla ck. By contrast, there has not been a perceptible increase in greenfield FDI by US 
+firms in Vietnam, perhaps reflecting the higher costs of FDI associated with this more distant location. 
+ 
+What about FDI from the perspective of China?  Figure 1 0 shows that the greenfield FDI China 
+has received in the manufacturing sector has , in fact , been on the decline since the end of the 
+Global Financial Crisis. This is not driven by the fall in FDI from the US per se , but is instead a 
+broad- based decline from virtually all major FDI source countries into China, including the key 
+ 
+39 Using FDI values yields qualitatively similar patterns ( available on request) , although those illustrations are 
+noisier due to the presence of imputed observations on project capital expenditu res. 
+40 This is consistent with Ahn et al. (2023), who document a similar broad decline in global greenfield FDI, as well 
+as a shift in outward US FDI away from China toward countries which can be viewed as the US’ geopolitical 
+“friends”.  
+
+ 26 Asian actors (Japan, Korea, Taiwan), and Europe (Germany, France, and Great Britain).41 This 
+strongly suggests that the underlying causes are factors domestic to China which were in place 
+even pr ior to the US -China trade tensions; this likely includes rising Chinese wages, restrictions 
+on foreign ownership (such as joint venture requirements), or concerns over intellectual property protection.  
+Figure 10: Evolution of China’s Inward FDI Position, Manufacturing (2005- 2022)  
+ 
+Source: Financial Times’ fDi Markets.  
+ The apparent decline in US greenfield FDI in China is yet another symptom of the reallocation of 
+US economic activity away from Chinese shores . As of now however, we do not yet have a full 
+accounting of the extent to which US multinationals are relocating their operations to other host countries, nor of the extent to which they are onshoring production in domestic locations.   4.4 The Back Door: Does Friendshoring and Nearshoring Reduce Dependence?  
+ Although the US’ direct economic engagement with China through trade and FDI has been falling , especially since 2017, it is important to pose a “reality check” question: Has this 
+necessarily reduced the US’ dependence on supply chain links to China?  As discussed in Section 
+2, we do not yet have the data resources – such as updated World Input -Output Tables – to full y 
+identify and decompose the country sources of value added that are ultimate ly embodi ed in US 
+gross imports. That said, we report on several trends below , which indicate that the US’ indirect 
+supply chain links to China remain intact; along some dimensions – through China’s economic ties with Vietnam and Mexico – these indirect links have  even be en intensifying.  
+ On the trade front , both Vietnam and Mexico have strong trade ties with the US. Nearly a quarter 
+of Vietnam’s exports are shipped to the US. In the case of Mexico, the US is in fact its largest foreign  market , absorbing nearly 80% of all Mexico’s exported goods. 
+ 
+ 
+41 This decrease in  greenfield FDI in China can also be seen within key sectors, including autos, semiconductors, 
+and electronics (see Appendix Figure 4 ). 
+
+ 27 At the same time too, both Vietnam and Mexico have seen their import links with China step up 
+progressively over time. For Vietnam, goods from China were 9% of its total imports in 1994, and this has surged to 26% in 2010 and approximately 40% by 2022; the main items that China ships to Vietnam include integrated circuits, telephone sets, and textiles.  Between 2017- 2022, the 
+US di d see its share of Vietnam’s imports grow, but China made even more subst antial gains, 
+increasing its share by around 5.5 percentage points during this period ( Figure 11 , Panel A ). For 
+Mexico, the share of its imports that originate directly from China has grown considerably from 1% in 1994 to 15% in 2010 and 20% in 2022. Conve rsely, the proportion of Mexico’s imports 
+that are from the US has declined from 69% in 1994 to 44% in 2022. Over the last five years in 
+particular, China was the source country that gained the most import share in Mexico, with much of this coming at the expense of the US ( Figure 11, Panel B ). 
+ 
+Figure 11: Change in Import Market Share , Vietnam and Mexico  (2017 -2022)   
+A. Vietnam      B. Mexico  
+ 
+  
+ 
+Source: UN Comtrade.  For 2022, data on Vietnam’s bilateral imports were available  for a subset of countries ; data 
+for 2021 are used instead.  
+ 
+ This trend  is not confined to middle and lower -income countries. Figure 12  depicts the shift in 
+import market share from 2017- 2022 for the European Union’ s primary trade partners. China ’s 
+share of EU imports rose by nearly 2.7 percentage points during this time  frame, accounting for 
+approximately 20.9% of imports by 2022; the peak of Chinese import penetration in the EU was in fact 22.4% in 2020. By contrast, the US represents approximat ely 11.9% and only saw a 
+modest increase of 0.4 percentage points over the same period.
+42 Appendix Table 5  shows that 
+this pattern of rising Chinese import shares has been the pattern for the leading US trade partners , with the exception of Japan. To the e xtent then that Chinese firms ’ exports to these 
+other locations comprise parts and components that are then assembled into final goods and sent thereon to the US  market , China would ultimately continue to be a relevant player in the 
+upstream stages of US supply chains.
+43  
+ 
+ 
+42 In the United Kingdom, China also gained import market share (4  percentage points ) compared to the 2.7 
+percentage points  of the US (data f rom UN Comtrade).  
+43 Any such shifts that lengthen US supply chains by involving third- country locations are likely to require firms to 
+incur increased working capital costs (Kim and Shin 2023), adding to the cost pressures that might ultimately be felt 
+by final -good consumers.  
+
+ 28  Figure 12: Change in Import Market Share , European Union (2017- 2022)  
+ 
+Source: Eurostat  (EXT_LT_MAINEU ), Updated 15/06/2023.  
+ 
+ Turning to FDI , there is also evidence of a growing Chinese presence in the manufacturing 
+sectors of Vietnam and Mexico . China’s outward manufacturing FDI rose sharply in the mid-  to 
+late 2010s, although this came to a pause during the Covid- 19 pandemic. Looking more closely, 
+there is a modest but noticeable increase in Chinese FDI to Vietnam around 2018 (see the small bulge  in Figure 1 3); this timing is suggestive, as it is in line with narratives that some Chinese 
+firms set up operations in Vietnam in part to circumvent the US tariffs on direct exports from China. Of note too, there has been an uptick in China’s outward FDI  to Mexico over the last five 
+to eight years.  
+ 
+Figure 13: Evolution of China’ s Outward FDI Position , Manufacturing (2005- 2022)  
+ 
+Source: Financial Times’ fDi Markets.  
+ This pattern of rising FDI by Chinese firms in Vietnam and Mexico is borne out  too in the data 
+that is available from these respective countries. Let us start first with Mexico, for which the 
+
+ 29 available national statistics on inward FDI is more detailed and up -to-date.44 The US has an 
+entrenched position as the largest source country for FDI into Mexico, with US firms accounting 
+for slightly more than 50% of the value of all inbound manufacturing FDI in Mexico in 2022. As 
+for China, in line with the trends from the fDi Markets database, the value of Chinese FDI in Mexico has indeed pi cked up: Chinese firms’ direct investment in the Mexican manufacturing 
+sector grew fivefold from US$31.6 million in 2017 to US$151.5 million in 2022. The vast 
+majority (close to three -quarters) of this Chinese inward FDI between 2017 -2022 has been in two 
+industries that are particularly relevant for GVCs , namely: computer and p eripheral e quipment 
+(NAICS 3341)  and m otor vehicle parts (NAICS 3363).
+45 Admittedly though, Chinese FDI in 
+Mexico is taking off from a low base – in 2022, China’s share in all manufacturing FDI flows 
+into Mexico was slightly over 1% – so it will be interesting to monitor how large a player China eventually becomes in Mexican F DI. 
+ 
+The FDI data for Vietnam are less widely available, but if anything, the role of China as a source 
+of inward FDI into the country is even more pronounced. Using proprietary Vietnam Annual Enterprise Data, McCaig et al. (2022) report that China’s share of inward FDI by value rose from 0.004% in 1999 to 7% in 2017 (see their Figure 4). Public data from Vietnam’s General Statistics Office confirm that this trend has been sustained even through the Covid- 19 pandemic: China’s 
+share by value of all FDI projects granted licenses by Vietnam in 2021 was 7.7%. By comparison, US multinationals have a smaller presence in Vietnam, with a 2% share of all new FDI projects in 2021.
+46 
+ Chinese firms have thus been increasingly active as a source of FDI into  both Vietnam and 
+Mexico, with the timing of this rise coinciding with the US’ imposition of discretionary tariffs on direct imports from China. Although we have argued that China may find it challenging to replicate the US local production strategy adopte d by Japanese firms in the 1970s and 1980s  as 
+outlined in Section 3.4, it is nevertheless catering to the US main trade partners via exports and FDI. The upshot of this is that even though the US may be reallocating its sourcing and imports 
+toward Vietnam and Mexico, it may de facto remain connected with and dependent on China through third- countries , including through Vietnam and Mexico. These indirect supply chain 
+links that the US may be retaining with China deserve closer investigation as more detailed data 
+comes to light.  
+ Before proceeding to the next section, it is useful to highlight that this “great reallocation” away from China is likely to be highly consequential for domestic economic outcomes within Vietnam and Mexico. Already, there is anecdotal evidence that the expansion of manufacturing activity has pushed up workers’ wages and industrial real estate rents in both Vietnam (New York Times, 1 September 2022) and Mexico (Kearney 2022). Several more formal empirical studies have also emerged that exploit the variation across industries or districts in Vietnam in their exposure as a 
+ 
+44 The data are obtained from the Government of Mexico, Secretary of the Economy, Economic Global Intelligence 
+Unit, July 2023 version, available at: https://www.gob.mx/se/acciones -y-programas/compe titividad -y-normatividad -
+inversion- extranjera- directa?state=published.  
+45 This upward trend in Chinese FDI in Mexico is corroborated by media reporting; see for example “Why Chinese 
+Companies Are Investing Billions in Mexico” in The New York Times (3 Feb 20 23) and “Chinese Firms Skip Over 
+US Tariffs by Setting Up Shop in Mexico” in Bloomberg (14 Sep 2022). Both news articles draw a direct 
+connection from the Trump administration’s tariffs on China to this rise in Chinese firm FDI in Mexico.  
+46 See: https://www.gso.gov.vn/en/px- web/?pxid=E0416&theme=Investment  
+ 30 third -country standing to benefit from the US’ imposition of tariffs on China. These have found 
+positive responses in employment, hours worked, and wages, particularly for women (Mayr-
+Dorn et al. 2023, Rotunno et al. 2023), as well as in transitions from informal agriculture to formal manufacturing work (Nguyen and Lim 2023). Note though that these should be viewed strictly as short-run responses, given that the Vietnam Labor Force Survey data these studies use is available only up till 2020; future work to determine how long- lasting these consequences are 
+would clearly be useful.
+47  
+ 5   Reallocation of Domestic Production: Evidence from Business Patterns  
+ Is the “great reallocation” away from China prompting a reshoring of US economic activity? W e 
+take a brief look in this section at emerging trends in the US manufacturing sector to address this question. We draw on data from the Bureau of Labor Statistics, on establishment and employee counts by industry; this data is updated regularly and provide us with snapshots of the state of manufacturing in the US up till the end of 2022. Overall, there are tentative signs of an uptick in manufacturing activity in several subsectors, particularly in semiconductors, although we should stress that this prognosis should be seen as a preliminary one: The developments and shifts in the US manufa cturing sector are clearly ongoing, and what we are seeing are likely just the early-
+stage responses to the industrial policies introduced in the past two years.   
+The US manufacturing sector employed close to 12.9 million workers at the end of 2022, 
+repre senting 3.4% of all establishments and 9.9% of total employment in all private industries .48 
+From 2017-2022, manufacturing employment increased by 2.8% in the whole period for an 
+average growth rate of 0.6% ( Table 6). However, manufacturing’ s share of total private sector 
+employment decreased marginally by 0.2 percentage points, from 10.1% in 2017 to 9.9% in 
+2022; this is slightly less than the 0.5 percentage point decrease observed in the preceding five 
+years  (2012-2017).  
+ 
+We focus on several sectors that have drawn attentio n of late  in the calls to bolster domestic 
+manufacturing capabilities , namely: automobiles, automobile parts, electronics, and 
+semiconductors. In December 2022, these four sectors comprised 19.8% of manufacturing 
+employment, a slight increase from 19.5% in 2017 ; these sectors also accounted for 11.4% of all 
+establishments in 2022, up from 10.6% in 2017 ( Table 6 ). Given the spotlight placed on the 
+importance of domestic manufacturing jobs in recent debates about reshoring, it is useful to point 
+out that these sectors differ substantially in their labor intensity: The ratio of employee 
+compensation to intermediate input use is around 2 in electronic computer manufacturing 
+(NAICS  33411), but this ranges downward to 1.3 in  semiconductor manufacturing (NIACS 
+334412), 0.45 in machinery manufacturing for semiconductors (NAICS 33422), 0.2 in auto and 
+auto parts (NAICS 3361, 3362, 3363) and  just 0.04-0.08 in truck manufacturing (NAICS 
+336112, 336120).  
+ 
+47 On a related note, Utar et al. (2023) is one of the first studies to use Mexican firm -level customs data to document 
+an apparent increase in exports to the US by firms that are participants in Mexico’s export platform program, in 
+response to the US tariffs on China. This would be consistent with “nearshoring”, and there is scope for work to be 
+done to link this finding to firm -level employment and wage outcomes  within Mexico . 
+48 Total employment across all industries was close to 112.3 million in 2012, 124.0 million in 2017, and 130.5 
+million at the end of 2022. The total number of establishments in these same years went from 8.87 million, to 9.64 
+million , to 11.48  million, respectively.  
+ 31 Table 6: Establishment and Employment Counts (2012, 2017, 2022) 
+Autos, Auto Parts, Electronics, and Semiconductors  
+ 
+Notes: BLS. Quarterly Census of Employment and Wages. Data from  December of each year. Sectors correspond to 
+the following NAICS codes matched to HS using the Pierce and Schott (2012) concordance. Autos (less parts): Motor 
+Vehicle Manufacturing (3361), Motor Vehicle Body and Trailer Manufacturing (3362); Auto parts: Motor Vehicle 
+Parts Manufacturing (3363); Semiconductors:  Semiconductor and other Electronic Component Manufacturing ( 3344), 
+Semiconductor Machinery Manufacturing (332442); Electronics and Electrical: Computer and Electronic Product 
+Manufacturing (334) less 3344, Electrical Equipment, Appliance, and Component Manufacturing (335).  Average 
+growth rates  are reported . Sector shares are of manufacturing employment. aPrivate manufacturing shares are to total 
+employment.  
+ 
+At first glance, it would appear that each of the four sectors has experienced some upturn (to 
+varying degrees) in terms of both establishment and employment counts between 2017-2022. 
+The one exception to this would be employment in the auto parts sector (which fell 1.1%), 
+though it should be noted that this was a sector particularly hard-hit by disruptions during the 
+Covid-19 pandemic. ( Appendix Figure 5 plots in more detail the evolution over time in these 
+establishment and employment variables – in both level terms and when expressed as a share of 
+total manufacturing activity – for each of the four sectors.)  
+ 
+Note, however, that one cannot entirely  attribute these changes to policy developments – such as 
+the US -China tariffs , the Inflation Reduc tion Act,  or the CHIPS Act – that have occurred only in 
+the past five years . There is in particular a stronger positive pre-trend in the automobile and auto 
+parts industries: Both of these sectors experienced employment growth (4.9% and 3.6%, 
+respectively)  in the preceding five years (2012-2017), which likely reflects the rebound from 
+policies enacted during the Global Financial Crisis to revive and support the auto industry and its 
+supplier network.  
+ 
+ 32 On the other hand, the trends in electrical and semicon ductor manufacturing point to hints of a 
+bottoming out in these sectors. These two sectors witnessed  a decline in employment between 
+2012-2017, but worker headcounts have since picked up in 2017-2022, expanding by 0.8% in 
+electrical manufacturing and by 1.9% in semiconductors. This five -year change, though, masks a 
+good amount of volatility: Appendix Figure 5 shows that employment in electrical 
+manufacturing actually suffered during the onset of the Covid-19 pandemic in 2020 before 
+bouncing back by 2022; on the other hand, much of the increase in semiconductor employment 
+has come in the past two years (since 2021), in line with the Biden administration’s push to 
+bolster domestic  manufacturing capacity in this strategic industry.49  
+ 
+On balance, there are some tentative signs in the data of reshoring in that establishment, and 
+employment counts have picked up in recent years in manufacturing sectors that have been the 
+focus of US industrial policies. That said, there is some unevenness across sectors in the precise 
+causes and timing of this apparent turnaround, and much rem ains to be seen as to how strong and 
+sustainable these recent trends are moving forward. 
+ 
+6  Conclu ding Discussion  
+ 
+In this paper, we provide a comprehensive analysis of the evolution of global value chains with a particular focus on the post-2017 period, a time of unparalleled upheaval  struck by both the US-
+China tariffs and the Covid-19 pandemic. We rely on readily available data such as product- level 
+trade statistics, measures o f upstreamness, greenfield FDI announcements, earnings call 
+transcripts, along with recent information on employment and establishments in US manufacturing. We paint a wide-ranging picture of the evolving pattern of US participation in GVCs across different partner countries, products, and modes, and describe how this reflects recent shifts toward frien dshoring, nearshoring, and reshoring. 
+ Rather than signaling a trend towards deglobalization, the available data hints at a looming “great reallocation” of US supply chain activity. This shift is marked by a decline in direct US sourcing from China, with a corresponding rise in import share from low -wage locations, chiefly 
+Vietnam, and regional trade areas, particularly  Mexico. While US imports have become more 
+upstream in their production line positioning, suggestive of the reshoring of production stages, the economic activity data presents a m ore nuanced picture. The semiconductor sector, for 
+example, has shown a resurgence post-2021, while other sectors display changes that either precede 2017 or have yet to regain a loss in overall market share. These trends are subject to lags and delays in policy effects, and as fresh data unfolds, a reevaluation of these patterns will eventually be needed.  We also illustrate through our analysis that recent policy efforts may ultimately not succeed in their objective to reduce US dependence on supply chains tied to China. Despite a decrease in 
+the US ’ direct reliance on China, there has been an increase in China’s import share in “friendly” 
+nations, including the EU, Mexico, and Vietnam. And, although geopolitical forces may prevent China from circumventing  policy restrictions via domestic production in the US through FDI (as 
+Japan did in the 1970s and 1980s), Chinese firms are stepping up FDI and production facilities in 
+ 
+49 New semiconductors factories feature prominently among the sectors highlighted on the White House’s 
+“Investing in America” website: https://www.whitehouse.gov/invest/  
+ 33 Vietnam and Mexico in critical sectors, albeit from a low base. This suggests that plan ts in which 
+China is the ultimate owner may continue to play a significant role in US value chains.  
+ 
+A second concern we register is that this push toward reallocation will incur costs. Conceptually, policies that reallocate economic activity away from the ir market -determined equilibrium will 
+incur static welfare losses.
+50 Already, there is evidence from the literature that the US tariffs have 
+been costly from a consumer surplus perspective, as these have raised unit prices of imports from China. We have supplemented this with further evidence that the US tariffs have also raised uni t 
+import prices from alternative source locations, principally Vietnam and Mexico. For a more comprehensive understanding, future research should examine the effects on firms’ profitability and productivity as additional data becomes available .  
+ Policies in favor of friendshoring, nearshoring or reshoring may nevertheless be justifiable if these generate dynamic gains that offset or exceed the static losses. As surveyed by Harrison and Rodriguez -Clare (2010), such theoretical justifications for industrial policy involve spillovers or 
+external economies of scale, wherein the social marginal benefit from expanding production exceeds the private benefit that firm -level decision -makers internalize (see also Barteleme et al. 
+2019). The arguments here often hinge  on the presence of Marshallian externalities or 
+agglomeration economies, which stress the benefits of geographic proximity between individuals or firms in realizing product - and factor -market externalities and innovation.
+51 In principle, the 
+policy interventions ought also to satisfy the Mill test, whereby the assisted sector should ultimately be able to withstand competition once the policy support is  removed , as well as the 
+Bastable test, which requires that the discounted future benefits ought to outweigh the policy’ s 
+cumulative implementation cost s. 
+ However, what is arguably missing amid current debates is an articulation of the need to evaluate these welfare tradeoffs , as challenging as it is to devel op general equilibrium  frameworks to 
+perform such formal assessments.  Recent policies instead appear to have eliminated “exhibitions 
+of indecision”
+52 within the US, garnering widespread political backing and are thus poised to 
+persist , even though periodic  re-appraisals might be useful.  
+ Along these lines, there is the concern that the costs of following through with current US industrial policies  may be broader and more extensive than publicly realized. The effective 
+revival of manufacturing hubs requires integrating dependable, efficient supply chain networks 
+ 
+50 See for example Eppinger et al. (2021) and Javorcik et al. (2022) who provide assessments of the static welfare 
+losses associated respectively with pursuing policies that decouple economies from each other or  that encourage 
+friendshoring; these are based on extensions of the multi -country, multi -sector quantitative trade model of Ca liendo 
+and Parro (2015). As Goldberg and Reed (2023)  note however, there is no framework and quantitative benchmark 
+for assessing “resilience”. For a fiscal impact analysis  of recent US industrial policies , see Bistline et al. (2023).  
+51 Researchers have hi ghlighted gains derived from reduced costs of moving goods across space and proximity to 
+suppliers and customers (Krugman 1991); labor market pooling (Marshall 1890; Rotemberg and Saloner 2000); and 
+the flow of ideas facilitating human capital development,  innovation, and technology diffusion (Jacobs 1969 ). Head 
+et al. (1995) is an early piece of empirical research pointing to the presence of agglomeration effects in Japanese 
+MNCs’ decisions over their US manufacturing locations. Alfaro and Chen (2014) find multinational foreign 
+subsidiaries to be more agglomerative than domestic plants in capital -, skilled  labor -, and R&D -intensive industries 
+while evidence in Alfaro, Chen and Fadinger (2019) suggests  heterogeneity in the ability of regional policies to 
+build superstar -centered industry clusters.   
+52 Kenna n (1947) . 
+ 34 and transportation systems with an adaptable, skilled labor force. Moreover, attaining optimal 
+efficiency levels for certain sectors requires sufficien t demand or scale to build specialized 
+production facilities. The announced delays to the construction of TSMC’s  semiconductor plants 
+in Arizona, arising from a shortage of skilled labor, is a case in point (Financial Times, 20 July 2023).
+53  
+ References  
+ Ahn, JaeBin, Benjamin Carton, Ashique Habib, Davide Malacrino, Dirk Muir, and Andrea 
+Presbitero, (2023), “Geoeconomic Fragmentation and Foreign Direct Investment,” in IMF World Economic Outlook: A Rocky Recovery , April, Chapter 4. 
+Aiyar, Shekha r, Jiaqian Chen, Christian H. Ebeke, Roberto Garcia -Saltos, Tryggvi 
+Gudmundsson, Anna Ilyina, Alvar Kangur, Tansaya Kunaratskul, Sergio L. Rodriguez, Michele Ruta, Tatjana Schulze, Gabriel Soderberg, and Juan P. Trevino, (2023), “Geoeconomic Fragmentation and the Future of Multilateralism,” IMF Staff Discussion Notes No. 2023/001. 
+Alfaro, Laura, Pol Antràs, Davin Chor, and Paola Conconi, (2019), “Internalizing Global Value 
+Chains: A Firm- Level Analysis ,” Journal of Political Economy  127(2): 508–559. 
+Alfaro,  Laura, and Andrew Charlton, (2009) , “Intra -Industry Foreign Direct Investment ,” 
+American Economic Review  99(5): 2096–2119.  
+Alfaro , Laura, and Maggie X. Chen, (2014), “ The Global Agglomeration of Firms,” Journal of 
+International Economics  94(2): 263- 276.  
+Alfaro, Laura, Maggie  X. Chen , and Davin Chor, (2023), “Can Evidence -Based Information 
+Shift Preferences Towards Trade Policy?” NBER Working Paper No. 31240.  
+Alfaro, Laura, Maggie X. Chen, and Harald Fadinger, (2019), “Spatial Agglomeration and 
+Superstar Firms: Firm- level Patterns from Europe and U.S ,” in ECB Forum on Central 
+Banking: 20 years of European Economic and Monetary Union: Conference Proceedings , 
+European Central Bank.  
+Alfaro, Laura, and Fabio Kanczuk, (2022), “Undisclosed Debt Sustainability,” American 
+Economic  Review Papers and Proceedings 112: 521–525. 
+Amiti, Mary, Mi Dai, Robert C. Feenstra, and John Romalis, (2020), “How did China’s WTO 
+Entry Affect US  Prices?” Journal of International Economics 126, 103339.  
+Amiti, Mary, Sebastian Heise, Fatih Karahan, and Ayşegül Şahin, (2023), “Inflation Strikes 
+Back: The Role of Import Competition and the Labor Market,” in NBER Macroeconomics Annual , volume 38, edited by Martin Eichenbaum , Erik Hurst , and Valerie Ramey , 
+University of Chicago Press. 
+Amiti, Mary, Stephen J. Redding, and David Weinstein, (2019), “The Impact of the 2018 Trade 
+War on US  Prices and Welfare,” Journal of Economic Perspectives  33(4): 187–210. 
+Antràs, Pol, (2021), “De -Globalisation? Global Value Chain s in the Post -COVID -19 Age,” ECB 
+Forum: Central Banks in a Shifting World Conference Proceedings . 
+Antràs, Pol, Davin Chor, Thibault Fally, and Russell Hillberry, (2012), “Measuring the 
+Upstreamness of Production and Trade Flows,” American Economic Review P apers and 
+Proceedings  102(3): 412–416. 
+Antràs, Pol, and Davin Chor, (2013), “Organizing the Global Value Chain,” Econometrica  81(6): 
+2127–2204. 
+ 
+53See also Shih  (2018) . 
+ 35 Antràs, Pol and Davin Chor, (2018), “On the Measurement of Upstreamness and 
+Downstreamness in Global Value Chain s,” in World Trade Evolution: Growth, Productivity 
+and Employment , edited by Lili Yan Ing and Maiojie Yu, Routledge. 
+Antràs, Pol, and Davin Chor, (2022), “Global Value Chains,” in Handbook of International 
+Economics , edited by Gita Gopinath, Elhanan Helpma n, and Kenneth Rogoff, vol 5: 297-
+376. 
+Antràs, Pol, and Stephen R . Yeaple, (2014), “Multinational Firms and the Structure of 
+International Trade ,” in Handbook of International Economics , edited by Gita Gopinath, 
+Elhanan Helpman, and Kenneth Rogoff, vol 4: 55- 130.   
+Autor, David, David Dorn, and Gordon Hanson, (2013), “The China Syndrome: Local Labor 
+Market Effects of Import Competition in the United States,” American Economic Review  
+103(6): 2121- 2168.  
+Autor, David, David Dorn, and Gordon Hanson, (2016), “The China Shock: Learning from 
+Labor -Market Adjustment to Large Changes in Trade,”  Annual Review of Economics 8: 205-
+240. 
+Baldwin, Richard, (2022), “The Peak Globalisation Myth,” VoxEU . 
+Baldwin, Richard, and Javier Lopez -Gonzalez, (2015), “Supply- Chain Trade: A Portrait of 
+Global Patterns and Several Testable Hypotheses,” The World Economy  38(11): 1682- 1721.  
+Barrot, Jean -Noel, and Julien Sauvagnat, (2016), “Input Specificity and the Propagation of 
+Idiosyncratic Shocks in Production Networks,” Quarterly Journal of Economics  131(3): 
+1543- 1592. 
+Bartelme, Dominick , Arnaud Costinot, Dave Donaldson, and Andrés Rodríguez -Clare, (20 19), 
+“The Textbook Case for Industrial Policy: Theory Meets Data, ” NBER Working Paper  No. 
+26193. 
+Bistline, John, Neil R. Mehrotra, and Catherine Wolfram, (2023) , “Economic Implications of the 
+Climate Provisions of the Inflation Reduction Act ,” Brookings Papers on Economic Activity , 
+Spring, forthcoming. 
+Bloomberg, (2022), “Chinese Firms S kip Over US Tariffs by Setting Up Shop in Mexico,” 14 
+September.  
+Boehm, Christoph E., Aaron Flaaen, and Nitya Pandalai -Nayar, (2019), “Input Linkages and the 
+Transmission of Shocks: Firm -Level Evidence from the 2011 Tohoku Earthquake,” Review 
+of Economics and Statistics  101(1): 60- 75. 
+Bordo, Michael D., (1992), “The Bretton Woods International Monetary System: An Historical 
+Overview,” NBER  Working Paper No. 4033.  
+Borin, Alessandro, and Michele Mancini, (2023), “Measuring What Matters in Value -Added 
+Trade,” Economic Systems Research , forthcoming.  
+Bown, Chad, (2021), “The US -China Trade War and Phase One Agreement,” Peterson Institute 
+for International Economics, Working Paper 21 -2. 
+Bown, Chad, (2022), “Four Y ears into the T rade War, A re the US and China D ecoupling?” PIIE, 
+20 October.  
+Bown, Chad, (2023), “US -China Trade War Tariffs: An Up -to-Date Chart ,” Peterson Institute for 
+International Economics , 6 April.  
+Cavallo, Alberto, Gita Gopinath, Brent Neiman, and Jenny Tang, (2021), “Tari ff Pass -Through 
+at the Border and at the Store: Evidence from US Trade Policy ,” American Economic 
+Review: Insights  3(1): 19 -34. 
+ 36 Caliendo, Lorenzo, and Fernando Parro, (2015), “Estimates of the Trade and Welfare Effects of 
+NAFTA,” Review of Economic Studies  82(1): 1–44. 
+Caliendo , Lorenzo, Maximiliano Dvorkin, and Fernando Parro, (2019), “Trade and Labor Market 
+Dynamics: General Equilibrium Analysis of the China Trade Shock,” Econometrica  87(3): 
+741-835. 
+Chor, Davin, and Bingjing Li , (2021), “ Illuminating the  Effects of the US -China Tariff War on 
+China ’s Economy,”  NBER Working Paper  No. 29349. 
+Chor, Davin, Kalina Manova , and Zhihong Yu , (2021), “Growing like China: Firm P erformance 
+and G lobal P roduction L ine P osition,” Journal of International Economics  130, 103445. 
+Colantone, Italo, and Piero Stanig, (2018), “Global Competition and Brexit,” American Political 
+Science Review  112(2): 201- 218. 
+Colantone, Italo, Piero Stanig, and Gianmarco Ottaviano, (2022), “The Backlash of 
+Globalization,” in Handbook of International Economics , edited by Gita Gopinath, Elhanan 
+Helpman, and Kenneth Rogoff, vol 5: 405- 477. 
+Comin, Diego, Robert Johnson, and Callu m Jones, (2023), “Supply Chain Constraints and 
+Inflation,” NBER Working Paper  No. 31179.  
+Dauth, Wolfgang, Sebastian Findeisen, and Jens Seudekum, (2014), “The Rise of the East and 
+the F ar East: German Labor Markets and Trade Integration,” Journal of the European 
+Economic Association 12(6): 1643- 1675.  
+Eichengreen, Barry, (2000), “From Benign Neglect to Malignant Preoccupation: US  Balance- Of-
+Payments Policy in the 1960s,” NBER  Working Paper No. 7630.  
+Eichengreen, Barry, (1996), Globalizing Capital: A History of the International Monetary 
+System , Princeton University Press. 
+Eppinger, Peter, Gabriel Felbermayr, Oliver Krebs, and Bohdan Kukharskyy, (2021), 
+“Decoupling Global Value Chains,” CESifo Working Paper No. 9079.  
+Fajgelbaum, Pablo D., Pinelopi K. Goldberg, Patrick J. Kennedy, and Amit K. Khandelwal, 
+(2020), “The Return to Protectionism ,” Quarter ly Journal of Economics  135(1): 1–55. 
+Fajgelbaum, Pablo, Pinelopi K. Goldberg, Patrick J. Kennedy, Amit Khandelwal, and Daria 
+Taglioni, (2023), “The US -China Trade War and Global Reallocations,” NBER Working 
+Paper No. 29562.  
+Fally, Thibault, (2012), “On the Fragmentation of Production in the US ,” mimeo.  
+Flaaen, Aaron, Ali Hortaçsu, and Felix Tintelnot, (2020), “The Production Relocation and Price 
+Effects of US Trade Policy: The Case of Washing Machines ,” American Economic Review , 
+110(7): 2103- 2127.  
+Flaaen, Aaron, and Justin Pierce, (2019), “Disentangling the Effects of the 2018- 2019 Tariffs on 
+a Globally Connected US  Manufacturing Sector ,” Finance and Economics Discussion Series 
+No. 86, Federal Reserve Board, Washington, DC.  
+Freund, Caroline, Aaditya Mattoo, Alen Mulabdic, and Michele Ruta, (2023), “Is US Trade 
+Policy Reshaping Global Supply Chains ?” mimeo . 
+Financial Times, (2023), “World’s largest contract semiconductor manufacturer expects 2023 
+revenue to drop by 10%”, 20 July. 
+Forbes, Kristin J ., (2019) , “Inflation Dynamics: Dead, Dormant, or Determined Abroad?” 
+Brookings Papers on Economic Activity , vol 2019(2) : 257- 338. 
+Frankel, Jeffrey A. , (2016), “Globalization and Chinese Growth: Ends of Trends?” Il Grande  
+Sconvolgimento, ed.: Paolo Onofri, il Mulino.  
+ 37 Greenland, Andrew, Mihai Ion, John W. Lopresti , and Peter K. Schott, (2020), “Using Equity 
+Market Reactions to Infer Exposure to Trade Liberalization,” NBER Working Paper No. 
+27510. 
+Goldberg, Pinelopi K., and Tristan Reed, (2023), “Is the Global Economy De globalizing? And If 
+So, W hy? And W hat is N ext?” Brookings Papers on Economic Activity, Spring, 
+forthcoming. 
+Grossman, Gene, Elhanan Helpman, and Stephen Redding, (2023), “When Tariffs Disrupt 
+Global Supply Chains,” NBER Working Paper No. 27722.  
+Handley, Kyle, Fariha  Kamal , and Ryan Monarch, (2020) “Rising Import Tariffs, Falling Export 
+Growth: When Modern Suppl y Chains Meet Old -Style Protectionism,” NBER Working 
+Paper Series No. 26611.  
+Hansen, Lawrence, (2003), “The Origins of the Maquila Industry in Mexico,” Comercio 
+Exterior , Vol. 53, November. 
+Hanson, Gordon, (2012), “The Rise of the Middle Kingdoms: Emerging Economies in Global 
+Trade,” Journal of Economic Perspectives  26(2): 41- 64. 
+Harrison, Ann, and Andrés Rodríguez -Clare, (2010), “ Trade, Foreign Investment, and Industrial 
+Policy for Developing Countries,”  in Handbook of Development Economics , edited by Dani  
+Rodrik and Mark Rosenzweig, vol 5: 4039- 4214.  
+Hassan, Tarek A., Stephan Hollander, Laurence van Lent, and Ahmed Tahoun, (2019), “Firm -
+Level Political Risk: Measurement and Effects,” Quarterly Journal of Economics  134(4): 
+2135- 2202. 
+Hassan, Tarek A., Jess e Schreger, Markus Schwedeler, and Ahmed Tahoun, (2021), “Source and 
+Transmission of Country Risk,” NBER Working Paper No. 29526.  
+Head, Keith, John Ries, and Deborah  Swenson, (1995), “Agglomeration Benefits and Location 
+Choice: Evidence from Japanese Manufacturing Investments in the United States ,” Journal of 
+International Economics  38(3- 4): 223- 247. 
+Horn, S ebastian , Carmen  M. Reinhart, and C hristopher  Trebesch, (2021) , “China’s Overseas 
+Lending,” Journal of International Economics 133, 103539. 
+Horn, S ebastian , Carmen  M. Reinhart, and C hristopher  Trebesch, (2022) , “Hidden Defaults ,” 
+American Economic Review Papers and Proceedings 112: 531- 535.  
+Irwin, Douglas, (2017), Clashing over Commerce: A History of US Trade Policy , University of 
+Chicago P ress. 
+Kenna n, George F., (1947), “The Sources of Soviet Conduct ,” Foreign Affairs , July.  
+Kim, Se -Jik, and Hyun Song Shin, (2023), “Theory of Supply Chains: A Working Capital 
+Approach,” BIS Working Paper No. 1070.  
+Jacob s, Jane, (1969), The Econom y of Cities , Random House. 
+Javorcik, Beata, Lucas Kitzmueller, Helena Schweiger , and  Muhammed  Yildirim, (2022), 
+“Economic Costs of Friend- Shoring,” EBRD Working Paper No. 274.  
+Johnson, Robert C., (2018), “Measuring Global Value Chains,” Annual Review of Ec onomics  
+10(1): 207- 236. 
+Johnson, Robert C., and Guillermo Noguera, (2012), “Accounting for Intermediates: Production 
+Sharing and Trade in Value Added,” Journal of International Economics  86(2): 224- 236. 
+Kearney, (2022), “America is R eady for R eshoring. Are  You?” Available at: 
+https://www .kearney.com/service/operations -performance/us -reshoring -index 
+Koh, Dongya, Raul  Santaeulàlia- Llopis , and Yu  Zheng, (2020), “Labor Share Decline and 
+Intellectual Property Products Capital,”  Econometrica  88(6): 2609- 2628.  
+ 38 Koopman, Robert, Zhi Wang, and Shang -Jin Wei, (2014), “Tracing Value -Added and Double 
+Counting in Gross Exports,” American Economic Review  104(2): 459- 494. 
+Krugman, Paul, (1991), “Increasing Returns and Economic Geography,”  Journal of Political 
+Economy  99(3): 483- 499. 
+Marshall, Alfred , (1890), Principles of Economics, Macmillan and Co.  
+Mayr -Dorn, Karin, Gaia Narciso, Duc Anh Dang, and Hien Phan, (2023), “Trade Diversion and 
+Labor Market Adjustment: Vietnam and the US -China Trade War,” mimeo.  
+McCaig, Brian, and Nina Pavcnik, (2018), “ Export Markets and Labor Allocation in a Low -
+Income Country,” American Economic Review  108(7): 1899- 1941.  
+McCaig, Brian, Nina Pavcnik, and Woan Foong Wong, (2022), “FDI Inflows and Domestic 
+Firms: Adjustments to New Export Opportunities,” NBER Working Paper No. 30729.  
+New York Times, (2022), “Tech Companies Slowly Shift Production Away f rom China,” 1 
+September.  
+New York Times, (2023), “ Why Chinese Companies Are Investing Billions in Mexico,” 3 
+February.  
+Nicita, Alessandro, (2019), “Trade and Trade Diversion Effects of United States Tariffs on 
+China,” UNCTAD Research Paper No. 37.  
+Obstfeld, Maurice, (2020), “Global Dimensions of US  Monetary Policy,” International Journal 
+of Central Banking 16(1) : 73-132. 
+Oldenski, Linday, and Theodore Moran, (2015) , “Japanese Investment in the United States: 
+Superior Performance, Increasing Integration,”  Peterson Institute for International 
+Economics Policy Brief Number 15- 3.  
+Pierce, R. Justin and Peter K. Schott, (2012), “Concording US Harmonized System Categories 
+Over Time ,” Journal of Official Statistics  28(1):  53-68. 
+Reuters, (2022), “USTR Tai Calls US  Tariffs on Chinese Goods ‘Significant’ Leverage,” 22 
+June. 
+Rotemberg, Julio J., and Garth Saloner, (2000) , “Competition and Human Capital Accumulation: 
+A Theory of Interregional Specialization and Trade ,” Regional Scienc e and Urban 
+Economics  30(4): 373–404. 
+Rotunno, Lorenzo, Sanchari Roy, Anri Sakakibara, and Pierre -Louis Vézina, (2023), “Trade 
+Policy and Jobs in Vietnam: The Unintended Consequences of Trump’s Trade War,” 
+mimeo.  
+San Diego Union Tribute , (1971) , “Sony B roke G round on P lant in Rancho Bernardo in 1971,” 
+14 December.  
+Shih, Willy , (2018), “Making iPhones in the US would be C hallenging, but not Impossible ,” 
+Forbes, 19 October . 
+Spar, Debora , (1988) , “Japan’s Automakers Face Endaka ,” HBS Case 9 -798-030. 
+Utar, Hale, Alfonso Cebreros Zurita, and Luis Torress Ruiz, (2023), “ The US -China Trade War 
+and Relocation of Global Value Chains to Mexico,” mimeo.  
+Wilkins, Mira, (1990), “Japanese Multinationals in the United States: Continuity and Change, 
+1879- 1990,”  The Business History Review  64(4): 585 -629.  
+Yellen, Janet, (2022), “ US Treasury Secretary Janet Yellen on the N ext S teps for Russia 
+Sanctions and ‘ Friend -Shoring’ S upply C hains ,” address  delivered to the Atlantic Council, 
+13 April. 
+Yoshino, M. Y., (1974) , “The Multinational Spread of Japanese Manufacturing Investment since 
+World War II ,” The Business History Review  48(3) : 357–381. 
+ 39 Data Appendix: Upstreamness Measure  
+ 
+In this data appendix, we provide more background on the construction of the indus try 
+upstreamness measure, that is used in Section 3.3 to compute the export and import upstreamness of the US’ external trade profile. This relies on the information on production linkages that is contained in Input -Output Tables.  
+ The upstreamness of industry i , U
+i, is a weighted average of the number of stages that output 
+from industry i will traverse before it is absorbed in final demand (i.e., consumption or investment) . Following the methodology in Fally (2012) , Antràs et al. (2012), and Antràs and 
+Chor (2018) , we calculate U
+i as follows:  
+ 
+𝑈𝑈𝑖𝑖=1∙𝐹𝐹𝑖𝑖
+𝑌𝑌𝑖𝑖+2∙∑𝑑𝑑𝑖𝑖𝑖𝑖𝐹𝐹𝑖𝑖𝑁𝑁
+𝑖𝑖=1
+𝑌𝑌𝑖𝑖+3∙∑∑𝑑𝑑𝑖𝑖𝑖𝑖𝑑𝑑𝑖𝑖𝑖𝑖𝐹𝐹𝑖𝑖𝑁𝑁𝑖𝑖=1𝑁𝑁𝑖𝑖=1
+𝑌𝑌𝑖𝑖+⋯,   (3) 
+where N ≥ 1 is the number of industries in the economy; Y i is gross output in industry i ; and F i is 
+the value of that output that goes directly to final uses (i.e., consumption or investment) . Dij is the 
+direct requirements  coefficient ; this is equal to the value of i that is used directly as an input to 
+produce one dollar’s worth of  industry j  output.54 
+ 
+The formula in ( 3) assigns a weight of 1 to the share of industry- i output that goes directly to 
+final use, 2 to the share that arrives at final use through exactly one other industry, and so on.  By 
+construction, U i ≥ 1, with equality if and only if the entirety  of industry i ’s output goes directly to 
+final use. If, instead, the industry i  tend s to enter production chains as an intermediate input 
+multiple stages prior to final demand, this would be reflected in a larger value of U i. Not 
+surprisingly, t he largest Ui values tend to be seen in the extraction and processing of raw 
+materials, agricultural products, petrochemical manufacturing, and chemicals.   We construct U
+i using the 2012 US Input -Output Tables as a benchmark. This yields industry 
+upstreamness values for a detailed set of 4 05 BE A IO industries . We map these to NAICS 
+industries (2012 vintage) using a cross -walk provided by the BEA, and in turn map the NAICS 
+industries to HS 4 -digit codes (2017 vintage) using the Pierce and Schott (2012) concordance  
+(specifically its 2018 update ). When a HS4 code could not be directly associated with a n IO 
+industry, we assigned that HS4 code the upstreamness value of its HS2 digit counterpart ; the 
+latter is  computed as an output -weighted average of the upstreamness of the IO industries that 
+map to t he HS  2-digit code in question.  
+   
+ 
+54 Following Antr às et al. (2012), we scale d ij by the factor Y i/(Yi − X i + M i − NI i), where X i – Mi is equal to the net 
+exports of i , and NI i is the net change in inventories of i  reported in the Input -Output Tables. This correction 
+accounts for industry -i flows across country borders, as well as into and out of inventories; as Antràs et al. (2012) 
+show, this is the correction term implied by a  proportionality assumption, that these industry- i flows are used as 
+inputs across industries j  in the same proportion as what is observed in domestic cross -industry flows.  
+ 40 Appendix Figures and Tables  
+ 
+Appendix Figure 1: Trade to World GDP  (1970- 2022)  
+ 
+ 
+ 
+Notes : Calculated as the s um of exports and imports of goods and services divided by gross domestic product  from 
+the World Bank’s World De velopment Indicators.  
+   
+Appendix Figure 2: US Export and Import Upstreamness , Manufacturing Goods O nly  
+(2002- 2022)  
+  
+Notes: Authors ’ calculations  based on the methodology in Chor et al. (2021),  using UN Comtrade data and the 2012 
+US Input -Output  Tables . 
+ 
+
+ 41 Appendix Figure 3: US Bilateral Export and Import Upstreamness  
+China, Mexico, Vietnam (2002- 2022)  
+A. All Products  
+  
+   
+ B.  Manufacturing Products  
+  
+Notes: Authors ’ calculations  based on the methodology in Chor et al. (2021),  using UN Comtrade data and the 2012 
+US Input -Output  Tables . The V ietnam trade -weighted upstreamness measures start in 2006 due to limited pr ior trade 
+data.  
+ 
+ 
+ 
+Appendix Figure 4:  China Inward Greenfield FDI (2005- 2022)  
+  
+Source: Financial Times’ fDi Markets.  
+
+ 42  
+Appendix Figure 5: Establishments and Employment  (Quarterly Data, 2005- 2023)  
+Autos, Auto Parts, Electronics, and Semiconductors  
+ 
+ 
+ 
+ 
+Continued… 
+
+ 43  
+ 
+ 
+ 
+Source: BLS.  Each series is illustrated taking rolling averages over three quarters.  Sectors correspond to the 
+following NAICS codes matched to HS using the Pierce and Schott (201 2) concordance. Autos (less parts): Motor 
+Vehicle Manufacturing (3361), Motor Vehicle Body and Trailer Manufacturing (3362); Auto parts: Motor Vehicle 
+Parts Manufacturing (3363); Semiconductors:  Semiconductor and other Electronic Component Manufacturing 
+(3344), Semiconductor Machinery Manufacturing (332442); Electronics and Electrical: Computer and Electronic 
+Product Manufacturing (334) less 3344, Electrical Equipment, Appliance, and Component Manufacturing (335).  
+  
+
+ 44 Appendix Table 1: Average Value, Share, and Upstreamnes s of US Exports and Imports   
+ (2017- 2022)  
+ 
+Source: UN Comtrade, US Bureau of Economic Analysis, US Census Bureau . Upstreamness measures are 
+calculated based on Antràs et al. (2012).  
+ 
+  
+ 45 Appendix Table 2: Foreign Country Share of Imports + Multinational Affiliate  Sales in the US , 
+percentages ( 1995 -2020)  
+ 
+Source: UN Comtrade, US Bureau of Economic Analysis. The BEA data on multinational affiliate sales are for 
+nonbank affiliates except where denoted by a *; the latter indi cates  that the data for 2010, 2015, and 2020 for the 
+country is for all affiliates (including bank affiliates), due to data disclosure redact ions. ** indicates the variable s 
+reported in the lower panel are in trillions of USD.  BEA data downloaded in July 2023.  
+ 
+ 
+ 
+    
+ 
+   
+ 
+ 
+ 46 Appendix Table 3:  Change in US Import Values (2017- 2022)  
+ 
+ 
+ 
+ 
+  
+
+ 47 Appendix Table 4:  Change in US Import Share , Robustness  (2017- 2022)  
+ 
+ 
+ 
+    
+ 
+
+ 48 Appendix Table 5:   Selected Countries ’ Import Market Share s (2012, 2017 , 2022)  
+ 
+Source: UN Comtrade  and Eurostat for European Union (EU). For 2022, data on Vietnam’s bilateral imports were 
+available for only a subset of countries; data for 2021 are used instead. For EU, data  for 20 12 is not available in 
+Eurostat ; data for 2013 are used instead .  
+ 
