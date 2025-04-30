@@ -1,0 +1,136 @@
+# VULNERABILIDADES ARANCELARIAS Y DEPENDENCIAS COMERCIALES:
+# HACIA UNA MÉTRICA INTEGRAL DE LA SEGURIDAD ECONÓMICA EN UN CONTEXTO DE FRAGMENTACIÓN GEOECONÓMICA
+
+## RESUMEN EJECUTIVO
+
+La creciente fragmentación geoeconómica, acelerada por las recientes tensiones comerciales y las políticas arancelarias, está creando nuevas vulnerabilidades en las cadenas de suministro globales que no son capturadas adecuadamente por las métricas tradicionales. Este policy brief presenta resultados de un análisis innovador que integra dependencias comerciales directas e indirectas, revelando mecanismos ocultos por los que las políticas arancelarias se propagan a través de intermediarios críticos. Nuestros hallazgos identifican a China como el principal vector de vulnerabilidad global, muestran concentraciones sectoriales específicas (particularmente en alimentos, baterías y maquinaria agrícola), y revelan asimetrías regionales significativas, con África y Oceanía como las regiones más expuestas. Este enfoque multidimensional proporciona herramientas esenciales para formular políticas de diversificación estratégica más efectivas y fortalecer la resiliencia económica en un entorno internacional cada vez más incierto.
+
+## 1. INTRODUCCIÓN: EL NUEVO PARADIGMA DE VULNERABILIDAD COMERCIAL
+
+El año 2025 marca un punto de inflexión en el comercio internacional. La imposición de aranceles por parte de Estados Unidos, incluyendo un mínimo del 10% sobre importaciones europeas, chinas y de otras potencias globales, ha desencadenado una nueva ola de proteccionismo y retaliaciones comerciales. Estas medidas, lejos de ser incidentes aislados, se suman a tensiones ya existentes entre bloques geopolíticos, acelerando lo que muchos analistas identifican como una "fragmentación geoeconómica" del sistema comercial global.
+
+Para evaluar adecuadamente las vulnerabilidades derivadas de este escenario, resulta imperativo superar las limitaciones de los enfoques analíticos tradicionales, que típicamente se centran en relaciones comerciales directas o agregadas. La interconexión de las economías modernas a través de complejas cadenas de valor globales crea mecanismos de propagación de vulnerabilidades que permanecen invisibles en análisis bilaterales convencionales.
+
+Este policy brief presenta un enfoque innovador para evaluar vulnerabilidades arancelarias que incorpora tanto dependencias directas como indirectas, revelando cómo los impactos de políticas proteccionistas pueden transmitirse a través de intermediarios críticos, creando exposiciones sistémicas que trascienden las relaciones bilaterales.
+
+[INSERTAR FIGURA 1: Gráfico que muestra la comparación entre métricas tradicionales y el Índice de Seguridad Económica, destacando la "ratio de ocultamiento"]
+
+## 2. METODOLOGÍA: UN ENFOQUE MULTIDIMENSIONAL
+
+Para capturar adecuadamente las vulnerabilidades en el actual contexto de fragmentación, desarrollamos una metodología que integra cuatro dimensiones fundamentales:
+
+1. **Dependencia comercial**: Medimos qué proporción del suministro total de un país depende de otro, considerando tanto canales directos como indirectos. Esto nos permite identificar "dependencias ocultas" que no serían detectables mediante análisis tradicionales.
+
+2. **Exposición arancelaria**: Combinamos las dependencias comerciales con los niveles arancelarios impuestos para evaluar dónde las políticas proteccionistas pueden tener mayor impacto.
+
+3. **Análisis de intermediarios críticos**: Identificamos países que, por su posición central en redes comerciales específicas, pueden amplificar o transmitir disrupciones a través de múltiples cadenas de valor.
+
+4. **Evaluación regional y sectorial**: Aplicamos el análisis a nivel de regiones geopolíticas y sectores económicos específicos para revelar patrones diferenciados de vulnerabilidad.
+
+Para visualizar estas vulnerabilidades, desarrollamos herramientas analíticas que combinan la dependencia comercial (eje X), los aranceles impuestos (eje Y), el volumen comercial (tamaño de los círculos) y la exposición ponderada (intensidad del color). Esta representación multidimensional permite identificar cuatro cuadrantes de riesgo, con especial atención a la zona de "alta dependencia y alto arancel", donde los efectos de las políticas proteccionistas podrían resultar más perjudiciales para la propia economía que las implementa.
+
+[INSERTAR FIGURA 2: Visualización de vulnerabilidad por intermediarios críticos - Imagen vulnerabilidad_intermediarios.png]
+
+## 3. RESULTADOS PRINCIPALES: RADIOGRAFÍA DE LAS VULNERABILIDADES SISTÉMICAS
+
+### 3.1 Intermediarios críticos: concentración y exposición
+
+Nuestro análisis revela una distribución extraordinariamente asimétrica del poder de intermediación en el comercio global. China emerge como el intermediario dominante con una centralidad de 0.675, más del doble que el siguiente país (Estados Unidos con 0.341). Al combinarse con un arancel significativo (34%), China alcanza una exposición de 0.229, más del triple que los siguientes países más expuestos (Sudáfrica e India, ambos con 0.061).
+
+Esta concentración de poder de intermediación en un solo actor representa una vulnerabilidad sistémica significativa, creando un punto de presión excepcional en el sistema comercial global. La estratificación del riesgo intermediario revela un patrón claro:
+
+- **Riesgo extremo**: China (0.229)
+- **Riesgo alto**: Sudáfrica e India (0.061)
+- **Riesgo medio**: Países europeos (Alemania, Francia, Países Bajos)
+- **Riesgo bajo**: Reino Unido y Turquía
+
+Resulta particularmente reveladora la diferencia entre China y Estados Unidos: aunque Estados Unidos tiene una centralidad significativa (0.341), su exposición es nula en este análisis al no tener aranceles impuestos, mientras China combina alta centralidad con alto arancel.
+
+[INSERTAR FIGURA 3: Gráfico de los 10 principales intermediarios por exposición - sectores_vulnerables_intermediarios.png]
+
+### 3.2 Sectores vulnerables: concentración de riesgo en áreas críticas
+
+A nivel sectorial, identificamos patrones de vulnerabilidad específicos que no se distribuyen uniformemente a través de la economía. Los diez sectores más vulnerables a disrupciones a través de intermediarios incluyen:
+
+1. Animal feed ingredients and pet foods (0.357)
+2. Accumulators primary cells and batteries (0.340)
+3. Articles of concrete cement and plaster (0.340)
+4. Agricultural and forestry machinery (0.340)
+5. Grain mill products (0.331)
+6. Soft drinks; mineral waters (0.323)
+7. Cement lime and plaster (0.275)
+8. Spices (0.270)
+9. Rice (raw) (0.270)
+10. Other oilseeds (excluding peanuts) (0.270)
+
+Esta distribución revela dos grandes grupos de vulnerabilidad: 
+- Un cluster de sectores agrícolas y alimentarios (alimentos para animales, productos de molienda, bebidas, especias, arroz, semillas)
+- Un cluster de sectores industriales básicos (baterías, cemento, maquinaria agrícola)
+
+El análisis detallado de estos sectores revela patrones de dominación por intermediarios específicos:
+- China controla completamente (centralidad 1.000) los sectores de baterías, maquinaria agrícola y artículos de cemento
+- Tailandia tiene alta centralidad en sectores alimentarios
+- India domina completamente los sectores de semillas oleaginosas, arroz y especias
+- Países europeos dominan nichos específicos (Países Bajos en alimentos frescos, Francia en vinos)
+
+Esta especialización sectorial de intermediarios crea vulnerabilidades concentradas en áreas específicas, donde la disrupción de un solo actor podría tener efectos ampliamente diseminados.
+
+[INSERTAR FIGURA 4: Mapa de calor sectorial mostrando centralidad de los principales intermediarios por sector - mapa_calor_impacto_regional.png]
+
+### 3.3 Impacto regional: vulnerabilidades geográficas divergentes
+
+A nivel regional, nuestro análisis revela diferencias significativas en los patrones de vulnerabilidad comercial. El mapa de calor de dependencia media muestra que África presenta niveles particularmente elevados en varios sectores, especialmente en "TV and radio receivers" (0.64), "Aircraft and spacecraft" (0.45) y "Electronic valves tubes" (0.48). Latinoamérica también muestra alta dependencia en tecnologías avanzadas, mientras Norteamérica exhibe la menor dependencia general.
+
+El análisis de exposición a aranceles revela que África y Oceanía están particularmente expuestas, con valores elevados en "TV and radio receivers" (0.190) y "Electronic valves tubes" (0.167) respectivamente. Esta coincidencia entre alta dependencia y exposición arancelaria crea un doble riesgo para estas economías.
+
+Un hallazgo sorprendente es la vulnerabilidad universal en "Office accounting and computing machinery", que aparece como uno de los tres sectores más vulnerables para todas las regiones analizadas, ocupando la primera posición en seis de las ocho regiones. Esto señala una dependencia global crítica en tecnologías informáticas que trasciende fronteras geopolíticas.
+
+[INSERTAR FIGURA 5: Gráfico de flujo comercial regional - flujo_comercial_regional_Electronic_valves_tubes_etc..png]
+
+## 4. IMPLICACIONES POLÍTICAS: HACIA UNA MAYOR RESILIENCIA
+
+Los resultados de nuestro análisis sugieren cinco líneas de acción prioritarias para fortalecer la seguridad económica en el actual contexto de fragmentación geoeconómica:
+
+### 4.1. Diversificación estratégica
+
+Las políticas de diversificación deberían priorizar no solo la distribución de proveedores directos, sino también considerar la estructura de intermediación. La alta centralidad sectorial de actores como China (1.000 en baterías) o India (1.000 en especias) sugiere la necesidad de desarrollar fuentes alternativas en sectores críticos, incluso cuando las estadísticas comerciales directas no muestren dependencias bilaterales significativas.
+
+### 4.2. Desarrollo de capacidades regionales
+
+Las asimetrías regionales identificadas, con África y Oceanía como las más expuestas, sugieren la necesidad de programas específicos para desarrollar capacidades productivas en estas regiones, especialmente en sectores de alta tecnología como electrónica e informática. La Unión Europea, con su posición intermedia de vulnerabilidad, podría liderar iniciativas de cooperación para fortalecer la resiliencia de regiones más expuestas.
+
+### 4.3. Recalibración de políticas arancelarias
+
+Nuestro análisis muestra que los aranceles pueden tener efectos paradójicos, afectando a cadenas de suministro de manera indirecta y potencialmente dañando a la economía que los impone. La identificación de sectores con alta dependencia indirecta (como "Office accounting and computing machinery" para todas las regiones) debería informar políticas arancelarias más sofisticadas que consideren efectos sistémicos.
+
+### 4.4. Cooperación interregional
+
+Las similitudes en patrones de vulnerabilidad entre regiones geográficamente próximas sugieren oportunidades para colaboración en el desarrollo de capacidades productivas compartidas. Por ejemplo, la vulnerabilidad compartida de países europeos en tecnologías informáticas podría abordarse mediante iniciativas conjuntas de desarrollo tecnológico.
+
+### 4.5. Monitorización sistemática
+
+La complejidad de las dependencias indirectas y su potencial cambio en respuesta a tensiones geopolíticas sugiere la necesidad de establecer sistemas de monitorización continua. El enfoque metodológico presentado podría servir como base para un sistema de alerta temprana que identifique vulnerabilidades emergentes antes de que se materialicen.
+
+[INSERTAR FIGURA 6: Análisis de resiliencia por regiones y sectores - resilience_analysis.png]
+
+## 5. CONCLUSIONES: HACIA UN NUEVO PARADIGMA DE SEGURIDAD ECONÓMICA
+
+La actual fragmentación geoeconómica está generando nuevas vulnerabilidades comerciales que requieren enfoques analíticos capaces de capturar la complejidad de las interdependencias globales. Nuestro análisis demuestra que:
+
+1. **Las vulnerabilidades tradicionales subestiman riesgos reales**: Los análisis de dependencias directas pueden ocultar exposiciones significativas transmitidas a través de intermediarios, con "ratios de ocultamiento" que llegan a superar 100:1 en algunos casos.
+
+2. **Existen asimetrías profundas en la vulnerabilidad**: La concentración de poder de intermediación en actores específicos (notablemente China) crea puntos de presión sistémicos, mientras que las diferencias regionales en exposición podrían exacerbar desigualdades globales.
+
+3. **La vulnerabilidad sectorial es heterogénea**: Sectores como alimentos para animales, baterías y tecnologías informáticas muestran vulnerabilidades particularmente agudas, con patrones de especialización por intermediarios que crean riesgos sistémicos específicos.
+
+4. **Las políticas arancelarias operan en red**: Los efectos de políticas proteccionistas se propagan a través de complejas redes de intermediación comercial, con efectos cascada potencialmente significativos que trascienden relaciones bilaterales.
+
+5. **Se requieren respuestas multidimensionales**: Fortalecer la seguridad económica en este contexto requiere estrategias que integren diversificación, desarrollo de capacidades, cooperación regional y monitorización sistemática.
+
+En un entorno internacional donde la geopolítica cada vez influye más en las relaciones económicas, este enfoque proporciona herramientas esenciales para navegarlo con mayor resiliencia. La comprensión de las vulnerabilidades sistémicas identificadas en este análisis puede contribuir significativamente a la formulación de políticas económicas y comerciales más robustas, capaces de responder a los desafíos de un orden comercial internacional en rápida transformación.
+
+[INSERTAR FIGURA 7: Red de propagación de efectos arancelarios - red_propagacion_aranceles.png]
+
+## ANEXO: NOTA METODOLÓGICA
+
+La metodología utilizada en este análisis está basada en el Índice de Seguridad Económica desarrollado por el Real Instituto Elcano, que combina análisis de redes, teoría de grafos y matrices de dependencia comercial. Las dependencias indirectas se calculan mediante un algoritmo recursivo que evalúa todas las posibles rutas comerciales hasta un nivel de profundidad predeterminado, ponderando cada ruta según su "fuerza" comercial. La centralidad de intermediarios se calcula mediante una métrica compuesta que integra frecuencia de intermediación y fuerza de intermediación. Los aranceles utilizados corresponden a los niveles vigentes en abril de 2025.
