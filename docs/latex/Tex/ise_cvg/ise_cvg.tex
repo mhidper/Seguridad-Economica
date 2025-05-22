@@ -1,0 +1,298 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\geometry{margin=2.5cm}
+
+\title{\textbf{Extensión del Índice de Seguridad Económica (ISE) mediante\\Cadenas de Valor Globales: Una Metodología Integrada\\para el Análisis de Vulnerabilidades Comerciales}}
+
+\author{Manuel Alejandro Hidalgo-Pérez\thanks{Universidad Pablo de Olavide y Real Instituto Elcano. Email: mhidper@upo.es} \and Jorge Díaz-Lanchas\thanks{Universidad Autónoma de Madrid. Email: jorge.diaz@uam.es}}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Este documento presenta una extensión metodológica del Índice de Seguridad Económica (ISE) mediante la integración de las Cadenas de Valor Globales (CVG). Mientras que el ISE original identifica dependencias comerciales directas e indirectas entre países, la extensión propuesta descompone estas dependencias según su origen sectorial upstream, revelando las fuentes específicas de vulnerabilidad. La metodología combina matrices Input-Output internacionales (WIOD) con el enfoque de redes comerciales del ISE, proporcionando una herramienta analítica más granular para la formulación de políticas de seguridad económica. Los resultados preliminares muestran que las dependencias aparentemente directas en sectores finales ocultan vulnerabilidades sistémicas en insumos críticos, transformando la comprensión tradicional del riesgo comercial.
+
+\textbf{Palabras clave:} Seguridad económica, Cadenas de valor globales, Input-Output, Vulnerabilidades comerciales, Fragmentación geoeconómica
+
+\textbf{Códigos JEL:} F14, F15, F52, C67, D85
+\end{abstract}
+
+\section{Introducción y Motivación}
+
+La creciente fragmentación geoeconómica global ha expuesto vulnerabilidades en las cadenas de suministro que los indicadores tradicionales de dependencia comercial no logran capturar adecuadamente. El Índice de Seguridad Económica (ISE) desarrollado previamente \citep{hidalgo2024critical} representa un avance significativo al identificar dependencias indirectas a través de intermediarios comerciales. Sin embargo, una limitación fundamental persiste: el ISE agregado no revela las \textit{fuentes sectoriales específicas} de estas dependencias.
+
+Consideremos un ejemplo ilustrativo: España puede mostrar una dependencia del 45\% respecto a China en el sector automóviles según el ISE tradicional. Pero esta cifra agregada no distingue si la vulnerabilidad proviene de:
+\begin{itemize}
+    \item Importaciones directas de automóviles terminados (25\%)
+    \item Dependencia en metales básicos para la producción doméstica (8\%)
+    \item Componentes electrónicos críticos (7\%)
+    \item Materiales plásticos especializados (3\%)
+    \item Otros insumos upstream (2\%)
+\end{itemize}
+
+Esta descomposición no es meramente académica: tiene implicaciones profundas para el diseño de políticas de diversificación, la identificación de sectores críticos, y la evaluación de escenarios de crisis. Una interrupción en semiconductores taiwaneses afecta diferentemente a países según su estructura de cadenas de valor, independientemente de su dependencia agregada en electrónicos.
+
+\section{Marco Conceptual: De la Dependencia Agregada a la Descomposición CVG}
+
+\subsection{Limitaciones del ISE Agregado}
+
+El ISE original calcula la dependencia total como:
+\begin{equation}
+DT_{ij}^s = DD_{ij}^s + DI_{ij}^s
+\end{equation}
+
+donde $DT_{ij}^s$ representa la dependencia total del país $j$ respecto al país $i$ en el sector $s$, $DD_{ij}^s$ es la dependencia directa, y $DI_{ij}^s$ es la dependencia indirecta capturada a través de intermediarios comerciales.
+
+Esta formulación, aunque innovadora, trata al sector $s$ como una ``caja negra'', sin considerar que la producción de $s$ requiere insumos de múltiples sectores upstream ($u_1, u_2, ..., u_n$), cada uno con sus propias geografías de riesgo.
+
+\subsection{Extensión CVG: Descomposición Sectorial}
+
+La extensión propuesta reconoce que un sector final $s$ es el resultado de una función de producción que incorpora insumos de sectores upstream:
+
+\begin{equation}
+s = f(u_1, u_2, ..., u_n, v)
+\end{equation}
+
+donde $u_k$ representa insumos de sectores upstream y $v$ es el valor agregado doméstico.
+
+La dependencia total se descompone entonces como:
+\begin{equation}
+DT_{ij}^s = DD_{ij}^s + \sum_{k=1}^{n} \alpha_{ks} \cdot DT_{ij}^{u_k}
+\end{equation}
+
+donde:
+\begin{itemize}
+    \item $DD_{ij}^s$ es la dependencia directa en el sector final $s$
+    \item $\alpha_{ks}$ es el coeficiente de intensidad del insumo upstream $u_k$ en la producción de $s$
+    \item $DT_{ij}^{u_k}$ es la dependencia en el sector upstream $u_k$ (calculada por el ISE original)
+\end{itemize}
+
+\subsection{Coeficientes de Intensidad CVG}
+
+Los coeficientes $\alpha_{ks}$ se derivan de matrices Input-Output internacionales (WIOD) y representan la intensidad con que el sector $s$ utiliza insumos del sector upstream $u_k$:
+
+\begin{equation}
+\alpha_{ks} = \frac{\sum_{i,j} X_{ik \rightarrow js}}{\sum_{i,j,u} X_{iu \rightarrow js}}
+\end{equation}
+
+donde $X_{ik \rightarrow js}$ representa el flujo del sector $k$ del país $i$ hacia el sector $s$ del país $j$, y el denominador es la demanda intermedia total del sector $s$.
+
+\section{Metodología: Arquitectura Modular ISE+CVG}
+
+\subsection{Componente 1: Analizador CVG Flexible}
+
+El primer componente metodológico es un analizador capaz de mapear las cadenas de valor upstream para cualquier sector o grupo de sectores objetivo. Este módulo debe satisfacer los siguientes requisitos:
+
+\begin{enumerate}
+    \item \textbf{Flexibilidad sectorial}: Analizar sectores individuales (e.g., automóviles), grupos predefinidos (e.g., electrónicos), o combinaciones ad-hoc (e.g., químicos + farmacéuticos)
+    
+    \item \textbf{Inclusión de autoconsumo}: Capturar flujos intrasectoriales (e.g., componentes automotrices $\rightarrow$ automóviles finales) que representan cadenas de suministro dentro del mismo sector clasificatorio
+    
+    \item \textbf{Filtrado de calidad}: Excluir componentes contables de las matrices I-O (valor agregado, márgenes comerciales, ajustes estadísticos) para mantener solo flujos productivos reales
+    
+    \item \textbf{Escalabilidad computacional}: Procesar eficientemente matrices de gran dimensión (44 países × 56 sectores en WIOD)
+\end{enumerate}
+
+\subsection{Componente 2: Integrador ISE-CVG}
+
+El segundo componente integra los coeficientes CVG con el ISE existente para producir descomposiciones de dependencia. Las funcionalidades clave incluyen:
+
+\begin{enumerate}
+    \item \textbf{Descomposición bilateral}: Para una relación específica $(i,j,s)$, identificar qué proporción de la dependencia proviene de cada sector upstream
+    
+    \item \textbf{Análisis de vulnerabilidad}: Identificar sectores upstream con alta concentración geográfica que representan puntos únicos de falla
+    
+    \item \textbf{Simulación de escenarios}: Evaluar el impacto de disrupciones específicas (e.g., crisis Taiwan) considerando la estructura CVG
+    
+    \item \textbf{Recomendaciones de diversificación}: Priorizar sectores upstream para estrategias de diversificación basándose en su criticidad y concentración
+\end{enumerate}
+
+\subsection{Implementación Técnica}
+
+La implementación combina dos bases de datos complementarias:
+
+\begin{itemize}
+    \item \textbf{ITP 2019}: 237 países × 170 sectores para el cálculo del ISE con cobertura geográfica completa
+    \item \textbf{WIOD 2014}: 44 países × 56 sectores para coeficientes CVG con detalle metodológico superior
+\end{itemize}
+
+El mapeo entre clasificaciones sectoriales se realiza mediante correspondencias estándar, permitiendo aplicar coeficientes WIOD a la cobertura extendida de ITP.
+
+\section{Aplicaciones y Casos de Uso}
+
+\subsection{Aplicación 1: Análisis Sectorial Flexible}
+
+La metodología permite análisis comparativos entre sectores con diferentes estructuras de cadenas de valor:
+
+\begin{equation}
+\text{Intensidad CVG}_s = \sum_{k} \alpha_{ks}^2 \cdot HHI_k
+\end{equation}
+
+donde $HHI_k$ es el índice de concentración geográfica del sector upstream $k$. Sectores con alta intensidad CVG requieren estrategias de diversificación más sofisticadas.
+
+\subsection{Aplicación 2: Escenarios Geopolíticos}
+
+Para evaluar el impacto de tensiones comerciales, la metodología permite simular:
+
+\begin{equation}
+\text{Impacto}_{s} = DD_{ij}^s + \sum_{k \in \text{Afectados}} \alpha_{ks} \cdot DT_{ij}^{u_k}
+\end{equation}
+
+Por ejemplo, una crisis en Taiwan afectaría sectores con alta $\alpha_{semiconductores,s}$, independientemente de su dependencia directa en Taiwan.
+
+\subsection{Aplicación 3: Autonomía Estratégica Europea}
+
+Para la UE, la metodología identifica:
+\begin{itemize}
+    \item Sectores finales con alta dependencia agregada
+    \item Sectores upstream críticos que alimentan múltiples sectores finales
+    \item Geografías de riesgo concentrado en insumos específicos
+    \item Oportunidades de substitución doméstica o diversificación regional
+\end{itemize}
+
+\section{Resultados Preliminares: El Caso del Sector Automóviles}
+
+\subsection{Estructura CVG Global del Sector Automóviles}
+
+El análisis preliminar del sector automóviles revela una estructura CVG más compleja que la anticipada por indicadores tradicionales. Los resultados muestran 39 sectores upstream significativos (intensidad > 0.05\%), clasificados en cinco niveles de criticidad:
+
+\begin{table}[H]
+\centering
+\caption{Sectores Upstream Críticos del Sector Automóviles}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Categoría & Rango Intensidad & Sectores Incluidos \\
+\midrule
+Críticos & >2.0\% & Metales básicos (2.36\%) \\
+Muy Importantes & 1.0-2.0\% & Comercio mayorista, Maquinaria, Plásticos, Metales fabricados \\
+Importantes & 0.5-1.0\% & Servicios profesionales, Electrónicos, Equipos eléctricos, Transporte \\
+Significativos & 0.1-0.5\% & Químicos, Textiles, Servicios financieros, Energía \\
+Menores & 0.05-0.1\% & Minería, Servicios públicos, I+D \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Concentración Geográfica y Vulnerabilidades Sistémicas}
+
+El análisis revela patrones preocupantes de concentración geográfica:
+
+\begin{itemize}
+    \item \textbf{Dominancia China}: 26 de 39 sectores upstream con participación >20\%
+    \item \textbf{Flujo agregado}: \$481.2 mil millones desde China hacia cadenas automotrices globales
+    \item \textbf{Sectores críticos}: Metales básicos (32.7\%), electrónicos (32.4\%), textiles (46.4\%)
+\end{itemize}
+
+\subsection{Sectores Upstream ``Sorprendentes''}
+
+La metodología identifica sectores upstream cuya importancia no es evidente en análisis tradicionales:
+
+\begin{itemize}
+    \item \textbf{Comercio mayorista} (1.79\%): La distribución como eslabón crítico de la cadena
+    \item \textbf{Servicios profesionales} (0.65\%): Servicios legales/contables integrados en la producción
+    \item \textbf{Transporte terrestre} (0.56\%): Logística como componente productivo
+\end{itemize}
+
+Estos hallazgos sugieren que las cadenas de valor modernas trascienden la manufactura tradicional, incorporando servicios como componentes productivos críticos.
+
+\section{Implicaciones para la Política de Seguridad Económica}
+
+\subsection{Redefinición de la Diversificación}
+
+La metodología CVG+ISE transforma el concepto de diversificación comercial:
+
+\begin{itemize}
+    \item \textbf{Diversificación superficial}: Redistribuir importaciones directas manteniendo dependencias upstream
+    \item \textbf{Diversificación profunda}: Abordar vulnerabilidades en la estructura completa de insumos
+\end{itemize}
+
+\subsection{Identificación de Sectores Prioritarios}
+
+Para estrategias de autonomía, la metodología prioriza sectores según:
+\begin{equation}
+\text{Prioridad}_k = \sum_{s} \alpha_{ks} \cdot \text{Criticidad}_s \cdot \text{Concentración}_k
+\end{equation}
+
+donde sectores upstream que alimentan múltiples sectores finales críticos y muestran alta concentración geográfica reciben máxima prioridad.
+
+\subsection{Evaluación de Escenarios Geopolíticos}
+
+La metodología permite cuantificar impactos de crisis específicas:
+\begin{itemize}
+    \item \textbf{Crisis Taiwan}: Afecta 0.64\% directo en electrónicos, amplificado por efectos CVG en automóviles, maquinaria, y otros sectores downstream
+    \item \textbf{Tensiones EE.UU.-China}: \$481B en flujos upstream en riesgo, afectando 26 sectores críticos
+    \item \textbf{Disrupciones logísticas}: Servicios de transporte representan 0.56\% directo pero efectos sistémicos a través de todas las cadenas
+\end{itemize}
+
+\section{Extensiones Futuras y Desarrollo Metodológico}
+
+\subsection{Análisis Dinámico}
+
+La extensión temporal incorporaría:
+\begin{itemize}
+    \item Evolución de coeficientes CVG en respuesta a disrupciones
+    \item Velocidad de reconfiguración de cadenas de suministro
+    \item Efectos de aprendizaje y substitución tecnológica
+\end{itemize}
+
+\subsection{Dimensión Geopolítica}
+
+La integración de factores geopolíticos incluiría:
+\begin{equation}
+DT_{ij}^{s,CVG} = DD_{ij}^s + \sum_{k} \alpha_{ks} \cdot DT_{ij}^{u_k} \cdot \phi_{ij}
+\end{equation}
+
+donde $\phi_{ij}$ pondera la relación bilateral por factores de afinidad geopolítica, alianzas, y riesgo de escalación.
+
+\subsection{Aplicación Multi-sectorial}
+
+El análisis se expandirá a sectores estratégicos prioritarios:
+\begin{itemize}
+    \item \textbf{Electrónicos y semiconductores}: Críticos para transformación digital
+    \item \textbf{Farmacéuticos}: Lecciones de la pandemia COVID-19
+    \item \textbf{Energías renovables}: Esenciales para transición verde
+    \item \textbf{Materiales críticos}: Tierras raras y metales estratégicos
+\end{itemize}
+
+\section{Conclusiones}
+
+La extensión del ISE mediante CVG representa un avance metodológico significativo en el análisis de vulnerabilidades comerciales. Al descomponer dependencias agregadas en sus componentes sectoriales específicos, la metodología revela la anatomía oculta del riesgo comercial moderno.
+
+Los resultados preliminares para el sector automóviles demuestran que:
+\begin{enumerate}
+    \item Las vulnerabilidades reales trascienden las relaciones bilaterales directas
+    \item La concentración geográfica en sectores upstream críticos crea puntos únicos de falla sistémica
+    \item Sectores aparentemente no críticos (servicios, logística) son componentes esenciales de cadenas modernas
+    \item Las estrategias de diversificación requieren enfoque holístico considerando la estructura CVG completa
+\end{enumerate}
+
+Para el Real Instituto Elcano y la formulación de políticas europeas, esta metodología proporciona:
+\begin{itemize}
+    \item Herramientas analíticas para evaluar la autonomía estratégica real vs aparente
+    \item Capacidad de simulación para escenarios geopolíticos específicos
+    \item Priorización sectorial basada en evidencia para estrategias de diversificación
+    \item Marco conceptual para entender la seguridad económica en la era de fragmentación global
+\end{itemize}
+
+La implementación completa de esta metodología requiere integración de bases de datos adicionales, validación empírica con crisis históricas, y colaboración con formuladores de política para asegurar relevancia práctica. Sin embargo, los fundamentos metodológicos y resultados preliminares sugieren que esta extensión CVG del ISE puede transformar significativamente nuestra comprensión y gestión del riesgo comercial en un mundo económicamente fragmentado.
+
+\bibliographystyle{aer}
+\bibliography{references}
+
+\end{document}
