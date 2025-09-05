@@ -1,0 +1,214 @@
+\documentclass{beamer}
+
+% Theme and color theme
+\usetheme{Boadilla}
+\usecolortheme{default}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array} % Para mejorar las tablas
+\usepackage{booktabs} % Para líneas profesionales en tablas
+
+% Information to be shown in the title page
+\title{Calculating Economic Security Dependencies}
+\subtitle{A Comprehensive Methodology for Trade Vulnerability Analysis}
+\author{Manuel A. Hidalgo, Miguel Otero}
+\institute{Real Instituto Elcano}
+\date{\today}
+
+\begin{document}
+
+% Title page
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Slide 2: Data Source
+\begin{frame}{USITC ITPD-E Database}
+  \begin{itemize}
+    \item Source: U.S. International Trade Commission (USITC)
+    \vspace{0.3em}
+    \item Content: International and domestic trade flows, reconciled for accuracy
+    \vspace{0.3em}
+    \item Coverage: 264 countries, 170 industries (agriculture, mining, energy, manufacturing, services)
+    \vspace{0.3em}
+    \item Timeline: 1986-2022 (Release 3, June 2025)
+    \vspace{0.3em}
+    \item Reliability: Administrative data only, no statistical estimates
+  \end{itemize}
+\end{frame}
+
+% Slide 3: Introduction
+\begin{frame}{Introduction: What is Economic Dependency?}
+  \begin{itemize}
+    \item The indicator measures a country's reliance on another as a supplier for specific goods
+    \vspace{1em}
+    \item Crucial for understanding vulnerabilities and risks in global supply chains
+    \vspace{1em}
+    \item The analysis covers both direct and indirect trade relationships:
+    \begin{itemize}
+        \item Direct: Country A imports goods directly from Country B
+        \item Indirect: Country A imports from C, which sources from B
+    \end{itemize}
+    \vspace{0.5em}
+    \item Essential for economic security policy design and strategic autonomy assessment
+  \end{itemize}
+\end{frame}
+
+% Slide 4: Data Foundation
+\begin{frame}{Foundation: Clean and Significant Trade Data}
+  The analysis is built upon a solid data foundation:
+  \begin{itemize}
+    \item[1.] We begin with ITPD-E bilateral trade data for hundreds of industrial sectors
+    \vspace{1em}
+    \item[2.] Minor or insignificant trade flows are filtered out to ensure accuracy
+    \vspace{0.5em}
+    \begin{itemize}
+        \item Trade links included only if they represent meaningful share of imports
+        \item Threshold-based filtering to reduce statistical noise
+    \end{itemize}
+    \vspace{1em}
+    \item[3.] This process focuses analysis on economically relevant dependencies
+  \end{itemize}
+\end{frame}
+
+% Slide 5: Direct Dependency
+\begin{frame}{Step 1: Calculating Direct Dependency}
+  This measures the share of a country's total imports that comes directly from a single supplier.
+  \vspace{1em}
+  
+  Formula:
+  \begin{equation}
+  D_{ij} = \frac{X_{ji}}{\sum_{k} X_{ki}}
+  \end{equation}
+  
+  Where:
+  \begin{itemize}
+    \item $D_{ij}$ is the direct dependency of country $i$ on country $j$
+    \item $X_{ji}$ is the value of goods imported by $i$ from $j$
+    \item $\sum_{k} X_{ki}$ is the total value of goods imported by $i$ from all countries $k$
+  \end{itemize}
+  
+  \vspace{0.5em}
+  Interpretation: Values range from 0 (no dependency) to 1 (complete dependency)
+\end{frame}
+
+% Slide 6: Indirect Dependency
+\begin{frame}{Step 2: Indirect Dependency \& Path Analysis}
+  We reveal hidden relationships by tracing goods through intermediary countries.
+  \vspace{0.5em}
+
+  Path Dependency Formula:
+  \begin{equation}
+  \text{Dependence}(p) = \frac{f_{p_1, p_2}}{d_{p_n}} \times \prod_{i=2}^{n-1} \frac{f_{p_i, p_{i+1}}}{d_{p_i}}
+  \end{equation}
+  
+  Where:
+  \begin{itemize}
+    \item $p$ represents a supply chain path from origin to destination
+    \item $f_{a,b}$ is the trade flow from country $a$ to country $b$
+    \item $d_i$ is the total demand of country $i$
+    \item The product captures "dilution" effects through intermediaries
+  \end{itemize}
+  
+  \vspace{0.5em}
+  Key insight: Captures vulnerability transmission through complex supply networks
+\end{frame}
+
+% Slide 7: Intermediary Analysis
+\begin{frame}{Step 3: The Role of Intermediaries}
+  We identify critical roles each country plays within global supply chains.
+  \vspace{1em}
+  
+  Two key metrics for every intermediary country:
+  \vspace{1em}
+
+  \begin{table}[h]
+  \centering
+  \begin{tabular}{l p{0.65\textwidth}}
+    \toprule
+    Frequency & How often the country acts as a "bridge" in global supply paths \\
+    \midrule
+    Strength & Total economic value of trade flowing through the country as intermediary \\
+    \bottomrule
+  \end{tabular}
+  \end{table}
+
+  \vspace{1em}
+  This allows identification of:
+  \begin{itemize}
+    \item Critical hubs in the global trade network
+    \item Potential bottlenecks and single points of failure
+    \item Systemically important intermediary countries
+  \end{itemize}
+\end{frame}
+
+% Slide 8: Final Indicator
+\begin{frame}{The Final Indicator: Total Dependency}
+  The total dependency score combines all layers of analysis.
+  \vspace{1em}
+  
+  \begin{equation}
+  \text{Total Dependency}_{ij} = D_{ij}^{\text{direct}} + \sum_{\text{paths } p} \text{Dependence}(p)
+  \end{equation}
+  
+  \vspace{1em}
+  This provides:
+  \begin{itemize}
+    \item Holistic view of economic vulnerability to specific suppliers
+    \item Ranking of most critical supply paths
+    \item Policy-relevant insights for strategic autonomy
+    \item Scenario analysis capabilities for different disruption patterns
+  \end{itemize}
+  
+  \vspace{1em}
+  Applications: Economic security assessment, diversification strategy design, resilience policy planning
+\end{frame}
+
+% Slide 9: Policy Applications
+\begin{frame}{Policy Applications for Economic Security}
+  The methodology supports evidence-based policy design:
+  \vspace{1em}
+  
+  Strategic Applications:
+  \begin{itemize}
+    \item Vulnerability Assessment: Identify critical dependencies before crises
+    \item Diversification Strategy: Distinguish between superficial and deep diversification
+    \item Resilience Planning: Prioritize sectors and relationships for intervention
+    \item Scenario Analysis: Evaluate impact of geopolitical fragmentation
+  \end{itemize}
+  
+  \vspace{1em}
+  Particularly relevant for:
+  \begin{itemize}
+    \item EU "Open Strategic Autonomy" initiatives
+    \item Critical materials and technologies assessment
+    \item Supply chain resilience in strategic sectors
+  \end{itemize}
+\end{frame}
+
+% Slide 10: Future Work
+\begin{frame}{Future Research Directions}
+  Extensions to enhance the methodology:
+  \vspace{1em}
+  
+  Value Chain Integration:
+  \begin{itemize}
+    \item Explicit inclusion of global value chains in dependency calculations
+    \item Analysis beyond directly traded products to critical input requirements
+    \item Mapping dependencies of products that require other critical goods for production
+    \item Integration of input-output relationships within supply chain analysis
+  \end{itemize}
+  
+  \vspace{1em}
+  Additional Enhancements:
+  \begin{itemize}
+    \item Time-varying dependency patterns and trend analysis
+    \item Integration of geopolitical risk factors
+    \item Sectoral vulnerability indices incorporating technological complexity
+    \item Dynamic simulation of disruption scenarios
+  \end{itemize}
+\end{frame}
+
+\end{document}
