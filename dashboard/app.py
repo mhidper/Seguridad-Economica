@@ -16,6 +16,7 @@ from datetime import date
 import base64
 import requests   # <--- AÑADIR ESTA
 import pathlib    # <--- AÑADIR ESTA
+import tempfile
 
 # ============================================
 # CONFIGURACIÓN
@@ -93,10 +94,12 @@ st.markdown("""
 # ============================================
 
 # 1. URL de descarga directa de Google Drive (¡reemplaza con la tuya!)
-GDRIVE_FILE_URL = "https://drive.google.com/uc?export=download&id=1BEO33LWp_gMRL1F5aG8X_Cem0QQGgl_i"
+DATA_URL = "https://github.com/mhidper/Seguridad-Economica/releases/download/v1.0-data/dependencies_full.parquet"
 
 # 2. Ruta donde se guardará el archivo en el disco temporal de Streamlit Cloud
-LOCAL_FILE_PATH = "/tmp/dependencies_full.parquet"
+# Ruta temporal que funciona en Windows, Mac y Linux
+temp_dir = pathlib.Path(tempfile.gettempdir())
+LOCAL_FILE_PATH = temp_dir / "dependencies_full.parquet"
 
 
 # ============================================
@@ -209,53 +212,52 @@ def get_daily_industry(industries_list):
 @st.cache_resource
 def get_duckdb_connection():
     """
-    Descarga el Parquet desde GDrive si no existe en el disco temporal,
+    Descarga el Parquet desde GitHub Releases si no existe en el disco temporal,
     luego se conecta con DuckDB (cacheado, se crea una sola vez).
     """
-    
-    # 1. Comprobar si el archivo ya existe en el disco temporal
-    file = pathlib.Path(LOCAL_FILE_PATH)
-    
+
+    # 1. Comprobar si el archivo ya existe
+    file = LOCAL_FILE_PATH # (ya es un objeto Path)
+
     if not file.exists():
-        # Si no existe, mostrar un spinner y descargarlo
-        with st.spinner(f"Descargando base de datos (160MB) desde Google Drive... Esto solo pasa una vez."):
+        # Si no existe, mostrar un spinner y descargarlo con requests
+        with st.spinner(f"Descargando base de datos (160MB) desde GitHub... Esto solo pasa una vez."):
             try:
-                # Descargar el archivo
-                response = requests.get(GDRIVE_FILE_URL, stream=True)
+                # Usar requests (¡mucho más simple ahora!)
+                response = requests.get(DATA_URL, stream=True)
                 response.raise_for_status() # Lanza error si la descarga falla
-                
+
                 # Guardar el archivo en el disco local
-                with open(LOCAL_FILE_PATH, "wb") as f:
-                    # Usar iter_content para manejar archivos grandes
+                with open(file, "wb") as f:
                     for chunk in response.iter_content(chunk_size=8192):
                         f.write(chunk)
-                
+
                 st.success("¡Base de datos descargada!")
-            
+
             except Exception as e:
-                st.error(f"Error al descargar el archivo desde Google Drive: {e}")
-                st.error("Asegúrate de que la URL de GDrive es un enlace de descarga directa ('uc?export=download') y que es pública.")
+                st.error(f"Error al descargar el archivo desde GitHub Releases: {e}")
+                st.error(f"Asegúrate de que la URL es correcta: {DATA_URL}")
                 return None
 
-    # 2. Conectar a DuckDB (ahora que sabemos que el archivo existe)
+    # 2. Conectar a DuckDB
     try:
         con = duckdb.connect()
-        
-        # Configurar threads (esto ya lo tenías y es perfecto)
+
+        # Configurar threads
         n_threads = max(2, os.cpu_count() // 2)
         con.execute(f"PRAGMA threads={n_threads}")
-        
-        # 3. ¡LA CLAVE! Crear la vista leyendo de LOCAL_FILE_PATH
-        # (Usamos f-string para insertar la variable)
+
+        # 3. Crear la vista leyendo de LOCAL_FILE_PATH
         con.execute(f"""
             CREATE OR REPLACE VIEW deps AS
-            SELECT * FROM read_parquet('{LOCAL_FILE_PATH}')
+            SELECT * FROM read_parquet('{str(LOCAL_FILE_PATH)}')
         """)
-        
+
         return con
-        
+
     except Exception as e:
         st.error(f"Error al conectar con DuckDB: {e}")
+        st.warning("Si el error es de 'magic bytes', el archivo en GitHub Releases podría estar corrupto.")
         return None
 
 
