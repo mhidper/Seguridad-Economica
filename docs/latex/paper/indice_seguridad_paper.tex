@@ -1,0 +1,197 @@
+
+% ============================================================
+% Índice de Seguridad — Template de paper (versión inicial)
+% Compila con: pdflatex (dos pasadas). Bibliografía opcional.
+% ============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Paquetes mínimos ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\sisetup{output-decimal-marker={,}}
+\usepackage{csquotes}
+
+% ---------- Metadatos ----------
+\title{Índice de Seguridad: un indicador de dependencia comercial directa e indirecta}
+\author{%
+  Equipo Índice de Seguridad\\
+  \small \texttt{contacto@indice-seguridad.org}
+}
+\date{\today}
+
+% ---------- Macros y notación ----------
+% Comentarios editoriales: busca %CHATGPT: en el código
+% Notación estándar
+\newcommand{\X}{X}  % matriz de flujos bilaterales (exportador u, importador v)
+\newcommand{\T}{T}  % matriz de transición por columnas
+\newcommand{\DD}{\mathrm{DD}} % dependencia directa
+\newcommand{\DI}{\mathrm{DI}} % dependencia indirecta
+\newcommand{\DT}{\mathrm{DT}} % dependencia total
+\newcommand{\hidden}{\mathrm{Hidden}} % hidden dependence
+\newcommand{\Lmax}{L_{\max}} % longitud máxima de camino
+\newcommand{\epsedge}{\epsilon_{\text{edge}}} % umbral de arista
+\newcommand{\epscontrib}{\epsilon_{\text{contrib}}} % umbral de contribución
+\newcommand{\topm}{\texttt{top\_m}} % número máximo de vecinos relevantes
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+%CHATGPT: En 150--200 palabras, explica qué mide el indicador (exposición a disrupciones de suministro a través de rutas directas e indirectas), en qué datos se basa (matrices bilaterales por industria) y un resultado principal. Incluye 1--2 cifras headline si ya están listas.
+\end{abstract}
+
+\section{Introducción y motivación}
+%CHATGPT: Contextualiza riesgos de disrupción y concentración. Intuición de por qué las dependencias indirectas importan (encadenamientos vía terceros). Resume contribuciones en 3 viñetas.
+\begin{itemize}[leftmargin=*,nosep]
+  \item Proponemos un indicador \emph{trazable} de dependencia total (\DT) desagregado por país y por industria.
+  \item Distinguimos \DD\ (bilateral) de \DI\ (rutas con intermediarios) y caracterizamos ``\emph{hidden dependence}'' cuando \DT/\DD\,$\gg$\,1.
+  \item Ofrecemos salidas operativas (rutas críticas, intermediarios) útiles para vigilancia de riesgo.
+\end{itemize}
+
+\section{Relación con la literatura}
+%CHATGPT: 5--8 párrafos. Redes de comercio, centralidad/intermediación, medidas de dependencia en IO/valor añadido, papers sobre riesgo de disrupciones. Evita tecnicismos aquí; reserva detalles para Metodología.
+
+\section{Datos}
+%CHATGPT: Fuente, cobertura temporal y sectorial, construcción de matrices exportador×importador por industria, filtros previos y umbrales. Dejar claro que los cálculos se hacen por industria (normalmente) y luego se pueden agregar.
+\begin{itemize}[leftmargin=*,nosep]
+  \item Universo de países: \textit{[completar]}; industrias: \textit{[completar]}.
+  \item Matrices \(\X^{(\ell)}\) por industria \(\ell\): entrada \(\X_{uv}^{(\ell)}\) es el flujo de \(u\to v\).
+  \item Limpieza: corte relativo por columna (importador) y eliminación de columnas/filas nulas tras el corte.
+\end{itemize}
+
+\section{Metodología del indicador}
+%CHATGPT: Sección normativa y ``limpia''. Mantener esta parte independiente de implementación.
+\subsection{Dependencia directa}
+Para un par país destino \(i\) y origen \(j\), definimos la dependencia directa como
+\begin{equation}
+  \DD_{ij} \;=\; \frac{\X_{ji}}{\sum_{k} \X_{ki}},
+  \label{eq:dd}
+\end{equation}
+donde el denominador suma todas las importaciones de \(i\).
+
+\subsection{Matriz de transición por columnas}
+Definimos la matriz de transición \(\T\) con normalización por columnas:
+\begin{equation}
+  \T_{uv} \;=\; \frac{\X_{uv}}{\sum_{a}\X_{av}}, \qquad
+  \text{con la convención } \sum_{a}\X_{av}=0 \Rightarrow \T_{uv}=0.
+  \label{eq:T}
+\end{equation}
+%CHATGPT: \T\ se interpreta como la proporción del suministro total de \(v\) que proviene de \(u\).
+
+\subsection{Dependencia indirecta (rutas)}
+Sea \(\mathcal{P}_{j\leadsto i}\) el conjunto de rutas simples (sin repetir nodos) desde \(j\) hasta \(i\) con longitudes \(2,\dots,\Lmax\).
+La contribución de una ruta \(p=(j \to \cdots \to i)\) es el producto de transiciones:
+\begin{equation}
+  \mathrm{contrib}(p) \;=\; \prod_{(u\to v)\in p} \T_{uv}.
+  \label{eq:path}
+\end{equation}
+La dependencia indirecta de \(i\) respecto a \(j\) es
+\begin{equation}
+  \DI_{ij} \;=\; \sum_{p\in \mathcal{P}_{j\leadsto i}} \mathrm{contrib}(p).
+  \label{eq:di}
+\end{equation}
+%CHATGPT: Operamos con poda: ignoramos aristas con \(\T_{uv}<\epsedge\); cortamos rutas si la contribución acumulada cae por debajo de \(\epscontrib\); y limitamos la exploración a \topm\ vecinos por nodo.
+
+\subsection{Dependencia total y ``hidden dependence''}
+\begin{equation}
+  \DT_{ij} \;=\; \DD_{ij} + \DI_{ij}.
+\end{equation}
+Diremos que existe \emph{hidden dependence} cuando \(\DT_{ij}/\DD_{ij} \gg 1\) para un umbral a definir (p.~ej., \(>2\)).
+
+\subsection{Intermediarios críticos}
+Definimos una puntuación para un país \(m\) como intermediario en rutas hacia \(i\) que parten de \(j\)
+combinando (i) la \textit{frecuencia} con que \(m\) aparece en rutas de mayor contribución y (ii) la \textit{fuerza} acumulada de dichas rutas. La métrica compuesta puede escribirse como
+\begin{equation}
+  \mathrm{IC}_{m;ij} \;=\; \alpha\cdot \mathrm{freq}_{m;ij} \;+\; (1-\alpha)\cdot \mathrm{strength}_{m;ij},\quad \alpha\in[0,1].
+\end{equation}
+%CHATGPT: En los ejercicios actuales, \(\alpha\approx0{,}4\), pero reportar sensibilidad en la sección de robustez.
+
+\section{Implementación computacional (reproducibilidad)}
+%CHATGPT: Resume el algoritmo y parámetros operativos. Detalles extensos al apéndice.
+\begin{itemize}[leftmargin=*,nosep]
+  \item Precalcular \(\T\) por industria; filtrar aristas con \(\T_{uv}<\epsedge\).
+  \item Para cada par \((j,i)\), explorar rutas con DFS con poda (\Lmax, \epscontrib, \topm).
+  \item Paralelizar por pares \((j,i)\). Almacenar: \DD, \DI, \DT, rutas críticas y métricas de intermediación.
+\end{itemize}
+
+\section{Resultados}
+%CHATGPT: Figuras/tablas sugeridas:
+\begin{itemize}[leftmargin=*,nosep]
+  \item Distribución de \DD, \DI, \DT\ por país destino e industria.
+  \item Top 10 dependencias totales por industria y sus rutas críticas asociadas.
+  \item Ranking de intermediarios críticos.
+\end{itemize}
+
+\section{Robustez y sensibilidad}
+%CHATGPT: Sensibilidad a \Lmax, \epsedge, \epscontrib, \topm\ y al umbral de limpieza de datos. Incluye tablas con variación porcentual en \DT.
+
+\section{Discusión}
+%CHATGPT: Interpretación económica y de política pública. Casos ilustrativos (rutas con concentración elevada, países-puente).
+
+\section{Conclusiones}
+%CHATGPT: Qué aporta el indicador, qué limita, y líneas futuras (actualización temporal, integración con shocks reales, etc.).
+
+\appendix
+\section*{Apéndices}
+
+\subsection*{A. Tabla de notación}
+\begin{table}[h!]
+\centering
+\begin{tabular}{ll}
+\toprule
+Símbolo & Descripción \\\midrule
+\(\X_{uv}\) & Flujo de comercio desde \(u\) (origen) hacia \(v\) (destino) \\
+\(\T_{uv}\) & Proporción del suministro de \(v\) que proviene de \(u\) (normalización por columnas) \\
+\(\DD_{ij}\) & Dependencia directa de \(i\) respecto a \(j\) \\
+\(\DI_{ij}\) & Dependencia indirecta (suma de rutas) \\
+\(\DT_{ij}\) & Dependencia total \\
+\(\Lmax\) & Longitud máxima de las rutas consideradas \\
+\(\epsedge\) & Umbral mínimo para conservar una arista en \(\T\) \\
+\(\epscontrib\) & Umbral mínimo de contribución de una ruta durante la exploración \\
+\(\topm\) & Máximo de vecinos por nodo en la exploración \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{B. Pseudocódigo (DFS con poda)}
+\begin{verbatim}
+Input: T (matriz de transición), i (destino), j (origen),
+       Lmax, eps_edge, eps_contrib, top_m
+
+function IndirectDependence(i, j):
+    total = 0
+    stack = [(j, 0, 1.0)]  # (nodo actual, longitud, prod acumulado)
+    while stack not empty:
+        (u, L, prod) = stack.pop()
+        if L >= 1 and u == i:
+            total += prod
+        if L == Lmax: continue
+        # Seleccionar vecinos relevantes (v) con T[u,v] >= eps_edge
+        for v in top_neighbors(u, top_m):
+            w = T[u,v]
+            if w < eps_edge: continue
+            prod2 = prod * w
+            if prod2 < eps_contrib: continue
+            if v not in ruta_actual:  # evitar ciclos
+                push (v, L+1, prod2)
+    return total
+\end{verbatim}
+
+%CHATGPT: Sustituir \texttt{top\_neighbors} por el criterio real (p.ej., mayores \(\T_{uv}\)).
+
+% ---------- Bibliografía (opcional) ----------
+% \bibliographystyle{apalike}
+% \bibliography{referencias}
+
+\end{document}

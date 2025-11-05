@@ -59,3 +59,11 @@ _minted*/
 *~
 .*.swp
 .codegpt
+# Dashboard
+dashboard/.streamlit/secrets.toml
+
+# Backups
+backup_*/
+
+# Data (descomenta si no quieres subir datos grandes)
+data/
