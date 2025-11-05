@@ -1,0 +1,95 @@
+% CORRECCIONES CLAVE PARA LA SECCIÓN DE METODOLOGÍA
+
+\subsection{Correcciones a las Ecuaciones}
+
+% ========================================
+% DEPENDENCIA DIRECTA (CORREGIDA)
+% ========================================
+\subsubsection{Dependencia Directa}
+
+La dependencia directa de un país importador $j$ respecto a un exportador $i$ se define como la proporción de las importaciones totales de $j$ que provienen de $i$:
+
+\begin{equation}
+\text{DD}_{ij} = \frac{x_{ij}}{S_j}
+\end{equation}
+
+\noindent donde:
+\begin{itemize}
+    \item $x_{ij}$ representa el flujo comercial del país exportador $i$ al país importador $j$
+    \item $S_j = \sum_{k} x_{kj}$ es el total de importaciones del país $j$ (suma por columna)
+\end{itemize}
+
+\textbf{Nota técnica:} En esta formulación, asumimos que la matriz $\mathbf{X}$ tiene exportadores en filas e importadores en columnas. La producción doméstica ($x_{jj}$) se excluye del denominador para enfocar el análisis en dependencias comerciales internacionales.
+
+% ========================================
+% FUERZA DEL CAMINO (CORREGIDA)
+% ========================================
+\subsubsection{Fuerza del Camino}
+
+Para un camino $p = (i, k_1, k_2, \ldots, k_{\ell-1}, j)$ que conecta el exportador $i$ con el importador $j$ a través de intermediarios, la fuerza del camino se calcula como el producto de las proporciones comerciales en cada salto:
+
+\begin{equation}
+F(p) = \prod_{(a,b) \in \text{aristas}(p)} \frac{x_{a,b}}{S_b}
+\end{equation}
+
+\noindent Expandiendo para el camino completo:
+
+\begin{equation}
+F(p) = \frac{x_{i,k_1}}{S_{k_1}} \cdot \frac{x_{k_1,k_2}}{S_{k_2}} \cdots \frac{x_{k_{\ell-1},j}}{S_j}
+\end{equation}
+
+Esta formulación captura cómo una disrupción en el exportador original $i$ se transmitiría a través de la cadena hasta el importador final $j$, atenuándose en cada intermediario según la diversificación de sus proveedores.
+
+% ========================================
+% DEPENDENCIA INDIRECTA (ACLARADA)
+% ========================================
+\subsubsection{Dependencia Indirecta}
+
+La dependencia indirecta captura todas las rutas con al menos un intermediario ($\ell \geq 2$):
+
+\begin{equation}
+\text{DI}_{ij} = \sum_{p \in P_{ij}^{\ell \geq 2}} F(p)
+\end{equation}
+
+\noindent donde $P_{ij}^{\ell \geq 2}$ es el conjunto de todos los caminos simples (sin repetir nodos) desde $i$ hasta $j$ con longitud mínima 2.
+
+\textbf{Algoritmo implementado:} El código utiliza una enumeración exhaustiva mediante \texttt{combinations} para longitudes 3 y superiores, mientras que para longitud 2 emplea una optimización vectorizada:
+
+\begin{equation}
+\text{DI}_{ij}^{(\ell=2)} = \sum_{k \neq i,j} \frac{x_{i,k}}{S_k} \cdot \frac{x_{k,j}}{S_j}
+\end{equation}
+
+% ========================================
+% MATRIZ DE TRANSICIÓN (NUEVA)
+% ========================================
+\subsubsection{Matriz de Transición Normalizada}
+
+Para facilitar cálculos, definimos la matriz de transición $\mathbf{T}$ donde cada elemento representa la proporción del comercio:
+
+\begin{equation}
+T_{ij} = \frac{x_{ij}}{S_j} = \frac{x_{ij}}{\sum_k x_{kj}}
+\end{equation}
+
+Esta matriz permite expresar la fuerza de cualquier camino como:
+
+\begin{equation}
+F(p) = \prod_{(a,b) \in p} T_{ab}
+\end{equation}
+
+% ========================================
+% CONVERGENCIA (ACLARADA)
+% ========================================
+\subsubsection{Criterios de Convergencia}
+
+El algoritmo aplica tres criterios para limitar la búsqueda de caminos:
+
+\begin{enumerate}
+    \item \textbf{Longitud máxima:} $L_{\max} = 3$ (configurable)
+    \item \textbf{Umbral de contribución:} Se descartan caminos con $F(p) < \theta_{\text{path}} = 10^{-3}$
+    \item \textbf{Convergencia incremental:} Se detiene la iteración cuando:
+    \begin{equation}
+    \left| \text{DT}_{ij}^{(\ell)} - \text{DT}_{ij}^{(\ell-1)} \right| < \varepsilon = 0.01
+    \end{equation}
+\end{enumerate}
+
+Estos criterios garantizan eficiencia computacional sin sacrificar precisión significativa en el cálculo de dependencias relevantes.
