@@ -14,6 +14,8 @@ import os
 import hashlib
 from datetime import date
 import base64
+import requests   # <--- AÑADIR ESTA
+import pathlib    # <--- AÑADIR ESTA
 
 # ============================================
 # CONFIGURACIÓN
@@ -83,6 +85,24 @@ st.markdown("""
     .stMetric [data-testid="stMetricValue"] { font-size: 2.2rem !important; }
 </style>
 """, unsafe_allow_html=True)
+
+# ... (Después de tu bloque de CSS) ...
+
+# ============================================
+# CONSTANTES DE DATOS
+# ============================================
+
+# 1. URL de descarga directa de Google Drive (¡reemplaza con la tuya!)
+GDRIVE_FILE_URL = "https://drive.google.com/uc?export=download&id=1BEO33LWp_gMRL1F5aG8X_Cem0QQGgl_i"
+
+# 2. Ruta donde se guardará el archivo en el disco temporal de Streamlit Cloud
+LOCAL_FILE_PATH = "/tmp/dependencies_full.parquet"
+
+
+# ============================================
+# FUNCIONES AUXILIARES
+# ============================================
+# ... (tus funciones get_flag_emoji, etc.) ...
 
 # ============================================
 # FUNCIONES AUXILIARES
@@ -183,28 +203,61 @@ def get_daily_industry(industries_list):
     return industries_list[seed % len(industries_list)]
 
 # ============================================
-# DUCKDB CONNECTION (OPTIMIZADO)
+# DUCKDB CONNECTION (OPTIMIZADO PARA CLOUD)
 # ============================================
 
 @st.cache_resource
 def get_duckdb_connection():
     """
-    Conexión a DuckDB (cacheada, se crea una sola vez)
-    Lee Parquet directamente sin cargarlo todo en memoria
+    Descarga el Parquet desde GDrive si no existe en el disco temporal,
+    luego se conecta con DuckDB (cacheado, se crea una sola vez).
     """
-    con = duckdb.connect()
     
-    # Configurar threads (usa mitad de CPUs disponibles)
-    n_threads = max(2, os.cpu_count() // 2)
-    con.execute(f"PRAGMA threads={n_threads}")
+    # 1. Comprobar si el archivo ya existe en el disco temporal
+    file = pathlib.Path(LOCAL_FILE_PATH)
     
-    # Vista externa que lee el Parquet directamente
-    con.execute("""
-        CREATE OR REPLACE VIEW deps AS
-        SELECT * FROM read_parquet('../data/processed/parquet_files/dependencies_full.parquet')
-    """)
-    
-    return con
+    if not file.exists():
+        # Si no existe, mostrar un spinner y descargarlo
+        with st.spinner(f"Descargando base de datos (160MB) desde Google Drive... Esto solo pasa una vez."):
+            try:
+                # Descargar el archivo
+                response = requests.get(GDRIVE_FILE_URL, stream=True)
+                response.raise_for_status() # Lanza error si la descarga falla
+                
+                # Guardar el archivo en el disco local
+                with open(LOCAL_FILE_PATH, "wb") as f:
+                    # Usar iter_content para manejar archivos grandes
+                    for chunk in response.iter_content(chunk_size=8192):
+                        f.write(chunk)
+                
+                st.success("¡Base de datos descargada!")
+            
+            except Exception as e:
+                st.error(f"Error al descargar el archivo desde Google Drive: {e}")
+                st.error("Asegúrate de que la URL de GDrive es un enlace de descarga directa ('uc?export=download') y que es pública.")
+                return None
+
+    # 2. Conectar a DuckDB (ahora que sabemos que el archivo existe)
+    try:
+        con = duckdb.connect()
+        
+        # Configurar threads (esto ya lo tenías y es perfecto)
+        n_threads = max(2, os.cpu_count() // 2)
+        con.execute(f"PRAGMA threads={n_threads}")
+        
+        # 3. ¡LA CLAVE! Crear la vista leyendo de LOCAL_FILE_PATH
+        # (Usamos f-string para insertar la variable)
+        con.execute(f"""
+            CREATE OR REPLACE VIEW deps AS
+            SELECT * FROM read_parquet('{LOCAL_FILE_PATH}')
+        """)
+        
+        return con
+        
+    except Exception as e:
+        st.error(f"Error al conectar con DuckDB: {e}")
+        return None
+
 
 # ============================================
 # QUERIES OPTIMIZADAS POR VISTA
@@ -745,7 +798,7 @@ def main():
     with col_logo:
         # Leer logo y convertir a base64
         try:
-            logo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logo.png")
+            logo_path = "logo.png"  # <--- CAMBIAR A ESTO
             with open(logo_path, "rb") as f:
                 logo_data = base64.b64encode(f.read()).decode()
             st.markdown(f'<img src="data:image/png;base64,{logo_data}" style="height: 120px; width: auto;" alt="Real Instituto Elcano">', unsafe_allow_html=True)
