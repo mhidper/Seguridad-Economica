@@ -800,7 +800,8 @@ def main():
     with col_logo:
         # Leer logo y convertir a base64
         try:
-            logo_path = "logo.png"  # <--- CAMBIAR A ESTO
+            # Tu código corregido:
+            logo_path = "dashboard/logo.png"  # <--- CAMBIAR A ESTO
             with open(logo_path, "rb") as f:
                 logo_data = base64.b64encode(f.read()).decode()
             st.markdown(f'<img src="data:image/png;base64,{logo_data}" style="height: 120px; width: auto;" alt="Real Instituto Elcano">', unsafe_allow_html=True)
