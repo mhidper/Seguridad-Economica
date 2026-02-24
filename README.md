@@ -7,18 +7,29 @@ Análisis de dependencias económicas en cadenas de suministro globales. Este pr
 
 ## 🎯 Objetivo
 
-Desarrollar un índice que cuantifique la seguridad económica de los países, entendida como la capacidad de resistir disrupciones en sus cadenas de suministro y comercio internacional, en un contexto de fragmentación geoeconómica y tensiones comerciales.
+Desarrollar un índice que cuantifique la seguridad económica de los países, entendida como la capacidad de resistir disrupciones en sus cadenas de suministro, en un contexto de fragmentación geoeconómica.
 
 ---
 
-## 🔬 Metodología
+## 🔬 Metodología y Flujo de Trabajo
 
-El Indicador de Seguridad Comercial (ISC) se construye a partir de:
+El proyecto sigue un pipeline lineal dividido en tres fases críticas:
 
-- **Fuente de datos**: International Trade and Production Database (ITP) — datos comerciales bilaterales por industria (236 países, 170 industrias).
-- **Dependencia directa**: Medición del flujo comercial inmediato entre pares de países.
-- **Dependencia indirecta**: Análisis de cadenas de intermediarios (hasta longitud 5) que canalizan flujos comerciales.
-- **Perfiles de país**: Vulnerabilidad, importancia como exportador, número efectivo de proveedores e intermediación global.
+### 1️⃣ Fase de Cálculo (El Motor)
+**Notebook:** `notebooks/analysis/00_dependency.ipynb`  
+Es el núcleo técnico. Utiliza cálculo matricial masivo (potencialmente en GPU) para procesar la base de datos ITP (236 países, 170 industrias). Su función es calcular las **dependencias indirectas**: no solo quién vende a quién, sino quién es vulnerable a través de cadenas de intermediarios de hasta longitud 5.
+
+### 2️⃣ Fase de Estructuración (El Arquitecto)
+**Notebook:** `notebooks/analysis/01_build_foundations.ipynb`  
+Toma los resultados masivos del motor y los organiza en "cimientos" utilizables. Genera archivos Parquet optimizados que consolidan la información en cuatro pilares:
+- **Perfiles de País:** Vulnerabilidad y ranking global.
+- **Hubs Globales:** Quiénes son los nodos clave que intermedian el comercio mundial.
+- **Relaciones Críticas:** Vínculos bilaterales con alta dependencia y baja redundancia.
+- **Caminos Significativos:** Las rutas reales que siguen los flujos comerciales.
+
+### 3️⃣ Fase de Explotación (El Laboratorio)
+**Notebook:** `notebooks/analysis/02_exploit_ise.ipynb`  
+Es el punto de unión con la comunicación y el dashboard. Aquí se generan las visualizaciones estratégicas (heatmaps, scatter plots de riesgo) y se extraen los datos ligeros que alimentan el prototipo de visualización interactiva.
 
 ---
 
@@ -27,149 +38,57 @@ El Indicador de Seguridad Comercial (ISC) se construye a partir de:
 ```
 Seguridad-Economica/
 ├── data/
-│   ├── raw/                        # Datos ITP originales (.csv.gz en partes)
-│   └── processed/                  # Datos procesados (.parquet, .pkl, .csv.gz)
-│       └── dependencias_consolidadas/  # Outputs principales del pipeline
+│   ├── raw/                        # Datos ITP originales (.csv.gz)
+│   └── processed/                  # Datos procesados y consolidados
+│       └── dependencias_consolidadas/  # Outputs de los notebooks 00 y 01
 │
-├── notebooks/                      # 📓 Notebooks de análisis
-│   ├── 00_data_processing.ipynb        # Procesamiento alternativo (csv.gz → parquet)
-│   ├── 01_exploration_CVG.ipynb        # Análisis cadena de valor automotriz (WIOD)
+├── notebooks/                      # 📓 Notebooks de análisis (Ordenados por flujo)
+│   ├── analysis/                   
+│   │   ├── 00_dependency.ipynb         # ⚙️ MOTOR: Cálculo matricial de dependencias
+│   │   ├── 01_build_foundations.ipynb  # 🧱 ARQUITECTO: Estructuración de tablas maestras
+│   │   ├── 02_exploit_ise.ipynb        # 🧪 LABORATORIO: Análisis y visualizaciones
+│   │   ├── comunidades.ipynb           # 🗺️ GEOPOLÍTICA: Clusters de riesgo y bloques
+│   │   └── _archive/                   # Versiones anteriores (v1, v2, v3...)
 │   │
-│   ├── analysis/                       # 🔬 Pipeline principal ISC
-│   │   ├── dependency_v4.ipynb             # CORE: carga ITP, matrices, cálculo dependencias
-│   │   ├── 01_build_foundations.ipynb      # CORE: construye DataFrames analíticos
-│   │   ├── 02_exploit_pivi.ipynb           # CORE: explotación de resultados
-│   │   ├── comunidades.ipynb               # Detección de comunidades
-│   │   └── _archive/                       # Versiones anteriores (v1–v3)
-│   │
-│   ├── visualization/                  # 📊 Generación de figuras
-│   │   ├── nota_elcano.ipynb               # Figuras para informe Elcano
-│   │   ├── figuras.ipynb                   # Figuras generales
-│   │   ├── figuras_new.ipynb               # Figuras actualizadas
-│   │   ├── figuras_espana_ministro.ipynb   # Figuras España (presentación)
-│   │   └── chimerica.ipynb                 # Análisis China-América
-│   │
-│   └── paper_ise/                      # 📝 Ejercicios para el paper
-│       └── ejercicio_paper.ipynb
+│   ├── visualization/              # 📊 Generación de figuras para informes específicos
+│   └── paper_ise/                  # 📝 Ejercicios específicos para el paper académico
 │
-├── dashboard/                      # 🎨 Dashboard interactivo (Streamlit)
-│   ├── app.py                          # Aplicación principal
-│   ├── data_utils.py                   # Funciones de utilidad
-│   └── .streamlit/                     # Configuración
+├── dashboard_prototype/            # 🎨 Visualización interactiva (Web/HTML)
+│   ├── index.html                      # Dashboard consolidado
+│   ├── template.html                   # Plantilla de diseño
+│   └── build.py                        # Script de compilación de datos
 │
-├── docs/                           # 📚 Documentación
-│   ├── Informes, briefs o notas/       # Documentos de divulgación
-│   │   ├── informe ministerio/             # Informe para el Ministerio
-│   │   ├── nota Elcano/                    # Notas y briefs Elcano
-│   │   └── policy brief USA/              # Policy brief aranceles EEUU
-│   ├── bibliografía/                   # Papers académicos de referencia
-│   ├── dashboard/                      # Documentación técnica del dashboard
-│   ├── images/                         # Imágenes centralizadas
-│   │   ├── figures/                        # Figuras generales
-│   │   ├── logos/                          # Logos institucionales
-│   │   └── paper_figures/                  # Figuras del paper
-│   ├── latex/                          # Documentos LaTeX
-│   │   ├── paper/                          # Paper académico (.tex, .pdf)
-│   │   ├── presentations/                  # Presentaciones Beamer
-│   │   └── Tablas/                         # Tablas LaTeX
-│   ├── metodología/                    # Anexo metodológico
-│   └── trabajos pendientes/            # Documentos de gestión interna
-│
-├── requirements.txt                # Dependencias Python
-└── README.md
+├── docs/                           # 📚 Metodología, briefs e informes
+└── requirements.txt                # Dependencias Python
 ```
 
 ---
 
-## � Quick Start
+## 📊 Pipeline de Datos Visual
 
-### 1️⃣ Instalación
-```bash
-git clone [URL]
-cd Seguridad-Economica
-pip install -r requirements.txt
-```
-
-### 2️⃣ Pipeline principal (ISC)
-Ejecutar en orden:
-```bash
-# Paso 1: Carga de datos ITP y cálculo de dependencias
-jupyter notebook notebooks/analysis/dependency_v4.ipynb
-
-# Paso 2: Construcción de DataFrames analíticos
-jupyter notebook notebooks/analysis/01_build_foundations.ipynb
-
-# Paso 3: Explotación y análisis de resultados
-jupyter notebook notebooks/analysis/02_exploit_pivi.ipynb
-```
-
-### 3️⃣ Dashboard
-```bash
-cd dashboard
-streamlit run app.py
+```mermaid
+graph LR
+    A[Datos ITP Raw] --> B(00_dependency)
+    B -- "all_results.pkl" --> C(01_build_foundations)
+    C -- "Tablas Parquet" --> D(02_exploit_ise)
+    D --> E[Dashboard Web]
+    D --> F[Reportes / Paper]
+    G(comunidades) -.-> D
 ```
 
 ---
 
-## 📊 Pipeline de Datos
+## 🛠️ Requisitos Técnicos
 
-```
-Datos ITP brutos (.gz)
-    └─→ dependency_v4.ipynb
-            Carga, matrices bilaterales 236×236, cálculo de dependencias
-            └─→ all_results.pkl + dependencias{año}.csv.gz
-                    └─→ 01_build_foundations.ipynb
-                            Construye: intermediarios_globales, country_profiles,
-                            relaciones_criticas, caminos_significativos (.parquet)
-                            └─→ 02_exploit_pivi.ipynb (análisis ISC)
-                            └─→ visualization/*.ipynb (gráficos)
-                            └─→ dashboard/app.py (visualización interactiva)
-```
+- **Python 3.10+**
+- **Hardware:** Se recomienda GPU NVIDIA para el notebook `00_dependency` debido a la escala del cálculo matricial.
+- **Librerías:** pandas, numpy, torch (para GPU), scipy, matplotlib, plotly.
 
 ---
 
-## 📝 Notebooks
-
-### Pipeline principal
-| Notebook | Descripción |
-|----------|-------------|
-| `analysis/dependency_v4.ipynb` | Carga datos ITP, crea matrices de comercio bilateral, calcula dependencias directas e indirectas (GPU + paralelización) |
-| `analysis/01_build_foundations.ipynb` | Construye 4 DataFrames analíticos a partir de los resultados del cálculo |
-| `analysis/02_exploit_pivi.ipynb` | Explotación y análisis del Indicador de Seguridad Comercial |
-
-### Análisis complementarios
-| Notebook | Descripción |
-|----------|-------------|
-| `00_data_processing.ipynb` | Procesamiento alternativo de archivos csv.gz → parquet consolidado |
-| `01_exploration_CVG.ipynb` | Análisis de la cadena de valor del sector automotriz (datos WIOD) |
-| `analysis/comunidades.ipynb` | Detección de comunidades en la red de dependencias |
-
-### Visualización
-| Notebook | Descripción |
-|----------|-------------|
-| `visualization/nota_elcano.ipynb` | Figuras para el informe del Real Instituto Elcano |
-| `visualization/figuras*.ipynb` | Generación de figuras para distintos contextos |
-| `visualization/chimerica.ipynb` | Análisis visual de la relación China-América |
-
----
-
-## 🔧 Requisitos técnicos
-
-- Python 3.10+
-- GPU NVIDIA (opcional, pero recomendado para `dependency_v4.ipynb`)
-- Librerías principales: `pandas`, `numpy`, `torch`, `dask`, `joblib`, `scipy`, `matplotlib`, `streamlit`
-
----
-
-## 👥 Equipo
-
-**Real Instituto Elcano**
+## 👥 Equipo (Real Instituto Elcano)
 - Manuel Alejandro Hidalgo
-
-Príncipe de Vergara, 51
-28006 Madrid, España
-[www.realinstitutoelcano.org](https://www.realinstitutoelcano.org)
-
----
+- Jorge Díaz Lanchas
+- Miguel Otero
 
 **Última actualización:** 24/02/2026
