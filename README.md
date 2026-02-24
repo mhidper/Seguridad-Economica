@@ -33,7 +33,37 @@ Es el punto de unión con la comunicación y el dashboard. Aquí se generan las 
 
 ---
 
-## 📁 Estructura del Proyecto
+## �️ Detalle de los Notebooks
+
+### ⚙️ 00_dependency.ipynb: El Motor de Cálculo
+Este notebook es el responsable del procesamiento pesado de datos. Realiza las siguientes tareas:
+- **Carga de Matrices de Comercio:** Importa los datos de comercio bilateral por industria para el año seleccionado.
+- **Cálculo de la Matriz de Dependencia:** Implementa la fórmula de Leontief adaptada al comercio internacional: $D = T(I - \check{T})^{-1}$, donde $T$ es la matriz de transiciones comerciales.
+- **Soporte GPU (PyTorch):** Optimizado para ejecutar los productos de matrices en GPU, permitiendo procesar las 170 industrias paralelamente o en ráfagas rápidas.
+- **Output:** Genera el archivo maestro `all_results.pkl`, que contiene el mapa completo de dependencias directas e indirectas del sistema global.
+
+### 🧱 01_build_foundations.ipynb: El Arquitecto de Datos
+Limpia y estructura los resultados brutos para que el análisis sea instantáneo:
+- **Consolidación:** Agrupa los resultados de las 170 industrias en perfiles únicos por país.
+- **Filtrado de Ruido:** Elimina caminos comerciales insignificantes (low value) para centrarse en las dependencias que realmente mueven la economía.
+- **Generación de Parquets:** Crea archivos comprimidos de lectura rápida (`.parquet`) que separan los datos por temática (hubs, perfiles, rutas), evitando cargar gigabytes innecesarios en memoria.
+
+### 🧪 02_exploit_ise.ipynb: El Laboratorio de Análisis
+Donde la matemática de los notebooks anteriores se convierte en conocimiento estratégico:
+- **Análisis de Vulnerabilidad:** Calcula el ISC (Índice de Seguridad Comercial) ponderado por la importancia estratégica de cada industria.
+- **Visualizaciones de Red:** Genera matrices de calor (Heatmaps) país-industria para detectar concentraciones de riesgo.
+- **Eje de Criticidad:** Cruza la dependencia total con el número de caminos alternativos para identificar productos sin "Plan B".
+- **Dashboard Export:** Genera extractos JSON y CSV optimizados para su visualización en el prototipo interactivo.
+
+### 🗺️ comunidades.ipynb: Geopolítica y Bloques de Riesgo
+Añade una dimensión cualitativa al riesgo comercial:
+- **Distancia Geopolítica:** Incorpora datos de alineación en votos de la ONU y acuerdos comerciales.
+- **Clustering:** Agrupa los países en 5 comunidades (ej. Bloque Occidental, Emergentes, etc.) mediante algoritmos de aprendizaje no supervisado.
+- **Riesgo de Bloque:** Analiza si un país está demasiado expuesto a un bloque con el que tiene tensiones geopolíticas crecientes.
+
+---
+
+## �📁 Estructura del Proyecto
 
 ```
 Seguridad-Economica/
@@ -88,7 +118,6 @@ graph LR
 
 ## 👥 Equipo (Real Instituto Elcano)
 - Manuel Alejandro Hidalgo
-- Jorge Díaz Lanchas
 - Miguel Otero
 
 **Última actualización:** 24/02/2026
