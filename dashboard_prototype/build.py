@@ -15,7 +15,7 @@ datasets['profiles'] = df.to_dict(orient='records')
 df = pd.read_parquet('../dashboard/data/global_hubs.parquet')
 datasets['hubs'] = df.to_dict(orient='records')
 
-df = pd.read_parquet('../dashboard/data/critical_relations.parquet')
+df = pd.read_parquet('../data/processed/dependencias_consolidadas/relaciones_criticas.parquet')
 datasets['critical'] = df.to_dict(orient='records')
 
 df = pd.read_parquet('../dashboard/data/country_country_criticidad.parquet')
@@ -24,6 +24,13 @@ datasets['bilateral'] = df.to_dict(orient='records')
 df = pd.read_parquet('../dashboard/data/country_industry_dependencies.parquet')
 top_deps = df.sort_values('dependency_value', ascending=False).groupby('dependent_country').head(10)
 datasets['dependencies'] = top_deps.to_dict(orient='records')
+
+# 3. Evolution Data
+df = pd.read_parquet('../notebooks/analysis/evolution_summary.parquet')
+datasets['evolution'] = df.to_dict(orient='records')
+
+df = pd.read_parquet('../notebooks/analysis/critical_evolution.parquet')
+datasets['critical_evolution'] = df.to_dict(orient='records')
 
 data_json = json.dumps(datasets, ensure_ascii=False)
 

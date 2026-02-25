@@ -797,6 +797,54 @@
         }
 
         /* RESPONSIVE */
+        .hubs-chart-container {
+            background: var(--bg-card);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .hubs-chart {
+            height: 500px;
+            width: 100%;
+        }
+
+        .critical-chart-container {
+            background: var(--bg-card);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .evolution-chart-container {
+            background: var(--bg-card);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid var(--border-subtle);
+            height: 300px;
+        }
+
+        .global-evolution-container {
+            grid-column: span 3;
+            background: var(--bg-card);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-glow);
+        }
+
+        @media (max-width: 1024px) {
+            .global-evolution-container {
+                grid-column: span 1;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -888,6 +936,12 @@
                 económica mundial.</p>
         </div>
         <div class="kpi-grid" id="kpiGrid"></div>
+        <div class="global-evolution-container">
+            <h3 style="margin-bottom:0.5rem;font-size:1.1rem">Evolución del Riesgo Global</h3>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1.5rem">Número de dependencias
+                críticas (≥70%) identificadas en el sistema por año.</p>
+            <div id="globalTrendChart" style="height:350px"></div>
+        </div>
     </section>
 
     <section id="map-section">
@@ -911,6 +965,9 @@
                 intermediario. Haz clic en un país para ver su perfil detallado.
             </p>
         </div>
+        <div class="hubs-chart-container">
+            <div id="hubsChart" class="hubs-chart"></div>
+        </div>
         <div class="hubs-grid">
             <ul class="hub-list" id="hubsLeft"></ul>
             <ul class="hub-list" id="hubsRight"></ul>
@@ -923,6 +980,9 @@
             <h2 class="section-title">Relaciones con mayor riesgo</h2>
             <p class="section-subtitle">Las 50 relaciones bilaterales más críticas: alta dependencia y pocas
                 alternativas comerciales.</p>
+        </div>
+        <div class="critical-chart-container">
+            <div id="criticalChart" class="hubs-chart"></div>
         </div>
         <div style="overflow-x: auto;">
             <table class="critical-table">
@@ -977,7 +1037,10 @@
             initKPIs();
             initGlobe();
             initMap();
+            initGlobalTrend();
+            initHubsChart();
             initHubs();
+            initCriticalChart();
             initCritical();
             initSearch();
         });
@@ -999,6 +1062,70 @@
             ${k.sub ? '<div style="color:var(--text-secondary);font-size:0.9rem;margin-top:0.3rem">' + k.sub + '</div>' : ''}
             <div class="kpi-desc">${k.desc}</div>
         </div>`).join('');
+        }
+
+        // === TRENDS ===
+        function initGlobalTrend() {
+            const d = DATA.critical_evolution;
+            const trace = {
+                x: d.map(x => x.year),
+                y: d.map(x => x.count),
+                type: 'scatter',
+                mode: 'lines+markers',
+                line: { color: '#bb2521', width: 3, shape: 'spline' },
+                marker: { size: 8, color: '#bb2521' },
+                fill: 'tozeroy',
+                fillcolor: 'rgba(187, 37, 33, 0.05)',
+                name: 'Relaciones Críticas'
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { t: 10, b: 40, l: 50, r: 10 },
+                xaxis: { gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' }, zeroline: false },
+                yaxis: { gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' }, zeroline: false },
+                hovermode: 'x unified',
+                font: { family: 'Inter' }
+            };
+
+            Plotly.newPlot('globalTrendChart', [trace], layout, { responsive: true, displayModeBar: false });
+        }
+
+        function initProfileTrend(iso3) {
+            const d = (DATA.evolution || []).filter(x => x.country === iso3).sort((a, b) => a.year - b.year);
+            if (!d.length) return;
+
+            const traceVul = {
+                x: d.map(x => x.year),
+                y: d.map(x => x.vulnerability),
+                name: 'Vulnerabilidad (ISC)',
+                type: 'scatter',
+                mode: 'lines',
+                line: { color: '#bb2521', width: 3 }
+            };
+
+            const traceImp = {
+                x: d.map(x => x.year),
+                y: d.map(x => x.importance),
+                name: 'Importancia Estratégica',
+                type: 'scatter',
+                mode: 'lines',
+                line: { color: '#3b82f6', width: 2, dash: 'dot' }
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { t: 30, b: 40, l: 50, r: 10 },
+                legend: { orientation: 'h', y: 1.1, font: { color: '#8892a4', size: 10 } },
+                xaxis: { gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' }, zeroline: false },
+                yaxis: { gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' }, zeroline: false },
+                hovermode: 'x unified',
+                font: { family: 'Inter' }
+            };
+
+            Plotly.newPlot('profileTrendChart', [traceVul, traceImp], layout, { responsive: true, displayModeBar: false });
         }
 
         // === ROTATING GLOBE ===
@@ -1059,6 +1186,66 @@
         }
 
         // === HUBS ===
+        function initHubsChart() {
+            const h = DATA.hubs;
+            const trace = {
+                x: h.map(x => x.frequency_total),
+                y: h.map(x => x.strength_total),
+                text: h.map(x => getName(x.country)),
+                // Solo mostrar texto si el score es alto para no saturar
+                mode: 'markers+text',
+                textposition: 'top center',
+                textfont: { family: 'Inter', size: 10, color: '#8892a4' },
+                marker: {
+                    size: h.map(x => Math.sqrt(x.global_score) * 40 + 5),
+                    color: h.map(x => x.global_score),
+                    colorscale: [[0, '#3b82f6'], [0.5, '#6366f1'], [1, '#bb2521']],
+                    opacity: 0.7,
+                    line: { color: 'rgba(255,255,255,0.1)', width: 1 }
+                },
+                hoverinfo: 'text',
+                customdata: h.map(x => [
+                    getName(x.country),
+                    (x.global_score * 100).toFixed(1),
+                    x.frequency_total.toLocaleString(),
+                    x.strength_total.toFixed(4)
+                ]),
+                hovertemplate: `<b>%{customdata[0]}</b><br>Score: %{customdata[1]}%<br>Rutas: %{customdata[2]}<br>Fuerza: %{customdata[3]}<extra></extra>`
+            };
+
+            // Filtrar texto para solo mostrar top 15
+            trace.text = h.map((x, i) => i < 15 ? getName(x.country) : '');
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { t: 20, b: 60, l: 80, r: 20 },
+                xaxis: {
+                    title: { text: 'Frecuencia (Nº de rutas intermediadas)', font: { color: '#8892a4', size: 12 }, standout: 15 },
+                    gridcolor: 'rgba(255,255,255,0.05)',
+                    tickfont: { color: '#5a6478', size: 10 },
+                    zeroline: false
+                },
+                yaxis: {
+                    title: { text: 'Fuerza (Peso del flujo canalizado)', font: { color: '#8892a4', size: 12 }, standout: 15 },
+                    gridcolor: 'rgba(255,255,255,0.05)',
+                    tickfont: { color: '#5a6478', size: 10 },
+                    zeroline: false
+                },
+                hovermode: 'closest',
+                font: { family: 'Inter' }
+            };
+
+            Plotly.newPlot('hubsChart', [trace], layout, { responsive: true, displayModeBar: false });
+
+            document.getElementById('hubsChart').on('plotly_click', d => {
+                if (d.points[0]) {
+                    const country = h[d.points[0].pointIndex].country;
+                    showProfile(country);
+                }
+            });
+        }
+
         function initHubs() {
             const h = DATA.hubs, max = h[0].global_score;
             const half = Math.ceil(h.length / 2);
@@ -1077,7 +1264,76 @@
             render(h.slice(half), document.getElementById('hubsRight'));
         }
 
-        // === CRITICAL TABLE ===
+        // === CRITICAL CHART ===
+        function initCriticalChart() {
+            // Usar una muestra amplia ordenada por criticidad
+            const allC = DATA.critical.sort((a, b) => b.criticidad - a.criticidad);
+            const c = allC.slice(0, 2000);
+
+            const trace = {
+                x: c.map(x => x.caminos_alternativos + (Math.random() - 0.5) * 0.4),
+                y: c.map(x => x.criticidad),
+                mode: 'markers',
+                marker: {
+                    size: c.map(x => Math.sqrt(x.dependencia_total) * 15 + 3),
+                    color: c.map(x => x.criticidad),
+                    colorscale: [[0, '#3b82f6'], [0.4, '#3b82f6'], [0.7, '#f59e0b'], [1, '#bb2521']],
+                    opacity: 0.4,
+                    line: { width: 0 }
+                },
+                text: c.map(x => `${getName(x.exportador)} → ${getName(x.importador)}<br>${x.industry}`),
+                hoverinfo: 'text',
+                customdata: c.map(x => [
+                    getName(x.exportador),
+                    getName(x.importador),
+                    x.industry,
+                    (x.dependencia_total * 100).toFixed(1),
+                    x.caminos_alternativos,
+                    (x.criticidad * 100).toFixed(0)
+                ]),
+                hovertemplate: `<b>%{customdata[0]} → %{customdata[1]}</b><br>Sector: %{customdata[2]}<br>Dep: %{customdata[3]}%<br>Alt: %{customdata[4]}<br>Criticidad: %{customdata[5]}%<extra></extra>`
+            };
+
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { t: 20, b: 60, l: 80, r: 20 },
+                xaxis: {
+                    title: { text: 'Redundancia (Nº de caminos alternativos)', font: { color: '#8892a4', size: 12 }, standout: 15 },
+                    gridcolor: 'rgba(255,255,255,0.05)',
+                    tickfont: { color: '#5a6478', size: 10 },
+                    zeroline: false,
+                    tickvals: [0, 1, 2, 3, 4],
+                    range: [-0.8, 4.8]
+                },
+                yaxis: {
+                    title: { text: 'Nivel de Criticidad (0-100%)', font: { color: '#8892a4', size: 12 }, standout: 15 },
+                    gridcolor: 'rgba(255,255,255,0.05)',
+                    tickfont: { color: '#5a6478', size: 10 },
+                    zeroline: false,
+                    range: [-0.05, 1.1]
+                },
+                hovermode: 'closest',
+                font: { family: 'Inter' },
+                shapes: [
+                    // Zona de Alerta (Alta criticidad, baja redundancia)
+                    {
+                        type: 'rect', x0: -0.5, y0: 0.8, x1: 0.5, y1: 1.1,
+                        fillcolor: 'rgba(187, 37, 33, 0.1)', line: { width: 0 }
+                    }
+                ],
+                annotations: [
+                    {
+                        x: 0, y: 1.05, text: 'ZONA DE MÁXIMO RIESGO',
+                        showarrow: false, font: { size: 10, color: '#bb2521', weight: 'bold' },
+                        opacity: 0.7
+                    }
+                ]
+            };
+
+            Plotly.newPlot('criticalChart', [trace], layout, { responsive: true, displayModeBar: false });
+        }
+
         function initCritical() {
             document.getElementById('criticalBody').innerHTML = DATA.critical.map((r, i) => {
                 const depPct = (r.dependencia_total * 100).toFixed(1);
@@ -1142,13 +1398,18 @@
                 <div class="kpi-desc">Número medio de proveedores reales por industria. Menos proveedores = mayor concentración y riesgo.</div>
             </div>
         </div>
-        ${hub ? `<div style="background:var(--bg-card);border-radius:16px;padding:1.5rem;border:1px solid var(--border-subtle);margin-bottom:2rem">
-            <div class="section-label" style="margin-bottom:0.5rem">Intermediación Global</div>
-            <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.5">Mide la importancia del país como nodo en cadenas de suministro globales. Un alto score significa que muchas rutas comerciales pasan por este país.</div>
+        <div class="profile-evolution">
+            <h3 style="margin:2rem 0 0.5rem 0;font-size:1.1rem">Tendencia Histórica (2001-2022)</h3>
+            <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:1rem">Evolución del índice de vulnerabilidad e importancia estratégica.</p>
+            <div id="profileTrendChart" class="evolution-chart-container"></div>
+        </div>
+        ${hub ? `<div style="background:var(--bg-card);border-radius:16px;padding:1.5rem;border:1px solid var(--border-subtle);margin-bottom:2rem;margin-top:2rem">
+            <div class="section-label" style="margin-bottom:0.5rem">Intermediación Global (Hub)</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.4">Posición en el ranking de hubs comerciales. Mide el peso del país como intermediario en rutas mundiales.</div>
             <div style="display:flex;gap:2rem;align-items:center;flex-wrap:wrap">
-                <div><span style="font-size:2rem;font-weight:700">#${hub.global_rank}</span> <span style="color:var(--text-muted)">de 236 economías</span></div>
-                <div><span style="font-size:1.3rem;font-weight:600">${hub.frequency_total.toLocaleString()}</span> <span style="color:var(--text-muted)">rutas intermediadas</span></div>
-                <div><span style="font-size:1.3rem;font-weight:600">${(hub.global_score * 100).toFixed(1)}</span> <span style="color:var(--text-muted)">score (0-100)</span></div>
+                <div><span style="font-size:1.8rem;font-weight:700">#${hub.global_rank}</span> <span style="color:var(--text-muted);font-size:0.8rem">de 236</span></div>
+                <div><span style="font-size:1.2rem;font-weight:600">${hub.frequency_total.toLocaleString()}</span> <span style="color:var(--text-muted);font-size:0.8rem">rutas</span></div>
+                <div><span style="font-size:1.2rem;font-weight:600">${(hub.global_score * 100).toFixed(1)}</span> <span style="color:var(--text-muted);font-size:0.8rem">score</span></div>
             </div></div>` : ''}
         <div class="section-label" style="margin-bottom:1rem;margin-top:2rem">Principales dependencias por industria</div>
         <div id="profileTreemap" style="height:400px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border-subtle);padding:1rem;margin-bottom:2rem"></div>
@@ -1175,6 +1436,8 @@
                 }], { paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)', margin: { t: 10, b: 10, l: 10, r: 10 }, font: { family: 'Inter' } },
                     { responsive: true, displayModeBar: false });
             }
+
+            initProfileTrend(iso3);
 
             document.getElementById('profile-section').classList.add('active');
             document.getElementById('profile-section').scrollIntoView({ behavior: 'smooth' });
