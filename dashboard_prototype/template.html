@@ -796,6 +796,152 @@
             margin-bottom: 1rem;
         }
 
+        /* INDUSTRY EXPLORER */
+        .explorer-container {
+            background: var(--bg-card);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .explorer-inputs {
+            display: grid;
+            grid-template-columns: 2fr 1fr auto;
+            gap: 1.5rem;
+            align-items: flex-end;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .explorer-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .explorer-input-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .explorer-input-group input,
+        .explorer-input-group select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 12px 15px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .explorer-input-group input:focus,
+        .explorer-input-group select:focus {
+            outline: none;
+            border-color: var(--elcano-red-light);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(187, 37, 33, 0.2);
+        }
+
+        .explorer-btn {
+            background: var(--elcano-red);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            height: 48px;
+        }
+
+        .explorer-btn:hover {
+            background: var(--elcano-red-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(187, 37, 33, 0.3);
+        }
+
+        .placeholder-msg {
+            color: var(--text-muted);
+            text-align: center;
+            padding: 50px 0;
+            font-style: italic;
+        }
+
+        .explorer-results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .explorer-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .explorer-card:hover {
+            border-color: var(--elcano-red-light);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .explorer-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .explorer-card-flag {
+            font-size: 1.8rem;
+        }
+
+        .explorer-card-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .explorer-card-dep {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .explorer-path {
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border-subtle);
+            font-size: 0.8rem;
+        }
+
+        .explorer-path-title {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .path-route {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+            font-weight: 600;
+            background: rgba(187, 37, 33, 0.05);
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+
         /* RESPONSIVE */
         .hubs-chart-container {
             background: var(--bg-card);
@@ -900,6 +1046,7 @@
             <li><a href="#map-section">Mapa</a></li>
             <li><a href="#hubs-section">Hubs Globales</a></li>
             <li><a href="#critical-section">Relaciones Críticas</a></li>
+            <li><a href="#industry-section">Explorador de Industrias</a></li>
         </ul>
     </nav>
 
@@ -1005,6 +1152,35 @@
         </div>
     </section>
 
+    <section id="industry-section">
+        <div class="section-header">
+            <div class="section-label">Análisis Sectorial</div>
+            <h2 class="section-title">¿De quién dependemos en...?</h2>
+            <p class="section-subtitle">Explora los proveedores críticos y las rutas de suministro de cualquier
+                industria.</p>
+        </div>
+
+        <div class="explorer-container">
+            <div class="explorer-inputs">
+                <div class="explorer-input-group">
+                    <label>Industria</label>
+                    <input type="text" id="industrySearch" placeholder="Busca industria... (ej. batteries, cereals)"
+                        list="industryList" autocomplete="off">
+                    <datalist id="industryList"></datalist>
+                </div>
+                <div class="explorer-input-group">
+                    <label>País que importa</label>
+                    <select id="importerSelect"></select>
+                </div>
+                <button class="explorer-btn" onclick="runIndustryQuery()">Consultar dependencias</button>
+            </div>
+
+            <div id="industryResults" class="industry-results-area">
+                <div class="placeholder-msg">Selecciona una industria y un país para ver los resultados.</div>
+            </div>
+        </div>
+    </section>
+
     <section id="profile-section" class="profile-section">
         <button class="back-btn" onclick="closeProfile()">← Volver al panorama</button>
         <div id="profileContent"></div>
@@ -1042,6 +1218,7 @@
             initHubs();
             initCriticalChart();
             initCritical();
+            initIndustryExplorer();
             initSearch();
         });
 
@@ -1262,6 +1439,71 @@
             }
             render(h.slice(0, half), document.getElementById('hubsLeft'));
             render(h.slice(half), document.getElementById('hubsRight'));
+        }
+
+        // === INDUSTRY EXPLORER ===
+        function initIndustryExplorer() {
+            const industries = DATA.industries.sort((a, b) => a.industry_descr.localeCompare(b.industry_descr));
+            document.getElementById('industryList').innerHTML = industries.map(i => `<option value="${i.industry_descr}">`).join('');
+
+            const countries = Object.keys(COUNTRY_NAMES).sort((a, b) => getName(a).localeCompare(getName(b)));
+            document.getElementById('importerSelect').innerHTML = countries.map(c => `<option value="${c}" ${c === 'ESP' ? 'selected' : ''}>${getName(c)}</option>`).join('');
+        }
+
+        function runIndustryQuery() {
+            const industryName = document.getElementById('industrySearch').value;
+            const importer = document.getElementById('importerSelect').value;
+            const resArea = document.getElementById('industryResults');
+
+            const industryObj = DATA.industries.find(i => i.industry_descr === industryName);
+            if (!industryObj) {
+                resArea.innerHTML = '<div class="placeholder-msg" style="color:var(--elcano-red-light)">Por favor, selecciona una industria válida de la lista.</div>';
+                return;
+            }
+
+            const results = (DATA.explorer || []).filter(x => x.industry === industryObj.industry_id && x.importer === importer);
+
+            if (!results.length) {
+                resArea.innerHTML = `<div class="placeholder-msg">No se han encontrado dependencias significativas para ${getName(importer)} en esta industria.</div>`;
+                return;
+            }
+
+            resArea.innerHTML = `
+                <div class="explorer-results-grid">
+                    ${results.map(r => `
+                    <div class="explorer-card" onclick="showProfile('${r.exporter}')" style="cursor:pointer">
+                        <div class="explorer-card-header">
+                            <span class="explorer-card-flag">${getFlag(r.exporter)}</span>
+                            <div class="explorer-card-name">${getName(r.exporter)}</div>
+                        </div>
+                        <div class="explorer-card-dep">
+                            <span>Dependencia Total</span>
+                            <span style="font-weight:700;color:var(--elcano-red-light)">${(r.dep_total * 100).toFixed(2)}%</span>
+                        </div>
+                        <div class="hub-bar-container" style="height:6px;margin-bottom:1rem">
+                            <div class="hub-bar" style="width:${Math.min(r.dep_total * 100, 100)}%"></div>
+                        </div>
+                        <div style="font-size:0.75rem;color:var(--text-muted);display:flex;justify-content:space-between">
+                            <span>Directa: ${(r.dep_direct * 100).toFixed(1)}%</span>
+                            <span>Indirecta: ${(r.dep_indirect * 100).toFixed(1)}%</span>
+                        </div>
+                        ${r.top_intermediary ? `
+                        <div class="explorer-path">
+                            <span class="explorer-path-title">Ruta más relevante</span>
+                            <div class="path-route">
+                                <span>${getFlag(r.exporter)}</span>
+                                <span style="font-size:0.7rem">→</span>
+                                <span style="font-size:0.75rem;background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px">${r.top_intermediary}</span>
+                                <span style="font-size:0.7rem">→</span>
+                                <span>${getFlag(r.importer)}</span>
+                            </div>
+                            <div style="margin-top:0.4rem;font-size:0.65rem;color:var(--text-muted);text-align:right">Fuerza: ${r.path_strength.toFixed(4)}</div>
+                        </div>
+                        ` : ''}
+                    </div>
+                    `).join('')}
+                </div>
+            `;
         }
 
         // === CRITICAL CHART ===
