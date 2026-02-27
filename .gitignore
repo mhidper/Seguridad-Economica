@@ -68,7 +68,6 @@ backup_*/
 # Data (descomenta si no quieres subir datos grandes)
 data/
 
-# Dashboard - Evitar bloqueo por archivos > 100MB
-dashboard_prototype/index.html
-dashboard_prototype_HF/data.json
-dashboard_prototype_HF/index.html
+# Dashboard - Fragmented data for GitHub Pages
+# (Los archivos en data_dist/ son menores de 100MB y pueden subirse)
+
