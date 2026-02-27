@@ -67,3 +67,8 @@ backup_*/
 
 # Data (descomenta si no quieres subir datos grandes)
 data/
+
+# Dashboard - Evitar bloqueo por archivos > 100MB
+dashboard_prototype/index.html
+dashboard_prototype_HF/data.json
+dashboard_prototype_HF/index.html

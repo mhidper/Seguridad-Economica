@@ -1222,15 +1222,35 @@
         // === CORE DATA HANDLING ===
         let CURRENT_YEAR = null;
         let CURRENT_DATA = null;
-        const FULL_DATA = __DATA_JSON__;
+        let FULL_DATA = null;
+
+        async function loadDataAndInit() {
+            try {
+                const response = await fetch('/api/data');
+                FULL_DATA = await response.json();
+                initGlobal();
+
+                // Quitar overlay de carga si existiera
+                const loader = document.getElementById('loader-overlay');
+                if (loader) loader.style.opacity = '0';
+                setTimeout(() => { if (loader) loader.remove(); }, 500);
+            } catch (e) {
+                console.error("Error al cargar los datos:", e);
+                const loaderText = document.querySelector('#loader-overlay p');
+                if (loaderText) loaderText.innerText = "Error al conectar con el servidor de datos.";
+            }
+        }
 
         function initGlobal() {
+            if (!FULL_DATA) return;
             const meta = FULL_DATA.meta || { available_years: [2022], latest_year: 2022 };
             const years = meta.available_years;
 
             // Poblar selectores de año
             const navSelect = document.getElementById('yearSelectNav');
-            navSelect.innerHTML = years.map(y => `<option value="${y}" ${y === meta.latest_year ? 'selected' : ''}>${y}</option>`).join('');
+            if (navSelect) {
+                navSelect.innerHTML = years.map(y => `<option value="${y}" ${y === meta.latest_year ? 'selected' : ''}>${y}</option>`).join('');
+            }
 
             // Seleccionar año inicial
             setGlobalYear(meta.latest_year);
@@ -1238,7 +1258,7 @@
             // Componentes que NO cambian con el año (series históricas)
             initGlobalTrend();
             initSearch();
-            initIndustryExplorer(); // El catálogo de industrias es estático
+            initIndustryExplorer();
         }
 
         function setGlobalYear(year) {
@@ -1258,8 +1278,6 @@
 
             // Si hay un perfil abierto, actualizarlo
             if (document.getElementById('profile-section').classList.contains('active')) {
-                const currentIso3 = document.querySelector('.profile-name')?.innerText.split(' ').pop(); // O una variable global
-                // Para simplificar re-abrimos el perfil
                 const header = document.querySelector('.profile-header');
                 if (header) {
                     const iso3 = header.querySelector('div div:last-child').innerText.split(' · ')[0];
@@ -1274,7 +1292,7 @@
 
         // === INIT ===
         document.addEventListener('DOMContentLoaded', function () {
-            initGlobal();
+            loadDataAndInit();
         });
 
         // === KPIs ===
