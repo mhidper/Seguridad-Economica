@@ -1271,29 +1271,53 @@
         // === CORE DATA HANDLING ===
         let CURRENT_YEAR = null;
         let CURRENT_DATA = null;
-        let META_DATA = null; // Histórico, catálogo de industrias, etc.
-        const CACHE_YEARS = {}; // Para no re-descargar años ya visitados
+        let META_DATA = null;
+        const CACHE_YEARS = {};
+
+        function unpack(compact) {
+            if (!compact || !compact.c || !compact.d) return compact;
+            return compact.d.map(row => {
+                let obj = {};
+                compact.c.forEach((col, i) => obj[col] = row[i]);
+                return obj;
+            });
+        }
 
         async function initGlobal() {
             try {
                 const response = await fetch('data_dist/meta.json');
-                META_DATA = await response.json();
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const rawMeta = await response.json();
 
-                const years = META_DATA.available_years;
+                // Unpack meta (evolution)
+                META_DATA = {
+                    latest_year: rawMeta.latest_year,
+                    available_years: rawMeta.available_years,
+                    evolution: rawMeta.evolution.map(r => {
+                        let obj = {};
+                        rawMeta.evolution_cols.forEach((col, i) => obj[col] = r[i]);
+                        return obj;
+                    }),
+                    critical_evolution: rawMeta.critical_evolution.map(r => ({ year: r[0], count: r[1] })),
+                    industries: rawMeta.industries.map(r => ({ industry_id: String(r[0]), industry_name: r[1] }))
+                };
+
                 const navSelect = document.getElementById('yearSelectNav');
                 if (navSelect) {
-                    navSelect.innerHTML = years.map(y => `<option value="${y}" ${y === META_DATA.latest_year ? 'selected' : ''}>${y}</option>`).join('');
+                    navSelect.innerHTML = META_DATA.available_years.map(y => `<option value="${y}" ${y === META_DATA.latest_year ? 'selected' : ''}>${y}</option>`).join('');
                 }
 
-                // Cargar año inicial
                 await setGlobalYear(META_DATA.latest_year);
-
-                // Componentes estáticos
                 initGlobalTrend();
                 initSearch();
                 initIndustryExplorer();
             } catch (e) {
-                console.error("Error inicializando el dashboard:", e);
+                console.error("Error inicializando:", e);
+                if (window.location.protocol === 'file:') {
+                    alert("⚠️ ERROR DE SEGURIDAD: El navegador bloquea la carga de datos desde archivos locales. \n\nPor favor, usa un servidor local (ej. 'python -m http.server') o sube los archivos a GitHub.");
+                } else {
+                    alert("Error crítico: No se pudieron cargar los datos básicos.");
+                }
             }
         }
 
@@ -1308,7 +1332,15 @@
             try {
                 if (!CACHE_YEARS[y]) {
                     const response = await fetch(`data_dist/year_${y}.json`);
-                    CACHE_YEARS[y] = await response.json();
+                    const raw = await response.json();
+                    CACHE_YEARS[y] = {
+                        profiles: unpack(raw.profiles),
+                        hubs: unpack(raw.hubs),
+                        dependencies: unpack(raw.dependencies),
+                        bilateral: unpack(raw.bilateral),
+                        explorer_cols: raw.explorer_cols,
+                        explorer_indexed: raw.explorer_indexed
+                    };
                 }
                 CURRENT_DATA = CACHE_YEARS[y];
 
@@ -1566,8 +1598,8 @@
 
         // === INDUSTRY EXPLORER ===
         function initIndustryExplorer() {
-            const industries = FULL_DATA.industries.sort((a, b) => a.industry_descr.localeCompare(b.industry_descr));
-            document.getElementById('industryList').innerHTML = industries.map(i => `<option value="${i.industry_descr}">`).join('');
+            const industries = META_DATA.industries.sort((a, b) => a.industry_name.localeCompare(b.industry_name));
+            document.getElementById('industryList').innerHTML = industries.map(i => `<option value="${i.industry_name}">`).join('');
 
             const countries = Object.keys(COUNTRY_NAMES).sort((a, b) => getName(a).localeCompare(getName(b)));
             document.getElementById('importerSelect').innerHTML = countries.map(c => `<option value="${c}" ${c === 'ESP' ? 'selected' : ''}>${getName(c)}</option>`).join('');
@@ -1579,8 +1611,7 @@
             const resArea = document.getElementById('industryResults');
             const chartCont = document.getElementById('industryChartContainer');
 
-            // Búsqueda más robusta: insensible a mayúsculas/minúsculas y espacios
-            const industryObj = FULL_DATA.industries.find(i => i.industry_descr.trim().toLowerCase() === industryName);
+            const industryObj = META_DATA.industries.find(i => i.industry_name.trim().toLowerCase() === industryName);
 
             if (!industryObj) {
                 resArea.innerHTML = '<div class="placeholder-msg" style="color:var(--elcano-red-light)">Por favor, selecciona una industria válida de la lista.</div>';
@@ -1588,8 +1619,15 @@
                 return;
             }
 
-            const lookupKey = industryObj.industry_descr;
-            const results = (CURRENT_DATA.explorer_indexed[importer] || {})[lookupKey] || [];
+            const lookupKey = industryObj.industry_name;
+            const rawData = (CURRENT_DATA.explorer_indexed[importer] || {})[lookupKey] || [];
+
+            // Unpack on the fly
+            const results = rawData.map(r => {
+                let obj = {};
+                CURRENT_DATA.explorer_cols.forEach((col, i) => obj[col] = r[i]);
+                return obj;
+            });
 
             if (!results.length) {
                 resArea.innerHTML = `<div class="placeholder-msg">No se han encontrado dependencias significativas para ${getName(importer)} en esta industria.</div>`;
