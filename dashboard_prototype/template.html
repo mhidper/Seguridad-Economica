@@ -1056,10 +1056,59 @@
             background: var(--bg-dark);
             color: var(--text-primary);
         }
+
+        /* DATA LOADER OVERLAY */
+        #dataLoader {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--elcano-red);
+            padding: 12px 20px;
+            border-radius: 12px;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--elcano-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div id="dataLoader">
+        <div class="spinner"></div>
+        <span style="font-size: 0.8rem; font-weight: 500;">Cargando datos detallados...</span>
+    </div>
+
 
     <nav id="navbar">
         <div class="nav-logo">
@@ -1222,60 +1271,77 @@
         // === CORE DATA HANDLING ===
         let CURRENT_YEAR = null;
         let CURRENT_DATA = null;
-        const FULL_DATA = __DATA_JSON__;
+        let META_DATA = null; // Histórico, catálogo de industrias, etc.
+        const CACHE_YEARS = {}; // Para no re-descargar años ya visitados
 
-        function initGlobal() {
-            const meta = FULL_DATA.meta || { available_years: [2022], latest_year: 2022 };
-            const years = meta.available_years;
+        async function initGlobal() {
+            try {
+                const response = await fetch('data_dist/meta.json');
+                META_DATA = await response.json();
 
-            // Poblar selectores de año
-            const navSelect = document.getElementById('yearSelectNav');
-            navSelect.innerHTML = years.map(y => `<option value="${y}" ${y === meta.latest_year ? 'selected' : ''}>${y}</option>`).join('');
+                const years = META_DATA.available_years;
+                const navSelect = document.getElementById('yearSelectNav');
+                if (navSelect) {
+                    navSelect.innerHTML = years.map(y => `<option value="${y}" ${y === META_DATA.latest_year ? 'selected' : ''}>${y}</option>`).join('');
+                }
 
-            // Seleccionar año inicial
-            setGlobalYear(meta.latest_year);
+                // Cargar año inicial
+                await setGlobalYear(META_DATA.latest_year);
 
-            // Componentes que NO cambian con el año (series históricas)
-            initGlobalTrend();
-            initSearch();
-            initIndustryExplorer(); // El catálogo de industrias es estático
+                // Componentes estáticos
+                initGlobalTrend();
+                initSearch();
+                initIndustryExplorer();
+            } catch (e) {
+                console.error("Error inicializando el dashboard:", e);
+            }
         }
 
-        function setGlobalYear(year) {
-            CURRENT_YEAR = parseInt(year);
-            CURRENT_DATA = FULL_DATA.multi_year[CURRENT_YEAR];
+        async function setGlobalYear(year) {
+            const y = parseInt(year);
+            CURRENT_YEAR = y;
 
-            // Actualizar UI
-            document.getElementById('heroBadgeYear').innerText = `Real Instituto Elcano · Datos ${CURRENT_YEAR}`;
-            document.getElementById('footerDataYear').innerText = `Datos: International Trade and Production Database (ITP) · Año ${CURRENT_YEAR}`;
+            // Mostrar indicador
+            const loader = document.getElementById('dataLoader');
+            if (loader) loader.style.display = 'flex';
 
-            // Re-inicializar componentes dependientes de datos anuales
-            initKPIs();
-            initGlobe();
-            initMap();
-            initHubsChart();
-            initHubs();
-
-            // Si hay un perfil abierto, actualizarlo
-            if (document.getElementById('profile-section').classList.contains('active')) {
-                const currentIso3 = document.querySelector('.profile-name')?.innerText.split(' ').pop(); // O una variable global
-                // Para simplificar re-abrimos el perfil
-                const header = document.querySelector('.profile-header');
-                if (header) {
-                    const iso3 = header.querySelector('div div:last-child').innerText.split(' · ')[0];
-                    showProfile(iso3);
+            try {
+                if (!CACHE_YEARS[y]) {
+                    const response = await fetch(`data_dist/year_${y}.json`);
+                    CACHE_YEARS[y] = await response.json();
                 }
+                CURRENT_DATA = CACHE_YEARS[y];
+
+                // Actualizar UI
+                document.getElementById('heroBadgeYear').innerText = `Real Instituto Elcano · Datos ${CURRENT_YEAR}`;
+                document.getElementById('footerDataYear').innerText = `Datos: International Trade and Production Database (ITP) · Año ${CURRENT_YEAR}`;
+
+                // Re-inicializar componentes anuales
+                initKPIs();
+                initGlobe();
+                initMap();
+                initHubsChart();
+                initHubs();
+
+                // Actualizar perfil si está abierto
+                const profileSection = document.getElementById('profile-section');
+                if (profileSection && profileSection.classList.contains('active')) {
+                    const header = document.querySelector('.profile-header');
+                    if (header) {
+                        const iso3 = header.querySelector('div div:last-child').innerText.split(' · ')[0];
+                        showProfile(iso3);
+                    }
+                }
+            } catch (e) {
+                console.error(`Error cargando el año ${y}:`, e);
+            } finally {
+                if (loader) loader.style.display = 'none';
             }
         }
 
         function changeGlobalYear(year) {
             setGlobalYear(year);
         }
-
-        // === INIT ===
-        document.addEventListener('DOMContentLoaded', function () {
-            initGlobal();
-        });
 
         // === KPIs ===
         function initKPIs() {
@@ -1288,17 +1354,17 @@
                 { value: getFlag(CURRENT_DATA.hubs[0].country), label: 'Mayor intermediario', isFlag: true, sub: getName(CURRENT_DATA.hubs[0].country), desc: 'El país que más rutas comerciales intermedia a nivel global.' }
             ];
             document.getElementById('kpiGrid').innerHTML = kpis.map(k => `
-        <div class="kpi-card">
-            <div class="kpi-value" ${k.isFlag ? 'style="font-size:3.5rem;-webkit-text-fill-color:unset"' : ''}>${k.value}</div>
-            <div class="kpi-label">${k.label}</div>
-            ${k.sub ? '<div style="color:var(--text-secondary);font-size:0.9rem;margin-top:0.3rem">' + k.sub + '</div>' : ''}
-            <div class="kpi-desc">${k.desc}</div>
-        </div>`).join('');
+                <div class="kpi-card">
+                    <div class="kpi-value" ${k.isFlag ? 'style="font-size:3.5rem;-webkit-text-fill-color:unset"' : ''}>${k.value}</div>
+                    <div class="kpi-label">${k.label}</div>
+                    ${k.sub ? '<div style="color:var(--text-secondary);font-size:0.9rem;margin-top:0.3rem">' + k.sub + '</div>' : ''}
+                    <div class="kpi-desc">${k.desc}</div>
+                </div>`).join('');
         }
 
         // === TRENDS ===
         function initGlobalTrend() {
-            const d = FULL_DATA.critical_evolution;
+            const d = META_DATA.critical_evolution;
             if (!d) return;
             const trace = {
                 x: d.map(x => x.year),
@@ -1326,12 +1392,12 @@
         }
 
         function initProfileTrend(iso3) {
-            const d = (FULL_DATA.evolution || []).filter(x => x.country === iso3).sort((a, b) => a.year - b.year);
-            if (!d.length) return;
+            const history = (META_DATA.evolution || []).filter(x => x.country === iso3).sort((a, b) => a.year - b.year);
+            if (!history.length) return;
 
             const traceVul = {
-                x: d.map(x => x.year),
-                y: d.map(x => x.vulnerability),
+                x: history.map(x => x.year),
+                y: history.map(x => x.vulnerability),
                 name: 'Vulnerabilidad (ISE)',
                 type: 'scatter',
                 mode: 'lines',
@@ -1339,8 +1405,8 @@
             };
 
             const traceImp = {
-                x: d.map(x => x.year),
-                y: d.map(x => x.importance),
+                x: history.map(x => x.year),
+                y: history.map(x => x.importance),
                 name: 'Importancia Estratégica',
                 type: 'scatter',
                 mode: 'lines',
@@ -1360,6 +1426,7 @@
 
             Plotly.newPlot('profileTrendChart', [traceVul, traceImp], layout, { responsive: true, displayModeBar: false });
         }
+
 
         // === ROTATING GLOBE ===
         function initGlobe() {
