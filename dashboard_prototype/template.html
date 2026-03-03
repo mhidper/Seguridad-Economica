@@ -1552,10 +1552,15 @@
 
         // === INDUSTRY EXPLORER ===
         function initIndustryExplorer() {
-            const industries = META_DATA.industries.sort((a, b) => a.industry_name.localeCompare(b.industry_name));
+            const industries = (META_DATA.industries || [])
+                .filter(i => i && i.industry_name)
+                .sort((a, b) => (a.industry_name || "").localeCompare(b.industry_name || ""));
+
             document.getElementById('industryList').innerHTML = industries.map(i => `<option value="${i.industry_name}">`).join('');
 
-            const countries = Object.keys(COUNTRY_NAMES).sort((a, b) => getName(a).localeCompare(getName(b)));
+            const countries = Object.keys(COUNTRY_NAMES)
+                .sort((a, b) => (getName(a) || "").localeCompare(getName(b) || ""));
+
             document.getElementById('importerSelect').innerHTML = countries.map(c => `<option value="${c}" ${c === 'ESP' ? 'selected' : ''}>${getName(c)}</option>`).join('');
         }
 
