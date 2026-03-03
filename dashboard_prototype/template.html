@@ -1276,16 +1276,23 @@
 
         async function initGlobal() {
             try {
+                console.log("ISE: Iniciando carga de datos Lite...");
                 // CARGA SIMPLE DESDE UN SOLO ARCHIVO
-                const response = await fetch('data_toy.json');
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const response = await fetch('./data_toy.json');
+                console.log("ISE: Respuesta del servidor:", response.status);
+
+                if (!response.ok) {
+                    throw new Error(`No se pudo encontrar el archivo de datos (HTTP ${response.status}). Asegúrate de que data_toy.json esté en la misma carpeta que index.html.`);
+                }
+
                 const data = await response.json();
+                console.log("ISE: Datos JSON parseados con éxito");
 
                 META_DATA = data;
                 CURRENT_DATA = data;
                 CURRENT_YEAR = data.latest_year;
 
-                // Actualizar Selector de años (en modo juguete solo hay uno activo por defecto, pero dejamos la estructura)
+                // Actualizar Selector de años
                 const navSelect = document.getElementById('yearSelectNav');
                 if (navSelect) {
                     navSelect.innerHTML = data.available_years.map(y => `<option value="${y}" ${y === data.latest_year ? 'selected' : ''}>${y}</option>`).join('');
@@ -1303,14 +1310,11 @@
                 initGlobalTrend();
                 initSearch();
                 initIndustryExplorer();
+                console.log("ISE: Dashboard inicializado completamente.");
 
             } catch (e) {
-                console.error("Error inicializando:", e);
-                if (window.location.protocol === 'file:') {
-                    alert("⚠️ ERROR DE SEGURIDAD: El navegador bloquea la carga de datos desde archivos locales. \n\nPor favor, usa un servidor local (ej. 'python -m http.server') o sube los archivos a GitHub.");
-                } else {
-                    alert("Error crítico: No se pudieron cargar los datos.");
-                }
+                console.error("ISE Error crítico:", e);
+                alert("Error crítico al cargar el dashboard:\n" + e.message + "\n\nPor favor, refresca la página o contacta con soporte.");
             }
         }
 
