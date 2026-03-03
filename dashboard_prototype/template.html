@@ -1095,10 +1095,76 @@
             animation: spin 1s linear infinite;
         }
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
+        /* TOOLTIPS */
+        .info-wrapper {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .info-icon {
+            width: 16px;
+            height: 16px;
+            border: 1.5px solid var(--text-muted);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--text-muted);
+            cursor: help;
+            transition: all 0.2s ease;
+        }
+
+        .info-wrapper:hover .info-icon {
+            border-color: var(--elcano-red-light);
+            color: var(--elcano-red-light);
+            background: rgba(187, 37, 33, 0.1);
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            width: 260px;
+            background: rgba(22, 28, 45, 0.95);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            text-align: left;
+            border-radius: 12px;
+            padding: 12px;
+            position: absolute;
+            z-index: 1000;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -130px;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            font-size: 0.75rem;
+            line-height: 1.4;
+            font-weight: 400;
+            pointer-events: none;
+            transform: translateY(10px);
+        }
+
+        .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--border-subtle) transparent transparent transparent;
+        }
+
+        .info-wrapper:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -1161,7 +1227,15 @@
     <section id="overview">
         <div class="section-header">
             <div class="section-label">Panorama Global</div>
-            <h2 class="section-title">Índice de Seguridad Económica</h2>
+            <h2 class="section-title">
+                Índice de Seguridad Económica
+                <div class="info-wrapper">
+                    <div class="info-icon">i</div>
+                    <div class="tooltip-text">Métrica agregada que mide la exposición de un país a crisis de
+                        suministros. Combina la vulnerabilidad de sus industrias y la importancia de sus proveedores
+                        externos.</div>
+                </div>
+            </h2>
             <p class="section-subtitle">Una radiografía de las dependencias comerciales que definen la estabilidad
                 económica mundial.</p>
         </div>
@@ -1177,7 +1251,14 @@
     <section id="map-section">
         <div class="section-header">
             <div class="section-label">Mapa de Vulnerabilidad</div>
-            <h2 class="section-title">¿Quién es más vulnerable?</h2>
+            <h2 class="section-title">
+                ¿Quién es más vulnerable?
+                <div class="info-wrapper">
+                    <div class="info-icon">i</div>
+                    <div class="tooltip-text">El color indica el nivel de riesgo: los países en rojo oscuro tienen una
+                        economía altamente dependiente de suministros críticos concentrados en pocos proveedores.</div>
+                </div>
+            </h2>
             <p class="section-subtitle">Nivel de vulnerabilidad comercial de cada economía. Mayor intensidad de rojo
                 indica mayor concentración de dependencias críticas.</p>
         </div>
@@ -1189,7 +1270,14 @@
     <section id="hubs-section">
         <div class="section-header">
             <div class="section-label">Intermediación Global</div>
-            <h2 class="section-title">Los nodos del comercio mundial</h2>
+            <h2 class="section-title">
+                Los nodos del comercio mundial
+                <div class="info-wrapper">
+                    <div class="info-icon">i</div>
+                    <div class="tooltip-text">Países que actúan como "puentes" obligatorios en las cadenas globales. Si
+                        un Hub falla, la ruptura se propaga a decenas de países conectados indirectamente.</div>
+                </div>
+            </h2>
             <p class="section-subtitle">Los 30 países que más intermedian en las cadenas de suministro globales. El
                 <strong>score</strong> (0-100) combina cuántas rutas pasan por cada país y cuán insustituible es como
                 intermediario. Haz clic en un país para ver su perfil detallado.
@@ -1207,7 +1295,14 @@
     <section id="ranking-section" class="overview-section">
         <div class="section-header">
             <div class="section-label">Ranking de Riesgo</div>
-            <h2 class="section-title">Índice de Vulnerabilidad por País</h2>
+            <h2 class="section-title">
+                Índice de Vulnerabilidad por País
+                <div class="info-wrapper">
+                    <div class="info-icon">i</div>
+                    <div class="tooltip-text">Clasificación de mayor a menor riesgo basada en el Índice ISE. Permite
+                        comparar rápidamente qué potencias tienen sus cadenas de valor más expuestas al exterior.</div>
+                </div>
+            </h2>
             <p class="section-subtitle">Las economías con mayor exposición a disrupciones externas (ISE 2022).</p>
         </div>
         <div id="vulnerabilityRankingChart"
@@ -1219,7 +1314,15 @@
     <section id="industry-section">
         <div class="section-header">
             <div class="section-label">Análisis Sectorial</div>
-            <h2 class="section-title">¿De quién dependemos en...?</h2>
+            <h2 class="section-title">
+                ¿De quién dependemos en...?
+                <div class="info-wrapper">
+                    <div class="info-icon">i</div>
+                    <div class="tooltip-text">Analiza industria por industria. El sistema calcula rutas directas e
+                        indirectas para mostrar quién tiene realmente el control sobre el suministro de cada producto.
+                    </div>
+                </div>
+            </h2>
             <p class="section-subtitle">Explora los proveedores críticos y las rutas de suministro de cualquier
                 industria.</p>
         </div>
@@ -1844,10 +1947,22 @@
                 <div><span style="font-size:1.2rem;font-weight:600">${hub.frequency_total.toLocaleString()}</span> <span style="color:var(--text-muted);font-size:0.8rem">rutas</span></div>
                 <div><span style="font-size:1.2rem;font-weight:600">${(hub.global_score * 100).toFixed(1)}</span> <span style="color:var(--text-muted);font-size:0.8rem">score</span></div>
             </div></div>` : ''}
-        <div class="section-label" style="margin-bottom:1rem;margin-top:2rem">Principales dependencias por industria</div>
+        <div class="section-label" style="margin-bottom:1rem;margin-top:2rem">
+            Principales dependencias por industria
+            <div class="info-wrapper">
+                <div class="info-icon">i</div>
+                <div class="tooltip-text">Estas industrias representan el mayor peso en la vulnerabilidad del país. El porcentaje indica cuánto se vería afectada la producción nacional ante un corte total de suministros externos.</div>
+            </div>
+        </div>
         <div id="profileIndustriesBarChart" style="height:450px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border-subtle);padding:1rem;margin-bottom:2rem"></div>
         ${bilat.length ? `
-            <div class="section-label" style="margin-bottom:1rem;margin-top:2rem">Mapa de Proveedores Críticos</div>
+            <div class="section-label" style="margin-bottom:1rem;margin-top:2rem">
+                Mapa de Proveedores Críticos
+                <div class="info-wrapper">
+                    <div class="info-icon">i</div>
+                    <div class="tooltip-text">Visualización geográfica de las fuentes de dependencia. Los países más rojos son proveedores críticos donde una disrupción afectará a múltiples sectores estratégicos del país seleccionado.</div>
+                </div>
+            </div>
             <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem">Geografía del riesgo: Países de los que depende ${getName(iso3)} para abastecer su industria (Cálculo Bilateral).</div>
             <div id="profileBilateralMap" style="height:400px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border-subtle);padding:0.5rem;margin-bottom:2rem"></div>
             
