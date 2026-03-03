@@ -87,4 +87,19 @@ for year in available_years:
     with open(DATA_DIST / f'year_{year}.json', 'w', encoding='utf-8') as f:
         json.dump(year_data, f, ensure_ascii=False, separators=(',', ':')) # Sin espacios
 
-print("[OK] Dashboard compactado.")
+# 4. Generar el index.html final (Lite)
+print("[*] Generando index.html (Lite)...")
+with open(BASE_DIR / 'template.html', 'r', encoding='utf-8') as f:
+    html = f.read()
+
+# Reemplazar logo
+html = html.replace('__LOGO_BASE64__', f'data:image/png;base64,{logo_b64}')
+
+# Asegurarse de que no haya restos de inyección de datos pesados
+# (En versiones anteriores de template.html esto era necesario)
+html = html.replace('const FULL_DATA = __DATA_JSON__;', 'const FULL_DATA = null;')
+
+with open(BASE_DIR / 'index.html', 'w', encoding='utf-8') as f:
+    f.write(html)
+
+print("[OK] Dashboard compactado y index.html generado.")
