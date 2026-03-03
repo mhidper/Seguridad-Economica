@@ -68,9 +68,15 @@ if f_exp.exists():
 else:
     indexed_explorer = {}
 
-# D. Industrias
-ind_path = BASE_DIR.parent / 'data/processed/dependencias_consolidadas/industrias_id_nombre.parquet'
-industries = pd.read_parquet(ind_path).to_dict(orient='records') if ind_path.exists() else []
+# D. Industrias (Extraídas directamente del explorador para asegurar coincidencia)
+if f_exp.exists():
+    # Usamos el DataFrame original antes de filtrar para tener todos los nombres posibles
+    df_exp_full = pd.read_parquet(f_exp)
+    industries_list = sorted([str(n) for n in df_exp_full['industry'].unique() if n])
+    industries = [{'industry_name': n} for n in industries_list]
+    print(f"[*] Detectadas {len(industries)} industrias únicas.")
+else:
+    industries = []
 
 # ENSAMBLAJE FINAL
 toy_data = {
