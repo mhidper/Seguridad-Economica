@@ -1496,6 +1496,41 @@
             Plotly.newPlot('profileTrendChart', [traceVul, traceImp], layout, { responsive: true, displayModeBar: false });
         }
 
+        function initProfileBilateralMap(bilat) {
+            if (!bilat.length) return;
+            const trace = {
+                type: 'choropleth',
+                locationmode: 'ISO-3',
+                locations: bilat.map(b => b.exporter),
+                z: bilat.map(b => b.criticidad),
+                text: bilat.map(b => {
+                    const critPct = (b.criticidad * 100).toFixed(0);
+                    const critLabel = critPct >= 80 ? 'Muy alta' : critPct >= 50 ? 'Alta' : 'Moderada';
+                    return `<b>${getName(b.exporter)}</b><br>Riesgo: ${critLabel} (${critPct}%)<br><i style="font-size:0.8rem">Impacto en industrias locales</i>`;
+                }),
+                hoverinfo: 'text',
+                colorscale: [[0, '#1a1f2e'], [0.3, '#FFC107'], [0.6, '#FF9800'], [1, '#bb2521']],
+                showscale: false,
+                marker: { line: { color: '#0a0e17', width: 0.5 } }
+            };
+            const layout = {
+                geo: {
+                    projection: { type: 'natural earth' },
+                    bgcolor: 'rgba(0,0,0,0)', showframe: false,
+                    showcoastlines: true, coastlinecolor: '#2a3040',
+                    showland: true, landcolor: '#1a2332',
+                    showocean: true, oceancolor: '#0d1117',
+                    showcountries: true, countrycolor: '#2a3040'
+                },
+                paper_bgcolor: 'rgba(0,0,0,0)', margin: { t: 0, b: 0, l: 0, r: 0 }
+            };
+
+            Plotly.newPlot('profileBilateralMap', [trace], layout, { responsive: true, displayModeBar: false });
+            document.getElementById('profileBilateralMap').on('plotly_click', d => {
+                if (d.points[0]) showProfile(d.points[0].location);
+            });
+        }
+
 
         // === ROTATING GLOBE ===
         function initGlobe() {
@@ -1811,16 +1846,26 @@
             </div></div>` : ''}
         <div class="section-label" style="margin-bottom:1rem;margin-top:2rem">Principales dependencias por industria</div>
         <div id="profileIndustriesBarChart" style="height:450px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border-subtle);padding:1rem;margin-bottom:2rem"></div>
-        ${bilat.length ? `<div class="section-label" style="margin-bottom:1rem;margin-top:2rem">Proveedores más críticos</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem">
-            ${bilat.slice(0, 12).map(b => {
+        ${bilat.length ? `
+            <div class="section-label" style="margin-bottom:1rem;margin-top:2rem">Mapa de Proveedores Críticos</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem">Geografía del riesgo: Países de los que depende ${getName(iso3)} para abastecer su industria (Cálculo Bilateral).</div>
+            <div id="profileBilateralMap" style="height:400px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border-subtle);padding:0.5rem;margin-bottom:2rem"></div>
+            
+            <div class="section-label" style="margin-bottom:1rem">Principales Proveedores</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem">
+                ${bilat.slice(0, 6).map(b => {
                 const critPct = (b.criticidad * 100).toFixed(0);
                 const critColor = critPct >= 80 ? 'var(--elcano-red-light)' : critPct >= 50 ? '#FFC107' : 'var(--text-secondary)';
                 const critLabel = critPct >= 80 ? 'Muy alta' : critPct >= 50 ? 'Alta' : 'Moderada';
-                return `<div style="background:var(--bg-card);border-radius:12px;padding:1rem;border:1px solid var(--border-subtle);display:flex;align-items:center;gap:10px">
-                <span style="font-size:1.5rem">${getFlag(b.exporter)}</span><div><div style="font-weight:600;font-size:0.9rem">${getName(b.exporter)}</div><div style="font-size:0.72rem;color:${critColor}">${critLabel} (${critPct}%)</div><div style="font-size:0.65rem;color:var(--text-muted)">Sin este proveedor, ¿cuántas industrias se verían afectadas?</div></div>
-            </div>`}).join('')}
-        </div>` : ''}`;
+                return `
+                    <div style="background:var(--bg-card);border-radius:12px;padding:1rem;border:1px solid var(--border-subtle);display:flex;align-items:center;gap:10px;cursor:pointer" onclick="showProfile('${b.exporter}')">
+                        <span style="font-size:1.5rem">${getFlag(b.exporter)}</span>
+                        <div>
+                            <div style="font-weight:600;font-size:0.9rem">${getName(b.exporter)}</div>
+                            <div style="font-size:0.72rem;color:${critColor}">${critLabel} (${critPct}%)</div>
+                        </div>
+                    </div>`}).join('')}
+            </div>` : ''}`;
 
             if (deps.length) {
                 const topDeps = deps.slice(0, 12);
@@ -1846,6 +1891,7 @@
             }
 
             initProfileTrend(iso3);
+            initProfileBilateralMap(bilat);
 
             document.getElementById('profile-section').classList.add('active');
             document.getElementById('profile-section').scrollIntoView({ behavior: 'smooth' });
