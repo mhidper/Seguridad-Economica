@@ -6,68 +6,55 @@ Análisis de dependencias económicas en cadenas de suministro globales. El **IS
 
 ---
 
-## 🏗️ Estructura del Proyecto e Importancia de Archivos
+---
 
-El sistema se organiza en un pipeline lineal de producción que transforma datos brutos de comercio en conocimiento estratégico.
+## 🏗️ Prototipo "Lite" vs. Sistema de Producción
 
-### 1. Motor de Cálculo (`notebooks/analysis/00_dependency.ipynb`)
-**El cerebro matemático.** Utiliza cálculo matricial acelerado (GPU/PyTorch) para procesar la base de datos ITP (236 países, 170 industrias).
--   **Función:** Calcula las dependencias indirectas (vulnerabilidad a través de intermediarios) de hasta longitud 5.
--   **Output:** Genera archivos `all_results_{año}.pkl` (1.4 GB/año), que contienen el grafo completo de riesgos.
+Para facilitar la visualización inmediata y el despliegue en **GitHub Pages**, el repositorio incluye un sistema de generación de datos "Lite".
 
-### 2. El Arquitecto (`notebooks/analysis/ise_architect.py`)
-**El estructurador oficial.** Transforma los masivos `.pkl` en tablas relacionales ligeras.
--   **Ubicación de Salida:** `data/processed/historico/`
--   **Archivos Generados:**
-    -   `profiles_{año}.parquet`: Rankings globales y perfiles de vulnerabilidad.
-    -   `hubs_{año}.parquet`: Nodos de intermediación crítica.
-    -   `critical_{año}.parquet`: Alertas de dependencias bilaterales de alto riesgo.
-    -   `explorer_{año}.parquet`: Rutas e industrias específicas (optimizado mediante indexación O(1)).
+### 1. El Generador de Juguete (`build_toy.py`)
+Este script crea una versión reducida pero 100% funcional del ecosistema de datos:
+- **Reducción de Escala:** Selecciona un subconjunto (ej. 30 países) en lugar de los 236 originales.
+- **Fragmentación de Archivos:** Genera archivos `data_toy_YYYY.json` individuales por año. Esto permite que el navegador solo descargue el año que el usuario está consultando, optimizando la memoria (archivos de ~7MB vs. el archivo consolidado de +300MB).
+- **Propósito:** Validar la UX/UI, probar las visualizaciones y demostrar la capacidad multi-año sin necesidad de un servidor backend.
 
-- **Poda Inteligente:** Para mantener la fluidez en el navegador, se filtra el riesgo por debajo del 1% (ESP) / 5% (Global) y se limita al Top 10 de proveedores por industria.
-
-### 3. El Constructor de Dashboard (`dashboard_prototype/build.py`)
-**El empaquetador.** Toma los datos del historial, aplica filtros de relevancia y genera el prototipo interactivo.
--   **Output:** `dashboard_prototype/index.html` (Dashboard autocontenido, optimizado mediante indexación por diccionarios).
+### 2. El Dashboard (`dashboard_prototype/template.html`)
+El frontend está diseñado como una **Single Page Application (SPA)** reactiva que:
+- Implementa una arquitectura de carga bajo demanda (Lazy Loading) de archivos JSON.
+- Utiliza **Plotly.js** para renderizar mapas coropléticos, globos 3D y radares de riesgo indirecto.
+- Mantiene el estado global del año y sincroniza todos los componentes (KPIs, Mapas, Rankings, Explorador) automáticamente al cambiar de periodo.
 
 ---
 
-## 📂 Flujo de Datos Visual
+## 🏢 Guía de Handover para Implementación Profesional
 
-```mermaid
-graph TD
-    A[ITP Raw Data (.csv.gz)] --> B(00_dependency.ipynb)
-    B -- "Calcula matrices" --> C{all_results_YYYY.pkl}
-    C --> D(ise_architect.py)
-    D -- "Estructura tablas" --> E[(Carpeta Historico / Parquet)]
-    E --> F(build.py)
-    F -- "Crea Dashboard" --> G[index.html Final]
-```
+Esta sección es crítica para la empresa encargada de la web definitiva. El objetivo es escalar el prototipo actual a una plataforma robusta.
 
----
+### 📦 El "Contrato" de Datos (API Contract)
+El esquema JSON generado por `build_toy.py` debe considerarse como la especificación técnica de la API. Si el backend profesional sirve JSONs con la misma estructura que `data_toy.json`, el frontend funcionará con el 100% de los datos sin cambios significativos.
 
-## 🏢 Guía de Implementación Profesional (Handover)
+**Campos clave que la API debe servir:**
+- `kpis`: Resumen estadístico global por año.
+- `map_data`: Valores del ISE por país (ISO3) para el mapamundi.
+- `hubs_data`: Rankings de intermediación y scores de centralidad.
+- `explorer_indexed`: (Crítico) Un diccionario indexado por `industry_id` que contiene las rutas de dependencia directa e indirecta.
+- `target_year`: El año de los datos servidos.
+- `available_years`: Lista de periodos disponibles para el selector.
 
-El dashboard actual es un **prototipo funcional de alto rendimiento** (HTML/JS/Plotly) diseñado para la portabilidad. Para transformar este repositorio en una plataforma web profesional de nivel corporativo, se recomienda:
-
-### 🚀 Recomendaciones de Arquitectura
-1.  **Motor de Base de Datos:** No se recomienda servir un archivo HTML de +280MB en producción. Utilizar un backend (FastAPI o Node.js) conectado a una base de datos analítica orientada a columnas como **DuckDB** o **ClickHouse**. Estas herramientas leen los archivos `.parquet` de la carpeta `historico/` de forma nativa e instantánea.
-2.  **API de Datos:** Exponer endpoints JSON que devuelvan solo las "tajadas" de datos necesarias para cada vista.
-3.  **Frontend Framework:** Migrar la lógica de `template.html` (basada en JavaScript vainilla) a **React** o **Vue.js**.
-4.  **Mapa y Globo:** La implementación actual de Plotly es robusta. Para una experiencia más premium, considerar **Deck.gl** o **Mapbox GL**.
-
-### 📈 Explotación de los Datos
-- Los archivos en `data/processed/historico/` son la **fuente de verdad**. Cada registro representa un grafo de suministro global.
-- **Riesgo Oculto (Efecto ISE)**: El valor diferencial es la detección de vulnerabilidades indirectas masivas en proveedores directos menores. Se visualiza específicamente en el nuevo Radar del Explorador.
-- **Rendimiento y Escalabilidad**: El prototipo utiliza indexación por diccionarios (`explorer_indexed`) y una poda estratégica (ESP >= 1%, Global >= 5%, Top 10) para manejar ~280MB de datos en memoria. En una implementación pro, el backend debe realizar estos filtros dinámicamente sobre la base de datos completa.
+### 🚀 Hoja de Ruta de Escalabilidad
+1.  **Backend vs. Archivos Estáticos:** Abandonar los archivos `.json` estáticos. El backend debe consultar los archivos `.parquet` ubicados en `data/processed/historico/` (fuente de verdad procesada).
+2.  **Motor 추천 (Recomendado):** Utilizar **DuckDB** en el servidor. Permite realizar consultas SQL analíticas sobre archivos Parquet en milisegundos.
+3.  **Migración a Framework Pro:** Se recomienda portar la lógica de `template.html` (Javascript Vainilla) a **Next.js (React)** o **Nuxt (Vue)** para mejorar la gestión de estados complejos y SEO.
+4.  **Optimización de Búsqueda:** Implementar la búsqueda de países e industrias mediante una base de datos vectorial o un índice simple en el backend, evitando cargar los nombres de 170 industrias y 230 países en el cliente.
+5.  **Visualización Premium:** Sustituir los mapas de Plotly por soluciones más fluidas como **Mapbox GL** o **Deck.gl** si se requiere manejar miles de flujos comerciales simultáneos.
 
 ---
 
 ## 🛠️ Requisitos Técnicos
 
 -   **Python 3.10+**
--   **GPU NVIDIA:** Altamente recomendada para el notebook `00_dependency`.
--   **Dependencias Core:** pandas, numpy, torch, plotly, pyarrow (para Parquet).
+-   **GPU NVIDIA:** Altamente recomendada para el motor de cálculo (`00_dependency.ipynb`).
+-   **Dependencias Core:** pandas, numpy, torch, plotly, pyarrow (para manejo de Parquet).
 
 ---
 
