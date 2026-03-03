@@ -1,8 +1,37 @@
 # 📊 ISE — Índice de Seguridad Económica
 **Real Instituto Elcano**  
-> Última actualización: 26/02/2026 — *Versión Multi-año Unificada (V2.1 - Radar de Riesgo Oculto)*
+> Última actualización: 03/03/2026 — *Versión Multi-año Unificada (V2.1 - Radar de Riesgo Oculto)*
 
 Análisis de dependencias económicas en cadenas de suministro globales. El **ISE** cuantifica la vulnerabilidad de las economías midiendo dependencias directas e indirectas en el comercio bilateral por industria, en un contexto de fragmentación geoeconómica.
+
+---
+
+## 🧠 Metodología del Índice de Seguridad Económica (ISE)
+
+El **Índice de Seguridad Económica (ISE)** es una métrica avanzada diseñada por el **Real Instituto Elcano** para identificar y cuantificar la vulnerabilidad de las naciones ante interrupciones en las cadenas globales de suministro. Supera la medición tradicional de "volumen de comercio" al enfocarse en la **estructura de dependencia** y la **capacidad de sustitución**.
+
+### 1. El Concepto de Dependencia Multi-nivel
+
+El factor diferencial de este proyecto es la distinción entre dos tipos de riesgos:
+
+*   **Dependencia Directa:** Es el riesgo inmediato visible en las aduanas. Si el país A importa el 80% de sus semiconductores del país B, el país A tiene una alta dependencia directa de B.
+*   **Dependencia Indirecta (Riesgo Oculto):** El modelo aplica algoritmos de análisis de grafos para rastrear toda la cadena de valor. Si el país B (proveedor directo) depende a su vez del país C para fabricar el semiconductor, el país A tiene una dependencia indirecta de C. El modelo detecta estos cuellos de botella geocéntricos que a menudo pasan desapercibidos en las estadísticas nacionales.
+
+### 2. Cómo se calcula el ISE
+
+El índice se construye siguiendo un proceso de tres etapas:
+
+1.  **Cálculo de la Vulnerabilidad Industrial:** Para cada binomio industria-país, se calcula el peso de las importaciones sobre la producción total y se ajusta según la elasticidad de sustitución (cuán difícil es reemplazar ese insumo localmente o con otros proveedores).
+2.  **Identificación de Hubs y Rutas:** Se utiliza el cálculo de centralidad de red para determinar qué países intermedian en más rutas críticas de suministro. Aquellos con un *Hub Score* elevado son puntos de control sistémico.
+3.  **Agregación Nacional:** El ISE final de un país es la suma ponderada de las vulnerabilidades de todas sus industrias críticas, normalizada en un rango de 0 a 1 (donde 1 representa la máxima vulnerabilidad sistémica).
+
+### 3. Origen y Ubicación de los Datos
+
+El sistema utiliza la **International Trade and Production Database (ITP)**, una base de datos armonizada que combina flujos comerciales internacionales y datos de producción doméstica para 236 países y 170 sectores (ISIC Rev.4).
+
+**Ubicación de los activos en el repositorio:**
+*   **Datos Brutos y Procesados:** Los archivos fuente de verdad se encuentran en la carpeta `data/processed/historico/` en formato **Parquet**. Estos archivos conservan la estructura completa de millones de relaciones comerciales.
+*   **Grados de Dependencia:** Los resultados del motor matemático (basado en PyTorch para cálculo matricial masivo) se generan inicialmente como archivos `.pkl` de gran tamaño (1.4GB por año) antes de ser simplificados para el dashboard profesional.
 
 ---
 
