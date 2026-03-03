@@ -1113,7 +1113,9 @@
     <nav id="navbar">
         <div class="nav-logo">
             <img src="__LOGO_BASE64__" alt="Real Instituto Elcano">
-            <span>Seguridad Económica</span>
+            <span>Seguridad Económica <span
+                    style="color:var(--elcano-red-light); font-size: 0.6rem; margin-left: 5px; vertical-align: middle; border: 1px solid var(--elcano-red-light); padding: 1px 4px; border-radius: 4px;">v1.2
+                    LITE</span></span>
         </div>
         <ul class="nav-links">
             <li><a href="#hero" class="active">Inicio</a></li>
@@ -1770,7 +1772,7 @@
                 <div><span style="font-size:1.2rem;font-weight:600">${(hub.global_score * 100).toFixed(1)}</span> <span style="color:var(--text-muted);font-size:0.8rem">score</span></div>
             </div></div>` : ''}
         <div class="section-label" style="margin-bottom:1rem;margin-top:2rem">Principales dependencias por industria</div>
-        <div id="profileTreemap" style="height:400px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border-subtle);padding:1rem;margin-bottom:2rem"></div>
+        <div id="profileIndustriesBarChart" style="height:450px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border-subtle);padding:1rem;margin-bottom:2rem"></div>
         ${bilat.length ? `<div class="section-label" style="margin-bottom:1rem;margin-top:2rem">Proveedores más críticos</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem">
             ${bilat.slice(0, 12).map(b => {
@@ -1784,7 +1786,7 @@
 
             if (deps.length) {
                 const topDeps = deps.slice(0, 12);
-                Plotly.newPlot('profileTreemap', [{
+                Plotly.newPlot('profileIndustriesBarChart', [{
                     type: 'bar',
                     orientation: 'h',
                     y: topDeps.map(d => d.industry.length > 40 ? d.industry.substring(0, 40) + '...' : d.industry),
@@ -1798,7 +1800,7 @@
                 }], {
                     paper_bgcolor: 'rgba(0,0,0,0)',
                     plot_bgcolor: 'rgba(0,0,0,0)',
-                    margin: { t: 0, b: 40, l: 250, r: 20 },
+                    margin: { t: 10, b: 40, l: 250, r: 20 },
                     xaxis: { title: 'Dependencia (%)', gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' } },
                     yaxis: { autorange: 'reversed', tickfont: { color: '#f0f2f5', size: 11 } },
                     font: { family: 'Inter' }
