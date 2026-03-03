@@ -34,67 +34,71 @@ for year in available_years:
     except Exception as e:
         print(f"Error en histórico {year}: {e}")
 
-# B. Datos del año actual (2022)
-print(f"[*] Procesando año detalle: {latest_year}...")
-df_profiles = pd.read_parquet(DATA_PATH / f"profiles_{latest_year}.parquet")
-df_profiles = df_profiles[df_profiles['country'].isin(top_countries)]
-
-df_hubs = pd.read_parquet(DATA_PATH / f"hubs_{latest_year}.parquet")
-df_hubs = df_hubs[df_hubs['country'].isin(top_countries)].head(20)
-
-# Dependencias (Industrias críticas por país)
-df_deps = pd.read_parquet(DATA_PATH / f"dependencies_{latest_year}.parquet")
-df_deps = df_deps[df_deps['dependent_country'].isin(top_countries)]
-df_deps = df_deps.sort_values('dependency_value', ascending=False).groupby('dependent_country').head(10)
-
-# Bilateral (Relaciones clave entre países)
-df_bilat = pd.read_parquet(DATA_PATH / f"bilateral_{latest_year}.parquet")
-df_bilat = df_bilat[df_bilat['importer'].isin(top_countries) & df_bilat['exporter'].isin(top_countries)]
-
-# C. Explorer (Sectorial) - Reducción drástica para el "juguete"
-print("[*] Procesando explorador sectorial...")
-f_exp = DATA_PATH / f"explorer_{latest_year}.parquet"
-if f_exp.exists():
-    df_exp = pd.read_parquet(f_exp)
-    # Solo España como importador para que el juguete sea ligero, o top_countries filtrado
-    df_exp = df_exp[df_exp['importer'].isin(top_countries) & df_exp['exporter'].isin(top_countries)]
-    df_exp = df_exp.sort_values('dep_total', ascending=False).groupby(['importer', 'industry']).head(3)
-    
-    indexed_explorer = {}
-    for imp, group in df_exp.groupby('importer'):
-        indexed_explorer[imp] = {}
-        for ind, sub in group.groupby('industry'):
-            indexed_explorer[imp][ind] = sub.to_dict(orient='records')
-else:
-    indexed_explorer = {}
-
-# D. Industrias (Extraídas directamente del explorador para asegurar coincidencia)
-if f_exp.exists():
-    # Usamos el DataFrame original antes de filtrar para tener todos los nombres posibles
-    df_exp_full = pd.read_parquet(f_exp)
+# ENSAMBLAJE FINAL Y GENERACIÓN POR AÑOS
+# D. Industrias (Extraídas directamente del explorador más reciente para asegurar coincidencia global)
+f_exp_latest = DATA_PATH / f"explorer_{latest_year}.parquet"
+if f_exp_latest.exists():
+    df_exp_full = pd.read_parquet(f_exp_latest)
     industries_list = sorted([str(n) for n in df_exp_full['industry'].unique() if n])
     industries = [{'industry_name': n} for n in industries_list]
     print(f"[*] Detectadas {len(industries)} industrias únicas.")
 else:
     industries = []
 
-# ENSAMBLAJE FINAL
-toy_data = {
-    'latest_year': latest_year,
-    'available_years': available_years,
-    'evolution': pd.concat(all_profiles).to_dict(orient='records') if all_profiles else [],
-    'critical_evolution': all_critical,
-    'industries': industries,
-    'profiles': df_profiles.to_dict(orient='records'),
-    'hubs': df_hubs.to_dict(orient='records'),
-    'dependencies': df_deps.to_dict(orient='records'),
-    'bilateral': df_bilat.to_dict(orient='records'),
-    'explorer_indexed': indexed_explorer
-}
+all_evolution_data = pd.concat(all_profiles).to_dict(orient='records') if all_profiles else []
 
-# Guardar
-with open(BASE_DIR / 'data_toy.json', 'w', encoding='utf-8') as f:
-    json.dump(toy_data, f, ensure_ascii=False, separators=(',', ':'))
+for year in available_years:
+    print(f"[*] Generando base de datos Lite para el año {year}...")
+    try:
+        # Cargar datos específicos para este año
+        df_p_year = pd.read_parquet(DATA_PATH / f"profiles_{year}.parquet")
+        df_p_year = df_p_year[df_p_year['country'].isin(top_countries)]
+        
+        df_h_year = pd.read_parquet(DATA_PATH / f"hubs_{year}.parquet")
+        df_h_year = df_h_year[df_h_year['country'].isin(top_countries)].head(20)
+        
+        df_d_year = pd.read_parquet(DATA_PATH / f"dependencies_{year}.parquet")
+        df_d_year = df_d_year[df_d_year['dependent_country'].isin(top_countries)]
+        df_d_year = df_d_year.sort_values('dependency_value', ascending=False).groupby('dependent_country').head(10)
+        
+        df_b_year = pd.read_parquet(DATA_PATH / f"bilateral_{year}.parquet")
+        df_b_year = df_b_year[df_b_year['importer'].isin(top_countries) & df_b_year['exporter'].isin(top_countries)]
+        
+        # Explorer (Sectorial) del año
+        f_exp_year = DATA_PATH / f"explorer_{year}.parquet"
+        indexed_exp_year = {}
+        if f_exp_year.exists():
+            df_e_y = pd.read_parquet(f_exp_year)
+            df_e_y = df_e_y[df_e_y['importer'].isin(top_countries) & df_e_y['exporter'].isin(top_countries)]
+            df_e_y = df_e_y.sort_values('dep_total', ascending=False).groupby(['importer', 'industry']).head(3)
+            for imp, group in df_e_y.groupby('importer'):
+                indexed_exp_year[imp] = {ind: sub.to_dict(orient='records') for ind, sub in group.groupby('industry')}
+        
+        toy_data = {
+            'target_year': year,
+            'latest_year': latest_year,
+            'available_years': available_years,
+            'evolution': all_evolution_data,
+            'critical_evolution': all_critical,
+            'industries': industries,
+            'profiles': df_p_year.to_dict(orient='records'),
+            'hubs': df_h_year.to_dict(orient='records'),
+            'dependencies': df_d_year.to_dict(orient='records'),
+            'bilateral': df_b_year.to_dict(orient='records'),
+            'explorer_indexed': indexed_exp_year
+        }
+        
+        # Guardar archivo específico (ej. data_toy_2022.json)
+        with open(BASE_DIR / f'data_toy_{year}.json', 'w', encoding='utf-8') as f:
+            json.dump(toy_data, f, ensure_ascii=False, separators=(',', ':'))
+        
+        # Si es el año más reciente, también lo guardamos como data_toy.json por compatibilidad
+        if year == latest_year:
+            with open(BASE_DIR / 'data_toy.json', 'w', encoding='utf-8') as f:
+                json.dump(toy_data, f, ensure_ascii=False, separators=(',', ':'))
+                
+    except Exception as e:
+        print(f"Error generando datos para {year}: {e}")
 
 # Generar index.html
 print("[*] Generando index.html...")

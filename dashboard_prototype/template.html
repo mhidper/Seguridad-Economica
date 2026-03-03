@@ -1335,12 +1335,50 @@
         }
 
         async function setGlobalYear(year) {
-            // En modo juguete, ignoramos el cambio de año o recargamos el mismo archivo si existieran más versiones lite
-            console.log("Cambio de año no disponible en versión Lite");
+            const loader = document.getElementById('dataLoader');
+            if (loader) loader.style.display = 'flex';
+
+            try {
+                console.log(`ISE: Cambiando al año ${year}...`);
+                const cacheBuster = `?v=${new Date().getTime()}`;
+                // Buscamos el archivo específico para ese año
+                const response = await fetch(`data_toy_${year}.json${cacheBuster}`);
+
+                if (!response.ok) throw new Error(`No hay datos disponibles para el año ${year} en la versión Lite.`);
+
+                const data = await response.json();
+                CURRENT_DATA = data;
+                CURRENT_YEAR = parseInt(year);
+
+                console.log(`ISE: Datos de ${year} cargados con éxito.`);
+
+                // Actualizar toda la interfaz
+                document.getElementById('heroBadgeYear').innerText = `Real Instituto Elcano · Datos ${CURRENT_YEAR}`;
+                document.getElementById('footerDataYear').innerText = `Datos: International Trade and Production Database (ITP) · Año ${CURRENT_YEAR} (Versión Lite)`;
+
+                initKPIs();
+                initGlobe();
+                initMap();
+                initHubsChart();
+                initHubs();
+                initVulnerabilityRanking();
+                initGlobalTrend();
+                initSearch();
+                initIndustryExplorer();
+
+                // Cerrar perfil si estaba abierto para evitar inconsistencias
+                closeProfile();
+
+                if (loader) loader.style.display = 'none';
+            } catch (e) {
+                console.error("ISE Error al cambiar de año:", e);
+                alert(e.message);
+                if (loader) loader.style.display = 'none';
+            }
         }
 
         function changeGlobalYear(year) {
-            // Ignorado en Lite
+            setGlobalYear(year);
         }
 
         document.addEventListener('DOMContentLoaded', initGlobal);
