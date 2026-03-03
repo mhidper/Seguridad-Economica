@@ -1277,8 +1277,10 @@
         async function initGlobal() {
             try {
                 console.log("ISE: Iniciando carga de datos Lite...");
-                // CARGA SIMPLE DESDE UN SOLO ARCHIVO
-                const response = await fetch('./data_toy.json');
+                // Añadimos un parámetro aleatorio para evitar que el navegador use una versión vieja (cache-busting)
+                const cacheBuster = `?v=${new Date().getTime()}`;
+                const response = await fetch('data_toy.json' + cacheBuster);
+
                 console.log("ISE: Respuesta del servidor:", response.status);
 
                 if (!response.ok) {
