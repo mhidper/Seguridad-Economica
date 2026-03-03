@@ -1366,85 +1366,99 @@
     </section>
 
     <section id="methodology-section" class="overview-section"
-        style="border-top: 1px solid var(--border-subtle); padding-top: 5rem; margin-top: 4rem;">
+        style="border-top: 1px solid var(--border-subtle); padding-top: 5rem; margin-top: 4rem; padding-bottom: 5rem;">
         <div class="section-header">
             <div class="section-label">Transparencia Técnica</div>
-            <h2 class="section-title">Metodología y Métricas</h2>
-            <p class="section-subtitle">Cómo calculamos el impacto de la fragmentación comercial en la seguridad
-                económica.</p>
+            <h2 class="section-title">Metodología y Definiciones</h2>
+            <p class="section-subtitle">Aclarando los conceptos de dependencia directa, indirecta y vulnerabilidad
+                estructural.</p>
         </div>
 
         <div
-            style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
-            <!-- ISE -->
-            <div
-                style="background:var(--bg-card); border-radius:20px; padding:2rem; border:1px solid var(--border-subtle)">
-                <div style="color:var(--elcano-red-light); font-weight:800; font-size:1.5rem; margin-bottom:1rem">01
-                </div>
-                <h3 style="margin-bottom:1rem; font-size:1.2rem; color:var(--text-primary)">Índice de Seguridad
-                    Económica (ISE)</h3>
-                <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6">
-                    El ISE mide la <strong>vulnerabilidad agregada</strong> de una economía nacional. No es solo cuánto
-                    importa un país, sino cuán concentradas están esas importaciones en industrias que no tienen
-                    sustitutos locales o proveedores alternativos.
-                </p>
-                <ul
-                    style="margin-top:1rem; font-size:0.8rem; color:var(--text-muted); list-style:square; padding-left:1rem">
-                    <li>Ponderación por peso del sector en el PIB.</li>
-                    <li>Evaluación de la elasticidad de sustitución.</li>
-                    <li>Normalización global (0-1).</li>
-                </ul>
-            </div>
+            style="display:grid; grid-template-columns: 1fr; gap: 2.5rem; margin-top: 3rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
 
-            <!-- HUBS -->
+            <!-- EXPLICACIÓN DIRECTA VS INDIRECTA -->
             <div
-                style="background:var(--bg-card); border-radius:20px; padding:2rem; border:1px solid var(--border-subtle)">
-                <div style="color:var(--elcano-red-light); font-weight:800; font-size:1.5rem; margin-bottom:1rem">02
-                </div>
-                <h3 style="margin-bottom:1rem; font-size:1.2rem; color:var(--text-primary)">Score de Intermediación
-                    (Hubs)</h3>
-                <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6">
-                    Utilizamos algoritmos de <strong>Análisis de Redes</strong> para identificar países que actúan como
-                    "cuellos de botella". El score mide la probabilidad de que una ruta de suministro global pase por un
-                    país específico.
-                </p>
-                <ul
-                    style="margin-top:1rem; font-size:0.8rem; color:var(--text-muted); list-style:square; padding-left:1rem">
-                    <li>Frecuencia de rutas (Path-counting).</li>
-                    <li>Centralidad de intermediación.</li>
-                    <li>Insustituibilidad del nodo.</li>
-                </ul>
-            </div>
-
-            <!-- DEPENDENCIAS -->
-            <div
-                style="background:var(--bg-card); border-radius:20px; padding:2rem; border:1px solid var(--border-subtle)">
-                <div style="color:var(--elcano-red-light); font-weight:800; font-size:1.5rem; margin-bottom:1rem">03
-                </div>
-                <h3 style="margin-bottom:1rem; font-size:1.2rem; color:var(--text-primary)">Dependencias Multi-nivel
+                style="background:var(--bg-card); border-radius:24px; padding:2.5rem; border:1px solid var(--border-subtle); box-shadow: 0 10px 40px rgba(0,0,0,0.2)">
+                <h3
+                    style="margin-bottom:1.5rem; font-size:1.4rem; color:var(--elcano-red-light); display:flex; align-items:center; gap:12px">
+                    <span
+                        style="background:var(--elcano-red-light); color:white; width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; font-size:1rem">A</span>
+                    Dependencias: El Corazón del Modelo
                 </h3>
-                <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6">
-                    A diferencia del comercio tradicional, nuestro modelo detecta <strong>dependencias
-                        indirectas</strong>. Si España importa de Alemania, pero Alemania depende de China para los
-                    componentes de ese producto, el modelo asigna el riesgo real al origen primario.
-                </p>
-                <ul
-                    style="margin-top:1rem; font-size:0.8rem; color:var(--text-muted); list-style:square; padding-left:1rem">
-                    <li>Rastreo de valor añadido.</li>
-                    <li>Cálculo de rutas de segundo y tercer nivel.</li>
-                    <li>Identificación de origen de insumos críticos.</li>
-                </ul>
+
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="color:var(--text-primary); margin-bottom:0.8rem; font-size:1.1rem">1. Dependencia
+                            Directa</h4>
+                        <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7">
+                            Mide la exposición inmediata a un proveedor. Representa la proporción de insumos que un país
+                            importa <strong>directamente</strong> de otro para que una industria específica pueda
+                            operar. Es el riesgo "visible" en las aduanas tradicionales.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color:var(--text-primary); margin-bottom:0.8rem; font-size:1.1rem">2. Dependencia
+                            Indirecta (Riesgo Oculto)</h4>
+                        <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7">
+                            Es la métrica más innovadora del proyecto. Rastrea el riesgo a través de la <strong>cadena
+                                de valor</strong>. Si el País A compra al País B, pero el País B necesita componentes
+                            críticos del País C para fabricar ese producto, el País A tiene una "dependencia indirecta"
+                            del País C. El modelo detecta estos cuellos de botella que las estadísticas normales
+                            ignoran.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ÍNDICES AGREGADOS -->
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2.5rem;">
+                <!-- ISE -->
+                <div
+                    style="background:var(--bg-card); border-radius:24px; padding:2.5rem; border:1px solid var(--border-subtle)">
+                    <h3 style="margin-bottom:1.2rem; font-size:1.3rem; color:var(--text-primary)">Índice de Seguridad
+                        Económica (ISE)</h3>
+                    <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.7; margin-bottom:1.5rem">
+                        Este índice sintético resume la fragilidad nacional. No se limita al volumen comercial, sino que
+                        penaliza la <strong>concentración y la falta de alternativas</strong>.
+                    </p>
+                    <div
+                        style="background:rgba(255,255,255,0.03); padding:1.2rem; border-radius:12px; font-size:0.85rem; color:var(--text-muted)">
+                        <strong>¿Qué mide?</strong> La probabilidad de que un shock en cualquier parte del mundo
+                        paralice sectores vitales del país analizado, ponderando cada industria según su importancia
+                        estratégica y facilidad de sustitución.
+                    </div>
+                </div>
+
+                <!-- HUB SCORE -->
+                <div
+                    style="background:var(--bg-card); border-radius:24px; padding:2.5rem; border:1px solid var(--border-subtle)">
+                    <h3 style="margin-bottom:1.2rem; font-size:1.3rem; color:var(--text-primary)">Score de
+                        Intermediación (Hubs)</h3>
+                    <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.7; margin-bottom:1.5rem">
+                        Determina la importancia de un país como <strong>puente logístico y productivo</strong> en el
+                        sistema global.
+                    </p>
+                    <div
+                        style="background:rgba(255,255,255,0.03); padding:1.2rem; border-radius:12px; font-size:0.85rem; color:var(--text-muted)">
+                        <strong>¿Qué mide?</strong> No mide cuánto exporta un país, sino cuántas de las rutas críticas
+                        de <em>otros</em> países pasan por él. Un score alto identifica "puntos de fallo único" en la
+                        red de seguridad económica mundial.
+                    </div>
+                </div>
             </div>
         </div>
 
         <div
-            style="margin-top:2rem; padding:2rem; border-radius:20px; background:rgba(255,255,255,0.02); border:1px dashed var(--border-subtle)">
-            <h4 style="margin-bottom:1rem; font-size:1rem; color:var(--text-primary)">Sobre los Datos</h4>
-            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.6">
-                Este panel visualiza datos procesados de la base <strong>International Trade and Production Database
-                    (ITP)</strong>, armonizada por el equipo de investigación. Las industrias se categorizan según la
-                clasificación ISIC Rev.4. El análisis cubre el periodo 2000-2022 para permitir el estudio de tendencias
-                estructurales y el impacto de shocks geopolíticos.
+            style="margin-top:4rem; padding:2.5rem; border-radius:24px; background:linear-gradient(135deg, rgba(187,37,33,0.05) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(187,37,33,0.2); max-width: 1000px; margin-left: auto; margin-right: auto;">
+            <h4 style="margin-bottom:1.2rem; font-size:1.1rem; color:var(--elcano-red-light); font-weight:700">Nota
+                sobre el Modelo de Fragmentación</h4>
+            <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.8">
+                El modelo asume que en un mundo crecientemente fragmentado, las dependencias comerciales se convierten
+                en herramientas de presión geopolítica. Por ello, el análisis se centra en identificar no solo el
+                "comercio" sino el <strong>control estructural</strong> sobre los suministros necesarios para la
+                autonomía estratégica de las naciones. Los datos proceden de la base armonizada ITP (2000-2022) del
+                equipo de investigación del Real Instituto Elcano.
             </p>
         </div>
     </section>
