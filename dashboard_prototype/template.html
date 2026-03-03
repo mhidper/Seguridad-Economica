@@ -1274,106 +1274,56 @@
         let META_DATA = null;
         const CACHE_YEARS = {};
 
-        function unpack(compact) {
-            if (!compact || !compact.c || !compact.d) return compact;
-            return compact.d.map(row => {
-                let obj = {};
-                compact.c.forEach((col, i) => obj[col] = row[i]);
-                return obj;
-            });
-        }
-
         async function initGlobal() {
             try {
-                const response = await fetch('data_dist/meta.json');
+                // CARGA SIMPLE DESDE UN SOLO ARCHIVO
+                const response = await fetch('data_toy.json');
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                const rawMeta = await response.json();
+                const data = await response.json();
 
-                // Unpack meta (evolution)
-                META_DATA = {
-                    latest_year: rawMeta.latest_year,
-                    available_years: rawMeta.available_years,
-                    evolution: rawMeta.evolution.map(r => {
-                        let obj = {};
-                        rawMeta.evolution_cols.forEach((col, i) => obj[col] = r[i]);
-                        return obj;
-                    }),
-                    critical_evolution: rawMeta.critical_evolution.map(r => ({ year: r[0], count: r[1] })),
-                    industries: rawMeta.industries.map(r => ({ industry_id: String(r[0]), industry_name: r[1] }))
-                };
+                META_DATA = data;
+                CURRENT_DATA = data;
+                CURRENT_YEAR = data.latest_year;
 
+                // Actualizar Selector de años (en modo juguete solo hay uno activo por defecto, pero dejamos la estructura)
                 const navSelect = document.getElementById('yearSelectNav');
                 if (navSelect) {
-                    navSelect.innerHTML = META_DATA.available_years.map(y => `<option value="${y}" ${y === META_DATA.latest_year ? 'selected' : ''}>${y}</option>`).join('');
+                    navSelect.innerHTML = data.available_years.map(y => `<option value="${y}" ${y === data.latest_year ? 'selected' : ''}>${y}</option>`).join('');
                 }
 
-                await setGlobalYear(META_DATA.latest_year);
-                initGlobalTrend();
-                initSearch();
-                initIndustryExplorer();
-            } catch (e) {
-                console.error("Error inicializando:", e);
-                if (window.location.protocol === 'file:') {
-                    alert("⚠️ ERROR DE SEGURIDAD: El navegador bloquea la carga de datos desde archivos locales. \n\nPor favor, usa un servidor local (ej. 'python -m http.server') o sube los archivos a GitHub.");
-                } else {
-                    alert("Error crítico: No se pudieron cargar los datos básicos.");
-                }
-            }
-        }
-
-        async function setGlobalYear(year) {
-            const y = parseInt(year);
-            CURRENT_YEAR = y;
-
-            // Mostrar indicador
-            const loader = document.getElementById('dataLoader');
-            if (loader) loader.style.display = 'flex';
-
-            try {
-                if (!CACHE_YEARS[y]) {
-                    const response = await fetch(`data_dist/year_${y}.json`);
-                    const raw = await response.json();
-                    CACHE_YEARS[y] = {
-                        profiles: unpack(raw.profiles),
-                        hubs: unpack(raw.hubs),
-                        dependencies: unpack(raw.dependencies),
-                        bilateral: unpack(raw.bilateral),
-                        explorer_cols: raw.explorer_cols,
-                        explorer_indexed: raw.explorer_indexed
-                    };
-                }
-                CURRENT_DATA = CACHE_YEARS[y];
-
-                // Actualizar UI
+                // Inicializar UI
                 document.getElementById('heroBadgeYear').innerText = `Real Instituto Elcano · Datos ${CURRENT_YEAR}`;
-                document.getElementById('footerDataYear').innerText = `Datos: International Trade and Production Database (ITP) · Año ${CURRENT_YEAR}`;
+                document.getElementById('footerDataYear').innerText = `Datos: International Trade and Production Database (ITP) · Año ${CURRENT_YEAR} (Versión Lite)`;
 
-                // Re-inicializar componentes anuales
                 initKPIs();
                 initGlobe();
                 initMap();
                 initHubsChart();
                 initHubs();
+                initGlobalTrend();
+                initSearch();
+                initIndustryExplorer();
 
-                // Actualizar perfil si está abierto
-                const profileSection = document.getElementById('profile-section');
-                if (profileSection && profileSection.classList.contains('active')) {
-                    const header = document.querySelector('.profile-header');
-                    if (header) {
-                        const iso3 = header.querySelector('div div:last-child').innerText.split(' · ')[0];
-                        showProfile(iso3);
-                    }
-                }
             } catch (e) {
-                console.error(`Error cargando el año ${y}:`, e);
-            } finally {
-                if (loader) loader.style.display = 'none';
+                console.error("Error inicializando:", e);
+                if (window.location.protocol === 'file:') {
+                    alert("⚠️ ERROR DE SEGURIDAD: El navegador bloquea la carga de datos desde archivos locales. \n\nPor favor, usa un servidor local (ej. 'python -m http.server') o sube los archivos a GitHub.");
+                } else {
+                    alert("Error crítico: No se pudieron cargar los datos.");
+                }
             }
         }
 
-        function changeGlobalYear(year) {
-            setGlobalYear(year);
+        async function setGlobalYear(year) {
+            // En modo juguete, ignoramos el cambio de año o recargamos el mismo archivo si existieran más versiones lite
+            console.log("Cambio de año no disponible en versión Lite");
         }
+
+        function changeGlobalYear(year) {
+            // Ignorado en Lite
+        }
+
+        document.addEventListener('DOMContentLoaded', initGlobal);
 
         // === KPIs ===
         function initKPIs() {
@@ -1620,14 +1570,7 @@
             }
 
             const lookupKey = industryObj.industry_name;
-            const rawData = (CURRENT_DATA.explorer_indexed[importer] || {})[lookupKey] || [];
-
-            // Unpack on the fly
-            const results = rawData.map(r => {
-                let obj = {};
-                CURRENT_DATA.explorer_cols.forEach((col, i) => obj[col] = r[i]);
-                return obj;
-            });
+            const results = (CURRENT_DATA.explorer_indexed[importer] || {})[lookupKey] || [];
 
             if (!results.length) {
                 resArea.innerHTML = `<div class="placeholder-msg">No se han encontrado dependencias significativas para ${getName(importer)} en esta industria.</div>`;
