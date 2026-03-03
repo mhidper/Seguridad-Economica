@@ -1202,6 +1202,17 @@
         </div>
     </section>
 
+    <section id="ranking-section" class="overview-section">
+        <div class="section-header">
+            <div class="section-label">Ranking de Riesgo</div>
+            <h2 class="section-title">Índice de Vulnerabilidad por País</h2>
+            <p class="section-subtitle">Las economías con mayor exposición a disrupciones externas (ISE 2022).</p>
+        </div>
+        <div id="vulnerabilityRankingChart"
+            style="height: 500px; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border-subtle); padding: 1.5rem;">
+        </div>
+    </section>
+
 
     <section id="industry-section">
         <div class="section-header">
@@ -1309,6 +1320,7 @@
                 initMap();
                 initHubsChart();
                 initHubs();
+                initVulnerabilityRanking();
                 initGlobalTrend();
                 initSearch();
                 initIndustryExplorer();
@@ -1348,6 +1360,35 @@
                     ${k.sub ? '<div style="color:var(--text-secondary);font-size:0.9rem;margin-top:0.3rem">' + k.sub + '</div>' : ''}
                     <div class="kpi-desc">${k.desc}</div>
                 </div>`).join('');
+        }
+
+        function initVulnerabilityRanking() {
+            const p = [...CURRENT_DATA.profiles].sort((a, b) => b.vulnerability - a.vulnerability).slice(0, 15);
+            const trace = {
+                x: p.map(x => getName(x.country)),
+                y: p.map(x => x.vulnerability),
+                type: 'bar',
+                marker: {
+                    color: p.map(x => x.vulnerability),
+                    colorscale: [[0, '#3d1515'], [1, '#bb2521']],
+                    line: { color: 'rgba(255,255,255,0.1)', width: 1 }
+                },
+                text: p.map(x => x.vulnerability.toFixed(3)),
+                textposition: 'auto',
+                hoverinfo: 'none'
+            };
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { t: 10, b: 80, l: 40, r: 10 },
+                xaxis: { tickfont: { color: '#f0f2f5', size: 10 }, tickangle: -45 },
+                yaxis: { title: 'Vulnerabilidad (ISE)', gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' } },
+                font: { family: 'Inter' }
+            };
+            Plotly.newPlot('vulnerabilityRankingChart', [trace], layout, { responsive: true, displayModeBar: false });
+            document.getElementById('vulnerabilityRankingChart').on('plotly_click', d => {
+                if (d.points[0]) showProfile(p[d.points[0].pointIndex].country);
+            });
         }
 
         // === TRENDS ===
@@ -1742,16 +1783,26 @@
         </div>` : ''}`;
 
             if (deps.length) {
+                const topDeps = deps.slice(0, 12);
                 Plotly.newPlot('profileTreemap', [{
-                    type: 'treemap',
-                    labels: deps.map(d => d.industry.length > 30 ? d.industry.substring(0, 30) + '...' : d.industry),
-                    parents: deps.map(() => ''), values: deps.map(d => d.dependency_value),
-                    text: deps.map(d => d.industry + '<br>Dep: ' + (d.dependency_value * 100).toFixed(2) + '%'), hoverinfo: 'text',
-                    textinfo: 'label+percent parent',
-                    marker: { colors: deps.map(d => d.dependency_value), colorscale: [[0, '#2d1a1a'], [0.5, '#8b2525'], [1, '#ff4040']], line: { width: 1, color: '#1a2332' } },
-                    textfont: { family: 'Inter', size: 11, color: '#f0f2f5' }
-                }], { paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)', margin: { t: 10, b: 10, l: 10, r: 10 }, font: { family: 'Inter' } },
-                    { responsive: true, displayModeBar: false });
+                    type: 'bar',
+                    orientation: 'h',
+                    y: topDeps.map(d => d.industry.length > 40 ? d.industry.substring(0, 40) + '...' : d.industry),
+                    x: topDeps.map(d => d.dependency_value * 100),
+                    text: topDeps.map(d => (d.dependency_value * 100).toFixed(1) + '%'),
+                    textposition: 'auto',
+                    marker: {
+                        color: topDeps.map(d => d.dependency_value),
+                        colorscale: [[0, '#3b82f6'], [0.5, '#6366f1'], [1, '#bb2521']]
+                    }
+                }], {
+                    paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)',
+                    margin: { t: 0, b: 40, l: 250, r: 20 },
+                    xaxis: { title: 'Dependencia (%)', gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' } },
+                    yaxis: { autorange: 'reversed', tickfont: { color: '#f0f2f5', size: 11 } },
+                    font: { family: 'Inter' }
+                }, { responsive: true, displayModeBar: false });
             }
 
             initProfileTrend(iso3);
