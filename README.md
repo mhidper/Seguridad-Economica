@@ -1,14 +1,14 @@
-# 📊 ISE — Índice de Seguridad Económica
+# 📊 IDC — indicador de dependencia comercial
 **Real Instituto Elcano**  
 > Última actualización: 03/03/2026 — *Versión Multi-año Unificada (V2.1 - Radar de Riesgo Oculto)*
 
-Análisis de dependencias económicas en cadenas de suministro globales. El **ISE** cuantifica la vulnerabilidad de las economías midiendo dependencias directas e indirectas en el comercio bilateral por industria, en un contexto de fragmentación geoeconómica.
+Análisis de dependencias económicas en cadenas de suministro globales. El **IDC** cuantifica la vulnerabilidad de las economías midiendo dependencias directas e indirectas en el comercio bilateral por industria, en un contexto de fragmentación geoeconómica.
 
 ---
 
-## 🧠 Metodología del Índice de Seguridad Económica (ISE)
+## 🧠 Metodología del indicador de dependencia comercial (IDC)
 
-El **Índice de Seguridad Económica (ISE)** es una métrica avanzada diseñada por el **Real Instituto Elcano** para identificar y cuantificar la vulnerabilidad de las naciones ante interrupciones en las cadenas globales de suministro. Supera la medición tradicional de "volumen de comercio" al enfocarse en la **estructura de dependencia** y la **capacidad de sustitución**.
+El **indicador de dependencia comercial (IDC)** es una métrica avanzada diseñada por el **Real Instituto Elcano** para identificar y cuantificar la vulnerabilidad de las naciones ante interrupciones en las cadenas globales de suministro. Supera la medición tradicional de "volumen de comercio" al enfocarse en la **estructura de dependencia** y la **capacidad de sustitución**.
 
 ### 1. El Concepto de Dependencia Multi-nivel
 
@@ -17,13 +17,13 @@ El factor diferencial de este proyecto es la distinción entre dos tipos de ries
 *   **Dependencia Directa:** Es el riesgo inmediato visible en las aduanas. Si el país A importa el 80% de sus semiconductores del país B, el país A tiene una alta dependencia directa de B.
 *   **Dependencia Indirecta (Riesgo Oculto):** El modelo aplica algoritmos de análisis de grafos para rastrear toda la cadena de valor. Si el país B (proveedor directo) depende a su vez del país C para fabricar el semiconductor, el país A tiene una dependencia indirecta de C. El modelo detecta estos cuellos de botella geocéntricos que a menudo pasan desapercibidos en las estadísticas nacionales.
 
-### 2. Cómo se calcula el ISE
+### 2. Cómo se calcula el IDC
 
 El índice se construye siguiendo un proceso de tres etapas:
 
 1.  **Cálculo de la Vulnerabilidad Industrial:** Para cada binomio industria-país, se calcula el peso de las importaciones sobre la producción total y se ajusta según la elasticidad de sustitución (cuán difícil es reemplazar ese insumo localmente o con otros proveedores).
 2.  **Identificación de Hubs y Rutas:** Se utiliza el cálculo de centralidad de red para determinar qué países intermedian en más rutas críticas de suministro. Aquellos con un *Hub Score* elevado son puntos de control sistémico.
-3.  **Agregación Nacional:** El ISE final de un país es la suma ponderada de las vulnerabilidades de todas sus industrias críticas, normalizada en un rango de 0 a 1 (donde 1 representa la máxima vulnerabilidad sistémica).
+3.  **Agregación Nacional:** El IDC final de un país es la suma ponderada de las vulnerabilidades de todas sus industrias críticas, normalizada en un rango de 0 a 1 (donde 1 representa la máxima vulnerabilidad sistémica).
 
 ### 3. Origen y Ubicación de los Datos
 
@@ -64,7 +64,7 @@ El esquema JSON generado por `build_toy.py` debe considerarse como la especifica
 
 **Campos clave que la API debe servir:**
 - `kpis`: Resumen estadístico global por año.
-- `map_data`: Valores del ISE por país (ISO3) para el mapamundi.
+- `map_data`: Valores del IDC por país (ISO3) para el mapamundi.
 - `hubs_data`: Rankings de intermediación y scores de centralidad.
 - `explorer_indexed`: (Crítico) Un diccionario indexado por `industry_id` que contiene las rutas de dependencia directa e indirecta.
 - `target_year`: El año de los datos servidos.
