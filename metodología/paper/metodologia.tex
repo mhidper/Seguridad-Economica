@@ -1,0 +1,255 @@
+% !TeX program = pdflatex
+% !BIB program = bibtex
+\PassOptionsToPackage{spanish}{babel}
+\documentclass[final,1p,times,authoryear]{elsarticle}
+\makeatletter
+\def\ps@pprintTitle{%
+  \let\@oddhead\@empty
+  \let\@evenhead\@empty
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+}
+\makeatother
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{newtxtext,newtxmath}
+\usepackage[spanish]{babel}
+\usepackage[babel=true]{csquotes}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage[unicode=true,pdfencoding=auto]{hyperref}
+\usepackage{threeparttable}
+\usepackage{tikz}
+\usepackage{array, longtable, tabularx}
+\usepackage{adjustbox}
+\usepackage{ltxtable}
+\usepackage{makecell}
+\usepackage{pdflscape}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage[expansion=false]{microtype}
+\usepackage{mathtools}
+\usepackage{bookmark}
+\usepackage[spanish]{cleveref}
+
+\allowdisplaybreaks
+\tolerance=1000
+\emergencystretch=10pt
+\hyphenpenalty=50
+\exhyphenpenalty=50
+
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{6pt}
+\setlength{\belowcaptionskip}{6pt}
+\setlength{\columnsep}{20pt}
+\setlength{\parskip}{6pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\providecommand{\X}{X}
+\providecommand{\T}{T}
+\providecommand{\DD}{\mathrm{DD}}
+\providecommand{\DI}{\mathrm{DI}}
+\providecommand{\DT}{\mathrm{DT}}
+\providecommand{\Lmax}{L_{\max}}
+\providecommand{\epsedge}{\epsilon_{\text{edge}}}
+\providecommand{\epscontrib}{\epsilon_{\text{contrib}}}
+
+\begin{document}
+
+\begin{frontmatter}
+\title{Metodología del Índice de Seguridad Económica (ISE): Redes Críticas, Dependencias Indirectas y Poder Estructural en el Comercio Global}
+
+\author[upo,elcano]{Manuel Hidalgo-Pérez\corref{cor1}}\ead{mhidper@upo.es}
+\cortext[cor1]{Autor para correspondencia: Manuel Hidalgo-Pérez, mhidper@upo.es}
+
+\affiliation[upo]{
+  organization={Universidad Pablo de Olavide},
+  addressline={Ctra Utrera s/n},
+  postcode={41013},
+  city={Sevilla},
+  country={España}
+}
+
+\affiliation[elcano]{
+  organization={Fundación Real Instituto Elcano},
+  addressline={C. de Príncipe de Vergara, 51},
+  postcode={28006},
+  city={Madrid},
+  country={España}
+}
+
+\begin{abstract}
+La creciente fragmentación geopolítica ha transformado el panorama del comercio internacional, exponiendo vulnerabilidades económicas previamente subestimadas. Este trabajo propone un nuevo indicador de seguridad económica que supera las limitaciones de los enfoques tradicionales al capturar sistemáticamente las dependencias comerciales indirectas transmitidas a través de países intermediarios. Mediante la integración de matrices Input-Output, teoría de redes y algoritmos de propagación de shocks, nuestro indicador cuantifica tanto las dependencias directas como las indirectas, revelando vulnerabilidades ocultas en las cadenas de suministro globales. El estudio empírico demuestra que los análisis tradicionales subestiman significativamente la exposición a disrupciones externas en sectores estratégicos. Estos hallazgos tienen implicaciones importantes para las políticas de autonomía estratégica, sugiriendo que una diversificación efectiva debe considerar toda la estructura de la red comercial global en lugar de limitarse a las relaciones bilaterales directas.
+\end{abstract}
+
+\begin{keyword}
+Seguridad económica \sep Dependencias comerciales \sep Teoría de redes \sep Autonomía estratégica \sep Cadenas globales de valor\\
+\textbf{Códigos JEL:} F14, F15, F52, C67, D85
+\end{keyword}
+\end{frontmatter}
+
+\section{Introducción}
+
+En un contexto de creciente fragmentación geoeconómica, tensiones sistémicas entre las principales potencias y disrupciones frecuentes en las cadenas de suministro globales, la evaluación de la seguridad económica nacional requiere herramientas analíticas más refinadas. La literatura existente se ha centrado predominantemente en métricas agregadas de comercio bilateral o dependencia directa, sin capturar las interdependencias estructurales que surgen a través de las redes de producción global y el comercio indirecto.
+
+Este documento aborda esta brecha mediante el desarrollo de un Índice de Seguridad Económica (ISE), diseñado para medir la exposición de un país a disrupciones exógenas mediante la integración de dependencias directas e indirectas, y considerando la relevancia estructural de los intermediarios críticos.
+
+Para los propósitos de esta investigación, definimos la seguridad económica como "la capacidad de una nación para mantener la integridad de sus funciones económicas esenciales y sus cadenas de suministro críticas frente a disrupciones exógenas, ya sea que estas surjan de desastres naturales, fallos tecnológicos o acciones deliberadas de otros actores".
+
+Esta definición distingue la seguridad económica de conceptos relacionados:
+\begin{itemize}
+    \item \textbf{Soberanía económica:} A diferencia de la soberanía, que a menudo implica autarquía o una dependencia mínima de insumos extranjeros, la seguridad económica reconoce la realidad y los beneficios de la interdependencia mientras se centra en la gestión de vulnerabilidades críticas.
+    \item \textbf{Resiliencia:} Mientras que la resiliencia se refiere a la capacidad de recuperarse de las disrupciones, la seguridad económica abarca tanto la prevención de disrupciones críticas como el mantenimiento de la funcionalidad durante las mismas.
+    \item \textbf{Competitividad:} En contraste con la competitividad, que se centra en la ventaja relativa en los mercados globales, la seguridad económica se centra en la estabilidad y fiabilidad de las funciones económicas esenciales para el bienestar nacional.
+    \item \textbf{Seguridad nacional tradicional:} A diferencia de las concepciones tradicionales de seguridad nacional, que abordan principalmente amenazas militares, la seguridad económica reconoce que las amenazas existenciales pueden surgir de disrupciones en el suministro, dependencia tecnológica o coerción económica.
+\end{itemize}
+
+Nuestro Índice de Seguridad Económica operacionaliza esta definición midiendo las vulnerabilidades tanto directas como indirectas en todas las industrias, con especial atención a los sectores donde las disrupciones tendrían efectos en cascada en toda la economía. El índice está diseñado para identificar no solo las dependencias obvias en el comercio bilateral directo, sino también las vulnerabilidades ocultas que surgen de la posición de un país dentro de complejas redes de suministro globales.
+
+\section{Fundamentos Teóricos del Índice de Seguridad Económica}
+
+Este trabajo ancla su enfoque en la medición de la seguridad económica en tres marcos teóricos complementarios: la teoría de la interdependencia compleja, el poder estructural en la economía política internacional y la interdependencia armificada (\textit{weaponized interdependence}).
+
+\textbf{Interdependencia Compleja y Vulnerabilidad de Red}
+Basándonos en el trabajo fundamental de \cite{keohane1977power} sobre la interdependencia compleja, conceptualizamos la seguridad económica no simplemente como la ausencia de dependencias bilaterales, sino como una propiedad que surge de la posición de un país dentro de múltiples redes de intercambio superpuestas. Como señalan \cite{farrell2019weaponized}, "la interdependencia ha creado redes complejas con topografías particulares", donde ciertos nodos se convierten en puntos críticos para los flujos globales. Nuestro ISE operacionaliza este entendimiento basado en redes al modelar explícitamente cómo las disrupciones se propagan a través de múltiples caminos dentro del sistema de comercio global.
+
+\textbf{Poder Estructural en la Economía Política Internacional}
+El segundo pilar teórico es el concepto de Strange \citeyear{strange1988states} de poder estructural, entendido como "el poder de dar forma y determinar las estructuras de la economía política global [...] dentro de las cuales otros estados, sus instituciones políticas, sus empresas económicas [...] tienen que operar". En el marco de Strange, el poder estructural opera a través del control sobre la seguridad, la producción, las finanzas y el conocimiento. Nuestro índice operacionaliza específicamente el poder estructural en el dominio de la producción al cuantificar cómo el control sobre nodos críticos en las cadenas de suministro confiere una influencia que se extiende mucho más allá de las relaciones bilaterales directas. Al identificar dependencias indirectas e intermediarios críticos, hacemos visible lo que Strange describió como el "ejercicio indirecto e inobservable del poder" en las relaciones económicas globales.
+
+\textbf{Interdependencia Armificada (\textit{Weaponized Interdependence})}
+Finalmente, nuestro trabajo se compromete con la teoría de Farrell y Newman \citeyear{farrell2019weaponized} sobre la "interdependencia armificada", que postula que "los estados con autoridad política sobre los nodos en las estructuras en red internacionales a través de las cuales viajan el dinero, la información y los bienes están posicionados de manera única para imponer costes a otros". Esta teoría distingue entre "efectos panópticos" (la capacidad de monitorear flujos) e "hitos o puntos de estrangulamiento" (el efecto \textit{chokepoint}, la capacidad de restringir flujos). Nuestro ISE mide específicamente la vulnerabilidad a estos últimos.
+
+\section{Motivación y Contexto Geoeconómico}
+
+La seguridad económica ha surgido como una prioridad estratégica global en un contexto marcado por sucesivas crisis sistémicas que han revelado vulnerabilidades críticas en las cadenas de suministro internacionales. Los últimos años han mostrado cómo una dependencia excesiva de proveedores específicos puede socavar no solo la estabilidad económica sino también la seguridad nacional en un sentido más amplio.
+
+La pandemia de COVID-19 representó el primer shock sistémico que expuso claramente estas fragilidades. Las disrupciones en la producción y distribución de productos esenciales demostraron que la concentración geográfica de las capacidades de producción puede conducir a escaseces críticas con efectos en cascada en múltiples sectores económicos.
+
+La invasión rusa de Ucrania intensificó aún más estas preocupaciones, revelando vulnerabilidades particularmente agudas en los sectores energético y alimentario europeos. Recientemente, las barreras comerciales se han utilizado como herramientas diplomáticas, lo que subraya cómo las preocupaciones de seguridad nacional están cada vez más entrelazadas con la política comercial. Un ejemplo reciente es el anuncio de aranceles recíprocos por parte de la administración estadounidense sobre importaciones de la Unión Europea y China, lo que subraya la vulnerabilidad de las relaciones comerciales a consideraciones no económicas.
+
+En este contexto, el acceso a materias primas críticas, tecnologías emergentes e infraestructuras digitales se ha vuelto central para la planificación estratégica. Entidades como la Unión Europea han desarrollado estrategias de "autonomía estratégica abierta" para equilibrar los beneficios del libre comercio con la necesidad de asegurar el acceso a recursos esenciales.
+
+\section{Revisión de la Literatura}
+
+\subsection{Evolución de la Medición de la Dependencia Comercial}
+La medición de la dependencia comercial ha sido una preocupación central en la economía internacional desde mediados del siglo XX. Los primeros enfoques se centraron principalmente en las relaciones bilaterales y la concentración de importaciones. Sin embargo, a medida que la producción global se fragmentaba a través de las fronteras, la insuficiencia de estas medidas tradicionales se hizo evidente. La integración de las cadenas globales de valor (CGV) ha alterado fundamentalmente la naturaleza de las dependencias comerciales.
+
+\subsection{Enfoques Metodológicos para la Medición de Dependencias}
+\subsubsection{Índices de Concentración y Medidas Bilaterales}
+Una de las herramientas más utilizadas es el Índice de Herfindahl-Hirschman (HHI), que evalúa la concentración geográfica de las importaciones. Instituciones como la Comisión Europea han empleado este índice para identificar dependencias estratégicas, estableciendo umbrales específicos para señalar riesgos para la seguridad económica. No obstante, estos índices presentan limitaciones: son estáticos y no capturan las dependencias indirectas que surgen a través de terceros países.
+
+\subsubsection{Análisis Input-Output y Vínculos Intersectoriales}
+El análisis Input-Output (I-O), iniciado por \cite{Leontief1951}, proporciona un marco para comprender la red de dependencias intersectoriales. La matriz inversa de Leontief, $(I - A)^{-1}$, captura los requisitos tanto directos como indirectos de cada sector para producir una unidad de demanda final. Una extensión importante es el concepto de "longitudes de propagación promedio" (APL) desarrollado por \cite{Dietzenbacher2005}, que mide la distancia económica entre sectores a través de vínculos hacia adelante y hacia atrás.
+
+\subsubsection{Análisis de Redes y Medidas de Centralidad}
+El análisis de redes emerge como un enfoque complementario que modela el comercio como un sistema complejo de nodos (países o sectores) y enlaces (flujos comerciales) interconectados. Pioneros como \cite{Fagiolo2010} caracterizaron la Red de Comercio Mundial (WTN) documentando sus propiedades estructurales. Conceptos de centralidad como la intermediación (\textit{betweenness}) permiten identificar nodos que actúan como "hubs" estructurales o cuellos de botella críticos.
+
+\subsubsection{Modelos de Propagación de Shocks}
+Investigaciones recientes se centran en los mecanismos dinámicos a través de los cuales los shocks económicos se propagan. \cite{Acemoglu2012} y \cite{Carvalho2013} demostraron que los shocks a nivel micro a empresas o sectores individuales pueden tener efectos agregados significativos cuando las redes de producción exhiben ciertas propiedades estructurales, como una distribución de grados con colas pesadas.
+
+\section{Desarrollo del Indicador Propuesto}
+
+\subsection{Conceptualización}
+La propuesta de este trabajo es un indicador integral que combina el análisis matricial, la teoría de redes y los algoritmos de propagación para identificar y cuantificar vulnerabilidades ocultas.
+
+\subsubsection{Definición de Dependencia Directa e Indirecta}
+La dependencia comercial se define como la exposición de un país a disrupciones de suministro originadas en otro, considerando todos los canales posibles.
+\begin{enumerate}
+    \item \textbf{Dependencia Directa ($\DD$):} Proporción de importaciones directas en el suministro total de un país.
+    \item \textbf{Dependencia Indirecta ($\DI$):} Proporción del suministro atribuible a un exportador a través de rutas comerciales de múltiples pasos (intermediarios).
+\end{enumerate}
+
+\subsubsection{Ventajas del Indicador Propuesto}
+Nuestro enfoque destaca por tres ventajas clave: (1) identificación de vulnerabilidades sistémicas ocultas que los índices bilaterales no detectan, (2) evaluación cuantitativa de la resiliencia ante disrupciones mediante el modelado de rutas alternativas, y (3) análisis prospectivo de escenarios de fragmentación geoeconómica.
+
+\begin{table}[!t]
+\caption{Comparación de Métodos para la Medición de la Dependencia Comercial} \label{tab:comparacion-metodos}
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\begin{adjustbox}{width=\textwidth,center}
+    \begin{tabular}{@{}l*{6}{c}@{}}
+        \toprule
+        \makecell[l]{\textbf{Característica}} & \textbf{HHI} & \makecell{\textbf{Conc.}\\\textbf{Imp.}} & \textbf{TiVA} & \makecell{\textbf{I-O}\\\textbf{Trad.}} & \makecell{\textbf{Re-}\\\textbf{des}} & \makecell{\textbf{Ind.}\\\textbf{Prop.}} \\
+        \midrule
+        Captura dep. directa & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+        Captura dep. indirecta & \texttimes & \texttimes & Parcial & Solo dirc. & \checkmark & \textbf{Completa} \\
+        Normalización (0-1) & \checkmark & \checkmark & \texttimes & \texttimes & \texttimes & \checkmark \\
+        Basado en Input-Output & \texttimes & \texttimes & \checkmark & \checkmark & \texttimes & \checkmark \\
+        Teoría de redes & \texttimes & \texttimes & \texttimes & \texttimes & \checkmark & \checkmark \\
+        Modela propagación shocks & \texttimes & \texttimes & \texttimes & Limitada & Parcial & \checkmark \\
+        Detecta vuln. ocultas & \texttimes & \texttimes & Parcial & \texttimes & Parcial & \checkmark \\
+        Análisis de resiliencia & \texttimes & \texttimes & Limitado & Limitado & Parcial & \checkmark \\
+        \bottomrule
+    \end{tabular}
+\end{adjustbox}
+\end{table}
+
+\subsection{Formulación Matemática}
+La dependencia total $\text{DT}_{ij}$ de un importador $j$ respecto a un exportador $i$ se define como la suma de la dependencia directa e indirecta.
+Consideramos la matriz de comercio normalizada $\mathbf{T}$, donde cada elemento $T_{ab} = x_{ab} / S_b$ representa la fracción del suministro de $b$ que proviene directamente de $a$.
+La fuerza de un camino comercial $p = (i, k_1, \ldots, k_{\ell-1}, j)$ de longitud $\ell$ se calcula como el producto de las dependencias a lo largo de sus aristas:
+\begin{equation}
+F(p) = \prod_{(a,b) \in \text{edges}(p)} T_{ab} = T_{ik_1} \cdot T_{k_1k_2} \cdots T_{k_{\ell-1}j}
+\end{equation}
+
+La dependencia total es la suma de las fuerzas de todos los caminos económicamente significativos de $i$ a $j$:
+\begin{equation}
+\text{DT}_{ij} = \sum_{\ell=1}^{L_{\max}} \sum_{p \in \mathcal{P}_{ij}^{\ell}} F(p)
+\end{equation}
+
+\subsection{Implementación Computacional y Consideraciones Prácticas}
+La aplicación práctica a datos reales plantea desafíos computacionales significativos debido al crecimiento exponencial de caminos potenciales. Nuestra implementación incorpora estrategias de optimización:
+\begin{itemize}
+    \item \textbf{Umbral de relevancia comercial ($\theta$):} Se ignoran los flujos comerciales cuyas contribuciones relativas son inferiores a un umbral $\theta$, lo que poda drásticamente el árbol de búsqueda.
+    \item \textbf{Umbral de convergencia ($\varepsilon$):} El cálculo de rutas más largas se detiene cuando su contribución marginal a la dependencia acumulada es inferior a $\varepsilon$.
+    \item \textbf{Longitud máxima del camino ($L_{\max}$):} En la práctica, se utilizan valores entre 3 y 5, ya que rutas más largas suelen tener fuerzas insignificantes.
+    \item \textbf{Uso de matrices dispersas:} Dado que la mayoría de los países solo comercian con un subconjunto de socios, el uso de estructuras de datos dispersas optimiza drásticamente el uso de memoria y la velocidad de cálculo.
+\end{itemize}
+
+\section{Análisis de Centralidad y Hubs Globales (Global Hub Score)}
+
+La identificación de intermediarios críticos es una de las mayores contribuciones del ISE. Los países que actúan como "conectores" en las redes comerciales pueden amplificar las crisis.
+
+\subsection{Métricas de Intermediación}
+Para cada país $k$, definimos dos métricas:
+\begin{itemize}
+    \item \textbf{Frecuencia de Intermediación ($\phi_k$):} El número de rutas comerciales significativas en las que el país $k$ participa como intermediario.
+    \item \textbf{Fuerza de Intermediación ($\psi_k$):} Suma ponderada de la fuerza de dichas rutas, asignando mayor importancia a los intermediarios más cercanos al importador final.
+\end{itemize}
+
+\subsection{Índice de Centralidad Compuesto (GHS)}
+El \textit{Global Hub Score} ($C_k$) integra ambas dimensiones:
+\begin{equation}
+C_k = \alpha \cdot \frac{\phi_k}{\max \phi} + (1-\alpha) \cdot \frac{\psi_k}{\max \psi}
+\end{equation}
+Empíricamente, $\alpha = 0.4$ ofrece un balance robusto, permitiendo clasificar a los países según su poder estructural como "hubs" globales que sostienen la arquitectura comercial mundial.
+
+\section{Simulación de Disrupciones y Análisis de Resiliencia}
+
+Para evaluar holísticamente la vulnerabilidad, implementamos simulaciones de escenarios contrafácticos. Esto implica la eliminación hipotética de nodos clave (como el suministro de un sector crítico en un país dominante) para cuantificar el impacto estructural en el resto de la red. Medimos:
+\begin{itemize}
+    \item \textbf{Impacto en la conectividad:} Grado en que otros países quedan aislados o sufren mermas críticas de suministro.
+    \item \textbf{Reconfiguración de la centralidad:} Cómo se desplaza el poder estructural hacia otros nodos tras una disrupción.
+    \item \textbf{Vulnerabilidades ocultas:} Identificación de dependencias que solo se manifiestan tras la caída de un intermediario previo.
+\end{itemize}
+
+\section{Conclusiones e Implicaciones para la Política Económica}
+
+La principal contribución del Índice de Seguridad Económica (ISE) es la visibilización de las vulnerabilidades "ocultas". Al descomponer la dependencia en sus componentes directos e indirectos, se facilita el diseño de respuestas políticas equilibradas.
+
+Las dependencias directas pueden mitigarse mediante la diversificación tradicional de proveedores inmediatos. Sin embargo, las dependencias indirectas requieren una estrategia de "autonomía estratégica abierta" que incluya el fomento de capacidades domésticas en eslabones críticos del suministro y la formación de alianzas estratégicas con socios que presenten perfiles de dependencia complementarios.
+
+Este indicador proporciona una base cuantitativa sólida para la "vigilancia estructural", permitiendo anticipar riesgos sistémicos antes de que se conviertan en crisis comerciales abiertas, y guiando el diseño de cadenas de suministro más resilientes en un entorno geopolítico incierto.
+
+\bibliographystyle{apalike}
+\bibliography{references.bib}
+
+\end{document}

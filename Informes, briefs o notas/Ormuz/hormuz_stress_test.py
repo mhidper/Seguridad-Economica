@@ -97,8 +97,20 @@ def save_scatter_analysis(hubs_df, exp_df, gulf_countries, country_map, filename
                 row=1, col=i+1
             )
         
+        # Export data to CSV for each sector (optional) or combined
+        merged['Sector'] = label
+        if i == 0:
+            combined_df = merged
+        else:
+            combined_df = pd.concat([combined_df, merged])
+        
         fig.update_xaxes(title_text="Global Hub Score (IDC)", row=1, col=i+1, gridcolor='#eee')
         fig.update_yaxes(title_text="Importancia Exportadora", row=1, col=i+1, gridcolor='#eee')
+
+    # Save the combined data for reproduction
+    csv_filename = filename.with_suffix('.csv')
+    combined_df.to_csv(csv_filename, index=False, encoding='utf-8-sig')
+    print(f"[OK] Datos de la Figura 1 exportados a {csv_filename.name}")
 
     fig.update_layout(
         title={
@@ -158,7 +170,9 @@ def main():
         'THA': 'Tailandia',
         'MYS': 'Malasia',
         'IDN': 'Indonesia',
-        'SGP': 'Singapur'
+        'SGP': 'Singapur',
+        'NZL': 'Nueva Zelanda',
+        'TKM': 'Turkmenistán'
     }
     
     gulf_countries = ['IRN', 'SAU', 'ARE', 'QAT', 'KWT', 'IRQ', 'OMN', 'BHR']
@@ -184,7 +198,8 @@ def main():
         hubs_gulf.columns = ['Economía', 'Global Hub Score (IDC)', 'Rango Mundial']
         hubs_gulf['Global Hub Score (IDC)'] = hubs_gulf['Global Hub Score (IDC)'].round(2)
         save_table_as_png(hubs_gulf, output_dir / "tabla_1_hubs.png", "Tabla 1: Indicadores de Centralidad Regional")
-        print("[OK] Tabla 1 (Hubs) exportada.")
+        hubs_gulf.to_csv(output_dir / "tabla_1_hubs.csv", index=False, encoding='utf-8-sig')
+        print("[OK] Tabla 1 (Hubs) exportada (PNG y CSV).")
     except Exception as e:
         print(f"Error Tabla 1: {e}")
 
@@ -196,7 +211,8 @@ def main():
     block_deps.columns = ['Industria', 'Vulnerabilidad Total (IDC)', 'Riesgo Directo', 'Riesgo Oculto (Indirecto)']
     block_deps = block_deps.round(2)
     save_table_as_png(block_deps, output_dir / "tabla_2_espana.png", "Tabla 2: Exposición Sectorial de España al Bloque del Golfo")
-    print("[OK] Tabla 2 (España) exportada.")
+    block_deps.to_csv(output_dir / "tabla_2_espana.csv", index=False, encoding='utf-8-sig')
+    print("[OK] Tabla 2 (España) exportada (PNG y CSV).")
 
     # --- TABLA 3: GLOBAL ---
     crude_industry_name = "Extraction crude petroleum and natural gas"
@@ -208,7 +224,8 @@ def main():
     global_crude_deps.columns = ['Economía', 'Dependencia Total (IDC)', 'Riesgo Directo', 'Vulnerabilidad Indirecta']
     global_crude_deps = global_crude_deps.round(2)
     save_table_as_png(global_crude_deps, output_dir / "tabla_3_global.png", "Tabla 3: Países con Mayor Dependencia Sistémica (Crudo)")
-    print("[OK] Tabla 3 (Global) exportada.")
+    global_crude_deps.to_csv(output_dir / "tabla_3_global.csv", index=False, encoding='utf-8-sig')
+    print("[OK] Tabla 3 (Global) exportada (PNG y CSV).")
 
 if __name__ == "__main__":
     main()
