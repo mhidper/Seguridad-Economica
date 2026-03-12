@@ -25,13 +25,36 @@ El índice se construye siguiendo un proceso de tres etapas:
 2.  **Identificación de Hubs y Rutas:** Se utiliza el cálculo de centralidad de red para determinar qué países intermedian en más rutas críticas de suministro. Aquellos con un *Hub Score* elevado son puntos de control sistémico.
 3.  **Agregación Nacional:** El IDC final de un país es la suma ponderada de las vulnerabilidades de todas sus industrias críticas, normalizada en un rango de 0 a 1 (donde 1 representa la máxima vulnerabilidad sistémica).
 
-### 3. Origen y Ubicación de los Datos
+### 3. Jerarquía de Procesos y Flujo de Datos
 
-El sistema utiliza la **International Trade and Production Database (ITP)**, una base de datos armonizada que combina flujos comerciales internacionales y datos de producción doméstica para 236 países y 170 sectores (ISIC Rev.4).
+El proyecto sigue una estructura de transformación en tres niveles, asegurando que los cálculos macroeconómicos complejos se conviertan en información visual fluida:
 
-**Ubicación de los activos en el repositorio:**
-*   **Datos Brutos y Procesados:** Los archivos fuente de verdad se encuentran en la carpeta `data/processed/historico/` en formato **Parquet**. Estos archivos conservan la estructura completa de millones de relaciones comerciales.
-*   **Grados de Dependencia:** Los resultados del motor matemático (basado en PyTorch para cálculo matricial masivo) se generan inicialmente como archivos `.pkl` de gran tamaño (1.4GB por año) antes de ser simplificados para el dashboard profesional.
+```mermaid
+graph TD
+    A[<b>MOTOR:</b> 00_dependency.ipynb] -->|Genera PKL masivo| B[<b>ARQUITECTO:</b> idc_architect.py]
+    B -->|Genera Parquet estructurado| C[<b>OPTIMIZADOR:</b> build_fragmented.py]
+    C -->|Genera JSON ultra-ligeros| D[<b>DASHBOARD:</b> index.html]
+    
+    style A fill:#d1e7ff,stroke:#007bff
+    style B fill:#fff3cd,stroke:#ffc107
+    style C fill:#d4edda,stroke:#28a745
+    style D fill:#f8f9fa,stroke:#343a40
+```
+
+#### **Nivel 1: El Cerebro (Motor de Cálculo)**
+*   **Script:** `notebooks/analysis/00_dependency.ipynb`
+*   **Función:** Procesa matrices globales (PyTorch) para identificar riesgos directos e indirectos.
+*   **Salida:** `data/processed/dependencias_consolidadas/all_results_{año}.pkl` (Archivos internos de ~1.4GB).
+
+#### **Nivel 2: El Arquitecto (Estructuración)**
+*   **Script:** `notebooks/analysis/idc_architect.py`
+*   **Función:** Traduce el conocimiento bruto del motor en archivos temáticos (Hubs, Perfiles, Bilateral). Es donde se define la lógica de "Relación Crítica".
+*   **Salida:** `data/processed/historico/*.parquet` (Formato profesional de alta velocidad).
+
+#### **Nivel 3: El Puente (Optimización Web)**
+*   **Script:** `dashboard_prototype/build_fragmented.py`
+*   **Función:** Masajea los Parquet para la web. Filtra datos no esenciales, fragmenta por años y aplica el **Formato Matricial (c/d)** para reducir el peso en un 60%.
+*   **Salida:** `dashboard_prototype/data_dist/*.json` (Producto listo para el navegador).
 
 ---
 

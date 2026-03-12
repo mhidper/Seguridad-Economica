@@ -6,7 +6,7 @@ import sys
 from collections import defaultdict
 
 def process_year(year):
-    print(f"\n--- ARQUITECTO ISE: Procesando ao {year} ---")
+    print(f"\n--- ARQUITECTO IDC: Procesando año {year} ---")
     
     # Buscar la raz del proyecto
     base_path = Path.cwd()
@@ -270,7 +270,7 @@ if __name__ == "__main__":
         years = [int(y) for y in sys.argv[1:]]
     else:
         # Por defecto, si no hay argumentos, buscar lo que haya
-        print("Uso: python ise_architect.py 2022 2021...")
+        print("Uso: python idc_architect.py 2022 2021...")
         sys.exit(1)
         
     for y in years:

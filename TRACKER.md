@@ -15,7 +15,7 @@ Cada fichero tiene un **estado** y una **acción pendiente**.
 |---------|-----------|-------------|--------|
 | `all_results_{año}.pkl` | `data/processed/dependencias_consolidadas/` | Resultados detallados por industria (1,4 GB/año) | ✅ 2016-2022 OK |
 
-### 1.2 Arquitecto (`ise_architect.py`)
+### 1.2 Arquitecto (`idc_architect.py`)
 **Estructura el historial.** Transforma los .pkl masivos en archivos Parquet ligeros y estructurados por año.
 **Salida en:** `data/processed/historico/`
 | Fichero | Contenido | Estado |
@@ -33,6 +33,7 @@ Cada fichero tiene un **estado** y una **acción pendiente**.
 | `build.py` | `dashboard_prototype/` | ✅ OK — Con Indexador O(1) por Importador/Industria |
 | `template.html` | `dashboard_prototype/` | ✅ OK — Con Radar de Riesgo Oculto e Indexación O(1) |
 | `index.html` | `dashboard_prototype/` | ✅ GENERADO — Dashboard global 2016-2022 (~280MB) |
+| `_archivos_legacy/` | `dashboard_prototype/` | 📁 Ficheros antiguos y maquetas (Mover para no confundir) |
 
 ---
 
