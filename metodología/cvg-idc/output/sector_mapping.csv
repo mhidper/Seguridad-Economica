@@ -1,0 +1,171 @@
+industry_id;industry_descr;icio_code;icio_valid
+1;Wheat;A01;True
+2;Rice (raw);A01;True
+3;Corn;A01;True
+4;Other cereals;A01;True
+5;Cereal products;A01;True
+6;Soybeans;A01;True
+7;Other oilseeds (excluding peanuts);A01;True
+8;Animal feed ingredients and pet foods;A01;True
+9;Raw and refined sugar and sugar crops;A01;True
+10;Other sweeteners;A01;True
+11;Pulses and legumes, dried, preserved;A01;True
+12;Fresh fruit;A01;True
+13;Fresh vegetables;A01;True
+14;Prepared fruits and fruit juices;A01;True
+15;Prepared vegetables;A01;True
+16;Nuts;A01;True
+17;Live Cattle;A01;True
+18;Live Swine;A01;True
+19;Eggs;A01;True
+20;Other meats, livestock products, and live animals;A01;True
+21;Cocoa and cocoa products;A01;True
+22;Beverages, nec;A01;True
+23;Cotton;A01;True
+24;Tobacco leaves and cigarettes;A01;True
+25;Spices;A01;True
+26;Other agricultural products, nec;A01;True
+27;Forestry;A02;True
+28;Fishing;A03;True
+29;Mining of hard coal;B05;True
+30;Mining of lignite;B06;True
+31;Extraction crude petroleum and natural gas;B06;True
+32;Mining of iron ores;B07;True
+33;Other mining and quarring;B07;True
+34;Electricity production, collection, and distribution;D;True
+35;Gas production and distribution;D;True
+36;Processing/preserving of meat;C10T12;True
+37;Processing/preserving of fish;C10T12;True
+38;Processing/preserving of fruit & vegetables;C10T12;True
+39;Vegetable and animal oils and fats;C10T12;True
+40;Dairy products;C10T12;True
+41;Grain mill products;C10T12;True
+42;Starches and starch products;C10T12;True
+43;Prepared animal feeds;C10T12;True
+44;Bakery products;C10T12;True
+45;Sugar;C10T12;True
+46;Cocoa chocolate and sugar confectionery;C10T12;True
+47;Macaroni noodles & similar products;C10T12;True
+48;Other food products n.e.c.;C10T12;True
+49;Distilling rectifying & blending of spirits;C10T12;True
+50;Wines;C10T12;True
+51;Malt liquors and malt;C10T12;True
+52;"Soft drinks; mineral waters";C10T12;True
+53;Tobacco products;C10T12;True
+54;"Textile fibre preparation; textile weaving";C13T15;True
+55;Made-up textile articles except apparel;C13T15;True
+56;Carpets and rugs;C13T15;True
+57;Cordage rope twine and netting;C13T15;True
+58;Other textiles n.e.c.;C13T15;True
+59;Knitted and crocheted fabrics and articles;C13T15;True
+60;Wearing apparel except fur apparel;C13T15;True
+61;"Dressing & dyeing of fur; processing of fur";C13T15;True
+62;Tanning and dressing of leather;C13T15;True
+63;"Luggage handbags etc.; saddlery & harness";C13T15;True
+64;Footwear;C13T15;True
+65;Sawmilling and planing of wood;C16;True
+66;Veneer sheets plywood particle board etc.;C16;True
+67;Builders' carpentry and joinery;C16;True
+68;Wooden containers;C16;True
+69;"Other wood products; articles of cork/straw";C16;True
+70;Pulp paper and paperboard;C17_18;True
+71;Corrugated paper and paperboard;C17_18;True
+72;Other articles of paper and paperboard;C17_18;True
+73;Publishing of books and other publications;C17_18;True
+74;Publishing of newspapers journals etc.;C17_18;True
+75;Publishing of recorded media;C17_18;True
+76;Other publishing;C17_18;True
+77;Printing;C17_18;True
+78;Service activities related to printing;C17_18;True
+79;Coke oven products;C19;True
+80;Refined petroleum products;C19;True
+81;Processing of nuclear fuel;C19;True
+82;Basic chemicals except fertilizers;C20;True
+83;Fertilizers and nitrogen compounds;C20;True
+84;"Plastics in primary forms; synthetic rubber";C20;True
+85;Pesticides and other agro-chemical products;C20;True
+86;Paints varnishes printing ink and mastics;C20;True
+87;Pharmaceuticals medicinal chemicals etc.;C21;True
+88;Soap cleaning & cosmetic preparations;C20;True
+89;Other chemical products n.e.c.;C20;True
+90;Man-made fibres;C20;True
+91;Rubber tyres and tubes;C20;True
+92;Other rubber products;C20;True
+93;Plastic products;C20;True
+94;Glass and glass products;C22;True
+95;Pottery china and earthenware;C23;True
+96;Refractory ceramic products;C23;True
+97;"Struct.non-refractory clay; ceramic products";C23;True
+98;Cement lime and plaster;C23;True
+99;Articles of concrete cement and plaster;C23;True
+100;Cutting shaping & finishing of stone;C23;True
+101;Other non-metallic mineral products n.e.c.;C23;True
+102;Basic iron and steel;C24A;True
+103;Basic precious and non-ferrous metals;C24B;True
+104;Structural metal products;C25;True
+105;Tanks reservoirs and containers of metal;C25;True
+106;Steam generators;C25;True
+107;Cutlery hand tools and general hardware;C25;True
+108;Other fabricated metal products n.e.c.;C25;True
+109;Engines & turbines (not for transport equipment);C28;True
+110;Pumps compressors taps and valves;C28;True
+111;Bearings gears gearing & driving elements;C28;True
+112;Ovens furnaces and furnace burners;C28;True
+113;Lifting and handling equipment;C28;True
+114;Other general purpose machinery;C28;True
+115;Agricultural and forestry machinery;C28;True
+116;Machine tools;C28;True
+117;Machinery for metallurgy;C28;True
+118;Machinery for mining & construction;C28;True
+119;Food/beverage/tobacco processing machinery;C28;True
+120;Machinery for textile apparel and leather;C28;True
+121;Weapons and ammunition;C28;True
+122;Other special purpose machinery;C28;True
+123;Domestic appliances n.e.c.;C28;True
+124;Office accounting and computing machinery;C26;True
+125;Electric motors generators and transformers;C27;True
+126;Electricity distribution & control apparatus;C27;True
+127;Insulated wire and cable;C27;True
+128;Accumulators primary cells and batteries;C27;True
+129;Lighting equipment and electric lamps;C27;True
+130;Other electrical equipment n.e.c.;C27;True
+131;Electronic valves tubes etc.;C26;True
+132;"TV/radio transmitters; line comm. apparatus";C26;True
+133;TV and radio receivers and associated goods;C26;True
+134;Medical surgical and orthopaedic equipment;C26;True
+135;Measuring/testing/navigating appliances etc.;C26;True
+136;Optical instruments & photographic equipment;C26;True
+137;Watches and clocks;C26;True
+138;Motor vehicles;C29;True
+139;Automobile bodies trailers & semi-trailers;C29;True
+140;Parts/accessories for automobiles;C29;True
+141;Building and repairing of ships;C301;True
+142;Building/repairing of pleasure/sport. boats;C301;True
+143;Railway/tramway locomotives & rolling stock;C302T309;True
+144;Aircraft and spacecraft;C302T309;True
+145;Motorcycles;C302T309;True
+146;Bicycles and invalid carriages;C302T309;True
+147;Other transport equipment n.e.c.;C302T309;True
+148;Furniture;C31T33;True
+149;Jewellery and related articles;C31T33;True
+150;Musical instruments;C31T33;True
+151;Sports goods;C31T33;True
+152;Games and toys;C31T33;True
+153;Other manufacturing n.e.c.;C31T33;True
+154;154 Manufacturing services on physical inputs;C31T33;True
+155;155 Maintenance and repair services n.i.e.;C31T33;True
+156;156 Transport;H49;True
+157;157 Travel;I;True
+158;158 Construction;F;True
+159;159 Insurance and pension services;K;True
+160;160 Financial services;K;True
+161;161 Charges for use of intellectual property;M;True
+162;162 Telecom, computer, information services;J61;True
+163;163 Other business services;M;True
+164;164 Heritage and recreational services;R;True
+165;165 Health services;Q;True
+166;166 Education services;P;True
+167;167 Government goods and services n.i.e.;O;True
+168;168 Services not allocated;S;True
+169;169 Trade-related services;S;True
+170;170 Other personal services;S;True

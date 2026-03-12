@@ -16,7 +16,7 @@
 
 \geometry{margin=2.5cm}
 
-\title{\textbf{Extensión del Índice de Seguridad Económica (ISE) mediante\\Cadenas de Valor Globales: Una Metodología Integrada\\para el Análisis de Vulnerabilidades Comerciales}}
+\title{\textbf{Extensión del Índice de Dependencia Comercial (IDC) mediante\\Cadenas de Valor Globales: Una Metodología Integrada\\para el Análisis de Vulnerabilidades Comerciales}}
 
 \author{Manuel Alejandro Hidalgo-Pérez\thanks{Universidad Pablo de Olavide y Real Instituto Elcano. Email: mhidper@upo.es} \and Jorge Díaz-Lanchas\thanks{Universidad Autónoma de Madrid. Email: jorge.diaz@uam.es}}
 
@@ -27,7 +27,7 @@
 \maketitle
 
 \begin{abstract}
-Este documento presenta una extensión metodológica del Índice de Seguridad Económica (ISE) mediante la integración de las Cadenas de Valor Globales (CVG). Mientras que el ISE original identifica dependencias comerciales directas e indirectas entre países, la extensión propuesta descompone estas dependencias según su origen sectorial upstream, revelando las fuentes específicas de vulnerabilidad. La metodología combina matrices Input-Output internacionales (WIOD) con el enfoque de redes comerciales del ISE, proporcionando una herramienta analítica más granular para la formulación de políticas de seguridad económica. Los resultados preliminares muestran que las dependencias aparentemente directas en sectores finales ocultan vulnerabilidades sistémicas en insumos críticos, transformando la comprensión tradicional del riesgo comercial.
+Este documento presenta una extensión metodológica del Índice de Dependencia Comercial (IDC) mediante la integración de las Cadenas de Valor Globales (CVG). Mientras que el IDC original identifica dependencias comerciales directas e indirectas entre países, la extensión propuesta descompone estas dependencias según su origen sectorial upstream, revelando las fuentes específicas de vulnerabilidad. La metodología combina matrices Input-Output internacionales (WIOD) con el enfoque de redes comerciales del IDC, proporcionando una herramienta analítica más granular para la formulación de políticas de seguridad económica. Los resultados preliminares muestran que las dependencias aparentemente directas en sectores finales ocultan vulnerabilidades sistémicas en insumos críticos, transformando la comprensión tradicional del riesgo comercial.
 
 \textbf{Palabras clave:} Seguridad económica, Cadenas de valor globales, Input-Output, Vulnerabilidades comerciales, Fragmentación geoeconómica
 
@@ -36,9 +36,9 @@ Este documento presenta una extensión metodológica del Índice de Seguridad Ec
 
 \section{Introducción y Motivación}
 
-La creciente fragmentación geoeconómica global ha expuesto vulnerabilidades en las cadenas de suministro que los indicadores tradicionales de dependencia comercial no logran capturar adecuadamente. El Índice de Seguridad Económica (ISE) desarrollado previamente \citep{hidalgo2024critical} representa un avance significativo al identificar dependencias indirectas a través de intermediarios comerciales. Sin embargo, una limitación fundamental persiste: el ISE agregado no revela las \textit{fuentes sectoriales específicas} de estas dependencias.
+La creciente fragmentación geoeconómica global ha expuesto vulnerabilidades en las cadenas de suministro que los indicadores tradicionales de dependencia comercial no logran capturar adecuadamente. El Índice de Dependencia Comercial (IDC) desarrollado previamente \citep{hidalgo2024critical} representa un avance significativo al identificar dependencias indirectas a través de intermediarios comerciales. Sin embargo, una limitación fundamental persiste: el IDC agregado no revela las \textit{fuentes sectoriales específicas} de estas dependencias.
 
-Consideremos un ejemplo ilustrativo: España puede mostrar una dependencia del 45\% respecto a China en el sector automóviles según el ISE tradicional. Pero esta cifra agregada no distingue si la vulnerabilidad proviene de:
+Consideremos un ejemplo ilustrativo: España puede mostrar una dependencia del 45\% respecto a China en el sector automóviles según el IDC tradicional. Pero esta cifra agregada no distingue si la vulnerabilidad proviene de:
 \begin{itemize}
     \item Importaciones directas de automóviles terminados (25\%)
     \item Dependencia en metales básicos para la producción doméstica (8\%)
@@ -51,9 +51,9 @@ Esta descomposición no es meramente académica: tiene implicaciones profundas p
 
 \section{Marco Conceptual: De la Dependencia Agregada a la Descomposición CVG}
 
-\subsection{Limitaciones del ISE Agregado}
+\subsection{Limitaciones del IDC Agregado}
 
-El ISE original calcula la dependencia total como:
+El IDC original calcula la dependencia total como:
 \begin{equation}
 DT_{ij}^s = DD_{ij}^s + DI_{ij}^s
 \end{equation}
@@ -81,7 +81,7 @@ donde:
 \begin{itemize}
     \item $DD_{ij}^s$ es la dependencia directa en el sector final $s$
     \item $\alpha_{ks}$ es el coeficiente de intensidad del insumo upstream $u_k$ en la producción de $s$
-    \item $DT_{ij}^{u_k}$ es la dependencia en el sector upstream $u_k$ (calculada por el ISE original)
+    \item $DT_{ij}^{u_k}$ es la dependencia en el sector upstream $u_k$ (calculada por el IDC original)
 \end{itemize}
 
 \subsection{Coeficientes de Intensidad CVG}
@@ -94,7 +94,7 @@ Los coeficientes $\alpha_{ks}$ se derivan de matrices Input-Output internacional
 
 donde $X_{ik \rightarrow js}$ representa el flujo del sector $k$ del país $i$ hacia el sector $s$ del país $j$, y el denominador es la demanda intermedia total del sector $s$.
 
-\section{Metodología: Arquitectura Modular ISE+CVG}
+\section{Metodología: Arquitectura Modular IDC+CVG}
 
 \subsection{Componente 1: Analizador CVG Flexible}
 
@@ -110,9 +110,9 @@ El primer componente metodológico es un analizador capaz de mapear las cadenas 
     \item \textbf{Escalabilidad computacional}: Procesar eficientemente matrices de gran dimensión (44 países × 56 sectores en WIOD)
 \end{enumerate}
 
-\subsection{Componente 2: Integrador ISE-CVG}
+\subsection{Componente 2: Integrador IDC-CVG}
 
-El segundo componente integra los coeficientes CVG con el ISE existente para producir descomposiciones de dependencia. Las funcionalidades clave incluyen:
+El segundo componente integra los coeficientes CVG con el IDC existente para producir descomposiciones de dependencia. Las funcionalidades clave incluyen:
 
 \begin{enumerate}
     \item \textbf{Descomposición bilateral}: Para una relación específica $(i,j,s)$, identificar qué proporción de la dependencia proviene de cada sector upstream
@@ -129,7 +129,7 @@ El segundo componente integra los coeficientes CVG con el ISE existente para pro
 La implementación combina dos bases de datos complementarias:
 
 \begin{itemize}
-    \item \textbf{ITP 2019}: 237 países × 170 sectores para el cálculo del ISE con cobertura geográfica completa
+    \item \textbf{ITP 2019}: 237 países × 170 sectores para el cálculo del IDC con cobertura geográfica completa
     \item \textbf{WIOD 2014}: 44 países × 56 sectores para coeficientes CVG con detalle metodológico superior
 \end{itemize}
 
@@ -215,7 +215,7 @@ Estos hallazgos sugieren que las cadenas de valor modernas trascienden la manufa
 
 \subsection{Redefinición de la Diversificación}
 
-La metodología CVG+ISE transforma el concepto de diversificación comercial:
+La metodología CVG+IDC transforma el concepto de diversificación comercial:
 
 \begin{itemize}
     \item \textbf{Diversificación superficial}: Redistribuir importaciones directas manteniendo dependencias upstream
@@ -272,7 +272,7 @@ El análisis se expandirá a sectores estratégicos prioritarios:
 
 \section{Conclusiones}
 
-La extensión del ISE mediante CVG representa un avance metodológico significativo en el análisis de vulnerabilidades comerciales. Al descomponer dependencias agregadas en sus componentes sectoriales específicos, la metodología revela la anatomía oculta del riesgo comercial moderno.
+La extensión del IDC mediante CVG representa un avance metodológico significativo en el análisis de vulnerabilidades comerciales. Al descomponer dependencias agregadas en sus componentes sectoriales específicos, la metodología revela la anatomía oculta del riesgo comercial moderno.
 
 Los resultados preliminares para el sector automóviles demuestran que:
 \begin{enumerate}
@@ -290,7 +290,7 @@ Para el Real Instituto Elcano y la formulación de políticas europeas, esta met
     \item Marco conceptual para entender la seguridad económica en la era de fragmentación global
 \end{itemize}
 
-La implementación completa de esta metodología requiere integración de bases de datos adicionales, validación empírica con crisis históricas, y colaboración con formuladores de política para asegurar relevancia práctica. Sin embargo, los fundamentos metodológicos y resultados preliminares sugieren que esta extensión CVG del ISE puede transformar significativamente nuestra comprensión y gestión del riesgo comercial en un mundo económicamente fragmentado.
+La implementación completa de esta metodología requiere integración de bases de datos adicionales, validación empírica con crisis históricas, y colaboración con formuladores de política para asegurar relevancia práctica. Sin embargo, los fundamentos metodológicos y resultados preliminares sugieren que esta extensión CVG del IDC puede transformar significativamente nuestra comprensión y gestión del riesgo comercial en un mundo económicamente fragmentado.
 
 \bibliographystyle{aer}
 \bibliography{references}

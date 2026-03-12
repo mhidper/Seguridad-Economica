@@ -65,8 +65,13 @@ dashboard/.streamlit/secrets.toml
 # Backups
 backup_*/
 
-# Data (descomenta si no quieres subir datos grandes)
+# Data
 data/
+data/raw/ICIO/
+*.parquet
+*.pkl
+*.csv.gz
+*.part*
 
 # Dashboard - Fragmented data for GitHub Pages
 # (Los archivos en data_dist/ son menores de 100MB y pueden subirse)
