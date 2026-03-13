@@ -43,12 +43,19 @@ graph TD
 
 #### **Nivel 1: El Cerebro (Motor de Cálculo)**
 *   **Script:** `notebooks/analysis/00_dependency.ipynb`
-*   **Acción:** Abrir el Notebook y ejecutar todas las celdas. Para un año específico, cambiar la variable `YEAR` en la celda de configuración.
+*   **Acción:** Abrir el Notebook y ejecutar todas las celdas. **Importante:** Cambiar la variable `anio` en la celda de configuración (celda 3) para procesar el año deseado (ej: 2015).
 *   **Proceso Interno:** 
-    1. Carga matrices de comercio ICIO (OECD).
-    2. Calcula la **Inversa de Leontief** para rastrear flujos indirectos.
-    3. Cuantifica la capacidad de sustitución por industria.
-*   **Salida:** Un archivo `.pkl` masivo (~1.4GB) con el grafo completo de dependencias.
+    1. **Normalización ITP**: Descomprime y filtra la base de datos *International Trade and Production Database* (ITPD-E) usando Dask para paralelismo y aceleración GPU (PyTorch/CUDA).
+    2. **Matrices de Transición (T)**: Crea matrices de probabilidad de suministro donde $T[j,i]$ es el peso del proveedor $j$ sobre el total importado por $i$.
+    3. **Análisis de Caminos (Paths)**: Calcula dependencias directas ($L=1$) e indirectas (rastreando rutas de $L=2$ hasta $L=5$) mediante la propagación de probabilidades en la red global.
+    4. **Scores de Intermediación**: Evalúa la importancia de cada país como "puente" sistémico a través de métricas de frecuencia y fuerza en las rutas críticas.
+*   **Salidas:** 
+    - `dependencias{año}_borrar.csv.gz`: Resumen legible en tabla de las dependencias país-país por industria.
+    - `intermediarios_globales_{año}.parquet`: Detalle profundo del rol de cada país como hub, desglosado por sector.
+    - `country_profiles_{año}.parquet`: Radiografía de vulnerabilidad y exposición de cada país por industria.
+    - `relaciones_criticas_{año}.parquet`: Alertas de seguridad (dependencia > 70% y bajos caminos alternativos).
+    - `caminos_significativos_{año}.parquet`: Catálogo de las rutas comerciales más fuertes por sector.
+    - `all_results_{año}.pkl`: El "mapa genético" completo del año (~1.4GB). Es el archivo que consume el **Arquitecto**.
 
 #### **Nivel 2: El Arquitecto (Estructuración)**
 *   **Script:** `notebooks/analysis/idc_architect.py`
