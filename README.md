@@ -49,6 +49,7 @@ graph TD
     2. **Matrices de Transición (T)**: Crea matrices de probabilidad de suministro donde $T[j,i]$ es el peso del proveedor $j$ sobre el total importado por $i$.
     3. **Análisis de Caminos (Paths)**: Calcula dependencias directas ($L=1$) e indirectas (rastreando rutas de $L=2$ hasta $L=5$) mediante la propagación de probabilidades en la red global.
     4. **Scores de Intermediación**: Evalúa la importancia de cada país como "puente" sistémico a través de métricas de frecuencia y fuerza en las rutas críticas.
+
 *   **Salidas:** 
     - `dependencias{año}_borrar.csv.gz`: Resumen legible en tabla de las dependencias país-país por industria.
     - `intermediarios_globales_{año}.parquet`: Detalle profundo del rol de cada país como hub, desglosado por sector.
