@@ -3,9 +3,9 @@ import pandas as pd
 import json
 from pathlib import Path
 
-BASE_DIR = Path(__file__).parent
-DATA_DIST = BASE_DIR / "data_dist"
-HIST_PATH = BASE_DIR.parent / "data" / "processed" / "historico"
+BASE_DIR = Path(__file__).parent.resolve()
+DATA_DIST = (BASE_DIR / "data_dist").resolve()
+HIST_PATH = (BASE_DIR.parent / "data" / "processed" / "historico").resolve()
 
 # 1. Logo as base64
 logo_path = BASE_DIR / "logo_elcano.png"
@@ -99,7 +99,7 @@ html = html.replace('__LOGO_BASE64__', f'data:image/png;base64,{logo_b64}')
 # (En versiones anteriores de template.html esto era necesario)
 html = html.replace('const FULL_DATA = __DATA_JSON__;', 'const FULL_DATA = null;')
 
-with open(BASE_DIR / 'index.html', 'w', encoding='utf-8') as f:
+with open(BASE_DIR / 'dashboard_elcano.html', 'w', encoding='utf-8') as f:
     f.write(html)
 
 print("[OK] Dashboard compactado y index.html generado.")

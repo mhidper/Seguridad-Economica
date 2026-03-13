@@ -43,18 +43,31 @@ graph TD
 
 #### **Nivel 1: El Cerebro (Motor de Cálculo)**
 *   **Script:** `notebooks/analysis/00_dependency.ipynb`
-*   **Función:** Procesa matrices globales (PyTorch) para identificar riesgos directos e indirectos.
-*   **Salida:** `data/processed/dependencias_consolidadas/all_results_{año}.pkl` (Archivos internos de ~1.4GB).
+*   **Acción:** Abrir el Notebook y ejecutar todas las celdas. Para un año específico, cambiar la variable `YEAR` en la celda de configuración.
+*   **Proceso Interno:** 
+    1. Carga matrices de comercio ICIO (OECD).
+    2. Calcula la **Inversa de Leontief** para rastrear flujos indirectos.
+    3. Cuantifica la capacidad de sustitución por industria.
+*   **Salida:** Un archivo `.pkl` masivo (~1.4GB) con el grafo completo de dependencias.
 
 #### **Nivel 2: El Arquitecto (Estructuración)**
 *   **Script:** `notebooks/analysis/idc_architect.py`
-*   **Función:** Traduce el conocimiento bruto del motor en archivos temáticos (Hubs, Perfiles, Bilateral). Es donde se define la lógica de "Relación Crítica".
-*   **Salida:** `data/processed/historico/*.parquet` (Formato profesional de alta velocidad).
+*   **Acción:** Ejecutar en terminal: `py notebooks/analysis/idc_architect.py [AÑO]` (ej: `py notebooks/analysis/idc_architect.py 2015`).
+*   **Proceso Interno:**
+    1. Filtra y destila el `.pkl` masivo.
+    2. Calcula los **Scores de Hubs** (centralidad) y rankings globales.
+    3. Identifica **Relaciones Críticas** (aquellas con alta dependencia y pocos proveedores alternativos).
+*   **Salida:** Archivos `.parquet` temáticos en `data/processed/historico/` (optimizados para análisis rápido).
 
 #### **Nivel 3: El Puente (Optimización Web)**
 *   **Script:** `dashboard_prototype/build_fragmented.py`
-*   **Función:** Masajea los Parquet para la web. Filtra datos no esenciales, fragmenta por años y aplica el **Formato Matricial (c/d)** para reducir el peso en un 60%.
-*   **Salida:** `dashboard_prototype/data_dist/*.json` (Producto listo para el navegador).
+*   **Acción:** Ejecutar en terminal: `py dashboard_prototype/build_fragmented.py`.
+*   **Proceso Interno:**
+    1. Detecta automáticamente los años procesados en el nivel anterior.
+    2. Aplica **filtros de relevancia** (enfocado en España y riesgos sistémicos > 10%).
+    3. Transforma tablas a **formato de matriz comprimida** (`c:` columnas, `d:` datos) para reducir el peso de descarga.
+    4. Genera el archivo `dashboard_elcano.html` inyectando el logo y configurando el modo multi-año.
+*   **Salida:** `dashboard_prototype/data_dist/*.json` y el dashboard final.
 
 ---
 
@@ -104,7 +117,8 @@ El esquema JSON generado por `build_toy.py` debe considerarse como la especifica
 
 ## 🛠️ Requisitos Técnicos
 
--   **Python 3.10+**
+-   **Python 3.10+ (usar `py` en Windows)**
+-   **Lanzar Dashboard Local:** `py -m http.server 8000` (desde `dashboard_prototype`)
 -   **GPU NVIDIA:** Altamente recomendada para el motor de cálculo (`00_dependency.ipynb`).
 -   **Dependencias Core:** pandas, numpy, torch, plotly, pyarrow (para manejo de Parquet).
 

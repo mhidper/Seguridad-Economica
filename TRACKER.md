@@ -40,7 +40,7 @@ Cada fichero tiene un **estado** y una **acción pendiente**.
 ## 2. ESTADO DE LOS DATOS
 
 | Año | PKL Base | Parquets Historico | Integrado en Dashboard |
-|-----|----------|-------------------|------------------------|
+| 2015| ⏳ Pendiente | ❌ | ❌ |
 | 2016| ✅ | ✅ | ✅ |
 | 2017| ✅ | ✅ | ✅ |
 | 2018| ✅ | ✅ | ✅ |

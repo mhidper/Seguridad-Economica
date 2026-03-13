@@ -129,5 +129,6 @@ PROYECTO SEGURIDAD ECONÓMICA
 ## 💡 PARTE 6: FAQs para la Reunión
 
 *   **¿Cómo se actualiza la web?** Simplemente sustituyendo los archivos en `data_dist`.
+*   **¿Cómo lanzarlo localmente?** `cd dashboard_prototype; py -m http.server 8000`
 *   **¿Se pueden ver dependencias entre dos países?** Sí, usando el bloque `bilateral`.
 *   **¿Qué pasa si hay 170 industrias?** Se recomienda mostrar solo el Top 10/20 por defecto para no saturar al usuario.
