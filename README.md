@@ -35,10 +35,10 @@ graph TD
     B -->|Genera Parquet estructurado| C[<b>OPTIMIZADOR:</b> build_fragmented.py]
     C -->|Genera JSON ultra-ligeros| D[<b>DASHBOARD:</b> index.html]
     
-    style A fill:#d1e7ff,stroke:#007bff
-    style B fill:#fff3cd,stroke:#ffc107
-    style C fill:#d4edda,stroke:#28a745
-    style D fill:#f8f9fa,stroke:#343a40
+    style A fill:#ecf2ff,stroke:#0056b3,stroke-width:2px
+    style B fill:#fff9e6,stroke:#d4a017,stroke-width:2px
+    style C fill:#eaffea,stroke:#28a745,stroke-width:2px
+    style D fill:#1f3b64,stroke:#1f3b64,color:#fff,stroke-width:2px
 ```
 
 #### **Nivel 1: El Cerebro (Motor de Cálculo)**
