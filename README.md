@@ -103,23 +103,26 @@ El frontend está diseñado como una **Single Page Application (SPA)** reactiva 
 
 Esta sección es crítica para la empresa encargada de la web definitiva. El objetivo es escalar el prototipo actual a una plataforma robusta.
 
-### 📦 El "Contrato" de Datos (API Contract)
-El esquema JSON generado por `build_toy.py` debe considerarse como la especificación técnica de la API. Si el backend profesional sirve JSONs con la misma estructura que `data_toy.json`, el frontend funcionará con el 100% de los datos sin cambios significativos.
+### 📦 El "Contrato" de Datos (Arquitectura Fragmentada)
+El sistema actual utiliza una carga diferida (*lazy loading*) para manejar el volumen masivo de datos sin saturar el navegador. El generador `build_fragmented.py` establece el estándar que el backend definitivo debe seguir:
 
-**Campos clave que la API debe servir:**
-- `kpis`: Resumen estadístico global por año.
-- `map_data`: Valores del IDC por país (ISO3) para el mapamundi.
-- `hubs_data`: Rankings de intermediación y scores de centralidad.
-- `explorer_indexed`: (Crítico) Un diccionario indexado por `industry_id` que contiene las rutas de dependencia directa e indirecta.
-- `target_year`: El año de los datos servidos.
-- `available_years`: Lista de periodos disponibles para el selector.
+1. **Punto de Entrada (`meta.json`)**: Contiene los datos transversales necesarios para inicializar la interfaz.
+   - `available_years`: Lista de periodos disponibles en el sistema.
+   - `evolution`: Series históricas de KPIs (vulnerabilidad, rango, importancia).
+   - `industries`: Diccionario maestro de sectores (`id`, `nombre`).
+   - `critical_evolution`: Conteo anual de alertas de seguridad.
+
+2. **Datos bajo demanda (`year_XXXX.json`)**: Archivos específicos por año que se cargan solo cuando el usuario los solicita.
+   - `profiles`: Métricas detalladas por país (ISO3).
+   - `hubs`: Rankings de centralidad y scores de intermediación.
+   - `explorer_indexed`: (Crítico) Mapa pre-calculado de rutas comerciales indexado por `[importador][industria]` para permitir consultas en tiempo constante O(1).
+   - `bilateral`: Listado de dependencias que superan los umbrales de riesgo.
 
 ### 🚀 Hoja de Ruta de Escalabilidad
-1.  **Backend vs. Archivos Estáticos:** Abandonar los archivos `.json` estáticos. El backend debe consultar los archivos `.parquet` ubicados en `data/processed/historico/` (fuente de verdad procesada).
-2.  **Motor 추천 (Recomendado):** Utilizar **DuckDB** en el servidor. Permite realizar consultas SQL analíticas sobre archivos Parquet en milisegundos.
-3.  **Migración a Framework Pro:** Se recomienda portar la lógica de `template.html` (Javascript Vainilla) a **Next.js (React)** o **Nuxt (Vue)** para mejorar la gestión de estados complejos y SEO.
-4.  **Optimización de Búsqueda:** Implementar la búsqueda de países e industrias mediante una base de datos vectorial o un índice simple en el backend, evitando cargar los nombres de 170 industrias y 230 países en el cliente.
-5.  **Visualización Premium:** Sustituir los mapas de Plotly por soluciones más fluidas como **Mapbox GL** o **Deck.gl** si se requiere manejar miles de flujos comerciales simultáneos.
+1.  **Backend Analítico:** Abandonar los archivos `.json` estáticos en favor de una base de datos.
+2.  **Tecnología Recomendada:** Utilizar **DuckDB** o **ClickHouse** en el servidor. Estas tecnologías permiten realizar consultas analíticas complejas directamente sobre los archivos `.parquet` generados por el "Arquitecto" en milisegundos.
+3.  **Migración a Framework Pro:** Se recomienda portar la lógica del dashboard (actualmente en JS nativo) a **Next.js** o **Nuxt** para mejorar la gestión de estados globales y la escalabilidad del frontend.
+4.  **Visualización de Alto Rendimiento:** Si el número de flujos comerciales a visualizar simultáneamente crece, considerar sustituir Plotly por **Deck.gl** o **Mapbox GL**, aprovechando la aceleración por hardware del cliente.
 
 ---
 
