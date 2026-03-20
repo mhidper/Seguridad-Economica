@@ -52,10 +52,31 @@ Usamos un formato de compresión para que la web vuele:
 *   **Indirect Share**: Cuánto de ese riesgo es "oculto" (proviene de terceros países en la cadena).
 *   **Global Score**: El poder de interrupción que tiene un país "Hub".
 
-### 3.2 Visualizaciones Clave
-1.  **Mapa de Conexiones (Bilateral):** Usar el bloque `bilateral` para dibujar flujos entre países.
-2.  **Scatter Plot:** Enfrentar Vulnerabilidad vs Importancia.
-3.  **Sankey Diagram:** Para visualizar cómo el riesgo viaja por la cadena de valor.
+### 3.2 Navegación en Capas (User Journey)
+1.  **Nivel 0: El Globo (Gancho):** Vista exploratoria 3D de la vulnerabilidad mundial. Al pinchar en un país, el globo se orienta y lanza arcos hacia sus proveedores principales.
+2.  **Nivel 1: La Ficha de País (Acción Inmediata):** Un resumen tipo "DNI" con KPIs flash y el **Radar de Riesgo (Directo vs Indirecto)**.
+3.  **Nivel 2: Los Grandes Bloques de Análisis (Exploración Profunda):**
+
+### 3.3 El Doble Pivot: País vs Sector
+
+#### A. Dimensión País (Visión Geopolítica)
+*   **Pivot:** "Yo soy España, ¿qué me pasa?"
+*   **Integración de Criticidad:** Desglose por sectores donde se identifiquen nominalmente los culpables del riesgo. 
+    *   *Ejemplo:* "En el sector **Química**, tus países más críticos son **China (85%)**, **EE.UU. (40%)** y **Alemania (20%)**".
+*   **Evolución:** Gráfico de líneas del IDC total del país a lo largo de los años.
+
+#### B. Dimensión Sectorial (Visión de Mercado/Suministro)
+*   **Pivot:** "Me interesa el sector Microchips, ¿quién manda?"
+*   **Integración de Hubs:** Identificación de los países que actúan como cuellos de botella para ese sector específico.
+*   **Análisis Dinámico (Tiempo):** ¿Han cambiado los Hubs? 
+    *   *Visualización:* Una "carrera de barras" o un gráfico de líneas comparando los Hub Scores de las potencias sectoriales (ej: Ver cómo China ha ganado peso frente a Japón en Electrónica desde 2016).
+
+---
+
+### 3.4 Visualizaciones Clave
+1.  **Mapa de Conexiones (Bilateral):** Usar el bloque `bilateral` para dibujar flujos nominales de criticidad.
+2.  **Radar de Riesgo "Iceberg":** Para distinguir entre dependencia visible y oculta.
+3.  **Matriz de Concentración Sectorial:** Para visualizar la fragilidad de un sector según el número de Hubs que lo controlan.
 
 ---
 

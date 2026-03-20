@@ -66,12 +66,18 @@ dashboard/.streamlit/secrets.toml
 backup_*/
 
 # Data
-data/
-data/raw/ICIO/
+data/raw/
+data/processed/*
+!data/processed/historico/
+
 *.parquet
 *.pkl
 *.csv.gz
 *.part*
+
+# Permitir específicamente todo en esta carpeta a pesar de las extensiones anteriores
+!data/processed/historico/**
+
 
 # Dashboard - Fragmented data for GitHub Pages
 # (Los archivos en data_dist/ son menores de 100MB y pueden subirse)
