@@ -203,6 +203,35 @@ classDiagram
     - `bilateral_{año}.parquet`: Monitor de criticidad pura entre pares (exportador-importador-industria).
     - `dependencies_{año}.parquet`: Las 15 vulnerabilidades más altas (`Top 15`) de cada país. Útil para mapas de calor sectoriales rápidos.
     - `critical_{año}.parquet`: Tabla con el cálculo explícito del "Hidden Risk Factor" (porcentaje de riesgo que es invisible).
+
+**Flujo de Destilación (Nivel 2):**
+```mermaid
+graph TD
+    classDef in fill:#e8f4f8,stroke:#333,stroke-width:1px,color:#000
+    classDef proc fill:#fdfd96,stroke:#333,stroke-width:1px,color:#000
+    classDef func fill:#ccffcc,stroke:#333,stroke-width:1px,color:#000
+    classDef out fill:#ffb3ba,stroke:#333,stroke-width:1px,color:#000
+
+    A[/\ all_results.pkl /\]:::in --> B{El Arquitecto<br/>Ingeniería de Datos}:::proc
+    
+    subgraph Procesamiento y Refinamiento
+        B --> C[Agregación de Centralidad]:::func
+        B --> D[HHI y Proveedores Efectivos]:::func
+        B --> E[Análisis de Criticidad<br/>y Riesgo Oculto]:::func
+        B --> F[Estadística País<br/>Ponderación Económica]:::func
+        B --> J[Desglose País-Industria]:::func
+    end
+
+    C -.->|0.4F + 0.6S| G[(hubs.parquet)]:::out
+    E -.->|Filtro > 50% & Caminos < 3| H[(critical.parquet)]:::out
+    D -.->|1 / HHI| I[(explorer.parquet)]:::out
+    
+    J -.->|Top 15| K[(dependencies.parquet)]:::out
+    J -.->|Relaciones Sustitutivas| L[(bilateral.parquet)]:::out
+    
+    F -.->|Vulnerabilidad Global| M[(profiles.parquet)]:::out
+```
+
 #### **Nivel 3: El Puente (Optimización Web)**
 *   **Script:** `dashboard_prototype/build_fragmented.py`
 *   **Acción:** Ejecutar en terminal: `py dashboard_prototype/build_fragmented.py`.
