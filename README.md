@@ -58,10 +58,10 @@ graph TD
 
     3. **Análisis de Caminos (PIVI Methodology - $L=1$ a $L=5$)**: 
        - Esta es la innovación central (Metodología PIVI). El motor no se detiene en la **dependencia directa ($L=1$)**.
-       - Calcula mediante potencias de matrices y análisis de rutas las **dependencias indirectas**:
+       - Mediante **algoritmos de exploración y enumeración de rutas**, calcula las dependencias indirectas:
          - **L=2**: Riesgos vía un intermediario (A depende de B porque B usa componentes de C).
-         - **L=3 a L=5**: Rastro de la cadena de valor hasta el origen primario.
-       - El sistema aplica una "poda por umbral" (threshold pruning) para descartar millones de rutas insignificantes y concentrarse únicamente en los cuellos de botella que realmente amenazan la seguridad económica nacional.
+         - **L=3 a L=5**: Rastro profundo de la cadena de valor hasta el origen primario.
+       - El sistema aplica una **poda por umbral (threshold pruning)** durante la exploración para descartar millones de rutas insignificantes y concentrarse únicamente en los cuellos de botella reales.
 
     4. **Scores de Intermediación (Identificación de Países Pivote)**: 
        - Una vez mapeados todos los caminos críticos, el motor evalúa a los países como nodos de tránsito:
