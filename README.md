@@ -110,6 +110,66 @@ graph TD
     K -.->|Extracción de DataFrames| J[(Extractos Individuales<br/>CSV / Parquets)]:::out
 ```
 
+**Esquema de Datos (Estructura de Ficheros Extraídos):**
+```mermaid
+classDiagram
+    direction LR
+    
+    class Dependencias_Bruta {
+        <<dependencias_borrar.csv.gz>>
+        + string industry
+        + string dependent_country
+        + string supplier_country
+        + float trade_value
+        + float direct_dependency
+        + float indirect_dependency
+        + float dependency_value
+        + int longitud_optima
+    }
+
+    class Intermediarios_Globales {
+        <<intermediarios_globales.parquet>>
+        + string industry
+        + string country
+        + int frequency_total
+        + float strength_total
+        + float global_score
+    }
+    
+    class Caminos_Significativos {
+        <<caminos_significativos.parquet>>
+        + string industry
+        + string exportador
+        + string importador
+        + list intermediarios
+        + float fuerza
+        + int longitud
+    }
+
+    class Relaciones_Criticas {
+        <<relaciones_criticas.parquet>>
+        + string industry
+        + string exportador
+        + string importador
+        + float dependencia_total
+        + float dependencia_directa
+        + int caminos_alternativos
+        + float criticidad
+    }
+
+    class Country_Profiles {
+        <<country_profiles.parquet>>
+        + string industry
+        + string country
+        + float vulnerability
+        + float importance
+        + int num_suppliers
+    }
+    
+    Dependencias_Bruta "*" -- "1" Country_Profiles : Agrupación
+    Caminos_Significativos "*" -- "1" Relaciones_Criticas : Filtro Umbral
+```
+
 #### **Nivel 2: El Arquitecto (Estructuración)**
 
 *   **Script:** `notebooks/analysis/idc_architect.py`
