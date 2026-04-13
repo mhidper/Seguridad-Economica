@@ -51,12 +51,12 @@ graph TD
     4. **Scores de Intermediación**: Evalúa la importancia de cada país como "puente" sistémico a través de métricas de frecuencia y fuerza en las rutas críticas.
 
 *   **Salidas:** 
-    - `dependencias{año}_borrar.csv.gz`: Resumen legible en tabla de las dependencias país-país por industria.
-    - `intermediarios_globales_{año}.parquet`: Detalle profundo del rol de cada país como hub, desglosado por sector.
-    - `country_profiles_{año}.parquet`: Radiografía de vulnerabilidad y exposición de cada país por industria.
-    - `relaciones_criticas_{año}.parquet`: Alertas de seguridad (dependencia > 70% y bajos caminos alternativos).
-    - `caminos_significativos_{año}.parquet`: Catálogo de las rutas comerciales más fuertes por sector.
-    - `all_results_{año}.pkl`: El "mapa genético" completo del año (~1.4GB). Es el archivo que consume el **Arquitecto**.
+    - `dependencias{año}_borrar.csv.gz`: Matrices de transición bruta. Es el punto de partida para cualquier análisis de red bilateral.
+    - `intermediarios_globales_{año}.parquet`: Frecuencias de paso y fuerzas de ruta. Fundamental para detectar cuellos de botella mundiales.
+    - `country_profiles_{año}.parquet`: Desglose de dependencia total vs. directa a nivel país-industria (antes de normalizaciones).
+    - `relaciones_criticas_{año}.parquet`: Subconjunto filtrado de relaciones de alto riesgo con métricas de escasez de caminos alternativos.
+    - `caminos_significativos_{año}.parquet`: El "esqueleto" de la red de comercio internacional; catálogo de los flujos de mayor impacto.
+    - `all_results_{año}.pkl`: El **mapa genético completo** (~1.4GB). Diccionario Python que contiene matrices de adyacencia, colecciones de caminos y cálculos intermedios. Es el objeto de datos definitivo del proyecto.
 
 #### **Nivel 2: El Arquitecto (Estructuración)**
 *   **Script:** `notebooks/analysis/idc_architect.py`
@@ -65,7 +65,13 @@ graph TD
     1. Filtra y destila el `.pkl` masivo.
     2. Calcula los **Scores de Hubs** (centralidad) y rankings globales.
     3. Identifica **Relaciones Críticas** (aquellas con alta dependencia y pocos proveedores alternativos).
-*   **Salida:** Archivos `.parquet` temáticos en `data/processed/historico/` (optimizados para análisis rápido).
+*   **Salidas (`data/processed/historico/`):** Archivos `.parquet` optimizados que constituyen la base de datos "limpia" para investigación.
+    - `profiles_{año}`: KPIs agregados por país (ISE, Ranking, importancia estratégica, diversificación de proveedores).
+    - `explorer_{año}`: El núcleo de la red. Cruce país-país-industria con desglose de dependencias directas/indirectas y rutas de intermediación.
+    - `hubs_{año}`: Métricas de centralidad global para cada país actuando como nodo de tránsito.
+    - `bilateral_{año}`: Matriz de relaciones estratégicas enfocada en la "Criticidad" y dificultad de sustitución.
+    - `dependencies_{año}`: Rankings granulares de las industrias que generan mayor riesgo para cada economía.
+    - `critical_{año}`: Monitor global de riesgos extremos (vulnerabilidades > 70%).
 
 #### **Nivel 3: El Puente (Optimización Web)**
 *   **Script:** `dashboard_prototype/build_fragmented.py`
@@ -75,7 +81,11 @@ graph TD
     2. Aplica **filtros de relevancia** (enfocado en España y riesgos sistémicos > 10%).
     3. Transforma tablas a **formato de matriz comprimida** (`c:` columnas, `d:` datos) para reducir el peso de descarga.
     4. Genera el archivo `dashboard_elcano.html` inyectando el logo y configurando el modo multi-año.
-*   **Salida:** `dashboard_prototype/data_dist/*.json` y el dashboard final.
+*   **Salidas (`dashboard_prototype/data_dist/`):** Archivos JSON optimizados para consumo en aplicaciones web.
+    - `meta.json`: Metadatos globales (años disponibles, nombres de industrias, series de evolución global).
+    - `history.json`: Series temporales pre-calculadas de riesgo sectorial para todos los países.
+    - `year_XXXX.json`: Fragmentos anuales "lazy-load" que contienen perfiles, hubs y una versión indexada del explorador para búsquedas instantáneas O(1).
+    - `index.html`: Dashboard unificado y listo para despliegue.
 
 ---
 

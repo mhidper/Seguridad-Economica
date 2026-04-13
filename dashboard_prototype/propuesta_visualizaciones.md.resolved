@@ -1,0 +1,201 @@
+# Documento Rector de Desarrollo: Dashboard de Seguridad Económica Elcano (VERSION RESOLVED)
+
+Este documento actúa como la guía definitiva para el desarrollo del dashboard, integrando los requerimientos técnicos originales con las prioridades estratégicas discutidas en la reunión de diseño (Transcripción REU).
+
+## 0. Mapa de Datos y Fuentes
+
+Todos los datos se encuentran en `../data/processed/historico/`. Cada archivo existe en versiones anuales (sufijo `_{year}`, de 2016 a 2022). A continuación se describe en detalle la estructura, indicadores y usos de cada fuente de datos, seguidos de una **tabla resumen**.
+
+---
+
+### 0.1 `profiles_{year}.parquet` — Perfil Agregado por País
+
+**Estructura:** Cross-Sectional (País). Una fila por país (código ISO3). ~236 filas por año.
+
+| Columna | Tipo | Descripción | Rango |
+| :--- | :--- | :--- | :--- |
+| `country` | `str` | Código ISO3 del país (ej: `ESP`, `USA`, `CHN`). **Clave primaria.** | — |
+| `vulnerability` | `float64` | **Índice de Seguridad Económica (ISE)**. Mide la exposición agregada del país a disrupciones en sus cadenas de suministro. Combina dependencia directa e indirecta ponderada por la importancia de cada industria. | 0 – 1 |
+| `indirect_share` | `float64` | Proporción del riesgo total que proviene de dependencias **indirectas** (vía intermediarios), frente a las directas. Valores altos indican que el país depende de "eslabones ocultos". | 0 – 1 |
+| `num_suppliers_effective` | `float64` | **Número Efectivo de Proveedores** (Diversificación). Basado en el inverso del índice Herfindahl. Valores bajos indican alta concentración de proveedores (peligro). | > 0 |
+| `importance` | `float64` | **Peso Estratégico Global** del país como proveedor para otros. Mide cuánto depende el mundo de este país. | 0 – 1 |
+| `year` | `int64` | Año del corte de datos. | 2016–2022 |
+| `global_rank` | `int32` | Posición del país en el ranking mundial de vulnerabilidad (1 = más vulnerable). | 1 – 236 |
+
+**Usos previstos:**
+*   KPIs principales en la ficha de país (ISE, Ranking, Diversificación).
+*   Series temporales de evolución del ISE (2016-2022).
+*   Ordenación y filtrado del listado global de países.
+
+---
+
+### 0.2 `explorer_{year}.parquet` — Dependencias País-Industria
+
+**Estructura:** Cruce (País-Industria). Una fila por cada combinación de `importer` + `exporter` + `industry`. ~680.000 filas por año. Este es el archivo más grande y granular.
+
+| Columna | Tipo | Descripción | Rango |
+| :--- | :--- | :--- | :--- |
+| `importer` | `str` | Código ISO3 del país **importador** (el que tiene la dependencia). | — |
+| `exporter` | `str` | Código ISO3 del país **exportador** (el que suministra). | — |
+| `industry` | `str` | Nombre de la industria/producto (ej: `"154 Manufacturing services..."`, `"Eggs"`, `"Crude petroleum"`). Algunos llevan ID numérico al inicio; otros no. | — |
+| `dep_total` | `float64` | **Dependencia Total**. Suma de la directa e indirecta. Mide la vulnerabilidad completa de A respecto a B en esa industria. | 0 – 1 |
+| `dep_direct` | `float64` | **Dependencia Directa**. Cuánto depende A de B sin intermediarios. | 0 – 1 |
+| `dep_indirect` | `float64` | **Dependencia Indirecta**. Riesgo surgido a través de terceros países que canalizan el suministro. | 0 – 1 |
+| `top_intermediary` | `str` | Código ISO3 del **principal intermediario** en la cadena de suministro entre A y B para esa industria. | — |
+| `path_strength` | `float64` | **Fuerza de la Ruta**. Mide cuánto del flujo comercial pasa por el `top_intermediary`. Valores altos indican un cuello de botella crítico. | 0 – 1 |
+
+**Usos previstos:**
+*   Treemaps de composición de riesgos por país.
+*   Cálculo de las **4 categorías sectoriales** (Agro, Energía, Manufactura, Servicios) mediante clasificación semántica del campo `industry`.
+*   Diagramas Sankey de flujo (Exportador → Intermediario → Importador).
+*   Identificación de cuellos de botella industriales.
+
+---
+
+### 0.3 `hubs_{year}.parquet` — Centralidad e Intermediación
+
+**Estructura:** Cross-Sectional (País). Una fila por país. ~236 filas por año. Mide la posición de cada país como **nodo de tránsito** en la red comercial global.
+
+| Columna | Tipo | Descripción | Rango |
+| :--- | :--- | :--- | :--- |
+| `country` | `str` | Código ISO3 del país. **Clave primaria.** | — |
+| `frequency_total` | `int64` | **Frecuencia de Intermediación**. Número de veces que este país aparece como `top_intermediary` en las relaciones globales. Mide cuántas rutas comerciales pasan por él. | ≥ 0 |
+| `strength_total` | `float64` | **Fuerza de Intermediación**. Suma de las `path_strength` de todas las rutas que pasan por este país. Mide la intensidad acumulada de su papel como hub. | ≥ 0 |
+| `freq_norm` | `float64` | Frecuencia normalizada (0-1) respecto al máximo global. | 0 – 1 |
+| `strength_norm` | `float64` | Fuerza normalizada (0-1) respecto al máximo global. | 0 – 1 |
+| `global_score` | `float64` | **Puntuación Global de Hub**. Promedio de `freq_norm` y `strength_norm`. Sintetiza la importancia del país como intermediario. | 0 – 1 |
+| `global_rank` | `int32` | Posición en el ranking mundial de hubs (1 = mayor intermediario). | 1 – 236 |
+| `year` | `int64` | Año del corte de datos. | 2016–2022 |
+
+**Usos previstos:**
+*   Rankings de "Países Pivote" (ej: Alemania, China como hubs).
+*   Mapas de influencia estratégica y soberanía de tránsito.
+*   Identificación de países cuya disrupción afectaría a múltiples cadenas de suministro.
+
+---
+
+### 0.4 `bilateral_{year}.parquet` — Relaciones Bilaterales
+
+**Estructura:** Matriz Bilateral (Formato Long). Una fila por cada tripleta `exporter` + `importer` + `industry`. ~325.000 filas por año. Representa la red de dependencias bilaterales desagregada por producto.
+
+| Columna | Tipo | Descripción | Rango |
+| :--- | :--- | :--- | :--- |
+| `exporter` | `str` | Código ISO3 del país exportador. | — |
+| `importer` | `str` | Código ISO3 del país importador. | — |
+| `industry` | `str` | Nombre de la industria/producto. | — |
+| `criticidad` | `float64` | **Criticidad Bilateral**. Mide la importancia estratégica de esta relación comercial específica. Combina el volumen de comercio con la dificultad de sustitución del proveedor. | 0 – 1 |
+| `dependency` | `float64` | **Dependencia Bilateral**. Grado en que el importador depende del exportador para esa industria. | 0 – 1 |
+
+**Usos previstos:**
+*   Análisis de socios directos ("¿De quién depende España en semiconductores?").
+*   Alertas de riesgo bilateral (filtrar pares con alta criticidad y alta dependencia).
+*   Inputs para el gráfico de "Principales Socios" en la ficha de país.
+
+---
+
+### 0.5 `dependencies_{year}.parquet` — Rankings Globales de Productos
+
+**Estructura:** Cruce (País-Producto). Una fila por combinación de `dependent_country` + `industry`. ~3.540 filas por año. Es el archivo más compacto; contiene solo los productos con dependencias significativas.
+
+| Columna | Tipo | Descripción | Rango |
+| :--- | :--- | :--- | :--- |
+| `dependent_country` | `str` | Código ISO3 del país dependiente. | — |
+| `industry` | `str` | Nombre del producto/industria que genera la dependencia. | — |
+| `dependency_value` | `float64` | **Valor de Dependencia**. Intensidad de la dependencia del país en ese producto específico. | 0 – 1 |
+
+**Usos previstos:**
+*   Rankings granulares: "Top 10 productos más críticos para España".
+*   Alimentación del Treemap de riesgos críticos.
+*   Identificación de industrias vulnerables a nivel global.
+
+---
+
+### Tabla Resumen
+
+| Archivo Fuente | Estructura / Cobertura | Granularidad (Fila) | Indicadores Clave | Uso Previsto |
+| :--- | :--- | :--- | :--- | :--- |
+| **`profiles_{year}`** | Cross-Sectional (País) | 1 fila por país | `vulnerability`, `importance`, `num_suppliers_effective` | KPIs, Rankings ISE, Series Temporales |
+| **`explorer_{year}`** | Cruce (País × País × Industria) | 1 fila por relación bilateral-industria | `dep_direct`, `dep_indirect`, `path_strength` | Treemaps, Análisis Sectorial, Sankey |
+| **`hubs_{year}`** | Cross-Sectional (Centralidad) | 1 fila por país | `frequency_total`, `global_score` | Mapas de influencia, Rankings de Hubs |
+| **`bilateral_{year}`** | Matriz Bilateral (Long) | 1 fila por par país-industria | `criticidad`, `dependency` | Análisis de socios, Alertas bilaterales |
+| **`dependencies_{year}`** | Cruce (País × Producto) | 1 fila por país-producto | `dependency_value` | Rankings de productos críticos |
+
+**Nota Técnica para el Desarrollo:**
+
+*   **Optimización de Memoria (Tidy Data)**: Los archivos NO son matrices cuadradas densas ($N \times N$), sino listas "largas" (formato Tidy) donde cada fila es una relación activa. Esto permite una carga rápida en el frontend.
+*   **Series Temporales**: La dimensión "Tiempo" se maneja mediante el sufijo `{year}`. Cada archivo es un "corte anual" independiente.
+*   **Heterogeneidad en `industry`**: Los nombres de producto no siguen un formato uniforme. El motor de clasificación semántica en `build_fragmented.py` resuelve esta ambigüedad.
+
+---
+
+## 1. Arquitectura de Navegación por Capas (Filosofía de Usuario)
+
+De acuerdo con la reunión, la web no debe "abrumar" al usuario. Se establece una estructura de capas:
+
+### Capa 1: Landing y Ficha de País (Para Público General y Prensa)
+*   **Objetivo**: Responder rápido a "¿Cómo está mi país?".
+*   **Visualización**:
+    *   **KPIs Maestros**: ISE, Posición en Ranking, Diversificación. (**Fuente:** `0.1 profiles_{year}.parquet`).
+    *   **Top 5 Riesgos**: Mostrar prioritariamente las 5 industrias con mayor dependencia. El resto oculto tras un "Ver más" para no abrumar al usuario generalista. (**Fuente:** `0.5 dependencies_{year}.parquet`).
+    *   **Composición de Socios**: Mapa simplificado con los principales proveedores directos e indicadores de criticidad. Priorizar el "Top 5 de socios" por país. (**Fuente:** `0.4 bilateral_{year}.parquet`).
+    *   **Botón de Compartir (Viralización)**: Generación de PNG optimizado para Redes Sociales/WhatsApp con el título automático y logo de Elcano. Requisito clave para prensa.
+
+### Capa 2: Análisis Avanzado (Para Expertos y Decisores)
+*   **Objetivo**: Entender el rastro del riesgo y proponer soluciones.
+*   **Secciones**:
+    *   **Regional Aggregator**: Selector de agrupaciones geopolíticas. Mide dependencias respecto a bloques. (**Fuente:** Agregación dinámica de `0.2 explorer_{year}.parquet`)
+    *   **Explorador Sectorial**: Desglose por los 172 sectores con filtros avanzados. (**Fuente:** `0.2 explorer_{year}.parquet`)
+    *   **Time Machine**: Control deslizante para ver la evolución desde 2016. (**Fuente:** Serie histórica de `0.1 profiles_{year}.parquet`)
+
+---
+
+## 2. Componentes Visuales Prioritarios (Acciones Inmediatas)
+
+### A. El Rastro del Riesgo (Diagrama Sankey) — [PRIORIDAD ALTA]
+*   **Variable**: Origen (`exporter`) → Intermediario (`top_intermediary`) → Destino (`importer`).
+*   **Fuente**: `0.2 explorer_{year}.parquet` (usando los campos `top_intermediary` y `path_strength`).
+*   **Valor Estratégico**: Visualizar la **dependencia indirecta** (el "corazón" del índice).
+*   **Casos de Uso (Benchmarks de la Reunión)**:
+    *   **Crisis Energética**: Explicar el rastro del Gas Liquado (ej: Qatar → ¿Polonia? → España).
+    *   **Geopolítica de Suministros**: El impacto del cierre del Estrecho de Ormuz en fertilizantes vía Emiratos Árabes.
+
+### B. Treemap de Riesgo Sectorial (Mix de Industrias)
+*   **Novedad Estratégica**: Jerarquización en dos niveles:
+    1.  **Nivel Macro**: Agregación de sectores estándar. (**Fuente:** `0.2 explorer_{year}.parquet` agrupado por semántica).
+    2.  **Nivel Micro**: Los 172 sectores individuales. (**Fuente:** `0.5 dependencies_{year}.parquet`).
+
+### C. Mapa Global de Hubs (Soberanía de Tránsito)
+*   **Variable**: `global_score`.
+*   **Fuente**: `0.3 hubs_{year}.parquet`.
+*   **Visualización**: Mapa de calor global.
+*   **Valor**: Identificar países que "pivotan" el comercio mundial (China, Holanda, Alemania).
+
+---
+
+## 3. Funcionalidades de Valor Añadido
+
+### Exportación y Difusión (Prensa-Ready)
+*   **Exportación PNG**: Cada gráfico ("Sankey", "Evolución", "Treemap") debe tener un botón para descargar una imagen limpia con:
+    *   Título descriptivo automático (ej: "Dependencia de España en Energía 2022").
+    *   Logo del Real Instituto Elcano.
+    *   Fuente: "Índice de Seguridad Económica Elcano".
+*   **Descarga de Datos (CSV/Excel)**: Facilidad total para que el usuario "académico" se lleve el dataset crudo filtrado.
+
+### Agregaciones Regionales Geopolíticas
+*   **Variable**: Agregación por bloques. (**Fuente:** `0.2 explorer_{year}.parquet`).
+*   **Regiones Objetivo**: Sudeste Asiático, Golfo Pérsico, BRICS, UE, etc.
+*   **Lógica**: Permitir al usuario ver cómo la dependencia de una región entera (ej: Golfo) ha cambiado debido a un conflicto (ej: Irán-Irak).
+
+---
+
+## 4. Hoja de Ruta de Desarrollo Actualizada
+
+1.  **Hito 1: Ficha de País "Wow Factor"**. Implementar los KPIs y el Treemap Top 5 con estética premium.
+2.  **Hito 2: Motor de Agregación Regional**. Configurar los diccionarios de regiones para permitir vistas grupales.
+3.  **Hito 3: El "Rastro del Riesgo" (Sankey)**. Implementar la visualización estrella del proyecto que explica la dependencia indirecta.
+4.  **Hito 4: Sistema de Exportación**. Asegurar que la herramienta sea "viralizable" por periodistas.
+
+---
+
+**Nota Final de Diseño (Asepsia Investigadora)**:
+El dashboard debe mantener una postura neutral. No clasifica países como "buenos" o "malos", sino como "más o menos dependientes". Los colores (rojos/verdes) deben usarse con cautela para indicar intensidad de riesgo, no juicios de valor político.

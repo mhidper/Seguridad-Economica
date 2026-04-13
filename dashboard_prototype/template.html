@@ -1,1187 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Índice de Seguridad Económica — Real Instituto Elcano</title>
-    <meta name="description"
-        content="Visualización interactiva de dependencias económicas en cadenas de suministro globales">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <title>Índice de Seguridad Económica | Real Instituto Elcano</title>
+    <!-- CSS y Fuentes ... (se mantiene igual) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
     <style>
         :root {
-            --elcano-red: #bb2521;
-            --elcano-red-light: #d63834;
-            --elcano-red-glow: rgba(187, 37, 33, 0.3);
-            --elcano-blue: #003366;
-            --elcano-blue-mid: #0066CC;
-            --bg-dark: #0a0e17;
-            --bg-card: #111827;
-            --bg-card-hover: #1a2332;
-            --text-primary: #f0f2f5;
-            --text-secondary: #8892a4;
-            --text-muted: #5a6478;
-            --border-subtle: rgba(255, 255, 255, 0.06);
-            --border-hover: rgba(187, 37, 33, 0.4);
-            --gradient-red: linear-gradient(135deg, #bb2521, #d63834);
-            --gradient-blue: linear-gradient(135deg, #003366, #0066CC);
-            --shadow-glow: 0 0 30px rgba(187, 37, 33, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* NAV */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 0 2rem;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(10, 14, 23, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-subtle);
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(10, 14, 23, 0.95);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .nav-logo img {
-            height: 42px;
-        }
-
-        .nav-logo span {
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            transition: color 0.2s;
-            position: relative;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--text-primary);
-        }
-
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--elcano-red);
-            border-radius: 1px;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 2rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at 30% 50%, rgba(187, 37, 33, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 50%, rgba(0, 51, 102, 0.06) 0%, transparent 50%);
-            animation: heroGlow 8s ease-in-out infinite alternate;
-        }
-
-        @keyframes heroGlow {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            100% {
-                transform: translate(-5%, 5%) scale(1.1);
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 16px;
-            border-radius: 50px;
-            border: 1px solid var(--border-subtle);
-            background: rgba(255, 255, 255, 0.03);
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-        }
-
-        .hero-badge .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--elcano-red);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.5;
-                transform: scale(1.5);
-            }
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.08;
-            letter-spacing: -2px;
-            margin-bottom: 1.2rem;
-            background: linear-gradient(135deg, #ffffff 0%, #c0c8d4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero h1 em {
-            font-style: normal;
-            background: var(--gradient-red);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            font-weight: 300;
-        }
-
-        /* GLOBE */
-        .globe-wrapper {
-            width: 500px;
-            height: 500px;
-            margin: -1rem auto 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* SEARCH */
-        .search-container {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto 1rem;
-        }
-
-        .search-bar {
-            width: 100%;
-            padding: 16px 24px 16px 50px;
-            border-radius: 16px;
-            border: 1px solid var(--border-subtle);
-            background: var(--bg-card);
-            color: var(--text-primary);
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-bar::placeholder {
-            color: var(--text-muted);
-        }
-
-        .search-bar:focus {
-            border-color: var(--elcano-red);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        .search-results {
-            position: absolute;
-            top: calc(100% + 8px);
-            left: 0;
-            right: 0;
-            background: var(--bg-card);
-            border-radius: 12px;
-            border: 1px solid var(--border-subtle);
-            max-height: 300px;
-            overflow-y: auto;
-            display: none;
-            z-index: 100;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .search-results.active {
-            display: block;
-        }
-
-        .search-result-item {
-            padding: 12px 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: background 0.15s;
-            font-size: 0.9rem;
-        }
-
-        .search-result-item:hover {
-            background: var(--bg-card-hover);
-        }
-
-        .search-result-item .flag {
-            font-size: 1.3rem;
-        }
-
-        .search-result-item .rank {
-            margin-left: auto;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        /* SCROLL INDICATOR */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-            }
-
-            50% {
-                transform: translateX(-50%) translateY(8px);
-            }
-        }
-
-        .scroll-indicator .arrow {
-            width: 20px;
-            height: 20px;
-            border-right: 2px solid var(--text-muted);
-            border-bottom: 2px solid var(--text-muted);
-            transform: rotate(45deg);
-        }
-
-        /* SECTIONS */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 3rem;
-        }
-
-        .section-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--elcano-red);
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            line-height: 1.2;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-subtitle {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            max-width: 600px;
-            font-weight: 300;
-        }
-
-        /* KPI CARDS */
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .kpi-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid var(--border-subtle);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .kpi-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-red);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .kpi-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
-        .kpi-card:hover::before {
-            opacity: 1;
-        }
-
-        .kpi-value {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .kpi-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-        }
-
-        .kpi-desc {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-            margin-top: 0.5rem;
-            font-weight: 300;
-            opacity: 0.8;
-        }
-
-        /* TOOLTIPS */
-        .info-tip {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            cursor: help;
-        }
-
-        .info-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            font-weight: 700;
-            flex-shrink: 0;
-            transition: all 0.2s;
-        }
-
-        .info-tip:hover .info-icon {
-            background: var(--elcano-red);
-            color: white;
-        }
-
-        .info-tip .tooltip {
-            position: absolute;
-            bottom: calc(100% + 8px);
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px 14px;
-            background: #1e2838;
-            border: 1px solid var(--border-subtle);
-            border-radius: 10px;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            white-space: normal;
-            width: 240px;
-            text-align: left;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s;
-            z-index: 10;
-            line-height: 1.4;
-            font-weight: 400;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            text-transform: none;
-            letter-spacing: normal;
-        }
-
-        .info-tip:hover .tooltip {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* MAP */
-        .map-container {
-            background: var(--bg-card);
-            border-radius: 20px;
-            border: 1px solid var(--border-subtle);
-            padding: 1.5rem;
-            margin-bottom: 4rem;
-            overflow: hidden;
-        }
-
-        /* HUBS */
-        .hubs-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .hub-list {
-            list-style: none;
-        }
-
-        .hub-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border-subtle);
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .hub-item:hover {
-            padding-left: 0.5rem;
-            background: linear-gradient(90deg, rgba(187, 37, 33, 0.05), transparent);
-        }
-
-        .hub-rank {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .hub-rank.top3 {
-            background: var(--gradient-red);
-            color: white;
-        }
-
-        .hub-rank.rest {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-secondary);
-        }
-
-        .hub-country {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .hub-flag {
-            font-size: 1.3rem;
-        }
-
-        .hub-bar-container {
-            flex: 1;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .hub-bar {
-            height: 100%;
-            border-radius: 3px;
-            background: var(--gradient-red);
-            transition: width 1s ease;
-        }
-
-        .hub-score {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            min-width: 45px;
-            text-align: right;
-        }
-
-        /* PROFILE */
-        .profile-section {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .profile-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .profile-flag {
-            font-size: 4rem;
-        }
-
-        .profile-name {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .profile-rank-badge {
-            margin-left: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-        }
-
-        .profile-rank-badge .rank-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--elcano-red-light);
-        }
-
-        .profile-rank-badge .rank-label {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .profile-kpis {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .profile-kpi {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid var(--border-subtle);
-            text-align: center;
-        }
-
-        .profile-kpi .value {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-
-        .profile-kpi .label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border-radius: 8px;
-            border: 1px solid var(--border-subtle);
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.2s;
-            margin-bottom: 2rem;
-        }
-
-        .back-btn:hover {
-            border-color: var(--elcano-red);
-            color: var(--text-primary);
-        }
-
-        /* CRITICAL TABLE */
-        .critical-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 4px;
-        }
-
-        .critical-table th {
-            text-align: left;
-            padding: 12px 16px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .critical-table td {
-            padding: 14px 16px;
-            font-size: 0.9rem;
-            background: var(--bg-card);
-            transition: background 0.2s;
-        }
-
-        .critical-table tr:hover td {
-            background: var(--bg-card-hover);
-        }
-
-        .critical-table tr td:first-child {
-            border-radius: 10px 0 0 10px;
-        }
-
-        .critical-table tr td:last-child {
-            border-radius: 0 10px 10px 0;
-        }
-
-        .dep-bar {
-            display: inline-block;
-            height: 4px;
-            border-radius: 2px;
-            background: var(--elcano-red);
-            vertical-align: middle;
-            margin-right: 8px;
-        }
-
-        .criticidad-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .criticidad-alta {
-            background: rgba(187, 37, 33, 0.15);
-            color: var(--elcano-red-light);
-        }
-
-        .criticidad-media {
-            background: rgba(255, 193, 7, 0.15);
-            color: #FFC107;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            border-top: 1px solid var(--border-subtle);
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        footer img {
-            height: 40px;
-            margin-bottom: 1rem;
-        }
-
-        /* INDUSTRY EXPLORER */
-        .explorer-container {
-            background: var(--bg-card);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            border: 1px solid var(--border-subtle);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .explorer-inputs {
-            display: grid;
-            grid-template-columns: 2fr 1fr auto;
-            gap: 1.5rem;
-            align-items: flex-end;
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .explorer-input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .explorer-input-group label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .explorer-input-group input,
-        .explorer-input-group select {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-subtle);
-            border-radius: 10px;
-            padding: 12px 15px;
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-        }
-
-        .explorer-input-group input:focus,
-        .explorer-input-group select:focus {
-            outline: none;
-            border-color: var(--elcano-red-light);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 3px rgba(187, 37, 33, 0.2);
-        }
-
-        .explorer-btn {
-            background: var(--elcano-red);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 12px 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            height: 48px;
-        }
-
-        .explorer-btn:hover {
-            background: var(--elcano-red-light);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(187, 37, 33, 0.3);
-        }
-
-        .placeholder-msg {
-            color: var(--text-muted);
-            text-align: center;
-            padding: 50px 0;
-            font-style: italic;
-        }
-
-        .explorer-results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .explorer-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease;
-        }
-
-        .explorer-card:hover {
-            border-color: var(--elcano-red-light);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .explorer-card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 1rem;
-        }
-
-        .explorer-card-flag {
-            font-size: 1.8rem;
-        }
-
-        .explorer-card-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .explorer-card-dep {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .explorer-path {
-            margin-top: 1.2rem;
-            padding-top: 1rem;
-            border-top: 1px dashed var(--border-subtle);
-            font-size: 0.8rem;
-        }
-
-        .explorer-path-title {
-            color: var(--text-muted);
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .path-route {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-primary);
-            font-weight: 600;
-            background: rgba(187, 37, 33, 0.05);
-            padding: 6px 10px;
-            border-radius: 6px;
-        }
-
-        /* RESPONSIVE */
-        .hubs-chart-container {
-            background: var(--bg-card);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            border: 1px solid var(--border-subtle);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .hubs-chart {
-            height: 500px;
-            width: 100%;
-        }
-
-        .critical-chart-container {
-            background: var(--bg-card);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            border: 1px solid var(--border-subtle);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .evolution-chart-container {
-            background: var(--bg-card);
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-            border: 1px solid var(--border-subtle);
-            height: 300px;
-        }
-
-        .global-evolution-container {
-            grid-column: span 3;
-            background: var(--bg-card);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            margin-top: 2rem;
-            border: 1px solid var(--border-subtle);
-            box-shadow: var(--shadow-glow);
-        }
-
-        @media (max-width: 1024px) {
-            .global-evolution-container {
-                grid-column: span 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .kpi-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hubs-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-kpis {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .globe-wrapper {
-                width: 320px;
-                height: 320px;
-            }
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--text-muted);
-            border-radius: 3px;
-        }
-
-        .year-selector-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 5px 15px;
-            border-radius: 100px;
-            border: 1px solid var(--border-subtle);
-        }
-
-        #yearSelectNav {
-            background: none;
-            border: none;
-            color: var(--elcano-red-light);
-            font-weight: 800;
-            font-size: 1rem;
-            cursor: pointer;
-            outline: none;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        #yearSelectNav option {
-            background: var(--bg-dark);
-            color: var(--text-primary);
-        }
-
-        /* DATA LOADER OVERLAY */
-        #dataLoader {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--elcano-red);
-            padding: 12px 20px;
-            border-radius: 12px;
-            display: none;
-            align-items: center;
-            gap: 12px;
-            z-index: 9999;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .spinner {
-            width: 18px;
-            height: 18px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-top-color: var(--elcano-red);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        /* TOOLTIPS */
-        .info-wrapper {
-            display: inline-flex;
-            align-items: center;
-            position: relative;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-
-        .info-icon {
-            width: 16px;
-            height: 16px;
-            border: 1.5px solid var(--text-muted);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            font-weight: 800;
-            color: var(--text-muted);
-            cursor: help;
-            transition: all 0.2s ease;
-        }
-
-        .info-wrapper:hover .info-icon {
-            border-color: var(--elcano-red-light);
-            color: var(--elcano-red-light);
-            background: rgba(187, 37, 33, 0.1);
-        }
-
-        .tooltip-text {
-            visibility: hidden;
-            width: 260px;
-            background: rgba(22, 28, 45, 0.95);
-            backdrop-filter: blur(8px);
-            color: #fff;
-            text-align: left;
-            border-radius: 12px;
-            padding: 12px;
-            position: absolute;
-            z-index: 1000;
-            bottom: 150%;
-            left: 50%;
-            margin-left: -130px;
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            border: 1px solid var(--border-subtle);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            font-size: 0.75rem;
-            line-height: 1.4;
-            font-weight: 400;
-            pointer-events: none;
-            transform: translateY(10px);
-        }
-
-        .tooltip-text::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: var(--border-subtle) transparent transparent transparent;
-        }
-
-        .info-wrapper:hover .tooltip-text {
-            visibility: visible;
-            opacity: 1;
-            transform: translateY(0);
-        }
+            --elcano-red: #bb2521; --elcano-red-light: #ff4b4b; --bg-dark: #0a0e17; --bg-card: #161c2d;
+            --text-primary: #f0f2f5; --text-secondary: #8892a4; --text-muted: #5a6478; --border-subtle: rgba(255,255,255,0.08);
+            --shadow-glow: 0 0 20px rgba(187, 37, 33, 0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-dark); color: var(--text-primary); font-family: 'Inter', sans-serif; overflow-x: hidden; line-height: 1.6; }
+        section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: space-between; gap: 40px; position: relative; padding-top: 0; }
+        .hero-content { flex: 1; z-index: 10; }
+        .hero h1 { font-family: 'Outfit', sans-serif; font-size: 4.5rem; line-height: 1.1; font-weight: 800; margin-bottom: 2rem; background: linear-gradient(to bottom, #fff 40%, #888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero em { font-style: normal; color: var(--elcano-red-light); -webkit-text-fill-color: var(--elcano-red-light); }
+        .hero p { font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 2.5rem; }
+        
+        /* Navbar */
+        nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; z-index: 1000; transition: all 0.3s ease; }
+        nav.scrolled { background: rgba(10, 14, 23, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-subtle); padding: 15px 5%; }
+        .nav-logo { display:flex; align-items:center; gap:12px; font-weight:700; font-family:'Outfit' }
+        .nav-logo img { height:36px; }
+        .nav-links { display:flex; gap:30px; list-style:none }
+        .nav-links a { text-decoration:none; color:var(--text-secondary); font-size:0.9rem; font-weight:500; transition:0.2s }
+        .nav-links a:hover, .nav-links a.active { color:var(--text-primary); }
+
+        /* Search */
+        .search-container { position:relative; max-width:500px; margin-bottom: 2rem; }
+        .search-bar { width:100%; background:rgba(255,255,255,0.05); border:1px solid var(--border-subtle); padding:18px 25px 18px 50px; border-radius:100px; color:white; font-size:1.1rem; outlook:none; transition:0.3s; }
+        .search-bar:focus { border-color:var(--elcano-red); box-shadow:0 0 20px rgba(187,37,33,0.3); background:rgba(255,255,255,0.08); }
+        .search-icon { position:absolute; left:20px; top:50%; transform:translateY(-50%); color:var(--text-muted); }
+        .search-results { position:absolute; top:110%; width:100%; background:var(--bg-card); border-radius:15px; border:1px solid var(--border-subtle); max-height:400px; overflow-y:auto; display:none; z-index:100; }
+        .search-results.active { display:block; }
+        .search-result-item { padding:12px 20px; border-bottom:1px solid rgba(255,255,255,0.05); cursor:pointer; display:flex; align-items:center; gap:12px; transition:0.2s }
+        .search-result-item:hover { background:rgba(255,255,255,0.05); }
+
+        /* KPIs */
+        .kpi-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; margin-top:40px; }
+        .kpi-card { background:var(--bg-card); padding:30px; border-radius:1.5rem; border:1px solid var(--border-subtle); text-align:center; transition:0.3s }
+        .kpi-card:hover { transform:translateY(-5px); border-color:var(--elcano-red); }
+        .kpi-value { font-size:2.5rem; font-weight:800; font-family:'Outfit'; background:linear-gradient(to bottom, #fff, #999); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:5px }
+        .kpi-label { color:var(--text-secondary); font-size:0.9rem; font-weight:600; text-transform:uppercase; letter-spacing:1px }
+        .kpi-desc { font-size:0.75rem; color:var(--text-muted); margin-top:10px; line-height:1.4 }
+
+        /* Profile Section */
+        .profile-section { position:fixed; right:-100%; top:0; width:100%; height:100vh; background:var(--bg-dark); z-index:2000; transition:0.5s cubic-bezier(0.16, 1, 0.3, 1); padding:40px 5% 80px 5%; overflow-y:auto; }
+        .profile-section.active { right:0; }
+        .profile-header { display:flex; align-items:center; gap:25px; margin-bottom:3rem; border-bottom:1px solid var(--border-subtle); padding-bottom:2rem; }
+        .profile-flag { font-size:3.5rem; }
+        .profile-name { font-size:2.5rem; font-weight:800; font-family:'Outfit'; }
+        .profile-rank-badge { background:rgba(187,37,33,0.15); color:var(--elcano-red-light); padding:10px 20px; border-radius:12px; text-align:center; border:1px solid var(--elcano-red); margin-left:auto; }
+        .rank-number { font-size:1.8rem; font-weight:800; display:block; }
+        .rank-label { font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; }
+        .profile-kpis { display:grid; grid-template-columns:repeat(3, 1fr); gap:2rem; margin-bottom:3rem; }
+        .profile-kpi { background:var(--bg-card); padding:2rem; border-radius:1.5rem; border:1px solid var(--border-subtle); }
+        .profile-kpi .value { font-size:2.5rem; font-weight:800; display:block; margin-bottom:5px; font-family:'Outfit'; }
+        .profile-kpi .label { color:var(--text-secondary); font-size:0.9rem; font-weight:600; text-transform:uppercase; }
+        .back-btn { background:none; border:none; color:var(--text-secondary); font-size:1rem; cursor:pointer; margin-bottom:2rem; transition:0.2s }
+        .back-btn:hover { color:white; }
+
+        .hub-list { list-style:none; }
+        .hub-item { padding:15px; border-radius:12px; background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); margin-bottom:10px; display:flex; align-items:center; gap:15px; cursor:pointer; transition:0.2s }
+        .hub-item:hover { background:rgba(255,255,255,0.08); border-color:var(--elcano-red); }
+        .hub-flag { font-size:1.5rem; }
+        .hub-country { font-weight:600; }
+        .hub-bar-container { flex:1; height:8px; background:rgba(255,255,255,0.05); border-radius:4px; overflow:hidden; }
+        .hub-bar { height:100%; background:var(--elcano-red); }
+        .hub-score { font-family:'Outfit'; font-weight:800; color:var(--elcano-red-light); min-width:35px; text-align:right; }
+
+        /* Responsive y miscelánea */
+        .section-header { margin-bottom: 4rem; }
+        .section-label { color: var(--elcano-red-light); text-transform: uppercase; font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 1rem; }
+        .section-title { font-size: 2.75rem; font-family: 'Outfit'; font-weight: 800; margin-bottom: 1rem; }
+        .section-subtitle { color: var(--text-secondary); font-size: 1.1rem; max-width: 700px; }
+        .map-container { height: 550px; background: var(--bg-card); border-radius: 2rem; border: 1px solid var(--border-subtle); padding: 1rem; position: relative; }
+        footer { padding: 80px 5%; border-top: 1px solid var(--border-subtle); text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Loader */
+        #dataLoader { position:fixed; bottom:2rem; right:2rem; background:var(--bg-card); border:1px solid var(--elcano-red); padding:12px 20px; border-radius:12px; display:none; align-items:center; gap:12px; z-index:9999; box-shadow:0 10px 30px rgba(0,0,0,0.5); }
+        .spinner { width:18px; height:18px; border:2px solid rgba(255,255,255,0.1); border-top-color:var(--elcano-red); border-radius:50%; animation:spin 1s linear infinite; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+
+        .year-selector-container { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.05); padding:5px 15px; border-radius:100px; border:1px solid var(--border-subtle); }
+        #yearSelectNav { background:none; border:none; color:var(--elcano-red-light); font-weight:800; font-size:1rem; cursor:pointer; outline:none; }
+        /* Tooltip Styles */
+        .info-button { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--text-muted); color: var(--text-muted); font-size: 0.75rem; font-weight: 800; cursor: help; position: relative; margin-left: 8px; vertical-align: middle; transition: 0.2s; }
+        .info-button:hover { border-color: var(--elcano-red-light); color: white; background: rgba(187,37,33,0.1); }
+        .info-card { position: absolute; bottom: 150%; left: 50%; transform: translateX(-50%); background: #1a2332; border: 1px solid var(--border-subtle); padding: 15px; border-radius: 12px; width: 260px; font-size: 0.8rem; color: var(--text-secondary); box-shadow: 0 15px 40px rgba(0,0,0,0.6); pointer-events: none; opacity: 0; transition: 0.3s ease; z-index: 2000; font-weight: 400; text-align: left; line-height: 1.4; backdrop-filter: blur(8px); }
+        .info-card b { color: var(--text-primary); display: block; margin-bottom: 5px; }
+        .info-button:hover .info-card { opacity: 1; bottom: 180%; }
     </style>
 </head>
-
 <body>
-    <div id="dataLoader">
-        <div class="spinner"></div>
-        <span style="font-size: 0.8rem; font-weight: 500;">Cargando datos detallados...</span>
-    </div>
-
+    <div id="dataLoader"><div class="spinner"></div><span style="font-size:0.8rem">Cargando datos...</span></div>
 
     <nav id="navbar">
         <div class="nav-logo">
             <img src="__LOGO_BASE64__" alt="Real Instituto Elcano">
-            <span>Seguridad Económica <span
-                    style="color:var(--elcano-red-light); font-size: 0.6rem; margin-left: 5px; vertical-align: middle; border: 1px solid var(--elcano-red-light); padding: 1px 4px; border-radius: 4px;">v1.2
-                    LITE</span></span>
+            <span>Seguridad Económica</span>
         </div>
         <ul class="nav-links">
             <li><a href="#hero" class="active">Inicio</a></li>
@@ -1189,174 +113,91 @@
             <li><a href="#map-section">Mapa</a></li>
             <li><a href="#hubs-section">Hubs</a></li>
             <li><a href="#industry-section">Explorador</a></li>
-            <li><a href="#methodology-section" style="color:var(--elcano-red-light); font-weight:700">Metodología</a>
-            </li>
         </ul>
         <div class="year-selector-container">
-            <span style="font-size:0.7rem; color:var(--text-muted); text-transform:uppercase; font-weight:700">Explorar
-                por año:</span>
-            <select id="yearSelectNav" onchange="changeGlobalYear(this.value)">
-                <!-- Dinámico -->
-            </select>
+            <span style="font-size:0.7rem; color:var(--text-muted); text-transform:uppercase">Año:</span>
+            <select id="yearSelectNav" onchange="changeGlobalYear(this.value)"></select>
         </div>
     </nav>
 
     <section class="hero" id="hero">
         <div class="hero-content">
-            <div class="hero-badge">
-                <span class="dot"></span>
-                <span id="heroBadgeYear">Cargando datos...</span>
-            </div>
+            <div class="section-label" id="heroBadgeYear">Analizando Resiliencia Global</div>
             <h1>¿De quién depende<br><em>tu economía</em>?</h1>
-            <p>Explora las dependencias comerciales en cadenas de suministro globales.
-                236 economías, 170 industrias, miles de relaciones analizadas.</p>
+            <p>Explora la red de dependencias comerciales. Identifica riesgos ocultos y cuellos de botella en el sistema global.</p>
             <div class="search-container">
                 <span class="search-icon">🔍</span>
-                <input type="text" class="search-bar" id="countrySearch"
-                    placeholder="Busca un país... España, China, USA..." autocomplete="off">
+                <input type="text" class="search-bar" id="countrySearch" placeholder="Busca un país... España, USA, China..." autocomplete="off">
                 <div class="search-results" id="searchResults"></div>
             </div>
         </div>
-        <div class="globe-wrapper">
+        <div style="flex:1.2; height:100%; min-height:500px">
             <div id="heroGlobe" style="width:100%;height:100%;"></div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Explorar</span>
-            <div class="arrow"></div>
         </div>
     </section>
 
     <section id="overview">
         <div class="section-header">
-            <div class="section-label">Panorama Global</div>
-            <h2 class="section-title">
-                Índice de Seguridad Económica
-                <div class="info-wrapper">
-                    <div class="info-icon">i</div>
-                    <div class="tooltip-text">Métrica agregada que mide la exposición de un país a crisis de
-                        suministros. Combina la vulnerabilidad de sus industrias y la importancia de sus proveedores
-                        externos.</div>
-                </div>
-            </h2>
-            <p class="section-subtitle">Una radiografía de las dependencias comerciales que definen la estabilidad
-                económica mundial.</p>
+            <div class="section-label">Indicadores Clave</div>
+            <h2 class="section-title">Radiografía del Riesgo Global</h2>
         </div>
         <div class="kpi-grid" id="kpiGrid"></div>
-        <div class="global-evolution-container">
-            <h3 style="margin-bottom:0.5rem;font-size:1.1rem">Evolución del Riesgo Global</h3>
-            <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1.5rem">Número de dependencias
-                críticas (≥70%) identificadas en el sistema por año.</p>
-            <div id="globalTrendChart" style="height:350px"></div>
-        </div>
+        <h3 style="margin-bottom:1rem; display:flex; align-items:center">
+            Evolución de Dependencias Críticas
+            <div class="info-button">i<div class="info-card"><b>Riesgo Estructural</b>Muestra cuántos países del mundo han superado el umbral del 70% de dependencia en industrias críticas a lo largo del tiempo.</div></div>
+        </h3>
     </section>
 
     <section id="map-section">
         <div class="section-header">
-            <div class="section-label">Mapa de Vulnerabilidad</div>
-            <h2 class="section-title">
-                ¿Quién es más vulnerable?
-                <div class="info-wrapper">
-                    <div class="info-icon">i</div>
-                    <div class="tooltip-text">El color indica el nivel de riesgo: los países en rojo oscuro tienen una
-                        economía altamente dependiente de suministros críticos concentrados en pocos proveedores.</div>
-                </div>
+            <h2 class="section-title" id="mapTitle">Mapa de Riesgo Estructural (ISE) 
+                <div class="info-button" style="display:inline-flex">i<div class="info-card"><b>Mapa Interactivo</b>En su versión ISE, mide la vulnerabilidad de cada país. Cuando seleccionas una industria en la sección Hubs, cambia para mostrar la relevancia estratégica.</div></div>
             </h2>
-            <p class="section-subtitle">Nivel de vulnerabilidad comercial de cada economía. Mayor intensidad de rojo
-                indica mayor concentración de dependencias críticas.</p>
         </div>
-        <div class="map-container">
-            <div id="worldMap" style="height: 520px;"></div>
-        </div>
+        <div class="map-container"><div id="worldMap" style="height:100%"></div></div>
     </section>
 
     <section id="hubs-section">
-        <div class="section-header">
-            <div class="section-label">Intermediación Global</div>
-            <h2 class="section-title">
-                Los nodos del comercio mundial
-                <div class="info-wrapper">
-                    <div class="info-icon">i</div>
-                    <div class="tooltip-text">Países que actúan como "puentes" obligatorios en las cadenas globales. Si
-                        un Hub falla, la ruptura se propaga a decenas de países conectados indirectamente.</div>
-                </div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2rem">
+            <h2 class="section-title">Hubs de Intermediación Global 
+                <div class="info-button" style="display:inline-flex">i<div class="info-card"><b>Capacidad de Intermediación</b>Identifica qué países son nodos críticos por los que transitan los suministros mundiales. El gráfico compara volumen (Eje X) con influencia de red (Eje Y).</div></div>
             </h2>
-            <p class="section-subtitle">Los 30 países que más intermedian en las cadenas de suministro globales. El
-                <strong>score</strong> (0-100) combina cuántas rutas pasan por cada país y cuán insustituible es como
-                intermediario. Haz clic en un país para ver su perfil detallado.
-            </p>
+            <p class="section-subtitle">Identifica los países que controlan las rutas de suministro de cada sector.</p>
+            <div style="background:var(--bg-card); padding:10px 20px; border-radius:100px; border:1px solid var(--border-subtle); display:flex; gap:15px; align-items:center; min-width:350px">
+                <span style="font-size:0.7rem; text-transform:uppercase; color:var(--text-secondary)">Seleccionar Industria:</span>
+                <input type="text" id="hubIndustryInput" list="industryList" onchange="updateHubsByIndustry(this.value)" placeholder="Busca un sector (p.ej. Semiconductores)..." style="background:none; border:none; color:var(--elcano-red-light); font-weight:700; outline:none; width:100%">
+            </div>
         </div>
-        <div class="hubs-chart-container">
-            <div id="hubsChart" class="hubs-chart"></div>
+        <div style="display:flex; gap:20px; height:500px; margin-bottom:3rem">
+            <div id="hubsChart" style="flex:1.5; background:var(--bg-card); border-radius:1.5rem; border:1px solid var(--border-subtle); padding:1rem"></div>
+            <div id="hubsGlobe" style="flex:1; background:var(--bg-card); border-radius:1.5rem; border:1px solid var(--border-subtle); position:relative; overflow:hidden"></div>
         </div>
-        <div class="hubs-grid">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem">
             <ul class="hub-list" id="hubsLeft"></ul>
             <ul class="hub-list" id="hubsRight"></ul>
         </div>
     </section>
 
-    <section id="ranking-section" class="overview-section">
-        <div class="section-header">
-            <div class="section-label">Ranking de Riesgo</div>
-            <h2 class="section-title">
-                Índice de Vulnerabilidad por País
-                <div class="info-wrapper">
-                    <div class="info-icon">i</div>
-                    <div class="tooltip-text">Clasificación de mayor a menor riesgo basada en el Índice ISE. Permite
-                        comparar rápidamente qué potencias tienen sus cadenas de valor más expuestas al exterior.</div>
-                </div>
-            </h2>
-            <p class="section-subtitle">Las economías con mayor exposición a disrupciones externas (ISE 2022).</p>
-        </div>
-        <div id="vulnerabilityRankingChart"
-            style="height: 500px; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border-subtle); padding: 1.5rem;">
-        </div>
-    </section>
-
-
     <section id="industry-section">
         <div class="section-header">
-            <div class="section-label">Análisis Sectorial</div>
-            <h2 class="section-title">
-                ¿De quién dependemos en...?
-                <div class="info-wrapper">
-                    <div class="info-icon">i</div>
-                    <div class="tooltip-text">Analiza industria por industria. El sistema calcula rutas directas e
-                        indirectas para mostrar quién tiene realmente el control sobre el suministro de cada producto.
-                    </div>
-                </div>
+            <div class="section-label">Explorador Industrial</div>
+            <h2 class="section-title">Dependencia por Sector 
+                <div class="info-button" style="display:inline-flex">i<div class="info-card"><b>Explorador de Rutas</b>Permite ver los proveedores directos e indirectos (hubs) para una combinación específica de industria y país importador.</div></div>
             </h2>
-            <p class="section-subtitle">Explora los proveedores críticos y las rutas de suministro de cualquier
-                industria.</p>
+            <p class="section-subtitle">Analiza quién controla realmente el suministro de industrias específicas.</p>
         </div>
-
-        <div class="explorer-container">
-            <div class="explorer-inputs">
-                <div class="explorer-input-group">
-                    <label>Industria</label>
-                    <input type="text" id="industrySearch" placeholder="Busca industria... (ej. batteries, cereals)"
-                        list="industryList" onfocus="this.value='';" onclick="this.value='';">
+        <div style="background:var(--bg-card); border-radius:1.5rem; border:1px solid var(--border-subtle); padding:2rem">
+            <div style="display:flex; gap:1.5rem; margin-bottom:2rem">
+                <div style="flex:1"><label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:5px">Industria</label>
+                    <input type="text" id="industrySearch" placeholder="Busca industria..." list="industryList" style="width:100%; background:rgba(0,0,0,0.2); border:1px solid var(--border-subtle); padding:12px; border-radius:8px; color:white">
                     <datalist id="industryList"></datalist>
                 </div>
-                <div class="explorer-input-group">
-                    <label>País que importa</label>
-                    <select id="importerSelect"></select>
+                <div style="flex:1"><label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:5px">País</label>
+                    <select id="importerSelect" style="width:100%; background:rgba(0,0,0,0.2); border:1px solid var(--border-subtle); padding:12px; border-radius:8px; color:white"></select>
                 </div>
-                <button class="explorer-btn" onclick="runIndustryQuery()">Consultar dependencias</button>
+                <button onclick="runIndustryQuery()" style="align-self:flex-end; background:var(--elcano-red); color:white; border:none; padding:12px 25px; border-radius:8px; font-weight:700; cursor:pointer">Consultar</button>
             </div>
-
-            <div id="industryChartContainer" style="display:none; margin-bottom: 2rem;">
-                <div
-                    style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">
-                    🔍 Radar de Riesgo Oculto (Indirecto vs Directo)
-                </div>
-                <div id="industryRadarPlot"
-                    style="height: 350px; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                </div>
-            </div>
-
-            <div id="industryResults" class="industry-results-area">
-                <div class="placeholder-msg">Selecciona una industria y un país para ver los resultados.</div>
-            </div>
+            <div id="industryResults" style="min-height:200px"></div>
         </div>
     </section>
 
@@ -1365,789 +206,377 @@
         <div id="profileContent"></div>
     </section>
 
-    <section id="methodology-section" class="overview-section"
-        style="border-top: 1px solid var(--border-subtle); padding-top: 5rem; margin-top: 4rem; padding-bottom: 5rem;">
-        <div class="section-header">
-            <div class="section-label">Transparencia Técnica</div>
-            <h2 class="section-title">Metodología y Definiciones</h2>
-            <p class="section-subtitle">Aclarando los conceptos de dependencia directa, indirecta y vulnerabilidad
-                estructural.</p>
-        </div>
-
-        <div
-            style="display:grid; grid-template-columns: 1fr; gap: 2.5rem; margin-top: 3rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
-
-            <!-- EXPLICACIÓN DIRECTA VS INDIRECTA -->
-            <div
-                style="background:var(--bg-card); border-radius:24px; padding:2.5rem; border:1px solid var(--border-subtle); box-shadow: 0 10px 40px rgba(0,0,0,0.2)">
-                <h3
-                    style="margin-bottom:1.5rem; font-size:1.4rem; color:var(--elcano-red-light); display:flex; align-items:center; gap:12px">
-                    <span
-                        style="background:var(--elcano-red-light); color:white; width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; font-size:1rem">A</span>
-                    Dependencias: El Corazón del Modelo
-                </h3>
-
-                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                    <div>
-                        <h4 style="color:var(--text-primary); margin-bottom:0.8rem; font-size:1.1rem">1. Dependencia
-                            Directa</h4>
-                        <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7">
-                            Mide la exposición inmediata a un proveedor. Representa la proporción de insumos que un país
-                            importa <strong>directamente</strong> de otro para que una industria específica pueda
-                            operar. Es el riesgo "visible" en las aduanas tradicionales.
-                        </p>
-                    </div>
-                    <div>
-                        <h4 style="color:var(--text-primary); margin-bottom:0.8rem; font-size:1.1rem">2. Dependencia
-                            Indirecta (Riesgo Oculto)</h4>
-                        <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7">
-                            Es la métrica más innovadora del proyecto. Rastrea el riesgo a través de la <strong>cadena
-                                de valor</strong>. Si el País A compra al País B, pero el País B necesita componentes
-                            críticos del País C para fabricar ese producto, el País A tiene una "dependencia indirecta"
-                            del País C. El modelo detecta estos cuellos de botella que las estadísticas normales
-                            ignoran.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ÍNDICES AGREGADOS -->
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2.5rem;">
-                <!-- ISE -->
-                <div
-                    style="background:var(--bg-card); border-radius:24px; padding:2.5rem; border:1px solid var(--border-subtle)">
-                    <h3 style="margin-bottom:1.2rem; font-size:1.3rem; color:var(--text-primary)">Índice de Seguridad
-                        Económica (ISE)</h3>
-                    <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.7; margin-bottom:1.5rem">
-                        Este índice sintético resume la fragilidad nacional. No se limita al volumen comercial, sino que
-                        penaliza la <strong>concentración y la falta de alternativas</strong>.
-                    </p>
-                    <div
-                        style="background:rgba(255,255,255,0.03); padding:1.2rem; border-radius:12px; font-size:0.85rem; color:var(--text-muted)">
-                        <strong>¿Qué mide?</strong> La probabilidad de que un shock en cualquier parte del mundo
-                        paralice sectores vitales del país analizado, ponderando cada industria según su importancia
-                        estratégica y facilidad de sustitución.
-                    </div>
-                </div>
-
-                <!-- HUB SCORE -->
-                <div
-                    style="background:var(--bg-card); border-radius:24px; padding:2.5rem; border:1px solid var(--border-subtle)">
-                    <h3 style="margin-bottom:1.2rem; font-size:1.3rem; color:var(--text-primary)">Score de
-                        Intermediación (Hubs)</h3>
-                    <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.7; margin-bottom:1.5rem">
-                        Determina la importancia de un país como <strong>puente logístico y productivo</strong> en el
-                        sistema global.
-                    </p>
-                    <div
-                        style="background:rgba(255,255,255,0.03); padding:1.2rem; border-radius:12px; font-size:0.85rem; color:var(--text-muted)">
-                        <strong>¿Qué mide?</strong> No mide cuánto exporta un país, sino cuántas de las rutas críticas
-                        de <em>otros</em> países pasan por él. Un score alto identifica "puntos de fallo único" en la
-                        red de seguridad económica mundial.
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div
-            style="margin-top:4rem; padding:2.5rem; border-radius:24px; background:linear-gradient(135deg, rgba(187,37,33,0.05) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(187,37,33,0.2); max-width: 1000px; margin-left: auto; margin-right: auto;">
-            <h4 style="margin-bottom:1.2rem; font-size:1.1rem; color:var(--elcano-red-light); font-weight:700">Nota
-                sobre el Modelo de Fragmentación</h4>
-            <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.8">
-                El modelo asume que en un mundo crecientemente fragmentado, las dependencias comerciales se convierten
-                en herramientas de presión geopolítica. Por ello, el análisis se centra en identificar no solo el
-                "comercio" sino el <strong>control estructural</strong> sobre los suministros necesarios para la
-                autonomía estratégica de las naciones. Los datos proceden de la base armonizada ITP (2000-2022) del
-                equipo de investigación del Real Instituto Elcano.
-            </p>
-        </div>
-    </section>
-
     <footer>
-        <img src="__LOGO_BASE64__" alt="Real Instituto Elcano"><br>
-        <p>Índice de Seguridad Económica · Real Instituto Elcano · 2026</p>
-        <p style="margin-top: 0.5rem;" id="footerDataYear">Datos: International Trade and Production Database (ITP) ·
-            Año ...</p>
+        <img src="__LOGO_BASE64__" alt="Logo"><br>
+        <p>Real Instituto Elcano · Índice de Seguridad Económica · 2026</p>
+        <p id="footerDataYear" style="margin-top:0.5rem"></p>
     </footer>
 
     <script>
-        // === EMBEDDED DATA (no fetch needed) ===
-        // === COUNTRY NAMES ===
-        const COUNTRY_NAMES = { "ABW": "Aruba", "AFG": "Afganistán", "AGO": "Angola", "AIA": "Anguila", "ALB": "Albania", "AND": "Andorra", "ARE": "Emiratos Árabes Unidos", "ARG": "Argentina", "ARM": "Armenia", "ASM": "Samoa Americana", "ATG": "Antigua y Barbuda", "AUS": "Australia", "AUT": "Austria", "AZE": "Azerbaiyán", "BDI": "Burundi", "BEL": "Bélgica", "BEN": "Benín", "BFA": "Burkina Faso", "BGD": "Bangladés", "BGR": "Bulgaria", "BHR": "Baréin", "BHS": "Bahamas", "BIH": "Bosnia y Herzegovina", "BLR": "Bielorrusia", "BLZ": "Belice", "BMU": "Bermudas", "BOL": "Bolivia", "BRA": "Brasil", "BRB": "Barbados", "BRN": "Brunéi", "BTN": "Bután", "BWA": "Botsuana", "CAF": "Rep. Centroafricana", "CAN": "Canadá", "CHE": "Suiza", "CHL": "Chile", "CHN": "China", "CIV": "Costa de Marfil", "CMR": "Camerún", "COD": "RD del Congo", "COG": "Congo", "COL": "Colombia", "COM": "Comoras", "CPV": "Cabo Verde", "CRI": "Costa Rica", "CUB": "Cuba", "CYM": "Islas Caimán", "CYP": "Chipre", "CZE": "Chequia", "DEU": "Alemania", "DJI": "Yibuti", "DMA": "Dominica", "DNK": "Dinamarca", "DOM": "Rep. Dominicana", "DZA": "Argelia", "ECU": "Ecuador", "EGY": "Egipto", "ERI": "Eritrea", "ESP": "España", "EST": "Estonia", "ETH": "Etiopía", "FIN": "Finlandia", "FJI": "Fiyi", "FRA": "Francia", "FSM": "Micronesia", "GAB": "Gabón", "GBR": "Reino Unido", "GEO": "Georgia", "GHA": "Ghana", "GIN": "Guinea", "GMB": "Gambia", "GNB": "Guinea-Bisáu", "GNQ": "Guinea Ecuatorial", "GRC": "Grecia", "GRD": "Granada", "GRL": "Groenlandia", "GTM": "Guatemala", "GUM": "Guam", "GUY": "Guyana", "HKG": "Hong Kong", "HND": "Honduras", "HRV": "Croacia", "HTI": "Haití", "HUN": "Hungría", "IDN": "Indonesia", "IND": "India", "IRL": "Irlanda", "IRN": "Irán", "IRQ": "Irak", "ISL": "Islandia", "ISR": "Israel", "ITA": "Italia", "JAM": "Jamaica", "JOR": "Jordania", "JPN": "Japón", "KAZ": "Kazajistán", "KEN": "Kenia", "KGZ": "Kirguistán", "KHM": "Camboya", "KIR": "Kiribati", "KNA": "San Cristóbal y Nieves", "KOR": "Corea del Sur", "KWT": "Kuwait", "LAO": "Laos", "LBN": "Líbano", "LBR": "Liberia", "LBY": "Libia", "LCA": "Santa Lucía", "LKA": "Sri Lanka", "LSO": "Lesoto", "LTU": "Lituania", "LUX": "Luxemburgo", "LVA": "Letonia", "MAC": "Macao", "MAR": "Marruecos", "MDA": "Moldavia", "MDG": "Madagascar", "MDV": "Maldivas", "MEX": "México", "MHL": "Islas Marshall", "MKD": "Macedonia del Norte", "MLI": "Malí", "MLT": "Malta", "MMR": "Myanmar", "MNE": "Montenegro", "MNG": "Mongolia", "MOZ": "Mozambique", "MRT": "Mauritania", "MUS": "Mauricio", "MWI": "Malaui", "MYS": "Malasia", "NAM": "Namibia", "NER": "Níger", "NGA": "Nigeria", "NIC": "Nicaragua", "NLD": "Países Bajos", "NOR": "Noruega", "NPL": "Nepal", "NRU": "Nauru", "NZL": "Nueva Zelanda", "OMN": "Omán", "PAK": "Pakistán", "PAN": "Panamá", "PER": "Perú", "PHL": "Filipinas", "PLW": "Palaos", "PNG": "Papúa Nueva Guinea", "POL": "Polonia", "PRI": "Puerto Rico", "PRK": "Corea del Norte", "PRT": "Portugal", "PRY": "Paraguay", "QAT": "Catar", "ROU": "Rumanía", "RUS": "Rusia", "RWA": "Ruanda", "SAU": "Arabia Saudí", "SDN": "Sudán", "SEN": "Senegal", "SGP": "Singapur", "SLB": "Islas Salomón", "SLE": "Sierra Leona", "SLV": "El Salvador", "SMR": "San Marino", "SOM": "Somalia", "SRB": "Serbia", "SSD": "Sudán del Sur", "STP": "Santo Tomé y Príncipe", "SUR": "Surinam", "SVK": "Eslovaquia", "SVN": "Eslovenia", "SWE": "Suecia", "SWZ": "Esuatini", "SYC": "Seychelles", "SYR": "Siria", "TCA": "Islas Turcas y Caicos", "TCD": "Chad", "TGO": "Togo", "THA": "Tailandia", "TJK": "Tayikistán", "TKM": "Turkmenistán", "TLS": "Timor Oriental", "TON": "Tonga", "TTO": "Trinidad y Tobago", "TUN": "Túnez", "TUR": "Turquía", "TUV": "Tuvalu", "TWN": "Taiwán", "TZA": "Tanzania", "UGA": "Uganda", "UKR": "Ucrania", "URY": "Uruguay", "USA": "Estados Unidos", "UZB": "Uzbekistán", "VCT": "San Vicente y Granadinas", "VEN": "Venezuela", "VGB": "Islas Vírgenes Británicas", "VIR": "Islas Vírgenes de EE.UU.", "VNM": "Vietnam", "VUT": "Vanuatu", "WSM": "Samoa", "YEM": "Yemen", "ZAF": "Sudáfrica", "ZMB": "Zambia", "ZWE": "Zimbabue" };
+        const COUNTRY_NAMES = {
+            "AFG": "Afganistán", "AGO": "Angola", "ALB": "Albania", "ARE": "Emiratos Árabes Unidos", "ARG": "Argentina", "ARM": "Armenia", "AUS": "Australia", "AUT": "Austria", "AZE": "Azerbaiyán",
+            "BEL": "Bélgica", "BEN": "Benín", "BFA": "Burkina Faso", "BGD": "Bangladés", "BGR": "Bulgaria", "BHR": "Baréin", "BHS": "Bahamas", "BIH": "Bosnia y Herz.", "BLR": "Bielorrusia", "BLZ": "Belice", "BMU": "Bermudas", "BOL": "Bolivia", "BRA": "Brasil", "BRB": "Barbados", "BRN": "Brunéi", "BTN": "Bután", "BWA": "Botsuana",
+            "CAN": "Canadá", "CHE": "Suiza", "CHL": "Chile", "CHN": "China", "CIV": "C. de Marfil", "CMR": "Camerún", "COD": "Rep. Del Congo", "COG": "Congo", "COL": "Colombia", "COM": "Comoras", "CPV": "Cabo Verde", "CRI": "Costa Rica", "CUB": "Cuba", "CYP": "Chipre", "CZE": "Rep. Checa",
+            "DEU": "Alemania", "DJI": "Yibuti", "DMA": "Dominica", "DNK": "Dinamarca", "DOM": "Rep. Dominicana", "DZA": "Argelia",
+            "ECU": "Ecuador", "EGY": "Egipto", "ERI": "Eritrea", "ESP": "España", "EST": "Estonia", "ETH": "Etiopía",
+            "FIN": "Finlandia", "FJI": "Fiyi", "FRA": "Francia", "FRO": "Islas Feroe", "FSM": "Micronesia",
+            "GAB": "Gabón", "GBR": "Reino Unido", "GEO": "Georgia", "GHA": "Ghana", "GIN": "Guinea", "GMB": "Gambia", "GNB": "Guinea-Bisáu", "GNQ": "Guinea Ecuat.", "GRC": "Grecia", "GRD": "Granada", "GRL": "Groenlandia", "GTM": "Guatemala", "GUY": "Guyana",
+            "HKG": "Hong Kong", "HND": "Honduras", "HRV": "Croacia", "HTI": "Haití", "HUN": "Hungría",
+            "IDN": "Indonesia", "IND": "India", "IRL": "Irlanda", "IRN": "Irán", "IRQ": "Irak", "ISL": "Islandia", "ISR": "Israel", "ITA": "Italia",
+            "JAM": "Jamaica", "JOR": "Jordania", "JPN": "Japón",
+            "KAZ": "Kazajistán", "KEN": "Kenia", "KGZ": "Kirguistán", "KHM": "Camboya", "KIR": "Kiribati", "KOR": "Corea del Sur", "KWT": "Kuwait",
+            "LAO": "Laos", "LBN": "Líbano", "LBR": "Liberia", "LBY": "Libia", "LCA": "Santa Lucía", "LKA": "Sri Lanka", "LSO": "Lesoto", "LTU": "Lituania", "LUX": "Luxemburgo", "LVA": "Letonia",
+            "MAR": "Marruecos", "MDA": "Moldavia", "MDG": "Madagascar", "MDV": "Maldivas", "MEX": "México", "MHL": "I. Marshall", "MKD": "Macedonia", "MLI": "Mali", "MLT": "Malta", "MMR": "Birmania", "MNE": "Montenegro", "MNG": "Mongolia", "MOZ": "Mozambique", "MRT": "Mauritania", "MUS": "Mauricio", "MWI": "Malaui", "MYS": "Malasia",
+            "NAM": "Namibia", "NCL": "N. Caledonia", "NER": "Níger", "NGA": "Nigeria", "NIC": "Nicaragua", "NLD": "Países Bajos", "NOR": "Noruega", "NPL": "Nepal", "NRU": "Nauru", "NZL": "Nueva Zelanda",
+            "OMN": "Omán",
+            "PAK": "Pakistán", "PAN": "Panamá", "PER": "Perú", "PHL": "Filipinas", "PLW": "Palaos", "PNG": "Papúa N. Guinea", "POL": "Polonia", "PRI": "Puerto Rico", "PRK": "Corea del Norte", "PRT": "Portugal", "PRY": "Paraguay", "PSE": "Palestina", "PYF": "Polinesia Fr.",
+            "QAT": "Catar",
+            "ROU": "Rumania", "RUS": "Rusia", "RWA": "Ruanda",
+            "SAU": "Arabia Saudí", "SDN": "Sudán", "SEN": "Senegal", "SGP": "Singapur", "SLB": "I. Salomón", "SLE": "Sierra Leona", "SLV": "El Salvador", "SMR": "San Marino", "SOM": "Somalia", "SRB": "Serbia", "SSD": "Sudán del Sur", "STP": "Santo Tomé", "SUR": "Surinam", "SVK": "Eslovaquia", "SVN": "Eslovenia", "SWE": "Suecia", "SWZ": "Esuatini", "SYC": "Seychelles", "SYR": "Siria",
+            "TCD": "Chad", "TGO": "Togo", "THA": "Tailandia", "TJK": "Tayikistán", "TKM": "Turkmenistán", "TLS": "Timor-Leste", "TON": "Tonga", "TTO": "Trinidad y T.", "TUN": "Túnez", "TUR": "Turquía", "TUV": "Tuvalu", "TWN": "Taiwán", "TZA": "Tanzania",
+            "UGA": "Uganda", "UKR": "Ucrania", "URY": "Uruguay", "USA": "Estados Unidos", "UZB": "Uzbekistán",
+            "VAT": "Vaticano", "VCT": "S. Vicente", "VEN": "Venezuela", "VNM": "Vietnam", "VUT": "Vanuatu",
+            "WSM": "Samoa",
+            "YEM": "Yemen",
+            "ZAF": "Sudáfrica", "ZMB": "Zambia", "ZWE": "Zimbabue"
+        };
+        const ISO3_TO_ISO2 = {
+            "AFG": "AF", "AGO": "AO", "ALB": "AL", "ARE": "AE", "ARG": "AR", "ARM": "AM", "AUS": "AU", "AUT": "AT", "AZE": "AZ", "BEL": "BE", "BEN": "BJ", "BFA": "BF", "BGD": "BD", "BGR": "BG", "BHR": "BH", "BHS": "BS", "BIH": "BA", "BLR": "BY", "BLZ": "BZ", "BMU": "BM", "BOL": "BO", "BRA": "BR", "BRB": "BB", "BRN": "BN", "BTN": "BT", "BWA": "BW", "CAN": "CA", "CHE": "CH", "CHL": "CL", "CHN": "CN", "CIV": "CI", "CMR": "CM", "COD": "CD", "COG": "CG", "COL": "CO", "COM": "KM", "CPV": "CV", "CRI": "CR", "CUB": "CU", "CYP": "CY", "CZE": "CZ", "DEU": "DE", "DJI": "DJ", "DMA": "DM", "DNK": "DK", "DOM": "DO", "DZA": "DZ", "ECU": "EC", "EGY": "EG", "ERI": "ER", "ESP": "ES", "EST": "EE", "ETH": "ET", "FIN": "FI", "FJI": "FJ", "FRA": "FR", "FRO": "FO", "FSM": "FM", "GAB": "GA", "GBR": "GB", "GEO": "GE", "GHA": "GH", "GIN": "GN", "GMB": "GM", "GNB": "GW", "GNQ": "GQ", "GRC": "GR", "GRD": "GD", "GRL": "GL", "GTM": "GT", "GUY": "GY", "HKG": "HK", "HND": "HN", "HRV": "HR", "HTI": "HT", "HUN": "HU", "IDN": "ID", "IND": "IN", "IRL": "IE", "IRN": "IR", "IRQ": "IQ", "ISL": "IS", "ISR": "IL", "ITA": "IT", "JAM": "JM", "JOR": "JO", "JPN": "JP", "KAZ": "KZ", "KEN": "KE", "KGZ": "KG", "KHM": "KH", "KIR": "KI", "KOR": "KR", "KWT": "KW", "LAO": "LA", "LBN": "LB", "LBR": "LR", "LBY": "LY", "LCA": "LC", "LKA": "LK", "LSO": "LS", "LTU": "LT", "LUX": "LU", "LVA": "LV", "MAR": "MA", "MDA": "MD", "MDG": "MG", "MDV": "MV", "MEX": "MX", "MHL": "MH", "MKD": "MK", "MLI": "ML", "MLT": "MT", "MMR": "MM", "MNE": "ME", "MNG": "MN", "MOZ": "MZ", "MRT": "MR", "MUS": "MU", "MWI": "MW", "MYS": "MY", "NAM": "NA", "NCL": "NC", "NER": "NE", "NGA": "NG", "NIC": "NI", "NLD": "NL", "NOR": "NO", "NPL": "NP", "NRU": "NR", "NZL": "NZ", "OMN": "OM", "PAK": "PK", "PAN": "PA", "PER": "PE", "PHL": "PH", "PLW": "PW", "PNG": "PG", "POL": "PL", "PRI": "PR", "PRK": "KP", "PRT": "PT", "PRY": "PY", "PSE": "PS", "PYF": "PF", "QAT": "QA", "ROU": "RO", "RUS": "RU", "RWA": "RW", "SAU": "SA", "SDN": "SD", "SEN": "SN", "SGP": "SG", "SLB": "SB", "SLE": "SL", "SLV": "SV", "SMR": "SM", "SOM": "SO", "SRB": "RS", "SSD": "SS", "STP": "ST", "SUR": "SR", "SVK": "SK", "SVN": "SI", "SWE": "SE", "SWZ": "SZ", "SYC": "SC", "SYR": "SY", "TCD": "TD", "TGO": "TG", "THA": "TH", "TJK": "TJ", "TKM": "TM", "TLS": "TL", "TON": "TO", "TTO": "TT", "TUN": "TN", "TUR": "TR", "TUV": "TV", "TWN": "TW", "TZA": "TZ", "UGA": "UG", "UKR": "UA", "URY": "UY", "USA": "US", "UZB": "UZ", "VAT": "VA", "VCT": "VC", "VEN": "VE", "VNM": "VN", "VUT": "VU", "WSM": "WS", "YEM": "YE", "ZAF": "ZA", "ZMB": "ZM", "ZWE": "ZW"
+         };
+        const COUNTRY_COORDS = { "AFG": [33, 65], "AGO": [-12.5, 18.5], "ARE": [24, 54], "ARG": [-34, -64], "AUS": [-27, 133], "AUT": [47, 13.5], "BEL": [50.5, 4.5], "BRA": [-10, -55], "CAN": [60, -95], "CHE": [47, 8], "CHL": [-30, -71], "CHN": [35, 105], "COL": [4, -72], "CRI": [10, -84], "DEU": [51, 9], "DNK": [56, 10], "DOM": [19, -70], "DZA": [28, 3], "ECU": [-2, -78], "EGY": [27, 30], "ESP": [40, -4], "FIN": [64, 26], "FRA": [46, 2], "GBR": [54, -2], "GRC": [39, 22], "HKG": [22, 114], "IDN": [-5, 120], "IND": [20, 77], "IRL": [53, -8], "IRN": [32, 53], "IRQ": [33, 44], "ISL": [65, -18], "ISR": [31, 35], "ITA": [42, 12], "JPN": [36, 138], "KAZ": [48, 68], "KOR": [37, 127], "MEX": [23, -102], "MYS": [2.5, 112.5], "NLD": [52, 5], "NOR": [62, 10], "NZL": [-41, 174], "PAK": [30, 70], "PER": [-10, -76], "PHL": [13, 122], "POL": [52, 20], "PRT": [39, -8], "RUS": [60, 100], "SAU": [25, 45], "SGP": [1, 103], "SWE": [62, 15], "THA": [15, 100], "TUR": [39, 35], "TWN": [23.5, 121], "UKR": [49, 32], "URY": [-33, -56], "USA": [38, -97], "VEN": [8, -66], "VNM": [16, 106], "ZAF": [-29, 24] };
 
-        const ISO3_TO_ISO2 = { "ABW": "AW", "AFG": "AF", "AGO": "AO", "ALB": "AL", "AND": "AD", "ARE": "AE", "ARG": "AR", "ARM": "AM", "AUS": "AU", "AUT": "AT", "AZE": "AZ", "BDI": "BI", "BEL": "BE", "BEN": "BJ", "BFA": "BF", "BGD": "BD", "BGR": "BG", "BHR": "BH", "BHS": "BS", "BIH": "BA", "BLR": "BY", "BLZ": "BZ", "BOL": "BO", "BRA": "BR", "BRB": "BB", "BRN": "BN", "BTN": "BT", "BWA": "BW", "CAF": "CF", "CAN": "CA", "CHE": "CH", "CHL": "CL", "CHN": "CN", "CIV": "CI", "CMR": "CM", "COD": "CD", "COG": "CG", "COL": "CO", "CRI": "CR", "CUB": "CU", "CYP": "CY", "CZE": "CZ", "DEU": "DE", "DJI": "DJ", "DNK": "DK", "DOM": "DO", "DZA": "DZ", "ECU": "EC", "EGY": "EG", "ERI": "ER", "ESP": "ES", "EST": "EE", "ETH": "ET", "FIN": "FI", "FJI": "FJ", "FRA": "FR", "GAB": "GA", "GBR": "GB", "GEO": "GE", "GHA": "GH", "GIN": "GN", "GMB": "GM", "GNB": "GW", "GNQ": "GQ", "GRC": "GR", "GRL": "GL", "GTM": "GT", "GUY": "GY", "HKG": "HK", "HND": "HN", "HRV": "HR", "HTI": "HT", "HUN": "HU", "IDN": "ID", "IND": "IN", "IRL": "IE", "IRN": "IR", "IRQ": "IQ", "ISL": "IS", "ISR": "IL", "ITA": "IT", "JAM": "JM", "JOR": "JO", "JPN": "JP", "KAZ": "KZ", "KEN": "KE", "KGZ": "KG", "KHM": "KH", "KOR": "KR", "KWT": "KW", "LAO": "LA", "LBN": "LB", "LBR": "LR", "LBY": "LY", "LKA": "LK", "LSO": "LS", "LTU": "LT", "LUX": "LU", "LVA": "LV", "MAC": "MO", "MAR": "MA", "MDA": "MD", "MDG": "MG", "MDV": "MV", "MEX": "MX", "MKD": "MK", "MLI": "ML", "MLT": "MT", "MMR": "MM", "MNE": "ME", "MNG": "MN", "MOZ": "MZ", "MRT": "MR", "MUS": "MU", "MWI": "MW", "MYS": "MY", "NAM": "NA", "NER": "NE", "NGA": "NG", "NIC": "NI", "NLD": "NL", "NOR": "NO", "NPL": "NP", "NZL": "NZ", "OMN": "OM", "PAK": "PK", "PAN": "PA", "PER": "PE", "PHL": "PH", "PNG": "PG", "POL": "PL", "PRT": "PT", "PRY": "PY", "QAT": "QA", "ROU": "RO", "RUS": "RU", "RWA": "RW", "SAU": "SA", "SDN": "SD", "SEN": "SN", "SGP": "SG", "SLE": "SL", "SLV": "SV", "SMR": "SM", "SOM": "SO", "SRB": "RS", "SSD": "SS", "SUR": "SR", "SVK": "SK", "SVN": "SI", "SWE": "SE", "SWZ": "SZ", "SYR": "SY", "TCD": "TD", "TGO": "TG", "THA": "TH", "TJK": "TJ", "TKM": "TM", "TLS": "TL", "TON": "TO", "TTO": "TT", "TUN": "TN", "TUR": "TR", "TWN": "TW", "TZA": "TZ", "UGA": "UG", "UKR": "UA", "URY": "UY", "USA": "US", "UZB": "UZ", "VEN": "VE", "VNM": "VN", "YEM": "YE", "ZAF": "ZA", "ZMB": "ZM", "ZWE": "ZW" };
-
-        function getFlag(iso3) {
-            const iso2 = ISO3_TO_ISO2[iso3];
-            if (!iso2) return '🏳️';
-            return String.fromCodePoint(...[...iso2].map(c => 0x1F1E6 + c.charCodeAt(0) - 65));
-        }
+        function getFlag(iso3) { const iso2 = ISO3_TO_ISO2[iso3]; if (!iso2) return '🏳️'; return String.fromCodePoint(...[...iso2].map(c => 0x1F1E6 + c.charCodeAt(0) - 65)); }
         function getName(iso3) { return COUNTRY_NAMES[iso3] || iso3; }
 
-        // === CORE DATA HANDLING ===
-        const CACHE_YEARS = {};
+        let META_DATA = null, CURRENT_DATA = null, CURRENT_YEAR = null, PROFILES_MAP = {}, GLOBAL_HISTORY = null;
+        const CACHE = {};
 
-        // Helper para descomprimir formato columna-dato
-        function decompress(obj) {
-            if (!obj || !obj.c || !obj.d) return obj;
-            return obj.d.map(row => {
-                const item = {};
-                obj.c.forEach((col, i) => item[col] = row[i]);
-                return item;
-            });
-        }
+        function decompress(obj) { if (!obj || !obj.c || !obj.d) return obj; return obj.d.map(row => { const item = {}; obj.c.forEach((col, i) => item[col] = row[i]); return item; }); }
 
         async function initGlobal() {
             try {
-                console.log("ISE: Inicializando carga global (Versión Fragmentada)...");
-                const cacheBuster = `?v=${new Date().getTime()}`;
+                const res = await fetch('data_dist/meta.json');
+                META_DATA = await res.json();
+                META_DATA.evolution = META_DATA.evolution.map(r => { const o = {}; META_DATA.evolution_cols.forEach((c, i) => o[c] = r[i]); return o; });
+                META_DATA.industries = META_DATA.industries.map(i => ({ industry_id: i[0], industry_name: i[1] }));
+                
+                fetch('data_dist/history.json').then(r => r.json()).then(h => GLOBAL_HISTORY = h).catch(()=>({}));
 
-                // 1. Cargar Metadatos
-                const response = await fetch('data_dist/meta.json' + cacheBuster);
-                if (!response.ok) throw new Error("No se pudo cargar meta.json");
-
-                const meta = await response.json();
-                META_DATA = meta;
-
-                // Reconstruir industrias (vienen como lista de listas)
-                META_DATA.industries = meta.industries.map(i => ({ industry_id: i[0], industry_name: i[1] }));
-
-                // Reconstruir evolución para compatibilidad
-                META_DATA.evolution = meta.evolution.map(row => {
-                    const item = {};
-                    meta.evolution_cols.forEach((col, i) => item[col] = row[i]);
-                    return item;
-                });
-
-                // 2. Cargar Año por defecto
-                await setGlobalYear(meta.latest_year, true);
-
-                // Actualizar Selector de años
-                const navSelect = document.getElementById('yearSelectNav');
-                if (navSelect) {
-                    navSelect.innerHTML = meta.available_years.map(y => `<option value="${y}" ${y === meta.latest_year ? 'selected' : ''}>${y}</option>`).join('');
-                }
-
+                document.getElementById('yearSelectNav').innerHTML = META_DATA.available_years.map(y => `<option value="${y}" ${y === META_DATA.latest_year ? 'selected' : ''}>${y}</option>`).join('');
+                await setGlobalYear(META_DATA.latest_year, true);
                 initSearch();
-                console.log("ISE: Dashboard inicializado.");
-
-            } catch (e) {
-                console.error("ISE Error crítico:", e);
-                alert("Error crítico al cargar el dashboard:\n" + e.message);
-            }
+            } catch (e) { console.error("Error initGlobal:", e); }
         }
 
-        async function setGlobalYear(year, isFirstLoad = false) {
-            const loader = document.getElementById('dataLoader');
-            if (loader && !isFirstLoad) loader.style.display = 'flex';
-
+        async function setGlobalYear(year, isFirst = false) {
+            document.getElementById('dataLoader').style.display = 'flex';
             try {
-                console.log(`ISE: Cargando datos del año ${year}...`);
-
-                if (!CACHE_YEARS[year]) {
-                    const cacheBuster = `?v=${new Date().getTime()}`;
-                    const response = await fetch(`data_dist/year_${year}.json${cacheBuster}`);
-                    if (!response.ok) throw new Error(`No hay datos para el año ${year}`);
-
-                    const rawData = await response.json();
-
-                    // Descomprimir bloques principales
-                    CACHE_YEARS[year] = {
-                        latest_year: META_DATA.latest_year,
-                        available_years: META_DATA.available_years,
-                        profiles: decompress(rawData.profiles),
-                        hubs: decompress(rawData.hubs),
-                        dependencies: decompress(rawData.dependencies),
-                        bilateral: decompress(rawData.bilateral),
-                        explorer_indexed: rawData.explorer_indexed,
-                        explorer_cols: rawData.explorer_cols
-                    };
+                if (!CACHE[year]) {
+                    const res = await fetch(`data_dist/year_${year}.json`);
+                    const raw = await res.json();
+                    CACHE[year] = { profiles: decompress(raw.profiles), hubs: decompress(raw.hubs), sectoral_hubs: raw.sectoral_hubs, dependencies: decompress(raw.dependencies), bilateral: decompress(raw.bilateral), explorer_indexed: raw.explorer_indexed, explorer_cols: raw.explorer_cols };
                 }
+                CURRENT_DATA = CACHE[year]; CURRENT_YEAR = year;
+                PROFILES_MAP = {}; CURRENT_DATA.profiles.forEach(p => PROFILES_MAP[p.country] = p);
 
-                CURRENT_DATA = CACHE_YEARS[year];
-                CURRENT_YEAR = parseInt(year);
-
-                // UI Updates
-                document.getElementById('heroBadgeYear').innerText = `Real Instituto Elcano · Datos ${CURRENT_YEAR}`;
-                document.getElementById('footerDataYear').innerText = `Datos: International Trade and Production Database (ITP) · Año ${CURRENT_YEAR}`;
-
-                initKPIs();
-                initGlobe();
-                initMap();
-                initHubsChart();
-                initHubs();
-                initVulnerabilityRanking();
-                initGlobalTrend();
-                initIndustryExplorer();
-
-                if (!isFirstLoad) closeProfile();
-                if (loader) loader.style.display = 'none';
-
-            } catch (e) {
-                console.error("ISE Error:", e);
-                alert("Error al cargar datos del año: " + e.message);
-                if (loader) loader.style.display = 'none';
-            }
+                document.getElementById('heroBadgeYear').innerText = `Real Instituto Elcano · Datos ${year}`;
+                document.getElementById('footerDataYear').innerText = `Fuente: ITP Database · Dashboard v1.3 · Datos año ${year}`;
+                
+                initKPIs(); initGlobe(); initMap(); initHubsGlobe(); updateHubsByIndustry(''); initGlobalTrend(); initIndustryExplorer();
+                if (!isFirst) closeProfile();
+            } catch (e) { console.error("Error setting year:", e); }
+            document.getElementById('dataLoader').style.display = 'none';
         }
 
-        function changeGlobalYear(year) {
-            setGlobalYear(year);
-        }
+        function changeGlobalYear(y) { setGlobalYear(y); }
 
-        document.addEventListener('DOMContentLoaded', initGlobal);
-
-        // === KPIs ===
         function initKPIs() {
             const p = CURRENT_DATA.profiles;
             const avgV = (p.reduce((s, x) => s + x.vulnerability, 0) / p.length).toFixed(3);
             const kpis = [
-                { value: '236', label: 'Economías analizadas', desc: 'Cada país evaluado según su exposición a disrupciones en cadenas de suministro.' },
-                { value: '170', label: 'Industrias cubiertas', desc: 'Sectores productivos analizados, desde materias primas hasta manufactura avanzada.' },
-                { value: avgV, label: 'Vulnerabilidad media', desc: `Promedio global en ${CURRENT_YEAR}. Cuanto más alto, mayor riesgo de disrupción.` },
-                { value: getFlag(CURRENT_DATA.hubs[0].country), label: 'Mayor intermediario', isFlag: true, sub: getName(CURRENT_DATA.hubs[0].country), desc: 'El país que más rutas comerciales intermedia a nivel global.' }
+                { value: '236', label: 'Econ. Analizadas', desc: 'Países evaluados.' },
+                { value: '170', label: 'Industrias', desc: 'Sectores productivos.' },
+                { value: avgV, label: 'Vulnerabilidad', desc: 'Promedio global (ISE).' },
+                { value: getFlag(CURRENT_DATA.hubs[0].country), label: 'Top Hub', desc: getName(CURRENT_DATA.hubs[0].country) }
             ];
-            document.getElementById('kpiGrid').innerHTML = kpis.map(k => `
-                <div class="kpi-card">
-                    <div class="kpi-value" ${k.isFlag ? 'style="font-size:3.5rem;-webkit-text-fill-color:unset"' : ''}>${k.value}</div>
-                    <div class="kpi-label">${k.label}</div>
-                    ${k.sub ? '<div style="color:var(--text-secondary);font-size:0.9rem;margin-top:0.3rem">' + k.sub + '</div>' : ''}
-                    <div class="kpi-desc">${k.desc}</div>
-                </div>`).join('');
+            document.getElementById('kpiGrid').innerHTML = kpis.map(k => `<div class="kpi-card"><div class="kpi-value">${k.value}</div><div class="kpi-label">${k.label}</div><div class="kpi-desc">${k.desc}</div></div>`).join('');
         }
 
-        function initVulnerabilityRanking() {
-            const p = [...CURRENT_DATA.profiles].sort((a, b) => b.vulnerability - a.vulnerability).slice(0, 15);
-            const trace = {
-                x: p.map(x => getName(x.country)),
-                y: p.map(x => x.vulnerability),
-                type: 'bar',
-                marker: {
-                    color: p.map(x => x.vulnerability),
-                    colorscale: [[0, '#3d1515'], [1, '#bb2521']],
-                    line: { color: 'rgba(255,255,255,0.1)', width: 1 }
-                },
-                text: p.map(x => x.vulnerability.toFixed(3)),
-                textposition: 'auto',
-                hoverinfo: 'none'
-            };
-            const layout = {
-                paper_bgcolor: 'rgba(0,0,0,0)',
-                plot_bgcolor: 'rgba(0,0,0,0)',
-                margin: { t: 10, b: 80, l: 40, r: 10 },
-                xaxis: { tickfont: { color: '#f0f2f5', size: 10 }, tickangle: -45 },
-                yaxis: { title: 'Vulnerabilidad (ISE)', gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' } },
-                font: { family: 'Inter' }
-            };
-            Plotly.newPlot('vulnerabilityRankingChart', [trace], layout, { responsive: true, displayModeBar: false });
-            document.getElementById('vulnerabilityRankingChart').on('plotly_click', d => {
-                if (d.points[0]) showProfile(p[d.points[0].pointIndex].country);
-            });
-        }
-
-        // === TRENDS ===
-        function initGlobalTrend() {
-            const d = META_DATA.critical_evolution;
-            if (!d) return;
-            const trace = {
-                x: d.map(x => x.year),
-                y: d.map(x => x.count),
-                type: 'scatter',
-                mode: 'lines+markers',
-                line: { color: '#bb2521', width: 3, shape: 'spline' },
-                marker: { size: 8, color: '#bb2521' },
-                fill: 'tozeroy',
-                fillcolor: 'rgba(187, 37, 33, 0.05)',
-                name: 'Relaciones Críticas'
-            };
-
-            const layout = {
-                paper_bgcolor: 'rgba(0,0,0,0)',
-                plot_bgcolor: 'rgba(0,0,0,0)',
-                margin: { t: 10, b: 40, l: 50, r: 10 },
-                xaxis: { gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' }, zeroline: false },
-                yaxis: { gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' }, zeroline: false },
-                hovermode: 'x unified',
-                font: { family: 'Inter' }
-            };
-
-            Plotly.newPlot('globalTrendChart', [trace], layout, { responsive: true, displayModeBar: false });
-        }
-
-        function initProfileTrend(iso3) {
-            const history = (META_DATA.evolution || []).filter(x => x.country === iso3).sort((a, b) => a.year - b.year);
-            if (!history.length) return;
-
-            const traceVul = {
-                x: history.map(x => x.year),
-                y: history.map(x => x.vulnerability),
-                name: 'Vulnerabilidad (ISE)',
-                type: 'scatter',
-                mode: 'lines',
-                line: { color: '#bb2521', width: 3 }
-            };
-
-            const traceImp = {
-                x: history.map(x => x.year),
-                y: history.map(x => x.importance),
-                name: 'Importancia Estratégica',
-                type: 'scatter',
-                mode: 'lines',
-                line: { color: '#3b82f6', width: 2, dash: 'dot' }
-            };
-
-            const layout = {
-                paper_bgcolor: 'rgba(0,0,0,0)',
-                plot_bgcolor: 'rgba(0,0,0,0)',
-                margin: { t: 30, b: 40, l: 50, r: 10 },
-                legend: { orientation: 'h', y: 1.1, font: { color: '#8892a4', size: 10 } },
-                xaxis: { gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' }, zeroline: false },
-                yaxis: { gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' }, zeroline: false },
-                hovermode: 'x unified',
-                font: { family: 'Inter' }
-            };
-
-            Plotly.newPlot('profileTrendChart', [traceVul, traceImp], layout, { responsive: true, displayModeBar: false });
-        }
-
-        function initProfileBilateralMap(bilat) {
-            if (!bilat.length) return;
-            const trace = {
-                type: 'choropleth',
-                locationmode: 'ISO-3',
-                locations: bilat.map(b => b.exporter),
-                z: bilat.map(b => b.criticidad),
-                text: bilat.map(b => {
-                    const critPct = (b.criticidad * 100).toFixed(0);
-                    const critLabel = critPct >= 80 ? 'Muy alta' : critPct >= 50 ? 'Alta' : 'Moderada';
-                    return `<b>${getName(b.exporter)}</b><br>Riesgo: ${critLabel} (${critPct}%)<br><i style="font-size:0.8rem">Impacto en industrias locales</i>`;
-                }),
-                hoverinfo: 'text',
-                colorscale: [[0, '#1a1f2e'], [0.3, '#FFC107'], [0.6, '#FF9800'], [1, '#bb2521']],
-                showscale: false,
-                marker: { line: { color: '#0a0e17', width: 0.5 } }
-            };
-            const layout = {
-                geo: {
-                    projection: { type: 'natural earth' },
-                    bgcolor: 'rgba(0,0,0,0)', showframe: false,
-                    showcoastlines: true, coastlinecolor: '#2a3040',
-                    showland: true, landcolor: '#1a2332',
-                    showocean: true, oceancolor: '#0d1117',
-                    showcountries: true, countrycolor: '#2a3040'
-                },
-                paper_bgcolor: 'rgba(0,0,0,0)', margin: { t: 0, b: 0, l: 0, r: 0 }
-            };
-
-            Plotly.newPlot('profileBilateralMap', [trace], layout, { responsive: true, displayModeBar: false });
-            document.getElementById('profileBilateralMap').on('plotly_click', d => {
-                if (d.points[0]) showProfile(d.points[0].location);
-            });
-        }
-
-
-        // === ROTATING GLOBE ===
+        // --- GLOBE ---
+        let GLOBE_ROT = { lon: -10, lat: 20 }, GLOBE_ANIM = true;
         function initGlobe() {
             const p = CURRENT_DATA.profiles;
-            const gData = [{
-                type: 'choropleth', locationmode: 'ISO-3',
-                locations: p.map(x => x.country),
-                z: p.map(x => x.vulnerability),
-                text: p.map(x => getName(x.country) + '<br>Vulnerabilidad: ' + x.vulnerability.toFixed(3) + '<br><i>0 = bajo riesgo · 1 = alto riesgo</i>'),
-                hoverinfo: 'text',
-                colorscale: [[0, '#1a1f2e'], [0.3, '#3d1515'], [0.6, '#8b2525'], [1, '#ff4040']],
-                showscale: false,
-                marker: { line: { color: '#0a0e17', width: 0.3 } }
-            }];
-            let rot = { lon: -20, lat: 15 };
-            const layout = {
-                geo: {
-                    projection: { type: 'orthographic', rotation: rot },
-                    bgcolor: 'rgba(0,0,0,0)', showframe: false,
-                    showcoastlines: true, coastlinecolor: '#2a3040',
-                    showland: true, landcolor: '#1a2332',
-                    showocean: true, oceancolor: '#0d1117',
-                    showlakes: false, showcountries: true, countrycolor: '#1e2838',
-                    lonaxis: { showgrid: false }, lataxis: { showgrid: false }
-                },
-                paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
-                margin: { t: 0, b: 0, l: 0, r: 0 }, font: { family: 'Inter' }
+            const trace0 = { type: 'choropleth', locationmode: 'ISO-3', locations: p.map(x => x.country), z: p.map(x => x.vulnerability), colorscale: [[0, '#1a2332'], [0.5, '#4d1a1a'], [1, '#bb2521']], showscale: false };
+            const trace1 = { type: 'scattergeo', mode: 'lines', lat: [], lon: [], line: { width: 1.5, color: '#ff4b4b' }, opacity: 0.6 };
+            const sub = { 
+                geo: { 
+                    projection: { type: 'orthographic', rotation: GLOBE_ROT }, 
+                    bgcolor: 'rgba(0,0,0,0)', 
+                    showcoastlines: true, 
+                    coastlinecolor: '#3e4b61', 
+                    showland: true, 
+                    landcolor: '#161c2d', 
+                    showcountries: true, 
+                    countrycolor: '#2a3040',
+                    showocean: true,
+                    oceancolor: '#0a0e17'
+                }, 
+                paper_bgcolor: 'rgba(0,0,0,0)', 
+                margin: { t: 0, b: 0, l: 0, r: 0 } 
             };
-            Plotly.newPlot('heroGlobe', gData, layout, { responsive: true, displayModeBar: false, scrollZoom: false });
-
-            let anim = true;
-            function spin() { if (!anim) return; rot.lon += 0.3; Plotly.relayout('heroGlobe', { 'geo.projection.rotation.lon': rot.lon }); requestAnimationFrame(spin); }
+            Plotly.newPlot('heroGlobe', [trace0, trace1], sub, { responsive: true, displayModeBar: false });
+            function spin() { if (GLOBE_ANIM) { GLOBE_ROT.lon += 0.2; Plotly.relayout('heroGlobe', { 'geo.projection.rotation.lon': GLOBE_ROT.lon }); requestAnimationFrame(spin); } }
             spin();
-            const el = document.getElementById('heroGlobe');
-            el.addEventListener('mouseenter', () => { anim = false; });
-            el.addEventListener('mouseleave', () => { anim = true; spin(); });
-            el.on('plotly_click', d => { if (d.points[0]) showProfile(d.points[0].location); });
+            const gEl = document.getElementById('heroGlobe');
+            gEl.addEventListener('mouseenter', () => GLOBE_ANIM = false);
+            gEl.addEventListener('mouseleave', () => { GLOBE_ANIM = true; spin(); });
+            gEl.on('plotly_click', d => { if (d.points[0]) showProfile(d.points[0].location); });
         }
 
-        // === WORLD MAP ===
+        function updateGlobeArcs(iso3) {
+            const start = COUNTRY_COORDS[iso3]; if (!start) return;
+            const rawBilat = CURRENT_DATA.bilateral.d.filter(b => b[1] === iso3);
+            const lats = [], lons = [];
+            rawBilat.slice(0, 10).forEach(b => { const end = COUNTRY_COORDS[b[0]]; if (end) { lats.push(start[0], end[0], null); lons.push(start[1], end[1], null); } });
+            Plotly.restyle('heroGlobe', { lat: [lats], lon: [lons] }, [1]);
+            GLOBE_ROT = { lon: -start[1], lat: start[0] / 2 };
+            Plotly.relayout('heroGlobe', { 'geo.projection.rotation': GLOBE_ROT });
+        }
+
+        // --- CHARTS ---
         function initMap() {
             const p = CURRENT_DATA.profiles;
-            Plotly.newPlot('worldMap', [{
-                type: 'choropleth', locationmode: 'ISO-3',
-                locations: p.map(x => x.country), z: p.map(x => x.vulnerability),
-                text: p.map(x => getName(x.country) + '<br>Vulnerabilidad: ' + x.vulnerability.toFixed(3) + ' <i>(0 = bajo · 1 = alto)</i>' + '<br>Ranking: #' + x.global_rank + ' de 236'),
-                hoverinfo: 'text',
-                colorscale: [[0, '#1a1f2e'], [0.2, '#2d1a1a'], [0.4, '#5c2020'], [0.6, '#8b2525'], [0.8, '#bb2521'], [1, '#ff4040']],
-                showscale: true,
-                colorbar: { title: { text: 'Vulnerabilidad', font: { color: '#8892a4', size: 11 } }, tickfont: { color: '#8892a4', size: 10 }, thickness: 12, len: 0.5, bgcolor: 'rgba(0,0,0,0)', borderwidth: 0, x: 1.02 },
-                marker: { line: { color: '#1a2332', width: 0.5 } }
-            }], {
-                geo: { bgcolor: 'rgba(0,0,0,0)', showframe: false, showcoastlines: true, coastlinecolor: '#2a3040', showland: true, landcolor: '#1a2332', showocean: true, oceancolor: '#0d1117', showlakes: false, showcountries: true, countrycolor: '#2a3040', projection: { type: 'natural earth' } },
-                paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)', margin: { t: 10, b: 10, l: 10, r: 40 }, font: { family: 'Inter' }
-            }, { responsive: true, displayModeBar: false, scrollZoom: false });
+            const trace = { 
+                type: 'choropleth', locationmode: 'ISO-3', 
+                locations: p.map(x => x.country), 
+                z: p.map(x => x.vulnerability), 
+                colorscale: [[0, '#1a2332'], [1, '#bb2521']], 
+                showscale: false,
+                marker: { line: { color: '#2a3040', width: 0.5 } }
+            };
+            const layout = { 
+                geo: { 
+                    projection: { type: 'natural earth' }, 
+                    bgcolor: 'rgba(0,0,0,0)', 
+                    showland: true, 
+                    landcolor: '#161c2d', 
+                    showocean: true, 
+                    oceancolor: '#0a0e17',
+                    showcountries: true,
+                    countrycolor: '#2a3040'
+                }, 
+                paper_bgcolor: 'rgba(0,0,0,0)', 
+                margin: { t: 0, b: 0, l: 0, r: 0 } 
+            };
+            Plotly.newPlot('worldMap', [trace], layout, { responsive: true, displayModeBar: false });
             document.getElementById('worldMap').on('plotly_click', d => { if (d.points[0]) showProfile(d.points[0].location); });
         }
 
-        // === HUBS ===
-        function initHubsChart() {
-            const h = CURRENT_DATA.hubs;
-            const trace = {
-                x: h.map(x => x.frequency_total),
-                y: h.map(x => x.strength_total),
-                text: h.map(x => getName(x.country)),
-                // Solo mostrar texto si el score es alto para no saturar
-                mode: 'markers+text',
-                textposition: 'top center',
-                textfont: { family: 'Inter', size: 10, color: '#8892a4' },
-                marker: {
-                    size: h.map(x => Math.sqrt(x.global_score) * 40 + 5),
-                    color: h.map(x => x.global_score),
-                    colorscale: [[0, '#3b82f6'], [0.5, '#6366f1'], [1, '#bb2521']],
-                    opacity: 0.7,
-                    line: { color: 'rgba(255,255,255,0.1)', width: 1 }
-                },
-                hoverinfo: 'text',
-                customdata: h.map(x => [
-                    getName(x.country),
-                    (x.global_score * 100).toFixed(1),
-                    x.frequency_total.toLocaleString(),
-                    x.strength_total.toFixed(4)
-                ]),
-                hovertemplate: `<b>%{customdata[0]}</b><br>Score: %{customdata[1]}%<br>Rutas: %{customdata[2]}<br>Fuerza: %{customdata[3]}<extra></extra>`
-            };
+        function initHubsGlobe() {
+            const sub = { geo: { projection: { type: 'orthographic', rotation: { lon: 0, lat: 20 } }, bgcolor: 'rgba(0,0,0,0)', showland: true, landcolor: '#161c2d', showcoastlines: true, coastlinecolor: '#2a3040', showcountries: true, countrycolor: '#2a3040' }, paper_bgcolor: 'rgba(0,0,0,0)', margin: { t: 0, b: 0, l: 0, r: 0 } };
+            const trace0 = { type: 'choropleth', locationmode: 'ISO-3', locations: [], z: [], colorscale: [[0, '#1a2332'], [1, '#bb2521']], showscale: false };
+            Plotly.newPlot('hubsGlobe', [trace0], sub, { responsive: true, displayModeBar: false });
+        }
 
-            // Filtrar texto para solo mostrar top 15
-            trace.text = h.map((x, i) => i < 15 ? getName(x.country) : '');
-
-            const layout = {
-                paper_bgcolor: 'rgba(0,0,0,0)',
-                plot_bgcolor: 'rgba(0,0,0,0)',
-                margin: { t: 20, b: 60, l: 80, r: 20 },
-                xaxis: {
-                    title: { text: 'Frecuencia (Nº de rutas intermediadas)', font: { color: '#8892a4', size: 12 }, standout: 15 },
-                    gridcolor: 'rgba(255,255,255,0.05)',
-                    tickfont: { color: '#5a6478', size: 10 },
-                    zeroline: false
-                },
-                yaxis: {
-                    title: { text: 'Fuerza (Peso del flujo canalizado)', font: { color: '#8892a4', size: 12 }, standout: 15 },
-                    gridcolor: 'rgba(255,255,255,0.05)',
-                    tickfont: { color: '#5a6478', size: 10 },
-                    zeroline: false
-                },
-                hovermode: 'closest',
-                font: { family: 'Inter' }
-            };
-
-            Plotly.newPlot('hubsChart', [trace], layout, { responsive: true, displayModeBar: false });
-
-            document.getElementById('hubsChart').on('plotly_click', d => {
-                if (d.points[0]) {
-                    const country = h[d.points[0].pointIndex].country;
-                    showProfile(country);
+        function updateHubsByIndustry(indName) {
+            let data = [];
+            const isGlobal = !indName || indName === 'Global';
+            
+            if (isGlobal) {
+                data = CURRENT_DATA.hubs;
+                document.getElementById('mapTitle').innerText = "Mapa de Riesgo Estructural (ISE)";
+                document.getElementById('mapBadge').innerText = "Geografía de la Vulnerabilidad";
+            } else {
+                const scores = {};
+                for (const imp in CURRENT_DATA.explorer_indexed) {
+                    const routes = CURRENT_DATA.explorer_indexed[imp][indName] || [];
+                    routes.forEach(r => { const hub = r[6]; const val = parseFloat(r[7]); if (hub && !isNaN(val)) scores[hub] = (scores[hub] || 0) + val; });
                 }
-            });
-        }
-
-        function initHubs() {
-            const h = CURRENT_DATA.hubs, max = h[0].global_score;
-            const half = Math.ceil(h.length / 2);
-            function render(list, el) {
-                el.innerHTML = list.map(x => `
-            <li class="hub-item" onclick="showProfile('${x.country}')">
-                <div class="hub-rank ${x.global_rank <= 3 ? 'top3' : 'rest'}">${x.global_rank}</div>
-                <span class="hub-flag">${getFlag(x.country)}</span>
-                <div style="min-width:120px"><div class="hub-country">${getName(x.country)}</div>
-                <div style="font-size:0.7rem;color:var(--text-muted)">${x.frequency_total.toLocaleString()} rutas</div></div>
-                <div class="hub-bar-container"><div class="hub-bar" style="width:${(x.global_score / max * 100).toFixed(1)}%"></div></div>
-                <span class="hub-score" title="Score de intermediación global (0-100). Mide cuántas cadenas de suministro pasan por este país.">${(x.global_score * 100).toFixed(1)}</span>
-            </li>`).join('');
+                const sorted = Object.entries(scores).sort((a,b) => b[1] - a[1]).slice(0, 30);
+                if (sorted.length > 0) {
+                    const max = sorted[0][1];
+                    data = sorted.map((d, i) => ({ country: d[0], global_score: d[1] / max, strength_total: d[1] }));
+                }
+                document.getElementById('mapTitle').innerText = `Mapa de Relevancia Estratégica: ${indName}`;
+                document.getElementById('mapBadge').innerText = "Hubs y Concentración Industrial";
             }
-            render(h.slice(0, half), document.getElementById('hubsLeft'));
-            render(h.slice(half), document.getElementById('hubsRight'));
-        }
-
-        // === INDUSTRY EXPLORER ===
-        function initIndustryExplorer() {
-            const industries = (META_DATA.industries || [])
-                .filter(i => i && i.industry_name)
-                .sort((a, b) => (a.industry_name || "").localeCompare(b.industry_name || ""));
-
-            document.getElementById('industryList').innerHTML = industries.map(i => `<option value="${i.industry_name}">`).join('');
-
-            const countries = Object.keys(COUNTRY_NAMES)
-                .sort((a, b) => (getName(a) || "").localeCompare(getName(b) || ""));
-
-            document.getElementById('importerSelect').innerHTML = countries.map(c => `<option value="${c}" ${c === 'ESP' ? 'selected' : ''}>${getName(c)}</option>`).join('');
-        }
-
-        function runIndustryQuery() {
-            const industryName = document.getElementById('industrySearch').value.trim().toLowerCase();
-            const importer = document.getElementById('importerSelect').value;
-            const resArea = document.getElementById('industryResults');
-            const chartCont = document.getElementById('industryChartContainer');
-
-            const industryObj = META_DATA.industries.find(i => i.industry_name.trim().toLowerCase() === industryName);
-
-            if (!industryObj) {
-                resArea.innerHTML = '<div class="placeholder-msg" style="color:var(--elcano-red-light)">Por favor, selecciona una industria válida de la lista.</div>';
-                chartCont.style.display = 'none';
-                return;
+            renderHubsList(data);
+            renderHubsScatter(data, indName || 'Global');
+            
+            // Sync Visualizations (Map & Globes)
+            let codes, values, colorscale;
+            if (isGlobal) {
+                const p = CURRENT_DATA.profiles;
+                codes = p.map(x => x.country);
+                values = p.map(x => x.vulnerability);
+                colorscale = [[0, '#1a2332'], [1, '#bb2521']];
+            } else {
+                codes = data.map(h => h.country);
+                values = data.map(h => h.global_score);
+                colorscale = [[0, '#1a2332'], [0.2, '#3b82f6'], [1, '#ff4b4b']];
             }
-
-            const lookupKey = industryObj.industry_name;
-            const rawResults = (CURRENT_DATA.explorer_indexed[importer] || {})[lookupKey] || [];
-
-            if (!rawResults.length) {
-                resArea.innerHTML = `<div class="placeholder-msg">No se han encontrado dependencias significativas para ${getName(importer)} en esta industria.</div>`;
-                chartCont.style.display = 'none';
-                return;
+            
+            Plotly.restyle('worldMap', { locations: [codes], z: [values], colorscale: [colorscale] }, [0]);
+            Plotly.restyle('heroGlobe', { locations: [codes], z: [values], colorscale: [colorscale] }, [0]);
+            Plotly.restyle('hubsGlobe', { locations: [codes], z: [values], colorscale: [colorscale] }, [0]);
+            
+            if (!isGlobal && data.length > 0) {
+                const topHub = data[0].country;
+                const coords = COUNTRY_COORDS[topHub];
+                if (coords) {
+                    Plotly.relayout('heroGlobe', { 'geo.projection.rotation': { lon: -coords[1], lat: coords[0]/2 } });
+                    Plotly.relayout('hubsGlobe', { 'geo.projection.rotation': { lon: -coords[1], lat: coords[0]/2 } });
+                }
             }
-
-            // Descomprimir resultados del explorador
-            const results = rawResults.map(row => {
-                const item = {};
-                CURRENT_DATA.explorer_cols.forEach((col, i) => item[col] = row[i]);
-                return item;
-            });
-
-            // Render Chart
-            chartCont.style.display = 'block';
-            renderIndustryRadar(results, industryName, importer);
-
-            resArea.innerHTML = `
-                <div class="explorer-results-grid">
-                    ${results.map(r => `
-                    <div class="explorer-card" onclick="showProfile('${r.exporter}')" style="cursor:pointer">
-                        <div class="explorer-card-header">
-                            <span class="explorer-card-flag">${getFlag(r.exporter)}</span>
-                            <div class="explorer-card-name">${getName(r.exporter)}</div>
-                        </div>
-                        <div class="explorer-card-dep">
-                            <span>Dependencia Total</span>
-                            <span style="font-weight:700;color:var(--elcano-red-light)">${(r.dep_total * 100).toFixed(2)}%</span>
-                        </div>
-                        <div class="hub-bar-container" style="height:6px;margin-bottom:1rem">
-                            <div class="hub-bar" style="width:${Math.min(r.dep_total * 100, 100)}%"></div>
-                        </div>
-                        <div style="font-size:0.75rem;color:var(--text-muted);display:flex;justify-content:space-between">
-                            <span>Directa: ${(r.dep_direct * 100).toFixed(1)}%</span>
-                            <span>Indirecta: ${(r.dep_indirect * 100).toFixed(1)}%</span>
-                        </div>
-                        ${r.top_intermediary ? `
-                        <div class="explorer-path">
-                            <span class="explorer-path-title">Ruta más relevante</span>
-                            <div class="path-route">
-                                <span>${getFlag(r.exporter)}</span>
-                                <span style="font-size:0.7rem">→</span>
-                                <span style="font-size:0.75rem;background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:4px">${r.top_intermediary}</span>
-                                <span style="font-size:0.7rem">→</span>
-                                <span>${getFlag(r.importer)}</span>
-                            </div>
-                            <div style="margin-top:0.4rem;font-size:0.65rem;color:var(--text-muted);text-align:right">Fuerza: ${r.path_strength.toFixed(4)}</div>
-                        </div>
-                        ` : ''}
-                    </div>
-                    `).join('')}
-                </div>
-            `;
         }
 
-        function renderIndustryRadar(data, industryName, importer) {
+        function renderHubsScatter(h, title) {
             const trace = {
-                x: data.map(d => d.dep_direct * 100),
-                y: data.map(d => d.dep_indirect * 100),
+                x: h.map((x, i) => 30 - i),
+                y: h.map(x => x.global_score),
                 mode: 'markers+text',
-                text: data.map(d => d.exporter),
-                textposition: 'top center',
-                marker: {
-                    size: 10,
-                    color: '#ff4b4b',
-                    line: { color: 'white', width: 1 }
-                },
-                hovertemplate: `<b>%{text}</b><br>Directa: %{x:.2f}%<br>Indirecta (Riesgo Oculto): %{y:.2f}%<extra></extra>`
+                text: h.map((x, i) => i < 12 ? getName(x.country) : ''),
+                marker: { size: h.map(x => x.global_score * 50 + 10), color: h.map(x => x.global_score), colorscale: [[0, '#3b82f6'], [1, '#bb2521']] }
             };
-
-            const layout = {
-                paper_bgcolor: 'rgba(0,0,0,0)',
-                plot_bgcolor: 'rgba(0,0,0,0)',
-                margin: { t: 10, b: 40, l: 50, r: 20 },
-                xaxis: {
-                    title: { text: 'Dep. Directa (%)', font: { color: '#8892a4', size: 10 } },
-                    gridcolor: 'rgba(255,255,255,0.05)',
-                    tickfont: { color: '#5a6478', size: 9 },
-                    range: [-2, Math.max(...data.map(d => d.dep_direct * 100)) + 10]
-                },
-                yaxis: {
-                    title: { text: 'Riesgo Oculto / Indirecto (%)', font: { color: '#8892a4', size: 10 } },
-                    gridcolor: 'rgba(255,255,255,0.05)',
-                    tickfont: { color: '#5a6478', size: 9 },
-                    range: [-2, Math.max(...data.map(d => d.dep_indirect * 100)) + 10]
-                },
-                font: { family: 'Inter' }
-            };
-
-            Plotly.newPlot('industryRadarPlot', [trace], layout, { responsive: true, displayModeBar: false });
+            Plotly.newPlot('hubsChart', [trace], { 
+                paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)', 
+                margin: { t: 40, b: 40, l: 60, r: 10 }, 
+                title: { text: `Intensidad de Hub: ${title}`, font: { color: '#8892a4', size: 14 } },
+                xaxis: { title: 'Ranking de Pais', gridcolor: 'rgba(255,255,255,0.05)' }, 
+                yaxis: { title: 'Score de Relevancia', gridcolor: 'rgba(255,255,255,0.05)' } 
+            }, { responsive: true, displayModeBar: false });
         }
 
+        function renderHubsList(h) {
+            function row(x) { return `<li class="hub-item" onclick="showProfile('${x.country}')"><span class="hub-flag">${getFlag(x.country)}</span><div style="flex:1"><div class="hub-country">${getName(x.country)}</div></div><div class="hub-bar-container"><div class="hub-bar" style="width:${x.global_score * 100}%"></div></div><div class="hub-score">${(x.global_score * 100).toFixed(1)}</div></li>`; }
+            document.getElementById('hubsLeft').innerHTML = h.slice(0, 15).map(row).join('');
+            document.getElementById('hubsRight').innerHTML = h.slice(15, 30).map(row).join('');
+        }
 
-        // === SEARCH ===
+        function initGlobalTrend() {
+            const d = META_DATA.evolution;
+            Plotly.newPlot('globalTrendChart', [{ x: d.map(x => x.year), y: d.map(x => x.critical_countries), type: 'scatter', mode: 'lines+markers', line: { color: '#bb2521', width: 3 }, fill: 'tozeroy', fillcolor: 'rgba(187,37,33,0.1)' }], { paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)', margin: { t: 10, b: 40, l: 50, r: 10 }, xaxis: { gridcolor: 'rgba(255,255,255,0.05)' }, yaxis: { gridcolor: 'rgba(255,255,255,0.05)' } }, { responsive: true, displayModeBar: false });
+        }
+
+        // --- SEARCH & PROFILE ---
         function initSearch() {
-            const input = document.getElementById('countrySearch'), res = document.getElementById('searchResults');
-            input.addEventListener('input', function () {
-                const q = this.value.toLowerCase().trim();
-                if (q.length < 1) { res.classList.remove('active'); return; }
-                const m = CURRENT_DATA.profiles.filter(p => getName(p.country).toLowerCase().includes(q) || p.country.toLowerCase().includes(q)).slice(0, 8);
-                if (!m.length) { res.classList.remove('active'); return; }
-                res.innerHTML = m.map(p => `<div class="search-result-item" onclick="showProfile('${p.country}')"><span class="flag">${getFlag(p.country)}</span><span>${getName(p.country)}</span><span class="rank">#${p.global_rank}</span></div>`).join('');
+            const inp = document.getElementById('countrySearch'), res = document.getElementById('searchResults');
+            inp.addEventListener('input', function () {
+                const q = this.value.toLowerCase().trim(); if (q.length < 1) { res.classList.remove('active'); return; }
+                const m = CURRENT_DATA.profiles.filter(p => getName(p.country).toLowerCase().includes(q)).slice(0, 10);
+                res.innerHTML = m.map(p => `<div class="search-result-item" onclick="showProfile('${p.country}')"><span>${getFlag(p.country)}</span> ${getName(p.country)}</div>`).join('');
                 res.classList.add('active');
             });
-            input.addEventListener('blur', () => setTimeout(() => res.classList.remove('active'), 200));
         }
 
-        // === PROFILE ===
         function showProfile(iso3) {
-            const profile = CURRENT_DATA.profiles.find(p => p.country === iso3);
-            if (!profile) return;
-            const deps = CURRENT_DATA.dependencies.filter(d => d.dependent_country === iso3).sort((a, b) => b.dependency_value - a.dependency_value);
-            const bilat = CURRENT_DATA.bilateral.filter(b => b.importer === iso3).sort((a, b) => b.criticidad - a.criticidad);
-            const hub = CURRENT_DATA.hubs.find(h => h.country === iso3);
-
-            const c = document.getElementById('profileContent');
-            c.innerHTML = `
-        <div class="profile-header">
-            <span class="profile-flag">${getFlag(iso3)}</span>
-            <div><div class="profile-name">${getName(iso3)}</div><div style="color:var(--text-secondary);font-size:0.9rem">${iso3} · Datos ${CURRENT_YEAR}</div></div>
-            <div class="profile-rank-badge"><span class="rank-number">#${profile.global_rank}</span><span class="rank-label">Ranking global</span></div>
-        </div>
-        <div class="profile-kpis">
-            <div class="profile-kpi">
-                <div class="value" style="color:var(--elcano-red-light)">${profile.vulnerability.toFixed(3)}</div>
-                <div class="label">Vulnerabilidad</div>
-                <div class="kpi-desc">Índice 0-1. Cuanto más alto, mayor exposición a disrupciones en cadenas de suministro.</div>
-            </div>
-            <div class="profile-kpi">
-                <div class="value">${(profile.indirect_share * 100).toFixed(1)}%</div>
-                <div class="label">Dependencia indirecta</div>
-                <div class="kpi-desc">Porcentaje de importaciones que pasan por intermediarios, sin acceso directo al productor original.</div>
-            </div>
-            <div class="profile-kpi">
-                <div class="value">${profile.num_suppliers_effective.toFixed(1)}</div>
-                <div class="label">Proveedores efectivos</div>
-                <div class="kpi-desc">Número medio de proveedores reales por industria. Menos proveedores = mayor concentración y riesgo.</div>
-            </div>
-        </div>
-        <div class="profile-evolution">
-            <h3 style="margin:2rem 0 0.5rem 0;font-size:1.1rem">Tendencia Histórica (2001-2022)</h3>
-            <p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:1rem">Evolución del índice de vulnerabilidad e importancia estratégica.</p>
-            <div id="profileTrendChart" class="evolution-chart-container"></div>
-        </div>
-        ${hub ? `<div style="background:var(--bg-card);border-radius:16px;padding:1.5rem;border:1px solid var(--border-subtle);margin-bottom:2rem;margin-top:2rem">
-            <div class="section-label" style="margin-bottom:0.5rem">Intermediación Global (Hub)</div>
-            <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.4">Posición en el ranking de hubs comerciales. Mide el peso del país como intermediario en rutas mundiales.</div>
-            <div style="display:flex;gap:2rem;align-items:center;flex-wrap:wrap">
-                <div><span style="font-size:1.8rem;font-weight:700">#${hub.global_rank}</span> <span style="color:var(--text-muted);font-size:0.8rem">de 236</span></div>
-                <div><span style="font-size:1.2rem;font-weight:600">${hub.frequency_total.toLocaleString()}</span> <span style="color:var(--text-muted);font-size:0.8rem">rutas</span></div>
-                <div><span style="font-size:1.2rem;font-weight:600">${(hub.global_score * 100).toFixed(1)}</span> <span style="color:var(--text-muted);font-size:0.8rem">score</span></div>
-            </div></div>` : ''}
-        <div class="section-label" style="margin-bottom:1rem;margin-top:2rem">
-            Principales dependencias por industria
-            <div class="info-wrapper">
-                <div class="info-icon">i</div>
-                <div class="tooltip-text">Estas industrias representan el mayor peso en la vulnerabilidad del país. El porcentaje indica cuánto se vería afectada la producción nacional ante un corte total de suministros externos.</div>
-            </div>
-        </div>
-        <div id="profileIndustriesBarChart" style="height:450px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border-subtle);padding:1rem;margin-bottom:2rem"></div>
-        ${bilat.length ? `
-            <div class="section-label" style="margin-bottom:1rem;margin-top:2rem">
-                Mapa de Proveedores Críticos
-                <div class="info-wrapper">
-                    <div class="info-icon">i</div>
-                    <div class="tooltip-text">Visualización geográfica de las fuentes de dependencia. Los países más rojos son proveedores críticos donde una disrupción afectará a múltiples sectores estratégicos del país seleccionado.</div>
+            const p = PROFILES_MAP[iso3]; if (!p) return;
+            document.getElementById('profile-section').dataset.iso3 = iso3; // Store current ISO3
+            document.getElementById('profileContent').innerHTML = `
+                <div class="profile-header"><span class="profile-flag">${getFlag(iso3)}</span><div class="profile-name">${getName(iso3)}</div><div class="profile-rank-badge"><span class="rank-number">#${p.global_rank}</span><span class="rank-label">Rango Global</span></div></div>
+                <div class="profile-kpis">
+                    <div class="profile-kpi">
+                        <span class="value">${p.vulnerability.toFixed(3)}</span>
+                        <span class="label">Vulnerabilidad <div class="info-button">i<div class="info-card"><b>Vulnerabilidad (ISE)</b>Mide el riesgo estructural del país. <br>Refleja la fragilidad ante choques externos.<br>Rango: 0 (Bajo) a 1 (Máximo).</div></div></span>
+                    </div>
+                    <div class="profile-kpi">
+                        <span class="value">${(p.importance * 10).toFixed(2)}</span>
+                        <span class="label">Importancia <div class="info-button">i<div class="info-card"><b>Importancia Estratégica</b>Peso del país en el mercado de productos críticos mundiales.<br>Rango: 0-100.</div></div></span>
+                    </div>
+                    <div class="profile-kpi">
+                        <span class="value">${p.num_suppliers_effective ? (p.num_suppliers_effective * 100).toFixed(2) : 'N/D'}</span>
+                        <span class="label">Diversificación <div class="info-button">i<div class="info-card"><b>Número Efectivo de Socios</b>Mide qué tan repartidos están tus proveedores. <br>Valores bajos indican alta concentración (peligro).<br>Rango sugerido: >10 para resiliencia (escalado).</div></div></span>
+                    </div>
                 </div>
-            </div>
-            <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem">Geografía del riesgo: Países de los que depende ${getName(iso3)} para abastecer su industria (Cálculo Bilateral).</div>
-            <div id="profileBilateralMap" style="height:400px;background:var(--bg-card);border-radius:16px;border:1px solid var(--border-subtle);padding:0.5rem;margin-bottom:2rem"></div>
+                <div style="margin-top:2rem">
+                    <h4 style="margin-bottom:1.5rem; display:flex; align-items:center">Evolución del Riesgo por Sector (2016-2022) <div class="info-button">i<div class="info-card"><b>Micro-tendencias</b>Muestra la intensidad media de la vulnerabilidad en cada gran sector empresarial.</div></div></h4>
+                    <div style="display:grid; grid-template-columns:1fr; gap:1.5rem">
+                        <div style="background:var(--bg-card); padding:1rem; border-radius:1rem; border:1px solid var(--border-subtle)"><div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05rem; margin-bottom:0.8rem">🧵 Manufactura (Tasa Media)</div><div id="evoManuf" style="height:140px"></div></div>
+                        <div style="background:var(--bg-card); padding:1rem; border-radius:1rem; border:1px solid var(--border-subtle)"><div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05rem; margin-bottom:0.8rem">⚡ Energía/Minería (Tasa Media)</div><div id="evoMinEn" style="height:140px"></div></div>
+                        <div style="background:var(--bg-card); padding:1rem; border-radius:1rem; border:1px solid var(--border-subtle)"><div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05rem; margin-bottom:0.8rem">🚜 Agricultura (Tasa Media)</div><div id="evoAgri" style="height:140px"></div></div>
+                        <div style="background:var(--bg-card); padding:1rem; border-radius:1rem; border:1px solid var(--border-subtle)"><div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05rem; margin-bottom:0.8rem">📈 Servicios (Tasa Media)</div><div id="evoServ" style="height:140px"></div></div>
+                    </div>
+                </div>
+                <div style="margin-top:2rem"><h4 style="margin-bottom:1rem; display:flex; align-items:center">Composición de Riesgos Críticos <div class="info-button">i<div class="info-card"><b>Concentración de Productos</b>Desglose de las industrias que más vulnerabilidad aportan al país. El tamaño del cuadro es el peso del producto.</div></div></h4><div id="profileTreemap" style="height:350px; background:var(--bg-card); border-radius:1rem; border:1px solid var(--border-subtle); overflow:hidden"></div></div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:2rem">
+                    <div><h4 style="margin-bottom:1rem; display:flex; align-items:center">Brecha Directa/Indirecta <div class="info-button">i<div class="info-card"><b>Directa vs Indirecta</b>Compara riesgo inmediato (rojo) con riesgo vía intermediarios (azul).</div></div></h4><div id="sectorChart" style="height:220px"></div></div>
+                    <div><h4 style="margin-bottom:1rem; display:flex; align-items:center">Principales Socios <div class="info-button">i<div class="info-card"><b>Socios de Riesgo</b>Países que controlan el origen de tus suministros críticos.</div></div></h4><div id="profilePartners" style="height:220px"></div></div>
+                </div>
+            `;
             
-            <div class="section-label" style="margin-bottom:1rem">Principales Proveedores</div>
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem">
-                ${bilat.slice(0, 6).map(b => {
-                const critPct = (b.criticidad * 100).toFixed(0);
-                const critColor = critPct >= 80 ? 'var(--elcano-red-light)' : critPct >= 50 ? '#FFC107' : 'var(--text-secondary)';
-                const critLabel = critPct >= 80 ? 'Muy alta' : critPct >= 50 ? 'Alta' : 'Moderada';
-                return `
-                    <div style="background:var(--bg-card);border-radius:12px;padding:1rem;border:1px solid var(--border-subtle);display:flex;align-items:center;gap:10px;cursor:pointer" onclick="showProfile('${b.exporter}')">
-                        <span style="font-size:1.5rem">${getFlag(b.exporter)}</span>
-                        <div>
-                            <div style="font-weight:600;font-size:0.9rem">${getName(b.exporter)}</div>
-                            <div style="font-size:0.72rem;color:${critColor}">${critLabel} (${critPct}%)</div>
-                        </div>
-                    </div>`}).join('')}
-            </div>` : ''}`;
-
-            if (deps.length) {
-                const topDeps = deps.slice(0, 12);
-                Plotly.newPlot('profileIndustriesBarChart', [{
-                    type: 'bar',
-                    orientation: 'h',
-                    y: topDeps.map(d => d.industry.length > 40 ? d.industry.substring(0, 40) + '...' : d.industry),
-                    x: topDeps.map(d => d.dependency_value * 100),
-                    text: topDeps.map(d => (d.dependency_value * 100).toFixed(1) + '%'),
-                    textposition: 'auto',
-                    marker: {
-                        color: topDeps.map(d => d.dependency_value),
-                        colorscale: [[0, '#3b82f6'], [0.5, '#6366f1'], [1, '#bb2521']]
-                    }
-                }], {
-                    paper_bgcolor: 'rgba(0,0,0,0)',
-                    plot_bgcolor: 'rgba(0,0,0,0)',
-                    margin: { t: 10, b: 40, l: 250, r: 20 },
-                    xaxis: { title: 'Dependencia (%)', gridcolor: 'rgba(255,255,255,0.05)', tickfont: { color: '#8892a4' } },
-                    yaxis: { autorange: 'reversed', tickfont: { color: '#f0f2f5', size: 11 } },
-                    font: { family: 'Inter' }
-                }, { responsive: true, displayModeBar: false });
+            // Render Small Multiples
+            if (GLOBAL_HISTORY && GLOBAL_HISTORY[iso3]) {
+                const hist = GLOBAL_HISTORY[iso3].sort((a,b)=>a.y - b.y);
+                const x = hist.map(h => h.y);
+                const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444'];
+                const configs = [
+                    { id: 'evoManuf', y: hist.map(h => h.m), c: colors[0] },
+                    { id: 'evoMinEn', y: hist.map(h => h.e), c: colors[1] },
+                    { id: 'evoAgri', y: hist.map(h => h.a), c: colors[2] },
+                    { id: 'evoServ', y: hist.map(h => h.s), c: colors[3] }
+                ];
+                configs.forEach(cfg => {
+                    Plotly.newPlot(cfg.id, [{
+                        x, y: cfg.y, type: 'scatter', mode: 'lines+markers',
+                        line: { color: cfg.c, width: 2 },
+                        fill: 'tozeroy', fillcolor: cfg.c + '11'
+                    }], {
+                        paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
+                        margin: { t: 5, b:20, l:25, r:5 },
+                        xaxis: { showgrid: false, tickfont: {size: 8, color: '#94a3b8'} },
+                        yaxis: { showgrid: true, gridcolor: 'rgba(255,255,255,0.05)', tickfont: {size: 8, color: '#94a3b8'} }
+                    }, { displayModeBar: false, responsive: true });
+                });
             }
 
-            initProfileTrend(iso3);
-            initProfileBilateralMap(bilat);
+            // Correct column mapping: dependent_country and dependency_value
+            const deps = CURRENT_DATA.dependencies.filter(d => d.dependent_country === iso3);
+            Plotly.newPlot('profileTreemap', [{ 
+                type: 'treemap', 
+                labels: deps.map(d => d.industry), 
+                parents: deps.map(()=>""), 
+                values: deps.map(d => d.dependency_value), 
+                textinfo: "label+value", 
+                marker: { 
+                    colorscale: 'Blues', 
+                    reversescale: true,
+                    line: { color: '#0a0e17' }
+                } 
+            }], { 
+                paper_bgcolor: 'rgba(0,0,0,0)', 
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { t: 0, b:0, l:0, r:0 },
+                font: { family: 'Inter', size: 10, color: '#94a3b8' }
+            }, { displayModeBar: false });
+            
+            const rawBilat = CURRENT_DATA.bilateral.filter(b => b.importer === iso3);
+            const bilatMap = {}; rawBilat.forEach(b => { if (!bilatMap[b.exporter]) bilatMap[b.exporter] = 0; bilatMap[b.exporter] += b.dependency; });
+            const pSorted = Object.entries(bilatMap).sort((a,b)=>b[1]-a[1]).slice(0, 10);
+            
+            Plotly.newPlot('profilePartners', [{ x: pSorted.map(s => s[1]), y: pSorted.map(s => getName(s[0])), type: 'bar', orientation: 'h', marker: { color: '#435370' } }], { paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)', margin: { t: 10, b: 30, l: 110, r: 10 }, xaxis: { showgrid: false }, yaxis: { autorange: 'reversed', tickfont: { size: 9, color: '#94a3b8' } } }, { displayModeBar: false });
+
+            const s = [{ id: 'manuf', l: 'Manuf.' }, { id: 'agri', l: 'Agri.' }, { id: 'minen', l: 'Energía' }, { id: 'serv', l: 'Serv.' }];
+            Plotly.newPlot('sectorChart', [
+                { name: 'Dir.', type: 'bar', x: s.map(x => x.l), y: s.map(x => (p['s_'+x.id+'_d'] || 0) * 100), marker: { color: '#bb2521' } }, 
+                { name: 'Ind.', type: 'bar', x: s.map(x => x.l), y: s.map(x => (p['s_'+x.id+'_i'] || 0) * 100), marker: { color: '#3b82f6', opacity: 0.6 } }
+            ], { barmode: 'stack', paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)', margin: { t: 10, b: 30, l: 40, r: 10 }, showlegend: false, xaxis: { tickfont: { size: 10, color: '#94a3b8' } }, yaxis: { tickfont: { size: 10, color: '#94a3b8' }, gridcolor: 'rgba(255,255,255,0.05)' } }, { displayModeBar: false });
 
             document.getElementById('profile-section').classList.add('active');
-            document.getElementById('profile-section').scrollIntoView({ behavior: 'smooth' });
-            document.getElementById('countrySearch').value = '';
-            document.getElementById('searchResults').classList.remove('active');
+            updateGlobeArcs(iso3);
         }
 
-        function closeProfile() {
-            document.getElementById('profile-section').classList.remove('active');
-            document.getElementById('overview').scrollIntoView({ behavior: 'smooth' });
+        function closeProfile() { document.getElementById('profile-section').classList.remove('active'); }
+        function initIndustryExplorer() {
+            document.getElementById('industryList').innerHTML = META_DATA.industries.map(i => `<option value="${i.industry_name}">`).join('');
+            document.getElementById('importerSelect').innerHTML = Object.keys(COUNTRY_NAMES).sort().map(c => `<option value="${c}" ${c === 'ESP' ? 'selected' : ''}>${getName(c)}</option>`).join('');
         }
-
-        // === NAV ===
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-            const sects = ['hero', 'overview', 'map-section', 'hubs-section', 'critical-section'];
-            let cur = '';
-            sects.forEach(id => { const el = document.getElementById(id); if (el && window.scrollY >= el.offsetTop - 200) cur = id; });
-            document.querySelectorAll('.nav-links a').forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
-        });
-        document.querySelectorAll('.nav-links a').forEach(a => {
-            a.addEventListener('click', function (e) { e.preventDefault(); document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' }); });
-        });
+        function runIndustryQuery() {
+            const ind = document.getElementById('industrySearch').value, imp = document.getElementById('importerSelect').value;
+            const data = (CURRENT_DATA.explorer_indexed[imp] || {})[ind] || [];
+            if (!data.length) { document.getElementById('industryResults').innerHTML = '<div style="padding:2rem; text-align:center; color:var(--text-muted)">Sin datos.</div>'; return; }
+            document.getElementById('industryResults').innerHTML = `<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:1rem; margin-top:1rem">${data.map(d => `<div class="hub-item" onclick="showProfile('${d[1]}')"><span class="hub-flag">${getFlag(d[1])}</span><div style="flex:1"><div class="hub-country">${getName(d[1])}</div></div><div class="hub-score">${(d[3]*100).toFixed(0)}%</div></div>`).join('')}</div>`;
+        }
+        initGlobal();
     </script>
 </body>
-
 </html>
