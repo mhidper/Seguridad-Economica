@@ -56,11 +56,12 @@ graph TD
        - Se construye una matriz $T$ para cada industria donde cada celda $T[j,i]$ representa la cuota de mercado del **territorio económico** proveedor $j$ sobre el consumo total del importador $i$.
        - Esta normalización permite tratar la red global como un grafo de propagación de riesgos: "Si el territorio $j$ sufre una disrupción, el territorio $i$ tiene una probabilidad $X$ de verse afectado en esa industria específica".
 
-    3. **Análisis de Caminos (PIVI Methodology - $L=1$ a $L=5$)**: 
+    3. **Análisis de Caminos (PIVI Methodology - $L=1$ a $L=3/5$)**: 
        - Esta es la innovación central (Metodología PIVI). El motor no se detiene en la **dependencia directa ($L=1$)**.
        - Mediante **algoritmos de exploración y enumeración de rutas**, calcula las dependencias indirectas:
          - **L=2**: Riesgos vía un intermediario (A depende de B porque B usa componentes de C).
-         - **L=3 a L=5**: Rastro profundo de la cadena de valor hasta el origen primario.
+         - **L=3 (Estándar)**: Captura la gran mayoría de las dependencias indirectas sistémicas.
+         - **L=4 a L=5 (Opcional)**: Rastro profundo reservado para industrias con cadenas de valor hiper-fragmentadas.
        - El sistema aplica una **poda por umbral (threshold pruning)** durante la exploración para descartar millones de rutas insignificantes y concentrarse únicamente en los cuellos de botella reales.
 
     4. **Scores de Intermediación (Identificación de Países Pivote)**: 
