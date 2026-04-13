@@ -65,10 +65,12 @@ graph TD
        - El sistema aplica una **poda por umbral (threshold pruning)** durante la exploración para descartar millones de rutas insignificantes y concentrarse únicamente en los cuellos de botella reales.
 
     4. **Scores de Intermediación (Identificación de Países Pivote)**: 
-       - Una vez mapeados todos los caminos críticos, el motor evalúa a los países como nodos de tránsito:
-         - **Frecuencia de Intermediación**: Cuántas veces un país aparece como "paso obligado" para el suministro de otros.
-         - **Fuerza de Intermediación**: La intensidad acumulada de la dependencia que fluye a través de ese país.
-       - Esto genera el *Hub Score*, que permite identificar países que, sin ser necesariamente grandes productores, tienen una capacidad inmensa de disrupción global por su posición logística o de ensamblaje.
+       - Una vez mapeados los caminos críticos, el motor evalúa a cada territorio como un nodo de tránsito sistémico mediante dos métricas clave:
+         - **Frecuencia de Intermediación ($F$):** Conteo bruto de cuántas rutas críticas pasan por el territorio $k$. Indica su "omnipresencia" en las cadenas globales.
+         - **Fuerza de Intermediación ($S$):** Suma ponderada de la intensidad de los caminos, donde el impacto se ajusta según la posición: $S_k = \sum_{p \in Caminos} \frac{Fuerza(p)}{Posición(k)}$.
+       - **Cálculo del Hub Score:** El motor combina ambas métricas en un índice final: 
+         $$\text{Hub Score} = 0.4 \cdot F_{\text{norm}} + 0.6 \cdot S_{\text{norm}}$$
+       - **Ejemplo Práctico:** Un territorio como **Singapur** o **Países Bajos** puede tener una producción propia limitada en ciertos sectores, pero si el 60% de los componentes críticos de una industria fluyen a través de ellos hacia el resto del mundo, su *Hub Score* superará al de los grandes productores primarios. Esto los identifica como "puntos de estrangulamiento" (choke-points) del sistema.
 
 *   **Salidas:** 
     - `dependencias{año}_borrar.csv.gz`: Matrices de transición bruta. El sufijo `_borrar` indica que es un archivo intermedio/temporal; se puede eliminar tras ser procesado por el Nivel 2.
