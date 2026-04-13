@@ -80,7 +80,36 @@ graph TD
     - `caminos_significativos_{año}.parquet`: El "esqueleto" de la red de comercio internacional; catálogo de los flujos de mayor impacto.
     - `all_results_{año}.pkl`: El **mapa genético completo** (~1.4GB). Diccionario Python que contiene matrices de adyacencia, colecciones de caminos y cálculos intermedios. Es el objeto de datos definitivo del proyecto.
 
+**Flujo de Datos (Nivel 1):**
+```mermaid
+graph TD
+    classDef db fill:#b3d4ff,stroke:#333,stroke-width:1px,color:#000
+    classDef proc fill:#fdfd96,stroke:#333,stroke-width:1px,color:#000
+    classDef pivi fill:#ccffcc,stroke:#333,stroke-width:1px,color:#000
+    classDef out fill:#ffb3ba,stroke:#333,stroke-width:1px,color:#000
+
+    A[(Base de Datos Bruta<br/>ITPD-E)]:::db -->|Dask / GPU| B[Matrices de Transición T<br/>De Comercio a Probabilidad]:::proc
+    
+    subgraph Metodología PIVI
+        B --> C{Exploración<br/>Algorítmica}:::pivi
+        C -->|L=1| D(Dependencias Directas):::pivi
+        C -->|L=2| E(Rutas con 1 Intermediario):::pivi
+        C -->|L=3-5| F(Rastro Profundo Optativo):::pivi
+        
+        D -.-> G[Poda por Umbral<br>Threshold Pruning]:::pivi
+        E -.-> G
+        F -.-> G
+    end
+
+    G -->|Métricas| H[Cálculo de Nodos]:::proc
+    H -->|Frecuencia + Fuerza| I(Scores de Intermediación<br/>Identidad de Hubs):::proc
+    
+    G --> J[(Ficheros Intermedios<br/>CSV / Parquets)]:::out
+    I --> K[/\ Mapa Genético Completo<br/>all_results.pkl /\]:::out
+```
+
 #### **Nivel 2: El Arquitecto (Estructuración)**
+
 *   **Script:** `notebooks/analysis/idc_architect.py`
 *   **Acción:** Ejecutar en terminal: `py notebooks/analysis/idc_architect.py [AÑO]` (ej: `py notebooks/analysis/idc_architect.py 2015`).
 *   **Proceso Interno:**
