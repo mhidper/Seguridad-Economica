@@ -82,3 +82,7 @@ data/processed/*
 # Dashboard - Fragmented data for GitHub Pages
 # (Los archivos en data_dist/ son menores de 100MB y pueden subirse)
 
+# Directorios Privados (No subir al repositorio)
+Informes, briefs o notas/
+docs/
+
