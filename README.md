@@ -44,11 +44,30 @@ graph TD
 #### **Nivel 1: El Cerebro (Motor de Cálculo)**
 *   **Script:** `notebooks/analysis/00_dependency.ipynb`
 *   **Acción:** Abrir el Notebook y ejecutar todas las celdas. **Importante:** Cambiar la variable `anio` en la celda de configuración (celda 3) para procesar el año deseado (ej: 2015).
-*   **Proceso Interno:** 
-    1. **Normalización ITP**: Descomprime y filtra la base de datos *International Trade and Production Database* (ITPD-E) usando Dask para paralelismo y aceleración GPU (PyTorch/CUDA).
-    2. **Matrices de Transición (T)**: Crea matrices de probabilidad de suministro donde $T[j,i]$ es el peso del proveedor $j$ sobre el total importado por $i$.
-    3. **Análisis de Caminos (Paths)**: Calcula dependencias directas ($L=1$) e indirectas (rastreando rutas de $L=2$ hasta $L=5$) mediante la propagación de probabilidades en la red global.
-    4. **Scores de Intermediación**: Evalúa la importancia de cada país como "puente" sistémico a través de métricas de frecuencia y fuerza en las rutas críticas.
+*   **Proceso Interno (Deep Dive):** 
+
+    1. **Normalización ITP (Big Data Optimization)**: 
+       - El motor procesa la base de datos *International Trade and Production Database* (ITPD-E). Debido a su tamaño masivo, utiliza **Dask** para la lectura paralela y filtrado de datos.
+       - Aplica una optimización de memoria extrema mediante el uso de `float32` para valores comerciales y tipado de categorías para códigos de país, permitiendo procesar años completos en máquinas con RAM limitada.
+       - Si se detecta una GPU compatible con **CUDA**, el motor activa aceleración por hardware para las operaciones matriciales más pesadas.
+
+    2. **Matrices de Transición (T) - El Salto al Riesgo Probabilístico**: 
+       - Transforma el comercio nominal (en $) en **probabilidades de suministro**. 
+       - Se construye una matriz $T$ donde cada celda $T[j,i]$ representa la cuota de mercado del proveedor $j$ sobre el consumo total del importador $i$.
+       - Esta normalización permite que el modelo trate la red comercial como un grafo de propagación de riesgos: "Si el país $j$ tiene un problema, el país $i$ tiene una probabilidad $X$ de sufrir una disrupción".
+
+    3. **Análisis de Caminos (PIVI Methodology - $L=1$ a $L=5$)**: 
+       - Esta es la innovación central (Metodología PIVI). El motor no se detiene en la **dependencia directa ($L=1$)**.
+       - Calcula mediante potencias de matrices y análisis de rutas las **dependencias indirectas**:
+         - **L=2**: Riesgos vía un intermediario (A depende de B porque B usa componentes de C).
+         - **L=3 a L=5**: Rastro de la cadena de valor hasta el origen primario.
+       - El sistema aplica una "poda por umbral" (threshold pruning) para descartar millones de rutas insignificantes y concentrarse únicamente en los cuellos de botella que realmente amenazan la seguridad económica nacional.
+
+    4. **Scores de Intermediación (Identificación de Países Pivote)**: 
+       - Una vez mapeados todos los caminos críticos, el motor evalúa a los países como nodos de tránsito:
+         - **Frecuencia de Intermediación**: Cuántas veces un país aparece como "paso obligado" para el suministro de otros.
+         - **Fuerza de Intermediación**: La intensidad acumulada de la dependencia que fluye a través de ese país.
+       - Esto genera el *Hub Score*, que permite identificar países que, sin ser necesariamente grandes productores, tienen una capacidad inmensa de disrupción global por su posición logística o de ensamblaje.
 
 *   **Salidas:** 
     - `dependencias{año}_borrar.csv.gz`: Matrices de transición bruta. Es el punto de partida para cualquier análisis de red bilateral.
