@@ -70,7 +70,7 @@ graph TD
        - Esto genera el *Hub Score*, que permite identificar países que, sin ser necesariamente grandes productores, tienen una capacidad inmensa de disrupción global por su posición logística o de ensamblaje.
 
 *   **Salidas:** 
-    - `dependencias{año}_borrar.csv.gz`: Matrices de transición bruta. Es el punto de partida para cualquier análisis de red bilateral.
+    - `dependencias{año}_borrar.csv.gz`: Matrices de transición bruta. El sufijo `_borrar` indica que es un archivo intermedio/temporal; se puede eliminar tras ser procesado por el Nivel 2.
     - `intermediarios_globales_{año}.parquet`: Frecuencias de paso y fuerzas de ruta. Fundamental para detectar cuellos de botella mundiales.
     - `country_profiles_{año}.parquet`: Desglose de dependencia total vs. directa a nivel país-industria (antes de normalizaciones).
     - `relaciones_criticas_{año}.parquet`: Subconjunto filtrado de relaciones de alto riesgo con métricas de escasez de caminos alternativos.
