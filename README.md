@@ -232,6 +232,80 @@ graph TD
     F -.->|Vulnerabilidad Global| M[(profiles.parquet)]:::out
 ```
 
+**Esquema de Datos (Estructura Analítica *Tidy Data*):**
+```mermaid
+classDiagram
+    direction LR
+
+    class Profiles {
+        <<profiles.parquet>>
+        + string country
+        + float vulnerability
+        + float indirect_share
+        + float num_suppliers_effective
+        + float importance
+        + int global_rank
+        + int year
+    }
+
+    class Explorer {
+        <<explorer.parquet>>
+        + string importer
+        + string exporter
+        + string industry
+        + float dep_total
+        + float dep_direct
+        + float dep_indirect
+        + string top_intermediary
+        + float path_strength
+        + float hhi_sector
+        + float eff_suppliers_sector
+    }
+
+    class Hubs {
+        <<hubs.parquet>>
+        + string country
+        + int frequency_total
+        + float strength_total
+        + float freq_norm
+        + float strength_norm
+        + float global_score
+        + int global_rank
+        + int year
+    }
+
+    class Critical {
+        <<critical.parquet>>
+        + string exportador
+        + string importador
+        + string industry
+        + float dependencia_total
+        + float dependencia_directa
+        + float dependencia_indirecta
+        + float hidden_risk_factor
+        + float hidden_risk_abs
+        + int caminos_alternativos
+        + float criticidad
+        + int year
+    }
+
+    class Dependencies {
+        <<dependencies.parquet>>
+        + string dependent_country
+        + string industry
+        + float dependency_value
+    }
+
+    class Bilateral {
+        <<bilateral.parquet>>
+        + string importer
+        + string exporter
+        + string industry
+        + float criticidad
+        + float dependency
+    }
+```
+
 #### **Nivel 3: El Puente (Optimización Web)**
 *   **Script:** `dashboard_prototype/build_fragmented.py`
 *   **Acción:** Ejecutar en terminal: `py dashboard_prototype/build_fragmented.py`.
