@@ -306,19 +306,87 @@ classDiagram
     }
 ```
 
-#### **Nivel 3: El Puente (Optimización Web)**
+#### **Nivel 3: El Puente (Optimización Web y Despliegue)**
 *   **Script:** `dashboard_prototype/build_fragmented.py`
 *   **Acción:** Ejecutar en terminal: `py dashboard_prototype/build_fragmented.py`.
-*   **Proceso Interno:**
-    1. Detecta automáticamente los años procesados en el nivel anterior.
-    2. Aplica **filtros de relevancia** (enfocado en España y riesgos sistémicos > 10%).
-    3. Transforma tablas a **formato de matriz comprimida** (`c:` columnas, `d:` datos) para reducir el peso de descarga.
-    4. Genera el archivo `dashboard_elcano.html` inyectando el logo y configurando el modo multi-año.
-*   **Salidas (`dashboard_prototype/data_dist/`):** Archivos JSON optimizados para consumo en aplicaciones web.
-    - `meta.json`: Metadatos globales (años disponibles, nombres de industrias, series de evolución global).
-    - `history.json`: Series temporales pre-calculadas de riesgo sectorial para todos los países.
-    - `year_XXXX.json`: Fragmentos anuales "lazy-load" que contienen perfiles, hubs y una versión indexada del explorador para búsquedas instantáneas O(1).
-    - `index.html`: Dashboard unificado y listo para despliegue.
+*   **Proceso Interno (Compresión y Estructuración de API Local):**
+    Los archivos Parquet son inmanejables para un navegador web de forma nativa. El Nivel 3 actúa como un motor de compresión y empaquetado, generando archivos `.json` ultraligeros y fragmentados (*lazy-load*) para el visualizador HTML:
+
+    1. **Agrupación Macro-Sectorial Geopolítica:** Escanea la descripción de las cientos de industrias microscópicas (ej. "wheat", "coal", "transport") y las mapea en 4 grandes macros artificiales: Agricultura (`Agri`), Minerales/Energía (`MinEn`), Manufactura (`Manuf`) y Servicios (`Serv`).
+    2. **Cálculo de Intensidad y Evolución Histórica:** Ensambla la línea de tiempo de todos los componentes cruzando los años disponibles para generar gráficos continuos de *Vulnerabilidad vs. Importancia* sin requerir cómputos del lado del cliente.
+    3. **Compresión Matricial:** Abandona el esquema tradicional de JSON de Lista-de-Objetos `[{col1: val1, col2: val2}]` por un formato de Matriz Comprimida `{c: [columnas], d: [[val1, val2]]}`, reduciendo el peso de las descargas en un 60-70%.
+    4. **Indexación para Búsquedas O(1):** El gigantesco Parquet `explorer` es pre-filtrado e indexado en un diccionario multinivel (`{importador: {industria: [datos]}}`) para que las búsquedas en la web carguen de forma instantánea.
+
+*   **Salidas (`dashboard_prototype/data_dist/`):** Base de datos web descentralizada para *frontend*.
+    - `meta.json`: Metadatos estáticos (nombres de países, catálogo de industrias, series de evolución rápida de indicadores por defecto).
+    - `history.json`: Histórico de "intensidad" temporal del riesgo segregado por los 4 Macro-Sectores para cada país.
+    - `year_XXXX.json`: Los fragmentos pesados (*Lazy-Load* anual). Contienen el núcleo de perfiles, relaciones bilaterales, dependencias extremas e índice de hubs del año específico.
+    - `index.html`: La *Single Page Application* con el logo Elcano en Base64 inyectado y preparada para consumir la carpeta `data_dist`.
+
+**Flujo y Estructura (Nivel 3):**
+```mermaid
+graph TD
+    classDef in fill:#e8f4f8,stroke:#333,stroke-width:1px,color:#000
+    classDef proc fill:#fdfd96,stroke:#333,stroke-width:1px,color:#000
+    classDef func fill:#ccffcc,stroke:#333,stroke-width:1px,color:#000
+    classDef out fill:#ffb3ba,stroke:#333,stroke-width:1px,color:#000
+
+    A[(Parquets Historicos<br/>Años 2015-2022)]:::in --> B{El Puente<br/>Fragmentador Web}:::proc
+    
+    subgraph Transformación para Dashboard
+        B --> C[Asignación Macro-Sectorial<br/>Agri, MinEn, Manuf, Serv]:::func
+        B --> D[Construcción Pre-Computada<br/>Líneas de Tiempo]:::func
+        B --> E[Fragmentación Anual<br/>y Compresión Matricial]:::func
+        B --> F[Indexación de Diccionarios O1<br/>Búsqueda Instantánea]:::func
+    end
+
+    C -.-> |Estructura Global| G[{meta.json}]:::out
+    D -.-> |Evolutivo Promedio| H[{history.json}]:::out
+    
+    E -.-> |Vulnerabilidad + Hubs| I[{year_XXXX.json}]:::out
+    F -.-> |Explorer Index| I
+    
+    G --> Z((Consumo Web html))
+    H --> Z
+    I --> Z
+```
+
+```mermaid
+classDiagram
+    direction LR
+
+    class Meta_JSON {
+        <<meta.json>>
+        + list available_years
+        + int latest_year
+        + list evolution (Profiles temporales)
+        + list critical_evolution (Ocurrencias extremas/año)
+        + list industries (Mapeo ID -> Nombre)
+    }
+
+    class History_JSON {
+        <<history.json>>
+        + dict {iso3}
+        + int y (Year)
+        + float m (Riesgo Manuf)
+        + float e (Riesgo MinEn)
+        + float a (Riesgo Agri)
+        + float s (Riesgo Serv)
+    }
+
+    class Year_Fragment_JSON {
+        <<year_XXXX.json>>
+        + dict profiles (Matriz comprimida)
+        + dict hubs (Matriz comprimida)
+        + dict sectoral_hubs (Top 30 normalizados por macro)
+        + dict dependencies (Top 15 ranking)
+        + dict bilateral (Direct critical risk)
+        + dict explorer_indexed (Dict anidado buscador)
+        + list explorer_cols
+    }
+    
+    Meta_JSON ..> History_JSON : Comparte Línea Base
+```
 
 ---
 
