@@ -170,22 +170,39 @@ classDiagram
     Caminos_Significativos "*" -- "1" Relaciones_Criticas : Filtro Umbral
 ```
 
-#### **Nivel 2: El Arquitecto (Estructuración)**
+#### **Nivel 2: El Arquitecto (Estructuración y Refinamiento Analytics)**
 
 *   **Script:** `notebooks/analysis/idc_architect.py`
-*   **Acción:** Ejecutar en terminal: `py notebooks/analysis/idc_architect.py [AÑO]` (ej: `py notebooks/analysis/idc_architect.py 2015`).
-*   **Proceso Interno:**
-    1. Filtra y destila el `.pkl` masivo.
-    2. Calcula los **Scores de Hubs** (centralidad) y rankings globales.
-    3. Identifica **Relaciones Críticas** (aquellas con alta dependencia y pocos proveedores alternativos).
-*   **Salidas (`data/processed/historico/`):** Archivos `.parquet` optimizados que constituyen la base de datos "limpia" para investigación.
-    - `profiles_{año}`: KPIs agregados por país (ISE, Ranking, importancia estratégica, diversificación de proveedores).
-    - `explorer_{año}`: El núcleo de la red. Cruce país-país-industria con desglose de dependencias directas/indirectas y rutas de intermediación.
-    - `hubs_{año}`: Métricas de centralidad global para cada país actuando como nodo de tránsito.
-    - `bilateral_{año}`: Matriz de relaciones estratégicas enfocada en la "Criticidad" y dificultad de sustitución.
-    - `dependencies_{año}`: Rankings granulares de las industrias que generan mayor riesgo para cada economía.
-    - `critical_{año}`: Monitor global de riesgos extremos (vulnerabilidades > 70%).
+*   **Acción:** Ejecutar en terminal: `py notebooks/analysis/idc_architect.py [AÑO]` (ej: `py notebooks/analysis/idc_architect.py 2015` o `py notebooks/analysis/idc_architect.py 2015 2016 2017`).
+*   **Proceso Interno (Ingeniería de Datos):**
+    El Nivel 1 genera un archivo inmenso y complejo (`.pkl`). El "Arquitecto" actúa como una fase de destilación de datos (*Data Distillation*), procesando ese diccionario profundo para construir tablas analíticas (*Tidy Data*) listas para el consumo estadístico y visual:
 
+    1. **Agregación de Centralidad (Global Hubs):** 
+       - Suma la frecuencia y la fuerza de intermediación de cada país a través de *todas* las industrias.
+       - Aplica una doble normalización comparando contra los valores máximos mundiales.
+       - Calcula el Score Global (Hub) combinado $0.4F + 0.6S$ y asigna un ranking (`global_rank`) anual de posición geoestratégica.
+    
+    2. **Concentración de Mercado y HHI (Herfindahl-Hirschman Index):** 
+       - Por cada país e industria, evalúa el nivel de monopolio en sus importaciones.
+       - Expresa esta concentración mediante el **HHI** (suma de las cuotas de mercado al cuadrado de todos sus proveedores). 
+       - Transforma el HHI en un KPI mucho más intuitivo comercialmente: **Proveedores Efectivos** ($\frac{1}{HHI}$). Ejemplo: Si España le compra de 50 países, pero uno solo tiene el 95% de la cuota, sus "proveedores efectivos" caerán drásticamente a un valor cercano a 1.
+    
+    3. **Disección del "Riesgo Oculto" (Hidden Risk) y Criticidad:**
+       - Filtra todas aquellas dependencias que por sí solas superen el **50% del total**.
+       - Separa qué proporción de ese riesgo global es directo (comercio nominal) y qué proporción es *riesgo indirecto oculto* a través de terceros.
+       - Calcula una penalización de la métrica por redundancia (*Criticidad*): si la herramienta PIVI del Nivel 1 no encontró al menos 3 rutas alternativas fuertes para esa dependencia, se clasifica como una vulnerabilidad máxima.
+
+    4. **Agregación Macro-Estadística (Perfiles de País):**
+       - Construye el Índice de Vulnerabilidad Nacional promediando el riesgo de todas las industrias, ponderando cuidadosamente por el **peso económico (valor en dólares)** de la industria. Así, la falta de tornillos genéricos pondera mucho menos que la de litio o semiconductores.
+       - En dirección opuesta, computa el Índice de **Importancia Sistémica**, representando cuán indispensable es un país para las importaciones globales.
+
+*   **Salidas (`data/processed/historico/`):** Todos los archivos se guardan en `.parquet` altamente eficientes. Son la base de datos "limpia" oficial para cualquier tarea *Data Science* posterior.
+    - `profiles_{año}.parquet`: Tarjeta de perfil por país. Incluye Vulnerabilidad general ponderada, cuota de riesgo indirecto y promedio de proveedores efectivos.
+    - `explorer_{año}.parquet`: El núcleo exploratorio bilateral. Desglose detallado país-país-industria, incluyendo los HHI sectoriales y el nombre de la ruta principal de intermediación (`top_intermediary`).
+    - `hubs_{año}.parquet`: Identidad métrica completa de los nodos sistémicos y ranking logístico.
+    - `bilateral_{año}.parquet`: Monitor de criticidad pura entre pares (exportador-importador-industria).
+    - `dependencies_{año}.parquet`: Las 15 vulnerabilidades más altas (`Top 15`) de cada país. Útil para mapas de calor sectoriales rápidos.
+    - `critical_{año}.parquet`: Tabla con el cálculo explícito del "Hidden Risk Factor" (porcentaje de riesgo que es invisible).
 #### **Nivel 3: El Puente (Optimización Web)**
 *   **Script:** `dashboard_prototype/build_fragmented.py`
 *   **Acción:** Ejecutar en terminal: `py dashboard_prototype/build_fragmented.py`.
