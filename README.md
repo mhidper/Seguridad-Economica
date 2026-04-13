@@ -340,10 +340,10 @@ graph TD
         B --> F[Indexación de Diccionarios O1<br/>Búsqueda Instantánea]:::func
     end
 
-    C -.-> |Estructura Global| G[{meta.json}]:::out
-    D -.-> |Evolutivo Promedio| H[{history.json}]:::out
+    C -.-> |Estructura Global| G[meta.json]:::out
+    D -.-> |Evolutivo Promedio| H[history.json]:::out
     
-    E -.-> |Vulnerabilidad + Hubs| I[{year_XXXX.json}]:::out
+    E -.-> |Vulnerabilidad + Hubs| I[year_XXXX.json]:::out
     F -.-> |Explorer Index| I
     
     G --> Z((Consumo Web html))
@@ -359,29 +359,29 @@ classDiagram
         <<meta.json>>
         + list available_years
         + int latest_year
-        + list evolution (Profiles temporales)
-        + list critical_evolution (Ocurrencias extremas/año)
-        + list industries (Mapeo ID -> Nombre)
+        + list evolution_profiles
+        + list critical_evolution
+        + list industries_mapping
     }
 
     class History_JSON {
         <<history.json>>
-        + dict {iso3}
-        + int y (Year)
-        + float m (Riesgo Manuf)
-        + float e (Riesgo MinEn)
-        + float a (Riesgo Agri)
-        + float s (Riesgo Serv)
+        + dict country_iso3
+        + int year_y
+        + float risk_manuf_m
+        + float risk_minen_e
+        + float risk_agri_a
+        + float risk_serv_s
     }
 
     class Year_Fragment_JSON {
         <<year_XXXX.json>>
-        + dict profiles (Matriz comprimida)
-        + dict hubs (Matriz comprimida)
-        + dict sectoral_hubs (Top 30 normalizados por macro)
-        + dict dependencies (Top 15 ranking)
-        + dict bilateral (Direct critical risk)
-        + dict explorer_indexed (Dict anidado buscador)
+        + dict profiles_matrix
+        + dict hubs_matrix
+        + dict sectoral_hubs
+        + dict dependencies_top15
+        + dict bilateral_critical
+        + dict explorer_indexed_dict
         + list explorer_cols
     }
     
