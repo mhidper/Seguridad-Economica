@@ -48,7 +48,7 @@ graph TD
 
     1. **Normalización ITP (Big Data Optimization)**: 
        - El motor procesa la base de datos *International Trade and Production Database* (ITPD-E). Debido a su tamaño masivo, utiliza **Dask** para la lectura paralela y filtrado de datos.
-       - Aplica una optimización de memoria extrema mediante el uso de `float32` para valores comerciales y tipado de categorías para códigos de país, permitiendo procesar años completos en máquinas con RAM limitada.
+       - Aplica una optimización de memoria extrema mediante el uso de `float32` para valores comerciales y **definición de categorías** para códigos de país, permitiendo procesar años completos en máquinas con RAM limitada.
        - Si se detecta una GPU compatible con **CUDA**, el motor activa aceleración por hardware para las operaciones matriciales más pesadas.
 
     2. **Matrices de Transición (T) - El Salto al Riesgo Probabilístico**: 
