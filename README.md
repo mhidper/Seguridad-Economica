@@ -51,10 +51,10 @@ graph TD
        - Aplica una optimización de memoria extrema mediante el uso de `float32` para valores comerciales y **definición de categorías** para códigos de país, permitiendo procesar años completos en máquinas con RAM limitada.
        - Si se detecta una GPU compatible con **CUDA**, el motor activa aceleración por hardware para las operaciones matriciales más pesadas.
 
-    2. **Matrices de Transición (T) - El Salto al Riesgo Probabilístico**: 
-       - Transforma el comercio nominal (en $) en **probabilidades de suministro**. 
-       - Se construye una matriz $T$ donde cada celda $T[j,i]$ representa la cuota de mercado del proveedor $j$ sobre el consumo total del importador $i$.
-       - Esta normalización permite que el modelo trate la red comercial como un grafo de propagación de riesgos: "Si el país $j$ tiene un problema, el país $i$ tiene una probabilidad $X$ de sufrir una disrupción".
+    2. **Matrices de Transición (T) por Industria y Año**: 
+       - Transforma el comercio nominal (en $) en **probabilidades de suministro** para cada corte temporal. 
+       - Se construye una matriz $T$ para cada industria donde cada celda $T[j,i]$ representa la cuota de mercado del **territorio económico** proveedor $j$ sobre el consumo total del importador $i$.
+       - Esta normalización permite tratar la red global como un grafo de propagación de riesgos: "Si el territorio $j$ sufre una disrupción, el territorio $i$ tiene una probabilidad $X$ de verse afectado en esa industria específica".
 
     3. **Análisis de Caminos (PIVI Methodology - $L=1$ a $L=5$)**: 
        - Esta es la innovación central (Metodología PIVI). El motor no se detiene en la **dependencia directa ($L=1$)**.
