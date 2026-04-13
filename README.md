@@ -104,8 +104,10 @@ graph TD
     G -->|Métricas| H[Cálculo de Nodos]:::proc
     H -->|Frecuencia + Fuerza| I(Scores de Intermediación<br/>Identidad de Hubs):::proc
     
-    G --> J[(Ficheros Intermedios<br/>CSV / Parquets)]:::out
-    I --> K[/\ Mapa Genético Completo<br/>all_results.pkl /\]:::out
+    G -->|Rutas Analizadas| K[/\ Mapa Genético Completo<br/>all_results.pkl /\]:::out
+    I -->|Métricas de Nodos| K
+    
+    K -.->|Extracción de DataFrames| J[(Extractos Individuales<br/>CSV / Parquets)]:::out
 ```
 
 #### **Nivel 2: El Arquitecto (Estructuración)**
