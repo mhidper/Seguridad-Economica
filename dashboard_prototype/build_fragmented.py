@@ -176,25 +176,30 @@ for year, year_data in all_years_data.items():
 print("[*] Generando history.json...")
 history = {}
 for year in available_years:
-    df_p = pd.read_parquet(HIST_PATH / f"profiles_{year}.parquet")
     df_e = pd.read_parquet(HIST_PATH / f"explorer_{year}.parquet").rename(columns={'importer':'country'})
-    # Intensity (Average) sectoral risks from explorer
     df_e['sector'] = df_e['industry'].apply(get_sector)
-    df_e['risk'] = df_e['dep_direct'] + df_e['dep_indirect']
-    # Use mean() to get intensity rather than sum
-    sector_risks = df_e.groupby(['country', 'sector'])['risk'].mean().unstack(fill_value=0)
     
-    for _, row in df_p.iterrows():
-        iso3 = row['country']
+    # Aggregate risks
+    total_risks = df_e.groupby('country')[['dep_direct', 'dep_indirect']].mean()
+    sector_risks = df_e.groupby(['country', 'sector'])[['dep_direct', 'dep_indirect']].mean().unstack(fill_value=0)
+    
+    for iso3 in df_e['country'].unique():
         if iso3 not in history: history[iso3] = []
-        r_m = float(sector_risks.loc[iso3, 'Manuf']) if iso3 in sector_risks.index and 'Manuf' in sector_risks.columns else 0
-        r_e = float(sector_risks.loc[iso3, 'MinEn']) if iso3 in sector_risks.index and 'MinEn' in sector_risks.columns else 0
-        r_a = float(sector_risks.loc[iso3, 'Agri']) if iso3 in sector_risks.index and 'Agri' in sector_risks.columns else 0
-        r_s = float(sector_risks.loc[iso3, 'Serv']) if iso3 in sector_risks.index and 'Serv' in sector_risks.columns else 0
         
+        t_d = float(total_risks.loc[iso3, 'dep_direct']) if iso3 in total_risks.index else 0
+        t_i = float(total_risks.loc[iso3, 'dep_indirect']) if iso3 in total_risks.index else 0
+        
+        def get_s(sec, field):
+            try: return float(sector_risks.loc[iso3, (field, sec)])
+            except: return 0
+
         history[iso3].append({
             'y': int(year),
-            'm': r_m, 'e': r_e, 'a': r_a, 's': r_s
+            't_d': t_d, 't_i': t_i,
+            'a_d': get_s('Agri', 'dep_direct'), 'a_i': get_s('Agri', 'dep_indirect'),
+            'e_d': get_s('MinEn', 'dep_direct'), 'e_i': get_s('MinEn', 'dep_indirect'),
+            'm_d': get_s('Manuf', 'dep_direct'), 'm_i': get_s('Manuf', 'dep_indirect'),
+            's_d': get_s('Serv', 'dep_direct'), 's_i': get_s('Serv', 'dep_indirect')
         })
 with open(DATA_DIST / 'history.json', 'w', encoding='utf-8') as f:
     json.dump(history, f, separators=(',', ':'))
