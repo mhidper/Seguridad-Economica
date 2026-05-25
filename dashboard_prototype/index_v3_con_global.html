@@ -438,7 +438,7 @@
                 if (!CACHE[year]) {
                     const res = await fetch(`data_dist/year_${year}.json`);
                     const raw = await res.json();
-                    CACHE[year] = { profiles: decompress(raw.profiles), dependencies: decompress(raw.dependencies), bilateral: decompress(raw.bilateral), explorer_indexed: raw.explorer_indexed };
+                    CACHE[year] = { profiles: decompress(raw.profiles), hubs: decompress(raw.hubs), hubs_sector: decompress(raw.hubs_sector), dependencies: decompress(raw.dependencies), bilateral: decompress(raw.bilateral), explorer_indexed: raw.explorer_indexed };
                 }
                 CURRENT_DATA = CACHE[year]; CURRENT_YEAR = year;
                 PROFILES_MAP = {}; CURRENT_DATA.profiles.forEach(p => PROFILES_MAP[p.country] = p);
@@ -1053,8 +1053,8 @@
         let GLOBAL_VIEW = { sector: '', metric: 'norm' };  // norm | log
 
         function openGlobalView() {
-            if (!HUBS_DATA) {
-                alert("Datos de Hubs Globales no disponibles. Comprueba que hubs_global.json está accesible.");
+            if (!CURRENT_DATA || !CURRENT_DATA.hubs) {
+                alert("Datos de Hubs Globales no disponibles en el año seleccionado.");
                 return;
             }
             renderGlobalView();
@@ -1073,7 +1073,33 @@
 
         function getHubData() {
             // Devuelve el mapa país → {hg, norm, log, n} según el sector seleccionado
-            return GLOBAL_VIEW.sector === '' ? HUBS_DATA.hg_total : (HUBS_DATA.hg_by_sector[GLOBAL_VIEW.sector] || {});
+            const map = {};
+            if (GLOBAL_VIEW.sector === '') {
+                if (CURRENT_DATA && CURRENT_DATA.hubs) {
+                    CURRENT_DATA.hubs.forEach(h => {
+                        map[h.country] = {
+                            hg: h.global_score,
+                            n: h.frequency_total,
+                            norm: h.global_score * 100,
+                            log: Math.log10(Math.max(h.global_score * 100, 0.01))
+                        };
+                    });
+                }
+            } else {
+                if (CURRENT_DATA && CURRENT_DATA.hubs_sector) {
+                    CURRENT_DATA.hubs_sector.forEach(h => {
+                        if (h.industry === GLOBAL_VIEW.sector) {
+                            map[h.country] = {
+                                hg: h.hub_score,
+                                n: h.frequency,
+                                norm: h.hub_score * 100,
+                                log: Math.log10(Math.max(h.hub_score * 100, 0.01))
+                            };
+                        }
+                    });
+                }
+            }
+            return map;
         }
 
         function renderGlobalView() {
@@ -1122,9 +1148,9 @@
                     </div>
                 </div>
 
-                <div class="demo-banner">
+                <div class="demo-banner" style="background:rgba(16,185,129,0.08); border-color:rgba(16,185,129,0.3); color:#10b981;">
                     <span style="font-size:1.2rem">ⓘ</span>
-                    <div><b>Vista DEMO · datos 2022 reales</b> · El HG se calcula sobre las 324.466 relaciones bilaterales del parquet ${HUBS_DATA.year}. La serie temporal usa valores sintéticos plausibles porque los parquets históricos aún no están ingestados.</div>
+                    <div><b>Datos Históricos Reales</b> · El Índice de Hub Global (HG) y las series temporales de evolución se calculan dinámicamente con los parquets históricos reales de cada año.</div>
                 </div>
 
                 <div class="selector-bar">
@@ -1133,7 +1159,7 @@
                             <label>Filtrar por sector</label>
                             <select onchange="setGlobalSector(this.value)">
                                 <option value="" ${GLOBAL_VIEW.sector===''?'selected':''}>Todos los sectores (HG total)</option>
-                                ${HUBS_DATA.sectors.map(s => `<option value="${s}" ${s===GLOBAL_VIEW.sector?'selected':''}>${s}</option>`).join('')}
+                                ${(META_DATA.industries || []).map(i => i.industry_name).map(s => `<option value="${s}" ${s===GLOBAL_VIEW.sector?'selected':''}>${s}</option>`).join('')}
                             </select>
                         </div>
                         <div>
@@ -1251,11 +1277,11 @@
 
         function renderHubsTimeSeries() {
             // Top 8 países por HG total
-            const top8 = HUBS_DATA.top_countries.slice(0, 8);
+            const top8 = META_DATA.hubs_top_countries || [];
             const palette = ['#bb2521', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#06b6d4', '#84cc16'];
             
             const traces = top8.map((iso, i) => {
-                const s = HUBS_DATA.series_demo[iso];
+                const s = META_DATA.hubs_series[iso];
                 if (!s) return null;
                 return {
                     name: getName(iso),

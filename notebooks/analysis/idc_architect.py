@@ -59,6 +59,43 @@ def process_year(year):
         hubs = hubs.sort_values("global_score", ascending=False)
         hubs["year"] = year
 
+    # 2b. Calcular HUBS POR SECTOR (Frecuencia y Fuerza por sector de manera desagregada)
+    print("[*] Calculando Hubs por Sector...")
+    hubs_sector_list = []
+    
+    for industry, data in all_results.items():
+        res = data.get('results', {})
+        freq_dict = res.get('intermediary_frequency', {})
+        strength_dict = res.get('intermediary_strength', {})
+        
+        all_countries = set(freq_dict.keys()) | set(strength_dict.keys())
+        for country in all_countries:
+            freq = freq_dict.get(country, 0)
+            strength = strength_dict.get(country, 0.0)
+            hubs_sector_list.append({
+                "year": year,
+                "country": country,
+                "industry": industry,
+                "frequency": freq,
+                "strength": strength
+            })
+            
+    df_hubs_sector = pd.DataFrame(hubs_sector_list)
+    
+    if not df_hubs_sector.empty:
+        # Calcular scores e indexar por industria
+        def norm_and_score(group):
+            max_f = group["frequency"].max()
+            max_s = group["strength"].max()
+            group["freq_norm"] = group["frequency"] / max_f if max_f > 0 else 0
+            group["strength_norm"] = group["strength"] / max_s if max_s > 0 else 0
+            group["hub_score"] = (0.4 * group["freq_norm"]) + (0.6 * group["strength_norm"])
+            group = group.sort_values("hub_score", ascending=False)
+            group["hub_rank"] = group["hub_score"].rank(ascending=False, method='min').astype(int)
+            return group
+            
+        df_hubs_sector = df_hubs_sector.groupby("industry", group_keys=False).apply(norm_and_score)
+
     # 3. Calcular RELACIONES CRTICAS (Con Redundancia Real)
     print("[*] Identificando Relaciones de Riesgo...")
     critical_links = []
@@ -254,6 +291,7 @@ def process_year(year):
 
     # 6. GUARDAR RESULTADOS OFICIALES
     hubs.to_parquet(output_dir / f"hubs_{year}.parquet", index=False)
+    df_hubs_sector.to_parquet(output_dir / f"hubs_sector_{year}.parquet", index=False)
     df_critical.to_parquet(output_dir / f"critical_{year}.parquet", index=False)
     profiles.to_parquet(output_dir / f"profiles_{year}.parquet", index=False)
     df_ind_deps.to_parquet(output_dir / f"dependencies_{year}.parquet", index=False)

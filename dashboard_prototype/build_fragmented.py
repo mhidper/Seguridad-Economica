@@ -45,11 +45,30 @@ def get_sector(instr):
 print("[*] Generando meta.json...")
 all_profiles = []
 all_critical = []
+hubs_all_years = []
 for year in available_years:
     df_p = pd.read_parquet(HIST_PATH / f"profiles_{year}.parquet")
     all_profiles.append(df_p[['country', 'year', 'vulnerability', 'importance', 'global_rank']])
     df_c = pd.read_parquet(HIST_PATH / f"critical_{year}.parquet")
     all_critical.append(df_c[df_c['dependencia_total'] >= 0.7][['year', 'dependencia_total']])
+    
+    # Hubs para evolución
+    df_h_y = pd.read_parquet(HIST_PATH / f"hubs_{year}.parquet")
+    df_h_y['year'] = year
+    hubs_all_years.append(df_h_y[['country', 'year', 'global_score']])
+
+df_h_evo = pd.concat(hubs_all_years)
+# Encontrar los top 8 países por su score en el último año
+top_countries = df_h_evo[df_h_evo['year'] == latest_year].sort_values('global_score', ascending=False)['country'].head(8).tolist()
+
+# Crear diccionario de series para los top países
+series_hubs = {}
+for country in top_countries:
+    df_c_h = df_h_evo[df_h_evo['country'] == country].sort_values('year')
+    series_hubs[country] = {
+        'years': df_c_h['year'].tolist(),
+        'values': (df_c_h['global_score'] * 100).round(2).tolist()
+    }
 
 ind_path = BASE_DIR.parent / 'data/processed/dependencias_consolidadas/industrias_id_nombre.parquet'
 meta = {
@@ -57,7 +76,9 @@ meta = {
     'available_years': available_years,
     'evolution': pd.concat(all_profiles).values.tolist(), 
     'evolution_cols': ['country', 'year', 'vulnerability', 'importance', 'global_rank'],
-    'critical_evolution': pd.concat(all_critical).groupby('year').size().reset_index(name='count').values.tolist()
+    'critical_evolution': pd.concat(all_critical).groupby('year').size().reset_index(name='count').values.tolist(),
+    'hubs_top_countries': top_countries,
+    'hubs_series': series_hubs
 }
 
 if ind_path.exists():
@@ -146,9 +167,15 @@ for year in available_years:
     df_b = pd.read_parquet(HIST_PATH / f"bilateral_{year}.parquet")
     df_b = df_b[df_b['criticidad'] > 0]
 
+    # Sector hubs (desagregado por industria)
+    df_hs = pd.read_parquet(HIST_PATH / f"hubs_sector_{year}.parquet")
+    # Nos quedamos con el Top 30 hubs por industria
+    df_hs = df_hs.sort_values("hub_score", ascending=False).groupby("industry").head(30)
+
     year_data = {
         'profiles': to_compact(df_p, p_cols),
         'hubs': to_compact(df_h, df_h.columns.tolist()),
+        'hubs_sector': to_compact(df_hs, df_hs.columns.tolist()),
         'sectoral_hubs': sec_hubs,
         'dependencies': to_compact(df_d, df_d.columns.tolist()),
         'bilateral': to_compact(df_b, df_b.columns.tolist())
