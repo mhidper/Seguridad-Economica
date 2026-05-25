@@ -200,6 +200,7 @@ classDiagram
     - `profiles_{año}.parquet`: Tarjeta de perfil por país. Incluye Vulnerabilidad general ponderada, cuota de riesgo indirecto y promedio de proveedores efectivos.
     - `explorer_{año}.parquet`: El núcleo exploratorio bilateral. Desglose detallado país-país-industria, incluyendo los HHI sectoriales y el nombre de la ruta principal de intermediación (`top_intermediary`).
     - `hubs_{año}.parquet`: Identidad métrica completa de los nodos sistémicos y ranking logístico.
+    - `hubs_sector_{año}.parquet`: Identidad métrica de los hubs (capacidad de intermediación) desagregada por industria/sector y año.
     - `bilateral_{año}.parquet`: Monitor de criticidad pura entre pares (exportador-importador-industria).
     - `dependencies_{año}.parquet`: Las 15 vulnerabilidades más altas (`Top 15`) de cada país. Útil para mapas de calor sectoriales rápidos.
     - `critical_{año}.parquet`: Tabla con el cálculo explícito del "Hidden Risk Factor" (porcentaje de riesgo que es invisible).
@@ -223,6 +224,7 @@ graph TD
     end
 
     C -.->|0.4F + 0.6S| G[(hubs.parquet)]:::out
+    C -.->|Desagregación| G2[(hubs_sector.parquet)]:::out
     E -.->|Filtro > 50% & Caminos < 3| H[(critical.parquet)]:::out
     D -.->|1 / HHI| I[(explorer.parquet)]:::out
     
@@ -272,6 +274,19 @@ classDiagram
         + float global_score
         + int global_rank
         + int year
+    }
+    
+    class Hubs_Sector {
+        <<hubs_sector.parquet>>
+        + int year
+        + string country
+        + string industry
+        + int frequency
+        + float strength
+        + float freq_norm
+        + float strength_norm
+        + float hub_score
+        + int hub_rank
     }
 
     class Critical {
@@ -362,6 +377,8 @@ classDiagram
         + list evolution_profiles
         + list critical_evolution
         + list industries_mapping
+        + list hubs_top_countries
+        + dict hubs_series
     }
 
     class History_JSON {
@@ -378,6 +395,7 @@ classDiagram
         <<year_XXXX.json>>
         + dict profiles_matrix
         + dict hubs_matrix
+        + dict hubs_sector
         + dict sectoral_hubs
         + dict dependencies_top15
         + dict bilateral_critical
