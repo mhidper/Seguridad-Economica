@@ -1,0 +1,273 @@
+% !TeX program = pdflatex
+% !BIB program = bibtex
+\PassOptionsToPackage{english}{babel}
+\documentclass[final,1p,times,authoryear]{elsarticle}
+\makeatletter
+\def\ps@pprintTitle{%
+  \let\@oddhead\@empty
+  \let\@evenhead\@empty
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+}
+\makeatother
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{newtxtext,newtxmath}
+\usepackage[english]{babel}
+\usepackage[babel=true]{csquotes}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage[unicode=true,pdfencoding=auto]{hyperref}
+
+\usepackage{threeparttable}
+\usepackage{tikz}
+\usepackage{array, longtable, tabularx}
+\usepackage{adjustbox}
+\usepackage{ltxtable}
+\usepackage{makecell}
+\usepackage{pdflscape}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage[expansion=false]{microtype}
+\usepackage{mathtools}
+\usepackage{bookmark}
+\usepackage[english]{cleveref}
+
+\allowdisplaybreaks
+\tolerance=1000
+\emergencystretch=10pt
+\hyphenpenalty=50
+\exhyphenpenalty=50
+
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{6pt}
+\setlength{\belowcaptionskip}{6pt}
+\setlength{\columnsep}{20pt}
+\setlength{\parskip}{6pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\providecommand{\X}{X}
+\providecommand{\T}{T}
+\providecommand{\DD}{\mathrm{DD}}
+\providecommand{\DI}{\mathrm{DI}}
+\providecommand{\DT}{\mathrm{DT}}
+\providecommand{\Lmax}{L_{\max}}
+\providecommand{\epsedge}{\epsilon_{\text{edge}}}
+\providecommand{\epscontrib}{\epsilon_{\text{contrib}}}
+
+\begin{document}
+
+\begin{frontmatter}
+\title{Methodology of Elcano's Index on Economic Dependence (EIED): Critical Networks, Indirect Dependencies, and Structural Power in Global Trade}
+
+\author[upo,elcano]{Manuel Hidalgo-Pérez\corref{cor1}}\ead{mhidalgo@rielcano.org}
+\cortext[cor1]{Corresponding author: Manuel Hidalgo-Pérez, mhidalgo@rielcano.org}
+
+\affiliation[upo]{
+  organization={Universidad Pablo de Olavide},
+  addressline={Ctra Utrera s/n},
+  postcode={41013},
+  city={Seville},
+  country={Spain}
+}
+
+\affiliation[elcano]{
+  organization={Real Instituto Elcano Foundation},
+  addressline={C. de Príncipe de Vergara, 51},
+  postcode={28006},
+  city={Madrid},
+  country={Spain}
+}
+
+\begin{abstract}
+The rising geopolitical fragmentation has transformed the international trade landscape, exposing previously underestimated economic vulnerabilities. This paper proposes a new economic security indicator that overcomes the limitations of traditional approaches by systematically capturing indirect trade dependencies transmitted through intermediary countries. By integrating Input-Output matrices, network theory, and shock propagation algorithms, our indicator quantifies both direct and indirect dependencies, revealing hidden vulnerabilities in global supply chains. The empirical analysis demonstrates that traditional approaches significantly underestimate the exposure to external disruptions in strategic sectors. These findings have important implications for strategic autonomy policies, suggesting that effective diversification must consider the entire structure of the global trade network rather than being limited to direct bilateral relations.
+\end{abstract}
+
+\begin{keyword}
+Economic security \sep Trade dependencies \sep Network theory \sep Strategic autonomy \sep Global value chains\\
+\textbf{JEL Codes:} F14, F15, F52, C67, D85
+\end{keyword}
+\end{frontmatter}
+
+\section{Introduction}
+
+In a context of growing geoecononomic fragmentation, systemic tensions between major powers, and frequent disruptions in global supply chains, the evaluation of national economic security requires more refined analytical tools. Existing literature has predominantly focused on aggregate bilateral trade metrics or direct dependency, failing to capture the structural interdependencies that emerge through global production networks and indirect trade.
+
+This paper addresses this gap by developing a Elcano's Index on Economic Dependence (EIED), designed to measure a country's exposure to exogenous disruptions by integrating direct and indirect dependencies, and considering the structural relevance of critical intermediaries.
+
+For the purposes of this research, we define economic security as "the capacity of a nation to maintain the integrity of its essential economic functions and its critical supply chains in the face of exogenous disruptions, whether they arise from natural disasters, technological failures, or deliberate actions of other actors."
+
+This definition distinguishes economic security from related concepts:
+\begin{itemize}
+    \item \textbf{Economic sovereignty:} Unlike sovereignty, which often implies autarky or minimal reliance on foreign inputs, economic security recognizes the reality and benefits of interdependence while focusing on managing critical vulnerabilities.
+    \item \textbf{Resilience:} While resilience refers to the capacity to recover from disruptions, economic security encompasses both the prevention of critical disruptions and the maintenance of functionality during them.
+    \item \textbf{Competitiveness:} In contrast with competitiveness, which focuses on relative advantage in global markets, economic security focuses on the stability and reliability of economic functions essential for national well-being.
+    \item \textbf{Traditional national security:} Unlike traditional conceptions of national security, which primarily address military threats, economic security recognizes that existential threats can arise from supply disruptions, technological dependency, or economic coercion.
+\end{itemize}
+
+Our Elcano's Index on Economic Dependence operationalizes this definition by measuring both direct and indirect vulnerabilities across all industries, with special attention to sectors where disruptions would have cascading effects throughout the economy. The index is designed to identify not only obvious dependencies in direct bilateral trade but also hidden vulnerabilities arising from a country's position within complex global supply networks.
+
+\section{Theoretical Foundations of the Elcano's Index on Economic Dependence}
+
+This work anchors its approach to measuring economic security in three complementary theoretical frameworks: the theory of complex interdependence, structural power in international political economy, and weaponized interdependence.
+
+\textbf{Complex Interdependence and Network Vulnerability}
+Drawing on the foundational work of \cite{keohane1977power} on complex interdependence, we conceptualize economic security not simply as the absence of bilateral dependencies, but as an emergent property of a country's position within multiple overlapping networks of exchange. As \cite{farrell2019weaponized} point out, "interdependence has created complex networks with particular topographies," where certain nodes become critical bottlenecks for global flows. Our EIED operationalizes this network-based understanding by explicitly modeling how disruptions propagate through multiple paths within the global trade system.
+
+\textbf{Structural Power in International Political Economy}
+The second theoretical pillar is Strange's \citeyear{strange1988states} concept of structural power, understood as "the power to shape and determine the global political economy structures [...] within which other states, their political institutions, their economic enterprises [...] have to operate." In Strange's framework, structural power operates through control over security, production, finance, and knowledge. Our index specifically operationalizes structural power in the production domain by quantifying how control over critical nodes in supply chains confers leverage that extends far beyond direct bilateral relations. By identifying indirect dependencies and critical intermediaries, we make visible what Strange described as the "indirect and unobservable exercise of power" in global economic relations.
+
+\textbf{Weaponized Interdependence}
+Finally, our work engages with Farrell and Newman's \citeyear{farrell2019weaponized} theory of "weaponized interdependence," which posits that "states with political authority over the nodes in international networked structures through which money, information, and goods travel are uniquely positioned to impose costs on others." This theory distinguishes between "panopticon effects" (the ability to monitor flows) and "choke-points" (the ability to restrict flows). Our EIED specifically measures vulnerability to the latter.
+
+\section{Motivation and Geoeconomic Context}
+
+Economic security has emerged as a global strategic priority in a context marked by successive systemic crises that have revealed critical vulnerabilities in international supply chains. Recent years have shown how excessive dependency on specific suppliers can undermine not only economic stability but also national security in a broader sense.
+
+The COVID-19 pandemic represented the first systemic shock that clearly exposed these fragilities. Disruptions in the production and distribution of essential goods demonstrated that geographic concentration of production capacities can lead to critical shortages with cascading effects across multiple economic sectors.
+
+The Russian invasion of Ukraine further intensified these concerns, revealing particularly acute vulnerabilities in the European energy and food sectors. Recently, trade barriers have been used as diplomatic tools, highlighting how national security concerns are increasingly intertwined with trade policy. A recent example is the announcement of reciprocal tariffs by the US administration on imports from the European Union and China, underlining the vulnerability of trade relations to non-economic considerations.
+
+In this context, access to critical raw materials, emerging technologies, and digital infrastructures has become central to strategic planning. Entities such as the European Union have developed "open strategic autonomy" strategies to balance the benefits of free trade with the need to secure access to essential resources.
+
+\section{Literature Review}
+
+\subsection{Evolution of Trade Dependency Measurement}
+The measurement of trade dependency has been a central concern in international economics since the mid-20th century. Early approaches focused primarily on bilateral relations and import concentration. However, as global production fragmented across borders, the insufficiency of these traditional measures became apparent. The integration of global value chains (GVCs) has fundamentally altered the nature of trade dependencies.
+
+\subsection{Methodological Approaches for Measuring Dependencies}
+\subsubsection{Concentration Indices and Bilateral Measures}
+One of the most widely used tools is the Herfindahl-Hirschman Index (HHI), which assesses the geographic concentration of imports. Institutions such as the European Commission have employed this index to identify strategic dependencies, establishing specific thresholds to signal risks to economic security. Nonetheless, these indices present limitations: they are static and fail to capture indirect dependencies arising through third countries.
+
+\subsubsection{Input-Output Analysis and Intersectoral Linkages}
+Input-Output (I-O) analysis, pioneered by \cite{Leontief1951}, provides a framework for understanding the network of intersectoral dependencies. The Leontief inverse matrix, $(I - A)^{-1}$, captures both the direct and indirect requirements of each sector to produce a unit of final demand. An important extension is the concept of "average propagation lengths" (APL) developed by \cite{Dietzenbacher2005}, which measures the economic distance between sectors through forward and backward linkages.
+
+\subsubsection{Network Analysis and Centrality Measures}
+Network analysis emerges as a complementary approach that models trade as a complex system of interconnected nodes (countries or sectors) and links (trade flows). Pioneers like \cite{Fagiolo2010} characterized the World Trade Network (WTN) documenting its structural properties. Centrality concepts such as betweenness allow the identification of nodes acting as structural "hubs" or critical bottlenecks.
+
+\subsubsection{Shock Propagation Models}
+Recent research focuses on the dynamic mechanisms through which economic shocks propagate. \cite{Acemoglu2012} and \cite{Carvalho2013} demonstrated that micro-level shocks to individual firms or sectors can have significant aggregate effects when production networks exhibit certain structural properties, such as a heavy-tailed degree distribution.
+
+\section{Development of the Proposed Indicator}
+
+\subsection{Conceptualization}
+The proposal of this work is a comprehensive indicator that combines matrix analysis, network theory, and propagation algorithms to identify and quantify hidden vulnerabilities.
+
+\subsubsection{Definition of Direct and Indirect Dependency}
+Trade dependency is defined as the exposure of a country to supply disruptions originating in another, considering all possible channels.
+\begin{enumerate}
+    \item \textbf{Direct Dependency ($\DD$):} Proportion of direct imports in a country's total supply.
+    \item \textbf{Indirect Dependency ($\DI$):} Proportion of supply attributable to an exporter through multi-step trade routes (intermediaries).
+\end{enumerate}
+
+\subsubsection{Advantages of the Proposed Indicator}
+Our approach stands out for three key advantages: (1) identification of hidden systemic vulnerabilities that bilateral indices do not detect, (2) quantitative assessment of resilience to disruptions by modeling alternative routes, and (3) prospective analysis of geoecononomic fragmentation scenarios.
+
+\begin{table}[!t]
+\caption{Comparison of Methods for Measuring Trade Dependency} \label{tab:comparacion-metodos}
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.1}
+\begin{adjustbox}{width=\textwidth,center}
+    \begin{tabular}{@{}l*{6}{c}@{}}
+        \toprule
+        \makecell[l]{\textbf{Feature}} & \textbf{HHI} & \makecell{\textbf{Imp.}\\\textbf{Conc.}} & \textbf{TiVA} & \makecell{\textbf{Trad.}\\\textbf{I-O}} & \makecell{\textbf{Net-}\\\textbf{works}} & \makecell{\textbf{Prop.}\\\textbf{Ind.}} \\
+        \midrule
+        Captures direct dep. & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+        Captures indirect dep. & \texttimes & \texttimes & Partial & Direct only & \checkmark & \textbf{Complete} \\
+        Normalisation (0-1) & \checkmark & \checkmark & \texttimes & \texttimes & \texttimes & \checkmark \\
+        Input-Output based & \texttimes & \texttimes & \checkmark & \checkmark & \texttimes & \checkmark \\
+        Network theory & \texttimes & \texttimes & \texttimes & \texttimes & \checkmark & \checkmark \\
+        Models shock propagation & \texttimes & \texttimes & \texttimes & Limited & Partial & \checkmark \\
+        Detects hidden vuln. & \texttimes & \texttimes & Partial & \texttimes & Partial & \checkmark \\
+        Resilience analysis & \texttimes & \texttimes & Limited & Limited & Partial & \checkmark \\
+        \bottomrule
+    \end{tabular}
+\end{adjustbox}
+\end{table}
+
+\subsection{Mathematical Formulation}
+The total dependency $\text{DT}_{ij}$ of an importer $j$ on an exporter $i$ is defined as the sum of direct and indirect dependency.
+We consider the normalized trade matrix $\mathbf{T}$, where each element $T_{ab} = x_{ab} / S_b$ represents the fraction of $b$'s supply that comes directly from $a$.
+The strength of a trade path $p = (i, k_1, \ldots, k_{\ell-1}, j)$ of length $\ell$ is calculated as the product of the dependencies along its edges:
+\begin{equation}
+F(p) = \prod_{(a,b) \in \text{edges}(p)} T_{ab} = T_{ik_1} \cdot T_{k_1k_2} \cdots T_{k_{\ell-1}j}
+\end{equation}
+
+The total dependency is the sum of the strengths of all economically significant paths from $i$ to $j$:
+\begin{equation}
+\text{DT}_{ij} = \sum_{\ell=1}^{L_{\max}} \sum_{p \in \mathcal{P}_{ij}^{\ell}} F(p)
+\end{equation}
+
+\subsection{Vulnerability Index and National Aggregation}
+To convert the network of trade dependencies into an operational measure of economic security, the model calculates the \textbf{Vulnerability Index} at the industry and country levels. This process consists of two phases:
+
+\begin{enumerate}
+    \item \textbf{Industrial Vulnerability:} For each industry-country pair, the total dependency obtained from the network analysis is weighted by two risk factors:
+    \begin{itemize}
+        \item \textbf{Strategic criticality of the product:} Measures the difficulty of local substitution or the essentiality of the input for the functioning of the economy.
+        \item \textbf{Geopolitical risk of the supplier:} Measured through the voting affinity index in the United Nations General Assembly (UNGA). Lower political affinity with the supplier increases the importer's vulnerability.
+    \end{itemize}
+    
+    \item \textbf{Aggregation and National Vulnerability:} A country's National Vulnerability Index is obtained as the weighted sum of sector-level vulnerabilities, using the economic weight (the total value of imports in dollars) of each industry on the national total as weights:
+    \begin{equation}
+    V_j = \sum_{s} w_{js} \cdot V_{js}
+    \end{equation}
+    where $V_{js}$ is the vulnerability of country $j$ in sector $s$, and $w_{js}$ is the share of sector $s$ in $j$'s input imports. The final index is normalized in a range from 0 to 1, where 1 represents the maximum relative systemic vulnerability.
+\end{enumerate}
+
+\subsection{Computational Implementation and Practical Considerations}
+The practical application to real data poses significant computational challenges due to the exponential growth of potential paths. Our implementation incorporates optimization strategies:
+\begin{itemize}
+    \item \textbf{Commercial relevance threshold ($\theta$):} Trade flows whose relative contributions are lower than a threshold $\theta$ are ignored, which drastically prunes the search tree.
+    \item \textbf{Convergence threshold ($\varepsilon$):} The computation of longer paths stops when their marginal contribution to the accumulated dependency is lower than $\varepsilon$.
+    \item \textbf{Maximum path length ($L_{\max}$):} In practice, values between 3 and 5 are used, since longer routes usually have negligible strengths.
+    \item \textbf{Use of sparse matrices:} Since most countries only trade with a subset of partners, the use of sparse data structures drastically optimizes memory usage and computation speed.
+\end{itemize}
+
+\section{Centrality Analysis and Global Hubs (Global Hub Score)}
+
+The identification of critical intermediaries is one of the major contributions of the EIED. Countries that act as "connectors" in trade networks can amplify crises.
+
+\subsection{Intermediation Metrics}
+For each country $k$, we define two metrics:
+\begin{itemize}
+    \item \textbf{Intermediation Frequency ($\phi_k$):} The number of significant trade routes in which country $k$ participates as an intermediary.
+    \item \textbf{Intermediation Strength ($\psi_k$):} Weighted sum of the strength of those routes, assigning greater importance to intermediaries closer to the final importer.
+\end{itemize}
+
+\subsection{Composite Centrality Index (GHS)}
+The \textit{Global Hub Score} ($C_k$) integrates both dimensions:
+\begin{equation}
+C_k = \alpha \cdot \frac{\phi_k}{\max \phi} + (1-\alpha) \cdot \frac{\psi_k}{\max \psi}
+\end{equation}
+Empirically, $\alpha = 0.4$ offers a robust balance, allowing countries to be classified according to their structural power as global "hubs" sustaining the world trade architecture.
+
+\section{Disruption Simulation and Resilience Analysis}
+
+To holistically assess vulnerability, we implement counterfactual scenario simulations. This involves the hypothetical removal of key nodes (such as the supply of a critical sector in a dominant country) to quantify the structural impact on the rest of the network. We measure:
+\begin{itemize}
+    \item \textbf{Connectivity impact:} Degree to which other countries become isolated or suffer critical supply shortages.
+    \item \textbf{Centrality reconfiguration:} How structural power shifts toward other nodes after a disruption.
+    \item \textbf{Hidden vulnerabilities:} Identification of dependencies that only manifest after the fall of a previous intermediary.
+\end{itemize}
+
+\section{Conclusions and Implications for Economic Policy}
+
+The main contribution of the Elcano's Index on Economic Dependence (EIED) is the exposure of "hidden" vulnerabilities. By decomposing dependency into its direct and indirect components, the design of balanced policy responses is facilitated.
+
+Direct dependencies can be mitigated through traditional diversification of immediate suppliers. However, indirect dependencies require an "open strategic autonomy" strategy that includes fostering domestic capacities in critical supply links and forming strategic alliances with partners presenting complementary dependency profiles.
+
+This indicator provides a solid quantitative basis for "structural surveillance", allowing systemic risks to be anticipated before they turn into open trade crises, and guiding the design of more resilient supply chains in an uncertain geopolitical environment.
+
+\bibliographystyle{apalike}
+\bibliography{references.bib}
+
+\end{document}
