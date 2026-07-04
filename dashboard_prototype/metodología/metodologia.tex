@@ -205,22 +205,21 @@ La dependencia total es la suma de las fuerzas de todos los caminos económicame
 \text{DT}_{ij} = \sum_{\ell=1}^{L_{\max}} \sum_{p \in \mathcal{P}_{ij}^{\ell}} F(p)
 \end{equation}
 
-\subsection{Índice de Vulnerabilidad y Agregación Nacional}
-Para convertir la red de dependencias comerciales en una medida operativa de seguridad económica, el modelo calcula el \textbf{Índice de Vulnerabilidad} a nivel de industria y de país. Este proceso consta de dos fases:
+\subsection{Métricas Operativas del Dashboard: Índice de Dependencia e Índice de Vulnerabilidad}
+
+Para alinear el análisis académico con la visualización práctica del portal web de la iniciativa, definimos dos métricas operativas clave en la interfaz de usuario:
 
 \begin{enumerate}
-    \item \textbf{Vulnerabilidad Industrial:} Para cada binomio industria-país, se pondera la dependencia total obtenida en el análisis de redes por dos factores de riesgo:
-    \begin{itemize}
-        \item \textbf{Criticidad estratégica del producto:} Mide la dificultad de sustitución local o la esencialidad del insumo para el funcionamiento de la economía.
-        \item \textbf{Riesgo geopolítico del proveedor:} Medido a través del índice de afinidad en votaciones de la Asamblea General de las Naciones Unidas (ONU). Una menor afinidad política con el proveedor incrementa la vulnerabilidad del importador.
-    \end{itemize}
+    \item \textbf{Índice de Dependencia (ID):} Este indicador mide la concentración de las importaciones directas de un país en sus socios comerciales. Para facilitar la comprensión del lector general en el portal web (evitando tecnicismos complejos como HHI o "proveedores efectivos"), se construye combinando un \textit{Índice de Herfindahl-Hirschman (HHI) normalizado} con la \textit{cuota de mercado del primer proveedor}. Este índice establece la base de concentración comercial aduanera.
     
-    \item \textbf{Agregación y Vulnerabilidad Nacional:} El Índice de Vulnerabilidad Nacional de un país se obtiene como la suma de las vulnerabilidades sectoriales, ponderada por el peso económico (el valor total de las importaciones en dólares) de cada industria sobre el total nacional:
-    \begin{equation}
-    V_j = \sum_{s} w_{js} \cdot V_{js}
-    \end{equation}
-    donde $V_{js}$ es la vulnerabilidad del país $j$ en el sector $s$, y $w_{js}$ es la participación del sector $s$ en las importaciones de insumos de $j$. El índice final se normaliza en un rango de 0 a 1, donde 1 representa la máxima vulnerabilidad sistémica relativa.
+    \item \textbf{Índice de Vulnerabilidad (IV):} Para convertir la concentración aduanera directa en una medida de exposición sistémica real, se calcula el \textbf{Índice de Vulnerabilidad}. A nivel sectorial, este coincide con la \textbf{Dependencia Total} ($\text{DT}_{js}$) obtenida mediante el algoritmo de redes (que ya integra de forma natural los caminos directos e indirectos). 
 \end{enumerate}
+
+La \textbf{Vulnerabilidad Nacional} agregada ($V_j$) ---que constituye el valor oficial del \textbf{Índice de Dependencia Económica Elcano (IDEE)} a nivel de país--- se obtiene promediando las dependencias totales sectoriales, ponderadas por el peso económico (el valor de las importaciones en dólares) de cada industria sobre el total nacional:
+\begin{equation}
+V_j = \sum_{s} w_{js} \cdot \text{DT}_{js}
+\end{equation}
+donde $\text{DT}_{js}$ es la dependencia total del país $j$ en el sector $s$, y $w_{js}$ es la participación del sector $s$ en las importaciones totales de $j$. El índice final se normaliza en un rango de 0 a 100 en la interfaz del portal.
 
 \subsection{Implementación Computacional y Consideraciones Prácticas}
 
@@ -232,9 +231,9 @@ La aplicación práctica a datos reales plantea desafíos computacionales signif
     \item \textbf{Uso de matrices dispersas:} Dado que la mayoría de los países solo comercian con un subconjunto de socios, el uso de estructuras de datos dispersas optimiza drásticamente el uso de memoria y la velocidad de cálculo.
 \end{itemize}
 
-\section{Análisis de Centralidad y Hubs Globales (Global Hub Score)}
+\section{Análisis de Centralidad: Índice de Hub Global (HG) / Global Hub Score (GHS)}
 
-La identificación de intermediarios críticos es una de las mayores contribuciones del IDEE. Los países que actúan como "conectores" en las redes comerciales pueden amplificar las crisis.
+La identificación de intermediarios críticos es una de las mayores contribuciones del IDEE. Los países que actúan como "conectores" en las redes comerciales pueden amplificar las crisis. Este indicador de centralidad estructural se denomina indistintamente \textbf{Índice de Hub Global (HG)} en la versión en español del portal web o \textbf{Global Hub Score (GHS)} en su versión en inglés.
 
 \subsection{Métricas de Intermediación}
 Para cada país $k$, definimos dos métricas:

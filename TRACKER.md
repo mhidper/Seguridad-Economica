@@ -1,4 +1,4 @@
-# 📋 TRACKER — Proyecto IDC (Índice de Dependencia Comercial)
+# 📋 TRACKER — Proyecto IDEE (Índice de Dependencia Económica Elcano)
 > Última actualización: 2026-02-26 (V2.1 - Radar de Riesgo Oculto e Indexación O(1))
 
 ## 🎯 Objetivo
@@ -20,7 +20,7 @@ Cada fichero tiene un **estado** y una **acción pendiente**.
 **Salida en:** `data/processed/historico/`
 | Fichero | Contenido | Estado |
 |---------|-----------|--------|
-| `profiles_{año}.parquet` | Vulnerabilidad, importancia y métricas por país (IDC) | ✅ 2016-2022 OK |
+| `profiles_{año}.parquet` | Vulnerabilidad, importancia y métricas por país (IDEE) | ✅ 2016-2022 OK |
 | `hubs_{año}.parquet` | Ranking y métricas de intermediación comercial global | ✅ 2016-2022 OK |
 | `critical_{año}.parquet` | Relaciones de alto riesgo (Global) | ✅ 2016-2022 OK |
 | `dependencies_{año}.parquet` | Perfil de importación sectorial (para Treemaps) | ✅ 2016-2022 OK |

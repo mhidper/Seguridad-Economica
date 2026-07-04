@@ -1,29 +1,55 @@
-# 📊 IDC — indicador de dependencia comercial
+# 📊 IDEE — Índice de Dependencia Económica Elcano
 **Real Instituto Elcano**  
 > Última actualización: 03/03/2026 — *Versión Multi-año Unificada (V2.1 - Radar de Riesgo Oculto)*
 
-Análisis de dependencias económicas en cadenas de suministro globales. El **IDC** cuantifica la vulnerabilidad de las economías midiendo dependencias directas e indirectas en el comercio bilateral por industria, en un contexto de fragmentación geoeconómica.
+Análisis de dependencias económicas en cadenas de suministro globales. El **IDEE** cuantifica la vulnerabilidad de las economías midiendo dependencias directas e indirectas en el comercio bilateral por industria, en un contexto de fragmentación geoeconómica.
 
 ---
 
-## 🧠 Metodología del indicador de dependencia comercial (IDC)
+## 🧠 Metodología del Índice de Dependencia Económica Elcano (IDEE)
 
-El **indicador de dependencia comercial (IDC)** es una métrica avanzada diseñada por el **Real Instituto Elcano** para identificar y cuantificar la vulnerabilidad de las naciones ante interrupciones en las cadenas globales de suministro. Supera la medición tradicional de "volumen de comercio" al enfocarse en la **estructura de dependencia** y la **capacidad de sustitución**.
+El **Índice de Dependencia Económica Elcano (IDEE)** es una métrica avanzada diseñada por el **Real Instituto Elcano** para evaluar la posición de fortaleza o vulnerabilidad de un país en el contexto del comercio internacional de una mercancía, bien o servicio específico a nivel internacional.
+
+En un mercado global interconectado, las adquisiciones de un país consumidor final de un bien no implican que este dependa de todos los países, pero sí de un entramado de relaciones de intermediación comercial. Aunque un importador no adquiera un bien directamente de un determinado productor, está insertado en una red sectorial de reexportación. Por tanto, una disrupción en cualquier eslabón de este entramado comercial puede llegar a afectarle no solo de forma directa, sino también indirecta. El IDEE supera la miopía de las estadísticas bilaterales tradicionales, cuantificando cómo el riesgo se propaga a través de la red de suministro de cada sector.
+
+### 🔍 Guía Conceptual y Justificación Metodológica: ¿Por qué el índice puede superar 1?
+
+Para un economista formado pero no especialista en teoría de redes, que el indicador de Dependencia Total ($DT$) supere el valor de 1 (100%) puede parecer contraintuitivo a primera vista. Sin embargo, no se trata de un error ni de un problema de doble conteo, sino de una propiedad matemática y económica esencial estructurada en cinco argumentos:
+
+1. **El supuesto de proporcionalidad (mixing)**: El modelo asume que las exportaciones de un país intermediario (por ejemplo, Países Bajos) se extraen proporcionalmente de su volumen de suministro disponible (producción propia + importaciones de todos sus orígenes). Bajo este supuesto (que es un estándar de la OCDE y la OMC en sus bases de datos de valor añadido TiVA), el producto de dependencias en cadena $T_{ik} \cdot T_{kj}$ no es una conjetura, sino la **fracción esperada del suministro de $j$ procedente del intermediario $k$ que se origina en última instancia en $i$**.
+2. **Atenuación automática por producción interna**: El denominador de la matriz de transición, $S_b = \text{importaciones} + \text{producción doméstica}$, corrige cualquier riesgo de sobribución. Si el país intermediario tiene una gran producción propia, su coeficiente de dependencia respecto a los insumos externos se reduce drásticamente, amortiguando los caminos indirectos.
+   * *Ejemplo:* En la ruta **Vietnam $\xrightarrow{\text{flores}}$ Países Bajos $\xrightarrow{\text{flores}}$ España**, si España compra el 50% de sus flores a Países Bajos, pero Países Bajos solo importa el 10% de su suministro de flores desde Vietnam (porque el 90% restante es producción local neerlandesa o de otros socios), la dependencia indirecta de España respecto a Vietnam a través de esta ruta es de solo $0.5 \times 0.1 = 0.05$ (un 5%).
+3. **La analogía con la Inversa de Leontief**: La suma de todas las fuerzas de caminos de todas las longitudes es formalmente equivalente al desarrollo de la serie de Neumann $\sum_{\ell=1}^{\infty} \mathbf{T}^{\ell} = (\mathbf{I} - \mathbf{T})^{-1} - \mathbf{I}$, que es el análogo exacto intra-sectorial (a nivel de países) de la clásica inversa de Leontief. El IDEE es una versión **truncada en $L_{\max}$** de esta serie (típicamente 3 o 5 pasos). Como cada país con producción nacional positiva tiene una suma de columnas en $\mathbf{T}$ estrictamente menor que 1, la producción local actúa como una "fuga" o sumidero de riesgo, garantizando la convergencia del índice.
+   * *Nota al pie matemática:* En los casos excepcionales donde un país registre una producción doméstica nula ($Y_b = 0$) en un determinado sector, la columna de la matriz sumará exactamente 1. Esto ralentiza la velocidad de convergencia local de la serie, pero la red global converge gracias al resto de países con producción positiva.
+4. **$DT > 1$ es información de redundancia y vulnerabilidad**: El IDEE no es una cuota de mercado ni una probabilidad, sino una **métrica de exposición**. Si existen múltiples rutas paralelas e independientes que conducen al mismo origen, tu vulnerabilidad ante una disrupción en ese origen es sumamente alta porque todas las rutas colapsarán a la vez.
+   * *Ejemplo:* Si importas el mismo producto de tres intermediarios distintos (Alemania, Francia e Italia), un índice clásico de concentración como el HHI te diría que estás muy diversificado y seguro. Sin embargo, si los tres intermediarios dependen en un 90% de China, el IDEE sumará la exposición de los tres caminos hacia China, arrojando un índice acumulativo muy superior a 1. Esto desvela que tu diversificación directa es una ilusión.
+5. **Variante normalizada como control de robustez**: Para comparaciones estadísticas donde se requiera que las dependencias sumen exactamente 1 (100%) por importador-sector, se puede utilizar la variante normalizada $DT_{ij} / \sum_k DT_{kj}$. No obstante, el IDEE mantiene la versión acumulativa sin normalizar como métrica principal porque es la única que preserva la información real de redundancia y cuellos de botella.
+
+---
+
+### 📦 Recuadro didáctico: Qué mide y qué no mide el IDEE (Para economistas con prisa)
+
+* **Red comercial, no trazabilidad física**: El IDEE mide la vulnerabilidad a través de flujos comerciales sectoriales brutos. No rastrea físicamente si una flor concreta proviene de Vietnam, sino la dependencia financiera y de suministro: si el intermediario (Países Bajos) sufre un corte de su proveedor, su capacidad de suministrarnos a nosotros en el mismo sector se reducirá proporcionalmente.
+* **El supuesto de proporcionalidad (mixing)**: Asume que las exportaciones de un país combinan proporcionalmente lo que produce internamente y lo que importa en ese sector específico ($T_{ab} = x_{ab} / S_b$).
+* **Lectura de valores superiores a 1**: Indica que la exposición real del país está multiplicada por la existencia de varias rutas de intermediación que dependen del mismo origen común. Indica concentración de riesgo en el entramado global.
+* **Diferencia con el HHI**: El **HHI** mide la concentración de proveedores directos en aduana, asumiendo ciegamente que comprar a tres países diferentes es diversificar, sin ver si todos ellos le compran al mismo origen. El IDEE desvela esta ilusión.
+* **Diferencia con TiVA**: El indicador **TiVA** de la OCDE mide el valor añadido neto contenido en el comercio cruzando múltiples sectores, mientras que el **IDEE** mide la vulnerabilidad bruta de suministro y reexportación dentro del mismo sector.
+
 
 ### 1. El Concepto de Dependencia Multi-nivel
 
 El factor diferencial de este proyecto es la distinción entre dos tipos de riesgos:
 
 *   **Dependencia Directa:** Es el riesgo inmediato visible en las aduanas. Si el país A importa el 80% de sus semiconductores del país B, el país A tiene una alta dependencia directa de B.
-*   **Dependencia Indirecta (Riesgo Oculto):** El modelo aplica algoritmos de análisis de grafos para rastrear toda la cadena de valor. Si el país B (proveedor directo) depende a su vez del país C para fabricar el semiconductor, el país A tiene una dependencia indirecta de C. El modelo detecta estos cuellos de botella geocéntricos que a menudo pasan desapercibidos en las estadísticas nacionales.
+*   **Dependencia Indirecta (Riesgo Oculto):** El modelo aplica algoritmos de análisis de grafos para rastrear toda la cadena de suministro sectorial. Si el país B (proveedor directo) depende a su vez del país C para el suministro de ese mismo bien (reexportación o intermediación comercial), el país A tiene una dependencia indirecta de C. El modelo detecta estos cuellos de botella geocéntricos que a menudo pasan desapercibidos en las estadísticas nacionales.
 
-### 2. Cómo se calcula el IDC
+### 2. Cómo se calcula el IDEE
 
 El índice se construye siguiendo un proceso de tres etapas:
 
 1.  **Cálculo de la Vulnerabilidad Industrial:** Para cada binomio industria-país, se calcula el peso de las importaciones sobre la producción total y se ajusta según la elasticidad de sustitución (cuán difícil es reemplazar ese insumo localmente o con otros proveedores).
 2.  **Identificación de Hubs y Rutas:** Se utiliza el cálculo de centralidad de red para determinar qué países intermedian en más rutas críticas de suministro. Aquellos con un *Hub Score* elevado son puntos de control sistémico.
-3.  **Agregación Nacional:** El IDC final de un país es la suma ponderada de las vulnerabilidades de todas sus industrias críticas, normalizada en un rango de 0 a 1 (donde 1 representa la máxima vulnerabilidad sistémica).
+3.  **Agregación Nacional:** El IDEE final de un país es la suma ponderada de las vulnerabilidades de todas sus industrias críticas, normalizada en un rango de 0 a 1 (donde 1 representa la máxima vulnerabilidad sistémica).
 
 ### 3. Jerarquía de Procesos y Flujo de Datos
 
@@ -41,6 +67,10 @@ graph TD
     style D fill:#f8f9fa,stroke:#1f3b64,stroke-width:2px,color:#000
 ```
 
+> [!NOTE]
+> **Paso 0: Preparación de Datos (Herramienta Auxiliar no Web)**
+> El script `notebooks/00_data_processing.ipynb` **no forma parte de este pipeline de producción**. Es una herramienta auxiliar para Data Science e investigación que consolida los archivos `.csv.gz` brutos (2001-2022) en un único archivo global `dependencies_full.parquet`. Su propósito es facilitar el análisis exploratorio ad-hoc y reducir drásticamente el peso en RAM al realizar consultas con Pandas.
+
 #### **Nivel 1: El Cerebro (Motor de Cálculo)**
 *   **Script:** `notebooks/analysis/00_dependency.ipynb`
 *   **Acción:** Abrir el Notebook y ejecutar todas las celdas. **Importante:** Cambiar la variable `anio` en la celda de configuración (celda 3) para procesar el año deseado (ej: 2015).
@@ -56,12 +86,13 @@ graph TD
        - Se construye una matriz $T$ para cada industria donde cada celda $T[j,i]$ representa la cuota de mercado del **territorio económico** proveedor $j$ sobre el consumo total del importador $i$.
        - Esta normalización permite tratar la red global como un grafo de propagación de riesgos: "Si el territorio $j$ sufre una disrupción, el territorio $i$ tiene una probabilidad $X$ de verse afectado en esa industria específica".
 
-    3. **Análisis de Caminos (PIVI Methodology - $L=1$ a $L=3/5$)**: 
+    3. **Análisis de Caminos (PIVI Methodology - $L=1$ a $L=3/5$)**:
+       *Nota conceptual fundamental:* El análisis es de carácter estrictamente intra-sectorial (propagación comercial de un mismo producto o grupo de productos a través de países comercializadores o refinadores del mismo sector). No debe confundirse con cadenas de valor intersectoriales (Input-Output). Como el modelo suma la intensidad de múltiples caminos independientes de intermediación paralelos de un mismo producto, la Dependencia Total acumulada (el PIVI Score o IDEE) puede ser superior a 1 (100%). 
        - Esta es la innovación central (Metodología PIVI). El motor no se detiene en la **dependencia directa ($L=1$)**.
        - Mediante **algoritmos de exploración y enumeración de rutas**, calcula las dependencias indirectas:
-         - **L=2**: Riesgos vía un intermediario (A depende de B porque B usa componentes de C).
+         - **L=2**: Riesgos vía un intermediario (A depende de B porque B reexporta o comercializa productos de C dentro del mismo sector).
          - **L=3 (Estándar)**: Captura la gran mayoría de las dependencias indirectas sistémicas.
-         - **L=4 a L=5 (Opcional)**: Rastro profundo reservado para industrias con cadenas de valor hiper-fragmentadas.
+         - **L=4 a L=5 (Opcional)**: Rastro profundo reservado para industrias con cadenas de suministro sectoriales hiper-fragmentadas.
        - El sistema aplica una **poda por umbral (threshold pruning)** durante la exploración para descartar millones de rutas insignificantes y concentrarse únicamente en los cuellos de botella reales.
 
     4. **Scores de Intermediación (Identificación de Países Pivote)**: 
