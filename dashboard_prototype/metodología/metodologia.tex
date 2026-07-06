@@ -205,12 +205,12 @@ La dependencia total es la suma de las fuerzas de todos los caminos económicame
 \text{DT}_{ij} = \sum_{\ell=1}^{L_{\max}} \sum_{p \in \mathcal{P}_{ij}^{\ell}} F(p)
 \end{equation}
 
-\subsection{Métricas Operativas del Dashboard: Índice de Dependencia e Índice de Vulnerabilidad}
+\subsection{Métricas Operativas del Dashboard: Índice de Concentración e Índice de Vulnerabilidad}
 
 Para alinear el análisis académico con la visualización práctica del portal web de la iniciativa, definimos dos métricas operativas clave en la interfaz de usuario:
 
 \begin{enumerate}
-    \item \textbf{Índice de Dependencia (ID):} Este indicador mide la concentración de las importaciones directas de un país en sus socios comerciales. Para facilitar la comprensión del lector general en el portal web (evitando tecnicismos complejos como HHI o "proveedores efectivos"), se construye combinando un \textit{Índice de Herfindahl-Hirschman (HHI) normalizado} con la \textit{cuota de mercado del primer proveedor}. Este índice establece la base de concentración comercial aduanera.
+    \item \textbf{Índice de Concentración (IC):} Este indicador mide la concentración de las importaciones directas de un país en sus socios comerciales. Para facilitar la comprensión del lector general en el portal web (evitando el uso del término genérico "dependencia", que el modelo reserva para el IDEE, y tecnicismos complejos como "proveedores efectivos"), se construye combinando un \textit{Índice de Herfindahl-Hirschman (HHI) normalizado} con la \textit{cuota de mercado del primer proveedor}. Este índice establece la base de concentración comercial aduanera.
     
     \item \textbf{Índice de Vulnerabilidad (IV):} Para convertir la concentración aduanera directa en una medida de exposición sistémica real, se calcula el \textbf{Índice de Vulnerabilidad}. A nivel sectorial, este coincide con la \textbf{Dependencia Total} ($\text{DT}_{js}$) obtenida mediante el algoritmo de redes (que ya integra de forma natural los caminos directos e indirectos). 
 \end{enumerate}

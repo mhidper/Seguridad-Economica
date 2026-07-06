@@ -305,7 +305,7 @@ def process_year(year):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        years = [int(y) for y in sys.argv[1:]]
+        years = [y for y in sys.argv[1:]]
     else:
         # Por defecto, si no hay argumentos, buscar lo que haya
         print("Uso: python idc_architect.py 2022 2021...")
