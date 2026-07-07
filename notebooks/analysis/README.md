@@ -24,7 +24,7 @@ El IDEE es una **métrica de exposición**, no una probabilidad o cuota. Cuando 
 *   **`idc_architect.py`**: Es el componente de **Ingeniería y Destilación**.
     *   Actúa tomando los archivos pesados `.pkl` generados por el Motor.
     *   Agrega los resultados para calcular el IDEE a nivel nacional, los índices de concentración (HHI) y el desglose del Riesgo Oculto.
-    *   **Salida**: Genera bases de datos estructuradas ultraligeras (`profiles_{año}.parquet`, `explorer_{año}.parquet`, `hubs_{año}.parquet`, etc.) que se envían a `data/processed/historico/` para alimentar la web.
+    *   **Salida**: Genera bases de datos estructuradas ultraligeras (`profiles_{año}.parquet`, `explorer_{año}.parquet` (que incluye los ponderadores en dólares brutos `trade_value` y `trade_weight`), `hubs_{año}.parquet`, etc.) que se envían a `data/processed/historico/` para alimentar la web.
 
 ## 🛠️ Herramientas Auxiliares e Histórico
 

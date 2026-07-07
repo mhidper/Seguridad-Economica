@@ -211,7 +211,9 @@ def process_year(year):
                     "top_intermediary": top_path,
                     "path_strength": round(path_strength, 4),
                     "hhi_sector": round(hhi, 4),
-                    "eff_suppliers_sector": round(eff_suppliers, 2)
+                    "eff_suppliers_sector": round(eff_suppliers, 2),
+                    "trade_value": round(dep.get('trade_value', 0), 2),
+                    "trade_weight": round(dep.get('trade_value', 0), 2)
                 })
     
     df_explorer = pd.DataFrame(industry_explorer)

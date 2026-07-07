@@ -42,6 +42,7 @@ Es el fichero más granular y extenso. Contiene la radiografía profunda de la d
 *   **`top_intermediary`**: Cadena de texto con los países puente del camino más crítico (ej: "CHN  DEU").
 *   **`path_strength`**: Severidad de ese camino principal.
 *   **`hhi_sector` / `eff_suppliers_sector`**: Concentración de mercado en ese sector concreto.
+*   **`trade_value` / `trade_weight`**: Volumen económico en dólares de la ruta comercial (utilizados como masa bruta para poder calcular agregaciones ponderadas en el front-end).
 
 ### 5. `critical_{año}.parquet` (Relaciones Críticas y Riesgo Oculto)
 Filtra y almacena solo aquellos vínculos comerciales con muy alta dependencia ($DT \ge 0.5$). Se usa para levantar banderas de alerta sobre escasez de alternativas.
