@@ -1,13 +1,14 @@
 import pickle
+import gzip
 from pathlib import Path
 
 def analyze_esp_2022():
-    pkl_path = Path("../../data/processed/dependencias_consolidadas/all_results_2022.pkl")
+    pkl_path = Path("../../data/processed/dependencias_consolidadas/all_results_2022.pkl.gz")
     if not pkl_path.exists():
         print(f"File not found: {pkl_path}")
         return
 
-    with open(pkl_path, "rb") as f:
+    with gzip.open(pkl_path, "rb") as f:
         data = pickle.load(f)
 
     results = []

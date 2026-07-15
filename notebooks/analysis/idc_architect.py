@@ -17,16 +17,17 @@ def process_year(year):
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # 1. Cargar el PKL oficial del motor
-    pkl_path = processed_dir / f"all_results_{year}.pkl"
+    import gzip
+    pkl_path = processed_dir / f"all_results_{year}.pkl.gz"
     if not pkl_path.exists():
         # Fallback por si acaso
-        pkl_path = processed_dir / "all_results.pkl"
+        pkl_path = processed_dir / "all_results.pkl.gz"
         if not pkl_path.exists():
             print(f" Error: No se encuentra el archivo de resultados para {year}")
             return False
             
     print(f"[*] Cargando {pkl_path}...")
-    with open(pkl_path, "rb") as f:
+    with gzip.open(pkl_path, "rb") as f:
         all_results = pickle.load(f)
     print(f" Cargadas {len(all_results)} industrias")
 
