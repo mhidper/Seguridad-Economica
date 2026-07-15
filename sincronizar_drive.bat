@@ -5,12 +5,12 @@ echo   INICIANDO COPIA DE SEGURIDAD A GOOGLE DRIVE
 echo ========================================================
 echo.
 echo Origen: %CD%
-echo Destino: G:\Mi unidad\Proyectos\Seguridad Economica
+echo Destino: G:\Mi unidad\Proyectos\Seguridad Económica
 echo.
 echo Sincronizando archivos (excluyendo .git y .venv)...
 echo.
 
-robocopy "%CD%" "G:\Mi unidad\Proyectos\Seguridad Economica" /MIR /XD .git .venv /R:3 /W:5 /NDL /NP
+robocopy "%CD%" "G:\Mi unidad\Proyectos\Seguridad Económica" /MIR /XD .git .venv /R:3 /W:5 /NDL /NP
 
 echo.
 echo ========================================================
