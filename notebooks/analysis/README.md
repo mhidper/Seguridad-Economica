@@ -18,7 +18,7 @@ El IDEE es una **métrica de exposición**, no una probabilidad o cuota. Cuando 
     *   Procesa los datos estandarizados.
     *   Aplica la metodología PIVI (análisis de caminos en grafos) para rastrear dependencias directas e indirectas por industria a lo largo de las cadenas de valor globales.
     *   Calcula las métricas de frecuencia y fuerza de intermediación.
-    *   **Salida**: Diccionarios completos de red guardados en archivos masivos `all_results_{año}.pkl`.
+    *   **Salida**: Diccionarios completos de red guardados en archivos masivos con compresión nativa `all_results_{año}.pkl.gz`.
 
 ### 2. El Arquitecto de Datos
 *   **`idc_architect.py`**: Es el componente de **Ingeniería y Destilación**.
@@ -29,5 +29,4 @@ El IDEE es una **métrica de exposición**, no una probabilidad o cuota. Cuando 
 ## 🛠️ Herramientas Auxiliares e Histórico
 
 *   **`inspect_esp_2022.py`**: *Script* auxiliar de inspección rápida de datos. Permite extraer y validar información crítica específica sobre España en el año 2022 directamente desde consola, sirviendo como testeo de calidad (QA) del *output* del modelo.
-*   **`_archive/`**: Carpeta de archivo. Contiene iteraciones antiguas de código y *scripts* deprecados correspondientes a versiones anteriores del algoritmo (útil para auditoría).
 *   **`research_archives/`**: Copias de seguridad de pruebas analíticas y exploraciones matemáticas que guiaron el desarrollo actual del índice. Se conservan como memoria metodológica.

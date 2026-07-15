@@ -109,7 +109,7 @@ graph TD
     - `country_profiles_{año}.parquet`: Desglose de dependencia total vs. directa a nivel país-industria (antes de normalizaciones).
     - `relaciones_criticas_{año}.parquet`: Subconjunto filtrado de relaciones de alto riesgo con métricas de escasez de caminos alternativos.
     - `caminos_significativos_{año}.parquet`: El "esqueleto" de la red de comercio internacional; catálogo de los flujos de mayor impacto.
-    - `all_results_{año}.pkl`: El **mapa genético completo** (~1.4GB). Diccionario Python que contiene matrices de adyacencia, colecciones de caminos y cálculos intermedios. Es el objeto de datos definitivo del proyecto.
+    - `all_results_{año}.pkl.gz`: El **mapa genético completo** (~200MB comprimido nativamente). Diccionario Python que contiene matrices de adyacencia, colecciones de caminos y cálculos intermedios. Es el objeto de datos definitivo del proyecto.
 
 **Flujo de Datos (Nivel 1):**
 ```mermaid
@@ -135,7 +135,7 @@ graph TD
     G -->|Métricas| H[Cálculo de Nodos]:::proc
     H -->|Frecuencia + Fuerza| I(Scores de Intermediación<br/>Identidad de Hubs):::proc
     
-    G -->|Rutas Analizadas| K[/\ Mapa Genético Completo<br/>all_results.pkl /\]:::out
+    G -->|Rutas Analizadas| K[/\ Mapa Genético Completo<br/>all_results.pkl.gz /\]:::out
     I -->|Métricas de Nodos| K
     
     K -.->|Extracción de DataFrames| J[(Extractos Individuales<br/>CSV / Parquets)]:::out
@@ -244,7 +244,7 @@ graph TD
     classDef func fill:#ccffcc,stroke:#333,stroke-width:1px,color:#000
     classDef out fill:#ffb3ba,stroke:#333,stroke-width:1px,color:#000
 
-    A[/\ all_results.pkl /\]:::in --> B{El Arquitecto<br/>Ingeniería de Datos}:::proc
+    A[/\ all_results.pkl.gz /\]:::in --> B{El Arquitecto<br/>Ingeniería de Datos}:::proc
     
     subgraph Procesamiento y Refinamiento
         B --> C[Agregación de Centralidad]:::func
@@ -492,6 +492,31 @@ El sistema actual utiliza una carga diferida (*lazy loading*) para manejar el vo
 -   **Lanzar Dashboard Local:** `py -m http.server 8000` (desde `dashboard_prototype`)
 -   **GPU NVIDIA:** Altamente recomendada para el motor de cálculo (`00_dependency.ipynb`).
 -   **Dependencias Core:** pandas, numpy, torch, plotly, pyarrow (para manejo de Parquet).
+
+---
+
+---
+
+## 🔐 Gestión de Datos y Copias de Seguridad
+
+Debido al inmenso tamaño de los datos en crudo y resultados de red (frecuentemente +15 GB), estos archivos se omiten intencionalmente de GitHub mediante `.gitignore`. 
+
+Para salvaguardar la integridad de estos datos, el repositorio incluye un sistema de backup directo a Google Drive:
+- **Herramienta**: `sincronizar_drive.bat` (Ubicado en la raíz).
+- **Funcionamiento**: Un script automatizado basado en `robocopy` que escanea el disco local y sincroniza de forma incremental el proyecto completo (incluyendo carpetas bloqueadas por git) hacia el directorio configurado en Drive.
+- **Eficiencia**: Omite sistemáticamente las carpetas `.git` y `.venv` para evitar la subida de miles de micro-archivos, permitiendo respaldar gigabytes de forma ágil y segura con un solo doble clic.
+
+---
+
+## 🌍 Proyectos Asociados / Aplicaciones del Índice
+
+El marco metodológico del IDEE sirve como motor de análisis para proyectos estratégicos a nivel europeo:
+
+### Proyecto RESURGE
+*(Redefining Economic Security for an Upgraded, Resilient and Geopolitical Europe)*
+- **Objetivo:** Mapear dependencias geoeconómicas críticas entre la UE y potencias como China o EEUU, evaluando riesgos e intereses.
+- **Integración:** La metodología algorítmica documentada en este repositorio se utiliza como herramienta central para el WP3 (Conceptual Clarity) y WP5 (Geoeconomic dependencies mapping). 
+- **Directorio Específico:** Toda la documentación, planificación y entregables relacionados con este proyecto europeo se gestionan de forma encapsulada en la subcarpeta [`/RESURGE`](RESURGE/).
 
 ---
 
