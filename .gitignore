@@ -94,5 +94,5 @@ RESURGE/
 # Legacy files
 _archivos_legacy/
 
-# Conversaciones
-conversaciones antygravity/
+# Directorios temporales
+scratch/
