@@ -96,3 +96,15 @@ _archivos_legacy/
 
 # Directorios temporales
 scratch/
+
+# IDEE: salidas de trabajo del pipeline (migración 20261015)
+sandbox/
+ejecuciones/
+pipeline/registro/
+visor/datos/
+comparacion/*.csv
+comparacion/*.md
+docs/produccion_domestica/
+metodología/METODOLOGIA_PRODUCCION_DOMESTICA.md
+# «aux» es un nombre reservado en Windows: git no puede versionar esta carpeta (pendiente: renombrarla)
+data/aux/

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visor IDEE · comparación</title>
+<style>
+:root{--bg:#f6f5f2;--panel:#fff;--ink:#1d1d1b;--muted:#6b6a66;--line:#e3e1dc;--ibm:#8a8f98;--new:#b4462b;--ok:#2f7d4f;--warn:#b7791f;--accent:#1f4e79}
+*{box-sizing:border-box}
+body{margin:0;font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{position:sticky;top:0;z-index:5;background:var(--panel);border-bottom:1px solid var(--line);padding:10px 18px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+header h1{font-size:16px;margin:0 12px 0 0;font-weight:650}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.seg button{border:0;background:transparent;padding:6px 11px;cursor:pointer;font:inherit;color:var(--muted)}
+.seg button.on{background:var(--accent);color:#fff}
+select,input[type=search]{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:7px;background:#fff}
+main{padding:16px 18px;max-width:1400px;margin:0 auto}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card h2{font-size:15px;margin:0 0 10px}
+.muted{color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse}
+th,td{padding:5px 7px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-weight:600;font-size:12px;color:var(--muted);cursor:pointer;white-space:nowrap;position:sticky;top:0;background:var(--panel)}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.click{cursor:pointer}
+tr.click:hover{background:#faf8f4}
+.bar{height:8px;border-radius:4px;display:inline-block;vertical-align:middle;margin-right:6px}
+.b-ibm{background:var(--ibm)}.b-new{background:var(--new)}
+.tag{display:inline-block;padding:0 6px;border-radius:9px;font-size:11px;background:#eef1f5;color:#44546a}
+.d-pos{color:var(--new);font-weight:600}.d-neg{color:var(--ok);font-weight:600}
+.kpis{display:flex;flex-wrap:wrap;gap:12px}
+.kpi{border:1px solid var(--line);border-radius:9px;padding:9px 12px;min-width:170px}
+.kpi .v{font-size:20px;font-weight:650}
+.kpi .l{font-size:12px;color:var(--muted)}
+.legend span{margin-right:14px}
+.scroll{max-height:560px;overflow:auto}
+.sub td{background:#fbfaf7;font-size:12.5px}
+.warn{background:#fff6e5;border:1px solid #f0d9a8;border-radius:8px;padding:8px 10px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Visor IDEE</h1>
+  <div class="seg" id="segAmb"><button data-v="mundo" class="on">Mundo</button><button data-v="ue">UE como bloque</button></div>
+  <label>Año <select id="selAnio"></select></label>
+  <div class="seg" id="segVista"><button data-v="ranking" class="on">Ranking</button><button data-v="pais">País</button><button data-v="industria">Industria</button><button data-v="hubs">Hubs</button></div>
+  <span class="legend muted"><span><i class="bar b-ibm" style="width:14px"></i>Publicada (IBM)</span><span><i class="bar b-new" style="width:14px"></i>Nueva (diagonal completa)</span></span>
+</header>
+<main id="app"><div class="card">Cargando…</div></main>
+
+<script src="datos/meta.js"></script>
+<script src="datos/serie.js"></script>
+<script>
+const M = window.VISOR_META, SERIE = window.VISOR_SERIE;
+const st = {amb:'mundo', anio:2022, vista:'ranking', pais:'ESP', ind:50, orden:{}};
+const cache = {};
+const app = document.getElementById('app');
+const pn = c => (M.paises[c] || c);
+const inES = i => (M.industrias[i] ? M.industrias[i][0] : 'Industria ' + i);
+const f2 = v => v == null ? '—' : v.toFixed(2).replace('.', ',');
+const pc = v => v == null ? '—' : Math.round(v * 100) + ' %';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const barra = (v, cls) => `<i class="bar ${cls}" style="width:${Math.max(1, Math.round((v || 0) * 90))}px"></i>`;
+const delta = (a, b) => { if (a == null || b == null) return '—'; const d = b - a; const cl = d > 0.005 ? 'd-pos' : d < -0.005 ? 'd-neg' : ''; return `<span class="${cl}">${d > 0 ? '+' : ''}${d.toFixed(2).replace('.', ',')}</span>`; };
+
+function cargar(anio, amb, ver) {
+  const k = `${anio}|${amb}|${ver}`;
+  if (window.VISOR_DATA && window.VISOR_DATA[k]) return Promise.resolve(window.VISOR_DATA[k]);
+  if (cache[k]) return cache[k];
+  cache[k] = new Promise((ok, ko) => {
+    const s = document.createElement('script');
+    s.src = `datos/${anio}_${amb}_${ver}.js`;
+    s.onload = () => ok(window.VISOR_DATA[k]);
+    s.onerror = () => ko(new Error('No se encuentra ' + s.src));
+    document.head.appendChild(s);
+  });
+  return cache[k];
+}
+async function datos() {
+  const [ibm, neu] = await Promise.all([cargar(st.anio, st.amb, 'ibm'), cargar(st.anio, st.amb, 'nueva')]);
+  return {ibm, neu};
+}
+// índices auxiliares
+function idxProf(d) { const o = {}; d.prof.forEach(r => o[r[0]] = r); return o; }
+function idxInd(d) { const o = {}; for (const i in d.ind) for (const r of d.ind[i]) { r._i = +i; (o[r[0]] = o[r[0]] || {})[i] = r; } return o; }
+const M_IND = r => r._i;
+
+// tabla ordenable genérica
+function tabla(id, cols, filas, opts = {}) {
+  const ord = st.orden[id] || opts.orden || {k: 0, dir: -1};
+  const fs = filas.slice().sort((a, b) => {
+    const x = cols[ord.k].v(a), y = cols[ord.k].v(b);
+    if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
+    return (x > y ? 1 : x < y ? -1 : 0) * ord.dir;
+  });
+  const th = cols.map((c, j) => `<th data-t="${id}" data-k="${j}">${c.t}${ord.k === j ? (ord.dir > 0 ? ' ▲' : ' ▼') : ''}</th>`).join('');
+  const tr = fs.map(r => `<tr ${opts.click ? `class="click" data-c="${esc(opts.click(r))}"` : ''}>${cols.map(c => `<td class="${c.n ? 'n' : ''}">${c.h ? c.h(r) : esc(c.v(r) ?? '—')}</td>`).join('')}</tr>${opts.sub ? opts.sub(r) : ''}`).join('');
+  return `<div class="scroll"><table><thead><tr>${th}</tr></thead><tbody>${tr}</tbody></table></div>`;
+}
+document.addEventListener('click', e => {
+  const th = e.target.closest('th[data-t]');
+  if (th) { const id = th.dataset.t, k = +th.dataset.k; const o = st.orden[id] || {k: -1, dir: -1}; st.orden[id] = {k, dir: o.k === k ? -o.dir : -1}; pintar(); return; }
+  const tr = e.target.closest('tr.click');
+  if (tr && tr.dataset.c) { const c = tr.dataset.c;
+    if (c.startsWith('P:')) { st.pais = c.slice(2); st.vista = 'pais'; marcar(); pintar(); window.scrollTo(0, 0); }
+    else if (c.startsWith('I:')) { st.ind = +c.slice(2); st.vista = 'industria'; marcar(); pintar(); window.scrollTo(0, 0); }
+    else if (c.startsWith('X:')) { st.abierta = st.abierta === c ? null : c; pintar(); } }
+});
+
+// ---------------- vistas ----------------
+async function vRanking() {
+  const {ibm, neu} = await datos(); const a = idxProf(ibm), b = idxProf(neu);
+  const cs = [...new Set([...Object.keys(a), ...Object.keys(b)])].filter(c => !st.q || (c + ' ' + pn(c)).toLowerCase().includes(st.q.toLowerCase()));
+  const filas = cs.map(c => ({c, a: a[c], b: b[c]}));
+  const media = (o) => { const v = Object.values(o).map(r => r[1]).filter(x => x != null); return v.reduce((s, x) => s + x, 0) / v.length; };
+  return `<div class="card"><div class="kpis">
+    <div class="kpi"><div class="l">Vulnerabilidad media · publicada</div><div class="v">${f2(media(a))}</div></div>
+    <div class="kpi"><div class="l">Vulnerabilidad media · nueva</div><div class="v" style="color:var(--new)">${f2(media(b))}</div></div>
+    <div class="kpi"><div class="l">Países</div><div class="v">${Object.keys(b).length}</div></div></div></div>
+  <div class="card"><h2>Ranking de vulnerabilidad · ${st.anio} · ${st.amb === 'ue' ? 'UE como bloque' : 'Mundo'}</h2>
+  <p><input type="search" id="q" placeholder="Buscar país…" value="${esc(st.q || '')}"> <span class="muted">Clic en un país para ver su ficha.</span></p>
+  ${tabla('rank', [
+    {t: 'País', v: r => pn(r.c), h: r => `<b>${esc(pn(r.c))}</b> <span class="muted">${r.c}</span>`},
+    {t: 'Vulnerab. publicada', n: 1, v: r => r.a && r.a[1], h: r => r.a ? barra(r.a[1], 'b-ibm') + f2(r.a[1]) : '—'},
+    {t: 'Vulnerab. nueva', n: 1, v: r => r.b && r.b[1], h: r => r.b ? barra(r.b[1], 'b-new') + f2(r.b[1]) : '—'},
+    {t: 'Cambio', n: 1, v: r => r.a && r.b ? r.b[1] - r.a[1] : null, h: r => delta(r.a && r.a[1], r.b && r.b[1])},
+    {t: 'Puesto publ.', n: 1, v: r => r.a && r.a[2]},
+    {t: 'Puesto nuevo', n: 1, v: r => r.b && r.b[2]},
+    {t: 'Cuota indirecta nueva', n: 1, v: r => r.b && r.b[3], h: r => r.b ? pc(r.b[3]) : '—'},
+  ], filas, {orden: {k: 2, dir: -1}, click: r => 'P:' + r.c})}</div>`;
+}
+
+function grafSerie(c) {
+  const ks = [[`${st.amb}|ibm`, 'var(--ibm)', 'Publicada'], [`${st.amb}|nueva`, 'var(--new)', 'Nueva']];
+  const anios = M.anios, W = 520, H = 170, pl = 34, pb = 22;
+  let vals = []; ks.forEach(([k]) => anios.forEach(a => { const v = SERIE[k] && SERIE[k][c] && SERIE[k][c][a]; if (v != null) vals.push(v); }));
+  if (!vals.length) return '<p class="muted">Sin serie.</p>';
+  const ymax = Math.max(0.1, ...vals) * 1.1;
+  const x = i => pl + i * (W - pl - 10) / (anios.length - 1), y = v => H - pb - v / ymax * (H - pb - 8);
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px">`;
+  [0, ymax / 2, ymax].forEach(t => s += `<line x1="${pl}" x2="${W - 10}" y1="${y(t)}" y2="${y(t)}" stroke="#e3e1dc"/><text x="2" y="${y(t) + 4}" font-size="10" fill="#6b6a66">${f2(t)}</text>`);
+  anios.forEach((a, i) => s += `<text x="${x(i)}" y="${H - 5}" font-size="10" text-anchor="middle" fill="#6b6a66">${a}</text>`);
+  ks.forEach(([k, col]) => { const pts = anios.map((a, i) => { const v = SERIE[k] && SERIE[k][c] && SERIE[k][c][a]; return v == null ? null : [x(i), y(v)]; }).filter(Boolean);
+    s += `<polyline fill="none" stroke="${col}" stroke-width="2.2" points="${pts.map(p => p.join(',')).join(' ')}"/>` + pts.map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="${col}"/>`).join(''); });
+  return s + '</svg>';
+}
+
+async function vPais() {
+  const {ibm, neu} = await datos(); const a = idxProf(ibm), b = idxProf(neu);
+  const c = st.pais; const ia = idxInd(ibm)[c] || {}, ib = idxInd(neu)[c] || {};
+  const opciones = Object.keys(b).sort((x, y) => pn(x).localeCompare(pn(y))).map(k => `<option value="${k}" ${k === c ? 'selected' : ''}>${esc(pn(k))} (${k})</option>`).join('');
+  const lista = (idx, cls) => Object.values(idx).filter(r => r[7] != null).sort((x, y) => y[7] - x[7]).slice(0, 20).map(r => { const i = M_IND(r);
+    return `<tr class="click" data-c="I:${i}"><td>${esc(inES(i))}</td><td class="n">${barra(r[7], cls)}${pc(r[7])}</td><td class="n muted">${pc(r[8])} / ${pc(r[7] - r[8])}</td><td>${esc(r[2])}</td></tr>`; }).join('') || '<tr><td class="muted">Sin datos</td></tr>';
+  const inds = [...new Set([...Object.keys(ia), ...Object.keys(ib)])].map(i => ({i: +i, a: ia[i], b: ib[i]}));
+  const sup = (d, i) => ((d.sup[c] || {})[i] || []).map(s => `${esc(s[0])} ${f2(s[1])}`).join(' · ') || '<span class="muted">no disponible</span>';
+  const pa = (d, cls) => (d.part[c] || []).map(([e, v]) => `<tr><td>${esc(pn(e))} <span class="muted">${e}</span></td><td class="n">${barra(v * 3, cls)}${f2(v)}</td></tr>`).join('');
+  return `<div class="card"><p><label>País <select id="selPais">${opciones}</select></label></p>
+    <div class="kpis">
+      <div class="kpi"><div class="l">Vulnerabilidad · publicada</div><div class="v">${f2(a[c] && a[c][1])}</div><div class="l">puesto ${a[c] ? a[c][2] : '—'}</div></div>
+      <div class="kpi"><div class="l">Vulnerabilidad · nueva</div><div class="v" style="color:var(--new)">${f2(b[c] && b[c][1])}</div><div class="l">puesto ${b[c] ? b[c][2] : '—'}</div></div>
+      <div class="kpi"><div class="l">Cuota indirecta · publicada / nueva</div><div class="v">${pc(a[c] && a[c][3])} / ${pc(b[c] && b[c][3])}</div></div>
+      <div class="kpi"><div class="l">Proveedores efectivos · publ. / nueva</div><div class="v">${a[c] ? a[c][4] : '—'} / ${b[c] ? b[c][4] : '—'}</div></div>
+    </div></div>
+  <div class="grid2">
+    <div class="card"><h2>Evolución de la vulnerabilidad</h2>${grafSerie(c)}</div>
+    <div class="card"><h2>Principales socios (dependencia media ponderada)</h2><div class="grid2"><table><tr><th>Publicada</th><th></th></tr>${pa(ibm, 'b-ibm')}</table><table><tr><th>Nueva</th><th></th></tr>${pa(neu, 'b-new')}</table></div></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h2>Principales dependencias · publicada</h2><p class="muted">Como en la web: media de la dependencia de cada proveedor, ponderada por su comercio.</p><table><tr><th>Industria</th><th>Dependencia</th><th>Directa / indirecta</th><th>Principal</th></tr>${lista(ia, 'b-ibm')}</table></div>
+    <div class="card"><h2>Principales dependencias · nueva</h2><p class="muted">Mismo cálculo con la diagonal completa.</p><table><tr><th>Industria</th><th>Dependencia</th><th>Directa / indirecta</th><th>Principal</th></tr>${lista(ib, 'b-new')}</table></div>
+  </div>
+  <div class="card"><h2>Mayor dependencia del exterior · nueva</h2>
+  <p class="muted">Qué parte del consumo del país en cada industria llega de fuera, de cualquier proveedor (100 % menos la cuota doméstica; suma de las dependencias directas de todos los proveedores). Junto a ella, la dependencia que muestra la web, que combina esa dependencia exterior con la concentración de los proveedores. Solo industrias con importaciones de al menos 100 M$.</p>
+  <table><tr><th>Industria</th><th>Importaciones (M$)</th><th>Dependencia exterior</th><th>Dependencia (web)</th><th>Proveedor principal</th></tr>${
+    Object.values(ib).filter(r => r[9] != null && (r[4] || 0) >= 100).sort((x, y) => y[9] - x[9] || y[4] - x[4]).slice(0, 25).map(r => `<tr class="click" data-c="I:${r._i}"><td>${esc(inES(r._i))}</td><td class="n">${Math.round(r[4]).toLocaleString('es-ES')}</td><td class="n">${barra(r[9], 'b-new')}${pc(r[9])}</td><td class="n">${pc(r[7])}</td><td>${f2(r[1])} ${esc(r[2])}</td></tr>`).join('')}</table></div>
+  <div class="card"><h2>Todas las industrias</h2>
+  <p class="muted">Tres medidas: «Dependencia (web)», la cifra de la web de IBM (media de la dependencia de cada proveedor, ponderada por su comercio ≈ dependencia exterior × concentración de proveedores); «Proveedor principal», la dependencia total (directa + indirecta) del mayor proveedor; «Dep. exterior», la parte del consumo que llega de fuera, de cualquier país (en la versión publicada es casi siempre 100 % porque falta la producción propia). «Cuota doméstica» es la parte del suministro cubierta con producción propia en la versión nueva y «regla», cómo se obtuvo (observada, a, b, e, en…). Clic en una fila para ver los cinco proveedores principales; doble vista en la pestaña Industria.</p>
+  <p><input type="search" id="qi" placeholder="Filtrar industria…" value="${esc(st.qi || '')}"></p>
+  ${tabla('pind', [
+    {t: 'Industria', v: r => inES(r.i), h: r => `${esc(inES(r.i))} <span class="muted">${r.i}</span>`},
+    {t: 'Importaciones (M$)', n: 1, v: r => (r.b || r.a || [])[4], h: r => { const v = (r.b || r.a || [])[4]; return v == null ? '—' : Math.round(v).toLocaleString('es-ES'); }},
+    {t: 'Dependencia (web) publ.', n: 1, v: r => r.a && r.a[7], h: r => r.a && r.a[7] != null ? barra(r.a[7], 'b-ibm') + pc(r.a[7]) : '—'},
+    {t: 'Dependencia (web) nueva', n: 1, v: r => r.b && r.b[7], h: r => r.b && r.b[7] != null ? barra(r.b[7], 'b-new') + pc(r.b[7]) : '—'},
+    {t: 'Cambio', n: 1, v: r => r.a && r.b && r.a[7] != null && r.b[7] != null ? r.b[7] - r.a[7] : null, h: r => delta(r.a && r.a[7], r.b && r.b[7])},
+    {t: 'Proveedor principal publ.', n: 1, v: r => r.a && r.a[1], h: r => r.a ? f2(r.a[1]) + ' ' + esc(r.a[2]) : '—'},
+    {t: 'Proveedor principal nuevo', n: 1, v: r => r.b && r.b[1], h: r => r.b ? f2(r.b[1]) + ' ' + esc(r.b[2]) : '—'},
+    {t: 'Dep. exterior publ. / nueva', n: 1, v: r => r.b && r.b[9], h: r => `${pc(r.a && r.a[9])} / ${pc(r.b && r.b[9])}`},
+    {t: 'Cuota doméstica', n: 1, v: r => r.b && r.b[5], h: r => r.b ? pc(r.b[5]) : '—'},
+    {t: 'Regla', v: r => r.b && r.b[6], h: r => r.b && r.b[6] ? `<span class="tag">${esc(r.b[6])}</span>` : ''},
+  ], inds.filter(r => !st.qi || inES(r.i).toLowerCase().includes(st.qi.toLowerCase())), {orden: {k: 1, dir: -1}, click: r => 'X:' + r.i,
+     sub: r => st.abierta === 'X:' + r.i ? `<tr class="sub"><td colspan="10"><b>Publicada:</b> ${sup(ibm, r.i)}<br><b>Nueva:</b> ${sup(neu, r.i)}<br><a href="#" data-ind="${r.i}">Ver esta industria en todos los países →</a></td></tr>` : ''})}</div>`;
+}
+
+async function vIndustria() {
+  const {ibm, neu} = await datos(); const i = st.ind;
+  const A = {}, B = {}; (ibm.ind[i] || []).forEach(r => A[r[0]] = r); (neu.ind[i] || []).forEach(r => B[r[0]] = r);
+  const cs = [...new Set([...Object.keys(A), ...Object.keys(B)])].filter(c => !st.q2 || (c + ' ' + pn(c)).toLowerCase().includes(st.q2.toLowerCase()));
+  const opciones = Object.keys(M.industrias).map(Number).sort((x, y) => inES(x).localeCompare(inES(y))).map(k => `<option value="${k}" ${k === i ? 'selected' : ''}>${esc(inES(k))} (${k})</option>`).join('');
+  const n = (o, t) => Object.values(o).filter(r => r[7] != null && r[7] >= t).length;
+  return `<div class="card"><p><label>Industria <select id="selInd">${opciones}</select></label> <span class="muted">${M.industrias[i] ? esc(M.industrias[i][1]) + ' · ' + esc(M.industrias[i][2]) : ''}</span></p>
+    <div class="kpis"><div class="kpi"><div class="l">Países con dependencia (web) ≥ 50 % · publ.</div><div class="v">${n(A, 0.5)}</div></div>
+    <div class="kpi"><div class="l">Países con dependencia (web) ≥ 50 % · nueva</div><div class="v" style="color:var(--new)">${n(B, 0.5)}</div></div>
+    <div class="kpi"><div class="l">Países con dependencia (web) = 100 % · publ. / nueva</div><div class="v">${n(A, 0.9999)} / ${n(B, 0.9999)}</div></div></div></div>
+  <div class="card"><h2>${esc(inES(i))} · dependencia por país</h2>
+  <p><input type="search" id="q2" placeholder="Buscar país…" value="${esc(st.q2 || '')}"> <span class="muted">Clic en un país para ver su ficha.</span></p>
+  ${tabla('ind', [
+    {t: 'País', v: c => pn(c), h: c => `<b>${esc(pn(c))}</b> <span class="muted">${c}</span>`},
+    {t: 'Importaciones (M$)', n: 1, v: c => (B[c] || A[c] || [])[4], h: c => { const v = (B[c] || A[c] || [])[4]; return v == null ? '—' : Math.round(v).toLocaleString('es-ES'); }},
+    {t: 'Dependencia (web) publ.', n: 1, v: c => A[c] && A[c][7], h: c => A[c] && A[c][7] != null ? barra(A[c][7], 'b-ibm') + pc(A[c][7]) : '—'},
+    {t: 'Dependencia (web) nueva', n: 1, v: c => B[c] && B[c][7], h: c => B[c] && B[c][7] != null ? barra(B[c][7], 'b-new') + pc(B[c][7]) : '—'},
+    {t: 'Cambio', n: 1, v: c => A[c] && B[c] && A[c][7] != null && B[c][7] != null ? B[c][7] - A[c][7] : null, h: c => delta(A[c] && A[c][7], B[c] && B[c][7])},
+    {t: 'Prov. principal publ.', n: 1, v: c => A[c] && A[c][1], h: c => A[c] ? f2(A[c][1]) + ' ' + esc(A[c][2]) : '—'},
+    {t: 'Prov. principal nuevo', n: 1, v: c => B[c] && B[c][1], h: c => B[c] ? f2(B[c][1]) + ' ' + esc(B[c][2]) : '—'},
+    {t: 'Dep. exterior publ. / nueva', n: 1, v: c => B[c] && B[c][9], h: c => `${pc(A[c] && A[c][9])} / ${pc(B[c] && B[c][9])}`},
+    {t: 'Cuota doméstica', n: 1, v: c => B[c] && B[c][5], h: c => B[c] ? pc(B[c][5]) : '—'},
+    {t: 'Regla', v: c => B[c] && B[c][6], h: c => B[c] && B[c][6] ? `<span class="tag">${esc(B[c][6])}</span>` : ''},
+  ], cs, {orden: {k: 3, dir: -1}, click: c => 'P:' + c})}</div>`;
+}
+
+async function vHubs() {
+  const {ibm, neu} = await datos(); const A = {}, B = {}; ibm.hubs.forEach(r => A[r[0]] = r); neu.hubs.forEach(r => B[r[0]] = r);
+  const cs = Object.keys(B).filter(c => (B[c][2] <= 40) || (A[c] && A[c][2] <= 40));
+  return `<div class="card"><h2>Índice de Hub Global · ${st.anio}</h2><p class="muted">Países en el top 40 de alguna de las dos versiones.</p>
+  ${tabla('hubs', [
+    {t: 'País', v: c => pn(c), h: c => `<b>${esc(pn(c))}</b> <span class="muted">${c}</span>`},
+    {t: 'Puesto publ.', n: 1, v: c => A[c] && A[c][2]},
+    {t: 'Puesto nuevo', n: 1, v: c => B[c] && B[c][2]},
+    {t: 'HG publicada', n: 1, v: c => A[c] && A[c][1], h: c => A[c] ? barra(A[c][1], 'b-ibm') + f2(A[c][1]) : '—'},
+    {t: 'HG nueva', n: 1, v: c => B[c] && B[c][1], h: c => B[c] ? barra(B[c][1], 'b-new') + f2(B[c][1]) : '—'},
+  ], cs, {orden: {k: 2, dir: 1}, click: c => 'P:' + c})}</div>`;
+}
+
+const VISTAS = {ranking: vRanking, pais: vPais, industria: vIndustria, hubs: vHubs};
+let pintando = 0;
+async function pintar() {
+  const t = ++pintando;
+  try {
+    const html = await VISTAS[st.vista]();
+    if (t !== pintando) return;
+    const foco = document.activeElement && document.activeElement.id, pos = foco && document.activeElement.selectionStart;
+    app.innerHTML = html;
+    if (foco && document.getElementById(foco)) { const el = document.getElementById(foco); el.focus(); try { el.setSelectionRange(pos, pos); } catch (e) {} }
+  } catch (e) {
+    app.innerHTML = `<div class="card warn">No se han podido cargar los datos (${esc(e.message)}). Comprueba que la carpeta <b>datos</b> está junto a este fichero y que has ejecutado <code>python visor/exportar_datos.py</code>.</div>`;
+  }
+}
+function marcar() {
+  document.querySelectorAll('#segAmb button').forEach(b => b.classList.toggle('on', b.dataset.v === st.amb));
+  document.querySelectorAll('#segVista button').forEach(b => b.classList.toggle('on', b.dataset.v === st.vista));
+  document.getElementById('selAnio').value = st.anio;
+}
+document.getElementById('selAnio').innerHTML = M.anios.slice().reverse().map(a => `<option>${a}</option>`).join('');
+document.getElementById('selAnio').onchange = e => { st.anio = +e.target.value; pintar(); };
+document.querySelectorAll('#segAmb button').forEach(b => b.onclick = () => { st.amb = b.dataset.v; if (st.amb === 'ue' && ['AUT','BEL','BGR','HRV','CYP','CZE','DNK','EST','FIN','FRA','DEU','GRC','HUN','IRL','ITA','LVA','LTU','LUX','MLT','NLD','POL','PRT','ROU','SVK','SVN','ESP','SWE'].includes(st.pais)) st.pais = 'EU27'; marcar(); pintar(); });
+document.querySelectorAll('#segVista button').forEach(b => b.onclick = () => { st.vista = b.dataset.v; marcar(); pintar(); });
+document.addEventListener('input', e => {
+  if (e.target.id === 'q') { st.q = e.target.value; pintar(); }
+  if (e.target.id === 'qi') { st.qi = e.target.value; pintar(); }
+  if (e.target.id === 'q2') { st.q2 = e.target.value; pintar(); }
+});
+document.addEventListener('change', e => {
+  if (e.target.id === 'selPais') { st.pais = e.target.value; pintar(); }
+  if (e.target.id === 'selInd') { st.ind = +e.target.value; pintar(); }
+});
+document.addEventListener('click', e => { const a = e.target.closest('a[data-ind]'); if (a) { e.preventDefault(); st.ind = +a.dataset.ind; st.vista = 'industria'; marcar(); pintar(); window.scrollTo(0, 0); } });
+marcar(); pintar();
+</script>
+</body>
+</html>

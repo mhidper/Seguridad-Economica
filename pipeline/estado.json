@@ -1,0 +1,287 @@
+{
+ "pasos": {
+  "mapeo": {
+   "entradas": {
+    "data/aux/sector_mapping_original.csv": "482acd93bb297629",
+    "imputacion/00_mapeo_sectores.py": "30e528f1ff8943fd"
+   },
+   "fecha": "registrado"
+  },
+  "icio": {
+   "entradas": {
+    "data/raw/ICIO/2006_SML.csv": "f45e25d6caf22620",
+    "data/raw/ICIO/2007_SML.csv": "ed6fc96e6ba9f0fe",
+    "data/raw/ICIO/2008_SML.csv": "ac157cb1252ca3f0",
+    "data/raw/ICIO/2009_SML.csv": "51c473c31c5c114c",
+    "data/raw/ICIO/2010_SML.csv": "4ca93e19b68de237",
+    "data/raw/ICIO/2011_SML.csv": "227d5b655de7a455",
+    "data/raw/ICIO/2012_SML.csv": "bbc99053910025c2",
+    "data/raw/ICIO/2013_SML.csv": "8e34f4152c260086",
+    "data/raw/ICIO/2014_SML.csv": "9c95132e75b41533",
+    "data/raw/ICIO/2015_SML.csv": "ebc3e3a4fb5aa729",
+    "data/raw/ICIO/2016_SML.csv": "502922128ee25d0a",
+    "data/raw/ICIO/2017_SML.csv": "7bb31691b60cbb40",
+    "data/raw/ICIO/2018_SML.csv": "75e052f82dab6f52",
+    "data/raw/ICIO/2019_SML.csv": "306375cd8c8e9b91",
+    "data/raw/ICIO/2020_SML.csv": "95ad1f764ea7b48d",
+    "data/raw/ICIO/2021_SML.csv": "433f670ca73e9021",
+    "data/raw/ICIO/2022_SML.csv": "20262aa171279544",
+    "imputacion/01_icio_domestica.py": "5c3614a0cae59b6d"
+   },
+   "fecha": "registrado"
+  },
+  "itpd": {
+   "entradas": {
+    "data/raw/ITP/ITPD_E_R03/ITPD_E_R03.csv.parte0.gz": "31999e2a0bda4ffa",
+    "data/raw/ITP/ITPD_E_R03/ITPD_E_R03.csv.parte1.gz": "2189a38020aed29d",
+    "data/raw/ITP/ITPD_E_R03/ITPD_E_R03.csv.parte2.gz": "a082bdd482698359",
+    "data/raw/ITP/ITPD_E_R03/ITPD_E_R03.csv.parte3.gz": "b929120527a56d11",
+    "data/raw/ITP/ITPD_E_R03/ITPD_E_R03.csv.parte4.gz": "cc0658b067a6802d",
+    "data/raw/ITP/ITPD_E_R03/ITPD_E_R03.csv.parte5.gz": "76bc465c31c27b73",
+    "data/raw/ITP/ITPD_E_R03/ITPD_E_R03.csv.parte6.gz": "f2c0e83a58688fb3",
+    "data/raw/ITP/ITPD_E_R03/ITPD_E_R03.csv.parte7.gz": "563e58475c98e72f",
+    "data/raw/ITP/ITPD_E_R03/ITPD_E_R03.csv.parte8.gz": "2de9d1b3951a9310",
+    "data/raw/ITP/ITPD_E_R03/ITPD_E_R03.csv.parte9.gz": "a38faca3fb6014cf",
+    "imputacion/02_itpd_extraer.py": "bbd33c2f951d9e8c"
+   },
+   "fecha": "registrado"
+  },
+  "energia": {
+   "entradas": {
+    "data/raw/Statistical Review of World Energy Narrow format.xlsx": "f9accd0066a69fbb",
+    "imputacion/02b_energia_extraer.py": "6b42fb3f6bf295e9"
+   },
+   "fecha": "registrado"
+  },
+  "imputacion": {
+   "entradas": {
+    "data/aux/sector_mapping_idee.csv": "58be2c3c6ed7d4f2",
+    "data/aux/traduccion_industrias_IDEE_ES_EN.csv": "9fdb68aac2408dc4",
+    "data/processed/diagonal/icio_domestica_2009.parquet": "fd00654bb2d87cb9",
+    "data/processed/diagonal/icio_domestica_2010.parquet": "7f4d6b7ce98f1a52",
+    "data/processed/diagonal/icio_domestica_2011.parquet": "77d031b3706936cb",
+    "data/processed/diagonal/icio_domestica_2012.parquet": "c997e410d423fa96",
+    "data/processed/diagonal/icio_domestica_2013.parquet": "ce8a4e34e922365b",
+    "data/processed/diagonal/icio_domestica_2014.parquet": "48e6e2b434797895",
+    "data/processed/diagonal/icio_domestica_2015.parquet": "4ed1130c60a504c8",
+    "data/processed/diagonal/icio_domestica_2016.parquet": "308c7498fd711bf6",
+    "data/processed/diagonal/icio_domestica_2017.parquet": "5226589c48a2bcda",
+    "data/processed/diagonal/icio_domestica_2018.parquet": "d676ac90e1d73242",
+    "data/processed/diagonal/icio_domestica_2019.parquet": "ac9b12f9b022972c",
+    "data/processed/diagonal/icio_domestica_2020.parquet": "8c644d3270358d6e",
+    "data/processed/diagonal/icio_domestica_2021.parquet": "72ff7822b5346f49",
+    "data/processed/diagonal/icio_domestica_2022.parquet": "9236497622e87649",
+    "data/processed/diagonal/itpd_agregados.parquet": "63c33074f70bafe7",
+    "data/processed/energia/ei_narrow.parquet": "3b6f52ea50472205",
+    "imputacion/comun.py": "693a036235b97228",
+    "imputacion/04_imputar.py": "c12fefffbb10e547",
+    "imputacion/04b_ajustes.py": "86eb93f581c4fe7d",
+    "imputacion/05_controles.py": "7b7777e0d53d631a",
+    "imputacion/06_decisiones_rojos.py": "aa014a25e6bd008c"
+   },
+   "fecha": "registrado"
+  }
+ },
+ "motor": {
+  "2016|global": {
+   "diagonal": "7ca1cd42f9c3e0db",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2016|ue": {
+   "diagonal": "7ca1cd42f9c3e0db",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2017|global": {
+   "diagonal": "53750e28c1810835",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2017|ue": {
+   "diagonal": "53750e28c1810835",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2018|global": {
+   "diagonal": "61111421e14bdfa5",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2018|ue": {
+   "diagonal": "61111421e14bdfa5",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2019|global": {
+   "diagonal": "a0aad4dc5ef03cc9",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2019|ue": {
+   "diagonal": "a0aad4dc5ef03cc9",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2020|global": {
+   "diagonal": "b6151c367dfda36b",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2020|ue": {
+   "diagonal": "b6151c367dfda36b",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2021|global": {
+   "diagonal": "f55ddc78abce2541",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2021|ue": {
+   "diagonal": "f55ddc78abce2541",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "registrado"
+  },
+  "2022|global": {
+   "diagonal": "9fee215f4114c734",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "2026-10-15 22:01",
+   "minutos": 14.3
+  },
+  "2022|ue": {
+   "diagonal": "9fee215f4114c734",
+   "codigo": {
+    "idee_diagonal.py": "6e126b95c7ea2a40",
+    "idee_paths.py": "9747c2de4d7d67d0",
+    "notebooks/analysis/00_dependency.ipynb": "9c7149cc1481a1e8",
+    "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
+    "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
+   },
+   "fecha": "2026-10-15 22:11",
+   "minutos": 9.9
+  }
+ },
+ "arquitecto": {
+  "2016": {
+   "codigo": {
+    "notebooks/analysis/idc_architect.py": "b9981967d7577314"
+   },
+   "fecha": "registrado"
+  },
+  "2017": {
+   "codigo": {
+    "notebooks/analysis/idc_architect.py": "b9981967d7577314"
+   },
+   "fecha": "registrado"
+  },
+  "2018": {
+   "codigo": {
+    "notebooks/analysis/idc_architect.py": "b9981967d7577314"
+   },
+   "fecha": "registrado"
+  },
+  "2019": {
+   "codigo": {
+    "notebooks/analysis/idc_architect.py": "b9981967d7577314"
+   },
+   "fecha": "registrado"
+  },
+  "2020": {
+   "codigo": {
+    "notebooks/analysis/idc_architect.py": "b9981967d7577314"
+   },
+   "fecha": "registrado"
+  },
+  "2021": {
+   "codigo": {
+    "notebooks/analysis/idc_architect.py": "b9981967d7577314"
+   },
+   "fecha": "registrado"
+  },
+  "2022": {
+   "codigo": {
+    "notebooks/analysis/idc_architect.py": "b9981967d7577314"
+   },
+   "fecha": "2026-10-15 22:14"
+  }
+ }
+}

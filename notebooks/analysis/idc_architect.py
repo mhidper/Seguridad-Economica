@@ -4,14 +4,15 @@ import pickle
 from pathlib import Path
 import sys
 from collections import defaultdict
+# --- IDEE: raíz única del proyecto (ver idee_paths.py) ---
+sys.path.insert(0, str(next(p for p in [Path(__file__).resolve().parent, *Path(__file__).resolve().parents] if (p / "idee_paths.py").exists())))
+from idee_paths import idee_root
 
 def process_year(year):
     print(f"\n--- ARQUITECTO IDC: Procesando año {year} ---")
     
     # Buscar la raz del proyecto
-    base_path = Path.cwd()
-    while base_path.name != "Seguridad Economica" and base_path.parent != base_path:
-        base_path = base_path.parent
+    base_path = idee_root()
     processed_dir = base_path / "data" / "processed" / "dependencias_consolidadas"
     output_dir = base_path / "data" / "processed" / "historico"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -315,4 +316,4 @@ if __name__ == "__main__":
         sys.exit(1)
         
     for y in years:
-        process_year(y)
+        process_year(int(y) if str(y).isdigit() else y)  # IDEE: year entero, como en los entregables de IBM
