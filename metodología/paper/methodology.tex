@@ -87,7 +87,7 @@
 }
 
 \begin{abstract}
-The rising geopolitical fragmentation has transformed the international trade landscape, exposing previously underestimated economic vulnerabilities. This paper proposes a new economic security indicator that overcomes the limitations of traditional approaches by systematically capturing indirect trade dependencies transmitted through intermediary countries. By integrating Input-Output matrices, network theory, and shock propagation algorithms, our indicator quantifies both direct and indirect dependencies, revealing hidden vulnerabilities in global supply chains. The empirical analysis demonstrates that traditional approaches significantly underestimate the exposure to external disruptions in strategic sectors. These findings have important implications for strategic autonomy policies, suggesting that effective diversification must consider the entire structure of the global trade network rather than being limited to direct bilateral relations.
+The rising geopolitical fragmentation has transformed the international trade landscape, exposing previously underestimated economic vulnerabilities. This paper proposes a new economic security indicator that overcomes the limitations of traditional approaches by systematically capturing indirect trade dependencies transmitted through intermediary countries. By integrating Input-Output matrices, network theory, and shock propagation algorithms, our indicator quantifies both direct and indirect dependencies, revealing hidden vulnerabilities in global supply chains. The empirical analysis demonstrates that traditional approaches significantly underestimate the exposure to external disruptions in strategic sectors. Domestic supply, missing for a growing share of cells in the underlying trade database, is completed with OECD input-output data through validated imputation rules, so that dependence is always measured against total supply. These findings have important implications for strategic autonomy policies, suggesting that effective diversification must consider the entire structure of the global trade network rather than being limited to direct bilateral relations.
 \end{abstract}
 
 \begin{keyword}
@@ -195,7 +195,7 @@ Our approach stands out for three key advantages: (1) identification of hidden s
 
 \subsection{Mathematical Formulation}
 The total dependency $\text{DT}_{ij}$ of an importer $j$ on an exporter $i$ is defined as the sum of direct and indirect dependency.
-We consider the normalized trade matrix $\mathbf{T}$, where each element $T_{ab} = x_{ab} / S_b$ represents the fraction of $b$'s supply that comes directly from $a$.
+We consider the normalized trade matrix $\mathbf{T}$, where each element $T_{ab} = x_{ab} / S_b$ represents the fraction of $b$'s supply that comes directly from $a$, and $S_b$ is $b$'s total supply of the industry: domestic production sold in $b$ plus imports (\cref{sec:data}).
 The strength of a trade path $p = (i, k_1, \ldots, k_{\ell-1}, j)$ of length $\ell$ is calculated as the product of the dependencies along its edges:
 \begin{equation}
 F(p) = \prod_{(a,b) \in \text{edges}(p)} T_{ab} = T_{ik_1} \cdot T_{k_1k_2} \cdots T_{k_{\ell-1}j}
@@ -231,6 +231,109 @@ The practical application to real data poses significant computational challenge
     \item \textbf{Maximum path length ($L_{\max}$):} In practice, values between 3 and 5 are used, since longer routes usually have negligible strengths.
     \item \textbf{Use of sparse matrices:} Since most countries only trade with a subset of partners, the use of sparse data structures drastically optimizes memory usage and computation speed.
 \end{itemize}
+
+\section{Data and Domestic Supply}\label{sec:data}
+
+\subsection{Trade Flows and the Supply Denominator}
+The index is computed from the International Trade and Production Database for Estimation, release 3 (ITPD-E-R03), published by the U.S. International Trade Commission \citep{Borchert2021}. It covers 170 industries (agriculture, mining and energy, manufacturing and services) and 236 economies, and it reports both international and domestic trade, the latter defined as gross production minus exports. For each industry, the trade matrix $\mathbf{X}$ therefore contains domestic trade on its diagonal ($x_{cc}$) and imports off the diagonal, and the supply of country $c$ is
+\begin{equation}
+S_c = x_{cc} + \sum_{a \neq c} x_{ac}.
+\end{equation}
+Domestic trade enters the index only through this denominator. Indirect paths exclude the importer and the exporter as intermediaries, so the diagonal never acts as a link in a path, but it determines how much of each country's supply depends on foreign sources, both for the final importer and for every intermediary.
+
+\subsection{Gaps in Domestic Trade}
+Domestic trade requires production statistics (UNIDO, FAO, energy and services statistics) that are published with a lag and do not cover all countries and industries. When production is missing, the database omits the domestic row. The share of world imports in country-industry cells with observed domestic trade falls from 54.9\% in 2015 to 45.2\% in 2019, 39.9\% in 2021 and 1.4\% in 2022. In addition, thirteen industries (for instance, live animals, cotton, fishing and some residual services) have no domestic trade for any country or year.
+
+Without correction, the supply denominator of an affected cell collapses to imports. The measure then reflects the concentration of the import basket rather than dependence on total supply: a large producer that imports little would appear fully dependent on its main supplier (for example, crude oil in Saudi Arabia or wine in Italy). The declining coverage would also introduce an artificial upward trend in dependence. The procedure below completes domestic trade while leaving the definition of the index unchanged.
+
+\subsection{Completion Strategy}
+The completion follows five principles: (i) observed domestic trade is kept, with the narrow exception of non-credible residuals described in \cref{subsec:credibility}; (ii) the missing values are filled with the same concept, domestic production net of exports, taken from the OECD Inter-Country Input-Output tables \citep{OECDICIO}, which are built from national accounts, complemented by energy statistics for oil producers outside those tables; (iii) the 170 industries and all countries of the ITPD-E are preserved; (iv) values are imputed only where the country imports in the industry, since otherwise the diagonal does not enter any calculation; and (v) every rule was chosen by out-of-sample validation, hiding observed values and measuring the error made when reconstructing them.
+
+\paragraph{Sector correspondence and blocks.} ICIO domestic production of country $c$ in sector $s$ is the sum of the row $(c,s)$ over the columns of country $c$ (intermediate and final uses), which equals output minus exports. The 170 ITPD-E industries are mapped to the 50 ICIO sectors (ISIC Rev.~4), after correcting 22 assignments inherited from the ISIC Rev.~3 classification of the ITPD-E (for example, publishing moves to J58--J60 and rubber and plastics to C22). Industries that share an ICIO sector form a \emph{block} $B$ (40 in total), so that the sum of their domestic trade can be compared with a single ICIO total $Q_{cBt}$.
+
+\paragraph{Calibration.} In country-block-years where all industries are observed, the ratio of aggregated ITPD-E domestic trade to ICIO domestic production has a median of 0.80 in manufacturing (interquartile range 0.57--0.99), 1.03 in mining and energy, and 1.06 in services. Both sources measure the same concept; in manufacturing the ITPD-E is somewhat lower, as industrial statistics do not cover all firms. The median ratio by block, $\kappa_B$, is used in the controls and in the block caps.
+
+\subsection{Imputation Rules}
+Let $D_{cit}$ denote domestic trade of country $c$ in industry $i$ (block $B$) and year $t$, $M_{cit}$ imports, $X_{cit}$ exports, and $\rho_{cit} = D_{cit}/Q_{cBt}$. Missing values are filled according to the hierarchy in \cref{tab:diag-rules}.
+
+\begin{table}[!t]
+\caption{Imputation rules for missing domestic trade}\label{tab:diag-rules}
+\centering
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}p{1.6cm}p{4.4cm}X@{}}
+\toprule
+\textbf{Rule} & \textbf{Applies when} & \textbf{Estimate} \\
+\midrule
+a & The country has credible observed values for the industry within 7 years (before or after) & $\hat D_{cit} = \bar\rho_{ci}\, Q_{cBt}$, where $\bar\rho_{ci}$ averages the ratios of up to three nearest observed years, weighted by the inverse of the distance. Countries outside the ICIO use the ICIO rest-of-world aggregate (a-ROW). \\
+b & ICIO country without own history & $\hat D_{cit} = \tilde\rho_{it}\, Q_{cBt}$, where $\tilde\rho_{it}$ is the median ratio of other ICIO countries in $t-1$, $t$ and $t+1$ (at least three distinct countries; otherwise the 2016--2022 median). \\
+b-export & Industry without observed domestic trade in any country & $\hat D_{cit} = \kappa_B\, Q_{cBt}\, \bar X_{ci}/\bar X_{cB}$, using the country's 2016--2022 export share of the industry within the block if it is at least 1\%; otherwise, the world export structure of the block. Industries that form a block on their own (e.g.\ fishing) take $\hat D_{cit} = Q_{cBt}$. \\
+e & Country outside the ICIO without history, or no reference for rule b & Logit model of the domestic share $\sigma = D/(D+M)$ with industry fixed effects and log trade of the cell and of the country (three-year means), plus the country's own effect when it has at least five observed cells (e+country). $\hat D = \hat\sigma/(1-\hat\sigma)\,\bar M$, with $\hat\sigma$ bounded by the 1st--99th percentiles observed in the industry. \\
+en & Crude oil and gas extraction or petroleum refining, country outside the ICIO with physical data & Production from the \emph{Statistical Review of World Energy} \citep{EIStatReview}: refinery throughput, or crude oil plus natural gas output in barrels of oil equivalent, valued at the median unit value of ICIO countries (ICIO output of the sector per barrel, scaled to the ITPD-E), times the country's structural domestic share of production (2016--2022 median of production net of exports). It takes precedence over a-ROW and e. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Energy outside the ICIO.} The rest-of-world aggregate of the ICIO mixes very different economies and is a poor guide for oil producers, whose observed ITPD-E domestic trade is often a low or volatile residual. For crude oil and gas and for refining in countries outside the ICIO, production is therefore taken from sector-specific energy statistics, which cover all major producers over several decades. In a leave-one-country-out test, the rule yields a median error of 4.6 points in the domestic share for refining (5.6 for crude oil and gas). It affects about 0.1\% of world imports but corrects implausible results for large producers (for example, the domestic share of refined products rises from 14\% to 82\% in Iraq and from 7\% to 39\% in Oman in 2022). Observed values below 25\% of the energy-based reference, more than two typical errors below it, are treated as residuals.
+
+\subsection{Credibility of Observed Domestic Trade}\label{subsec:credibility}
+Because domestic trade is a residual (production minus exports), it becomes unreliable when declared production barely exceeds exports: the difference is then dominated by measurement error. Examples are pharmaceuticals in Italy, which fall from USD 8.4 billion in 2005 to 0.3 billion in 2015 while exports rise, or aircraft in the United States, with USD 0.6 billion in 2019 between 26.7 billion in 2018 and 52.8 billion in 2020. Used as anchors, such values would propagate near-zero domestic shares to large producers.
+
+Each cell is compared with an export-based reference, the ICIO domestic production of the block allocated according to the industry's weight in the country's exports within the block:
+\begin{equation}
+R_{cit} = Q_{cBt}\,\frac{X_{cit}}{X_{cBt}}.
+\end{equation}
+Both export figures come from the ITPD-E, so re-exports cancel out. An observed value with $D_{cit} < \varphi\, R_{cit}$ is treated as a gap and imputed; it is not used as an anchor or in the median ratios. Symmetrically, no imputed value may fall below $\varphi\, R_{ci}$ (computed with the 2016--2022 export share, to avoid breaks across years). We set $\varphi = 0.10$, close to the 10th percentile of $D/R$ among observed cells of large exporters (median 0.70). The criterion affects 4.6\% of observed domestic values in 2009--2022 (1.7--2.5\% of world imports per year) and leaves the out-of-sample error of the rules unchanged (\cref{tab:diag-validation}).
+
+\subsection{Consistency Adjustments}
+After imputation, five adjustments ensure coherence across years and with ICIO totals; every cell keeps its previous value and rule for traceability:
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+    \item \textbf{Safeguard for rule a.} If rule a moves the domestic share more than 30 percentage points away from the nearest observed value, or yields a value more than five times larger or smaller, the whole country-industry series uses the level of the nearest observation.
+    \item \textbf{Splicing between rules.} When a series alternates years with and without own history, the latter are rescaled to link with the nearest year based on own history, preserving their own dynamics.
+    \item \textbf{Magnitude cap.} No value from rule b exceeds 1.5 times the largest observed value of the industry in any country (when at least ten countries are observed), except for the three largest world exporters.
+    \item \textbf{Block caps.} No imputed industry exceeds $1.5\,\kappa_B\, Q_{cBt}$; if observed plus imputed values of the block exceed $2\,\kappa_B\, Q_{cBt}$, the imputed part without own history is scaled down by a constant factor per country-block (minimum 25\%).
+    \item \textbf{Export-coherence floor.} No imputed value falls below $0.10\,R_{ci}$.
+\end{enumerate}
+
+\subsection{Validation}
+\Cref{tab:diag-validation} reports the out-of-sample error of the selected rules. Observed domestic values for 2016--2021 are hidden and reconstructed, and the error is measured on the domestic share of supply, $\sigma = D/(D+M)$, weighted by imports, which is the component of the index affected by the diagonal. Rules based on cross-country medians exclude the country being predicted, and the logit model is validated by country groups not used in the estimation.
+
+\begin{table}[!t]
+\caption{Out-of-sample validation of the imputation rules (2016--2021)}\label{tab:diag-validation}
+\centering
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}Xrr@{}}
+\toprule
+\textbf{Rule} & \textbf{Cells} & \textbf{Error in $\sigma$ (pp)} \\
+\midrule
+a: own history, three anchors, inverse distance & 23,081 & 2.39 \\
+\quad with credible anchors and export-coherence floor & 22,303 & 2.42 \\
+\quad carrying forward the last level (benchmark) & 23,081 & 3.18 \\
+a-ROW: own history, rest-of-world dynamics & 10,316 & 4.31 \\
+b: median ratio of other countries & 23,642 & 9.65 \\
+\quad agriculture / manufacturing / mining and energy / services & & 16.1 / 12.4 / 11.2 / 2.3 \\
+b-export: country export structure (industries without any observation) & 23,371 & 12.37 \\
+\quad world export structure (discarded) & 20,166 & 22.09 \\
+e+country: logit model with country effect (outside the ICIO) & 9,583 & 14.07 \\
+Median domestic share of the industry (discarded) & 9,702 & 29.61 \\
+\bottomrule
+\end{tabularx}
+\par\smallskip\parbox{\linewidth}{\footnotesize Error: mean absolute error in the domestic share of supply, weighted by imports, in percentage points.}
+\end{table}
+
+Own history remains preferable to the cross-country rule even when the nearest observation is six or seven years old (error of 5.0 and 8.7 points, against 10.3 and 16.1 for rule b), which supports the seven-year window.
+
+\subsection{Quality Controls}
+Each imputed cell passes seven controls with thresholds fixed in advance: validity; consistency of the block sum with $\kappa_B\,Q_{cBt}$; ratio to the nearest own observation; year-on-year continuity; change in the domestic share relative to the nearest observation; plausibility of the domestic share against the 1st--99th percentiles observed in the industry; and magnitude relative to the largest observed value. A deviation counts only if the alternative reference value would move the domestic share by at least five percentage points. Between 0.4\% and 0.9\% of imputed imports fall in the red category in each year; all such cells carry a documented decision (for example, the largest world producer of an industry, or a genuine change in ICIO production) and none remains pending.
+
+\subsection{Integration in the Index}
+Domestic trade is incorporated at a single point, right after reading the ITPD-E and before building the matrices; in the EU version, before aggregating the 27 member states, so that EU domestic supply includes each member's domestic trade and intra-EU trade. Diagonal rows are added only for countries and industries already present in the data, so the set of countries and industries does not change; non-credible residuals are replaced in place. The relevance threshold $\theta$ of the computation (0.5\% of the column total) is kept unchanged; with complete domestic supply, that total includes domestic production, as it already did for observed cells.
+
+\subsection{Updates and Revisions}\label{subsec:revisions}
+The domestic value of a year draws on neighbouring years: rule a anchors on the closest observations before or after it, the rule b ratio uses a three-year window, and a few structural parameters (export weights, the energy domestic share and $\kappa_B$) are estimated over a calibration window, 2016--2022. To keep the published series stable, the calibration window is part of the methodology version and is not re-estimated when a year is added. When data for year $t$ become available, the index is computed for $t$ and recomputed for $t-1$, which stops being the edge of the series; earlier years keep their published values. As with GDP and other economic statistics, figures for the two latest years are therefore provisional. A simulation that adds 2022 to a series ending in 2021 supports this rule: with fixed parameters, about 1\% of world imports change in 2016--2020, with a negligible effect on the import-weighted domestic share (at most 0.02 points), whereas 4\% change in 2021. The whole series is recomputed and released as a new version only when the methodology changes or when a new edition of the ITPD-E or the ICIO revises past years. A year enters the index only once the ICIO covers it.
+
+\subsection{Limitations}
+Rule b, the least precise, is applied to roughly a third of world imports, with errors of 16 points in agriculture and 12 in manufacturing but only 2 in services. Industries without any observed domestic trade rely on structural assumptions (error of 12 points, and up to 27 points for marginal exporters). Countries that assemble exports with imported inputs from the same industry (processing trade) show high dependence on their suppliers even when they are large exporters; this reflects industry-level trade data rather than the imputation. Finally, the latest ICIO years include OECD estimates, whose effect is limited by the safeguard of rule a.
+
 
 \section{Centrality Analysis and Global Hubs (Global Hub Score)}
 

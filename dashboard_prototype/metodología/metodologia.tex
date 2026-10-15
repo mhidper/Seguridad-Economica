@@ -194,7 +194,7 @@ Nuestro enfoque destaca por tres ventajas clave: (1) identificación de vulnerab
 
 \subsection{Formulación Matemática}
 La dependencia total $\text{DT}_{ij}$ de un importador $j$ respecto a un exportador $i$ se define como la suma de la dependencia directa e indirecta.
-Consideramos la matriz de comercio normalizada $\mathbf{T}$, donde cada elemento $T_{ab} = x_{ab} / S_b$ representa la fracción del suministro de $b$ que proviene directamente de $a$.
+Consideramos la matriz de comercio normalizada $\mathbf{T}$, donde cada elemento $T_{ab} = x_{ab} / S_b$ representa la fracción del suministro de $b$ que proviene directamente de $a$, y $S_b$ es el suministro total de la industria en $b$: producción doméstica vendida en el país más importaciones (sección~\ref{subsec:datos}).
 La fuerza de un camino comercial $p = (i, k_1, \ldots, k_{\ell-1}, j)$ de longitud $\ell$ se calcula como el producto de las dependencias a lo largo de sus aristas:
 \begin{equation}
 F(p) = \prod_{(a,b) \in \text{edges}(p)} T_{ab} = T_{ik_1} \cdot T_{k_1k_2} \cdots T_{k_{\ell-1}j}
@@ -220,6 +220,32 @@ La \textbf{Vulnerabilidad Nacional} agregada ($V_j$) ---que constituye el valor 
 V_j = \sum_{s} w_{js} \cdot \text{DT}_{js}
 \end{equation}
 donde $\text{DT}_{js}$ es la dependencia total del país $j$ en el sector $s$, y $w_{js}$ es la participación del sector $s$ en las importaciones totales de $j$. El índice final se normaliza en un rango de 0 a 100 en la interfaz del portal.
+
+\subsection{Datos y Producción Doméstica}\label{subsec:datos}
+El índice se calcula con la base ITPD-E (\textit{release} 3) de la Comisión de Comercio Internacional de Estados Unidos (USITC), que cubre 170 industrias y 236 economías y recoge tanto el comercio internacional como el doméstico, definido como producción menos exportaciones. El suministro de un país $b$ en una industria es la suma de su producción doméstica y de sus importaciones:
+\begin{equation}
+S_b = x_{bb} + \sum_{a \neq b} x_{ab}.
+\end{equation}
+
+La base no incluye la producción doméstica cuando faltan las estadísticas de producción, que se publican con retraso. Las celdas con ese dato concentran el 55\,\% de las importaciones mundiales en 2015, el 40\,\% en 2021 y apenas el 1\,\% en 2022. Sin él, el denominador se reduciría a las importaciones y un gran productor aparecería como plenamente dependiente de su principal proveedor. Por ello, la producción doméstica que falta se completa con la de las tablas input-output de la OCDE (ICIO), que miden el mismo concepto a partir de las cuentas nacionales, manteniendo las 170 industrias y todos los países. Las reglas, por orden de preferencia, son:
+\begin{itemize}
+    \item \textbf{Historia propia:} la relación entre el dato observado del país (de hasta siete años antes o después) y su producción ICIO del sector se aplica a la producción ICIO del año.
+    \item \textbf{Referencia de otros países:} si el país no tiene historia, se usa la relación mediana de los demás países.
+    \item \textbf{Estructura exportadora:} para las industrias sin dato en ningún país, la producción ICIO del sector se reparte según su peso en las exportaciones del país.
+    \item \textbf{Modelo de cuota doméstica:} para las economías que no figuran en la ICIO.
+    \item \textbf{Estadísticas energéticas:} para el crudo, el gas y el refino de los productores que no figuran en la ICIO (Irak, Argelia, Kuwait, Omán, Venezuela, entre otros), la producción se toma del \textit{Statistical Review of World Energy} del Energy Institute.
+\end{itemize}
+Los datos observados se respetan, salvo los residuos poco fiables (cuando la producción declarada apenas supera a las exportaciones), que se tratan como una laguna más. Las reglas se eligieron ocultando datos observados y midiendo el error al reconstruirlos: 2,4 puntos en la cuota doméstica del suministro con historia propia y 9,7 sin ella. Se completan con ajustes de coherencia temporal y con los totales de la ICIO, y con siete controles de calidad. La definición del índice y el resto del cálculo no cambian.
+
+\subsection{Actualización de los datos y revisiones}\label{subsec:revisiones}
+El índice se actualiza una vez al año, cuando las fuentes publican un nuevo ejercicio. Como ocurre con otras estadísticas económicas, como el PIB, las cifras más recientes son provisionales:
+\begin{itemize}
+    \item \textbf{Qué cambia en cada actualización.} Se incorpora el año nuevo y se revisa el año anterior. La revisión es necesaria porque la producción doméstica que falta en un año se estima, en parte, con la información de los años que lo rodean; mientras un año es el último de la serie, solo tiene vecinos por un lado.
+    \item \textbf{Qué no cambia.} Los años anteriores conservan los valores ya publicados. Los parámetros con los que se calibra la estimación (calculados sobre 2016--2022) forman parte de la metodología y no se recalculan al añadir años. En una simulación que añadió 2022 a una serie que terminaba en 2021, este criterio limitó los cambios en 2016--2020 a en torno al 1\% del comercio, sin efecto apreciable en los resultados; recalcular los parámetros habría modificado alrededor del 5\% del comercio de cada año.
+    \item \textbf{Cuándo se revisa toda la serie.} Solo cuando cambia la metodología o cuando las fuentes (la ITPD-E o las tablas de la OCDE) corrigen años pasados de forma relevante. En ese caso, la serie completa se publica como una nueva versión, acompañada de una nota que compara ambas.
+    \item \textbf{Cobertura.} Un año entra en el índice solo cuando están disponibles las tablas input-output de la OCDE para ese año.
+\end{itemize}
+En consecuencia, las cifras de los dos últimos años de la serie deben leerse como provisionales.
 
 \subsection{Implementación Computacional y Consideraciones Prácticas}
 

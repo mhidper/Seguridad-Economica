@@ -231,6 +231,108 @@ La aplicación práctica a datos reales plantea desafíos computacionales signif
     \item \textbf{Uso de matrices dispersas:} Dado que la mayoría de los países solo comercian con un subconjunto de socios, el uso de estructuras de datos dispersas optimiza drásticamente el uso de memoria y la velocidad de cálculo.
 \end{itemize}
 
+\section{Datos y suministro doméstico}\label{sec:datos}
+
+\subsection{Flujos comerciales y denominador del suministro}
+El índice se calcula a partir de la \textit{International Trade and Production Database for Estimation}, versión 3 (ITPD-E-R03), publicada por la Comisión de Comercio Internacional de Estados Unidos \citep{Borchert2021}. La base cubre 170 industrias (agricultura, minería y energía, manufacturas y servicios) y 236 economías, y recoge tanto el comercio internacional como el doméstico, definido este como la producción bruta menos las exportaciones. Para cada industria, la matriz de comercio $\mathbf{X}$ contiene por tanto el comercio doméstico en su diagonal ($x_{cc}$) y las importaciones fuera de ella, y el suministro del país $c$ es
+\begin{equation}
+S_c = x_{cc} + \sum_{a \neq c} x_{ac}.
+\end{equation}
+El comercio doméstico entra en el índice solo a través de este denominador. Las rutas indirectas excluyen como intermediarios al importador y al exportador, de modo que la diagonal nunca actúa como eslabón de una ruta, pero sí determina qué parte del suministro de cada país depende de fuentes exteriores, tanto para el importador final como para cada intermediario.
+
+\subsection{Lagunas en el comercio doméstico}
+El comercio doméstico requiere estadísticas de producción (ONUDI, FAO, estadísticas energéticas y de servicios) que se publican con retraso y no cubren todos los países e industrias. Cuando falta la producción, la base omite la fila doméstica. La parte de las importaciones mundiales situada en celdas país-industria con comercio doméstico observado cae del 54,9\,\% en 2015 al 45,2\,\% en 2019, el 39,9\,\% en 2021 y el 1,4\,\% en 2022. Además, trece industrias (por ejemplo, animales vivos, algodón, pesca y algunos servicios residuales) carecen de comercio doméstico en todos los países y años.
+
+Sin corrección, el denominador de una celda afectada se reduce a las importaciones. La medida refleja entonces la concentración de la cesta importadora y no la dependencia del suministro total: un gran productor que importa poco aparecería como plenamente dependiente de su principal proveedor (por ejemplo, el crudo en Arabia Saudí o el vino en Italia). La cobertura decreciente introduciría además una tendencia artificial al alza en la dependencia. El procedimiento que sigue completa el comercio doméstico sin alterar la definición del índice.
+
+\subsection{Estrategia de compleción}
+La compleción sigue cinco principios: (i) se conserva el comercio doméstico observado, con la estrecha excepción de los residuos poco creíbles descritos en la \cref{subsec:credibilidad}; (ii) los valores ausentes se completan con el mismo concepto, la producción doméstica neta de exportaciones, tomada de las tablas input-output internacionales de la OCDE (ICIO) \citep{OECDICIO}, construidas a partir de la contabilidad nacional y complementadas con estadísticas energéticas para los productores de petróleo que no figuran en ellas; (iii) se preservan las 170 industrias y todos los países de la ITPD-E; (iv) solo se imputa donde el país importa en la industria, ya que en otro caso la diagonal no interviene en ningún cálculo; y (v) cada regla se eligió mediante validación fuera de muestra, ocultando valores observados y midiendo el error cometido al reconstruirlos.
+
+\paragraph{Correspondencia sectorial y bloques.} La producción doméstica ICIO del país $c$ en el sector $s$ es la suma de la fila $(c,s)$ sobre las columnas del propio país $c$ (usos intermedios y finales), que equivale a la producción menos las exportaciones. Las 170 industrias de la ITPD-E se asignan a los 50 sectores ICIO (CIIU Rev.~4), tras corregir 22 asignaciones heredadas de la clasificación CIIU Rev.~3 de la ITPD-E (por ejemplo, la edición pasa a J58--J60, y el caucho y los plásticos, a C22). Las industrias que comparten sector ICIO forman un \emph{bloque} $B$ (40 en total), de modo que la suma de su comercio doméstico puede compararse con un único total ICIO, $Q_{cBt}$.
+
+\paragraph{Calibración.} En los país-bloque-año con todas las industrias observadas, el cociente entre el comercio doméstico agregado de la ITPD-E y la producción doméstica ICIO tiene una mediana de 0,80 en manufacturas (rango intercuartílico 0,57--0,99), 1,03 en minería y energía y 1,06 en servicios. Ambas fuentes miden el mismo concepto; en manufacturas la ITPD-E es algo menor, porque las estadísticas industriales no cubren todas las empresas. El cociente mediano por bloque, $\kappa_B$, se utiliza en los controles y en los topes de bloque.
+
+\subsection{Reglas de imputación}
+Sea $D_{cit}$ el comercio doméstico del país $c$ en la industria $i$ (bloque $B$) y el año $t$, $M_{cit}$ las importaciones, $X_{cit}$ las exportaciones y $\rho_{cit} = D_{cit}/Q_{cBt}$. Los valores ausentes se completan según la jerarquía del \cref{tab:diag-reglas}.
+
+\begin{table}[!t]
+\caption{Reglas de imputación del comercio doméstico ausente}\label{tab:diag-reglas}
+\centering
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}p{1.6cm}p{4.4cm}X@{}}
+\toprule
+\textbf{Regla} & \textbf{Se aplica cuando} & \textbf{Estimación} \\
+\midrule
+a & El país tiene valores observados creíbles de la industria en un radio de 7 años (anteriores o posteriores) & $\hat D_{cit} = \bar\rho_{ci}\, Q_{cBt}$, donde $\bar\rho_{ci}$ promedia los cocientes de hasta tres años observados más próximos, ponderados por el inverso de la distancia. Los países fuera de la ICIO usan el agregado «resto del mundo» de la ICIO (a-ROW). \\
+b & País ICIO sin historia propia & $\hat D_{cit} = \tilde\rho_{it}\, Q_{cBt}$, donde $\tilde\rho_{it}$ es el cociente mediano de los demás países ICIO en $t-1$, $t$ y $t+1$ (al menos tres países distintos; si no, la mediana 2016--2022). \\
+b-export & Industria sin comercio doméstico observado en ningún país & $\hat D_{cit} = \kappa_B\, Q_{cBt}\, \bar X_{ci}/\bar X_{cB}$, con el peso de la industria en las exportaciones del país dentro del bloque (2016--2022) si es de al menos el 1\,\%; si no, la estructura exportadora mundial del bloque. Las industrias que forman un bloque por sí solas (p.~ej., la pesca) toman $\hat D_{cit} = Q_{cBt}$. \\
+e & País fuera de la ICIO sin historia, o sin referencia para la regla b & Modelo logit de la cuota doméstica $\sigma = D/(D+M)$ con efectos fijos de industria y el logaritmo del comercio de la celda y del país (medias de tres años), más el efecto propio del país cuando tiene al menos cinco celdas observadas (e+país). $\hat D = \hat\sigma/(1-\hat\sigma)\,\bar M$, con $\hat\sigma$ acotada por los percentiles 1--99 observados en la industria. \\
+en & Extracción de crudo y gas o refino de petróleo, país fuera de la ICIO con datos físicos & Producción según el \textit{Statistical Review of World Energy} \citep{EIStatReview}: crudo procesado en refinerías, o producción de crudo y gas natural en barriles equivalentes de petróleo, valorada al valor unitario mediano de los países ICIO (producción ICIO del sector por barril, escalada a la ITPD-E), por la cuota doméstica estructural de la producción del país (mediana 2016--2022 de la producción neta de exportaciones). Tiene prioridad sobre a-ROW y e. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Energía fuera de la ICIO.} El agregado «resto del mundo» de la ICIO mezcla economías muy distintas y orienta mal en el caso de los productores de petróleo, cuyo comercio doméstico observado en la ITPD-E es a menudo un residuo bajo o volátil. Para el crudo y el gas y para el refino de los países fuera de la ICIO, la producción se toma por ello de estadísticas energéticas sectoriales, que cubren a todos los grandes productores durante varias décadas. En una prueba que excluye cada país por turno, la regla arroja un error mediano de 4,6 puntos en la cuota doméstica del refino (5,6 en crudo y gas). Afecta en torno al 0,1\,\% de las importaciones mundiales, pero corrige resultados inverosímiles en grandes productores (por ejemplo, la cuota doméstica de los productos refinados sube del 14\,\% al 82\,\% en Irak y del 7\,\% al 39\,\% en Omán en 2022). Los valores observados por debajo del 25\,\% de la referencia energética, más de dos errores típicos por debajo de ella, se tratan como residuos.
+
+\subsection{Credibilidad del comercio doméstico observado}\label{subsec:credibilidad}
+Como el comercio doméstico es un residuo (producción menos exportaciones), deja de ser fiable cuando la producción declarada apenas supera a las exportaciones: la diferencia queda entonces dominada por el error de medida. Son ejemplos los productos farmacéuticos en Italia, que caen de 8.400 millones de dólares en 2005 a 300 millones en 2015 mientras crecen las exportaciones, o la aeronáutica en Estados Unidos, con 600 millones en 2019 entre 26.700 millones en 2018 y 52.800 millones en 2020. Usados como anclas, estos valores trasladarían cuotas domésticas casi nulas a grandes productores.
+
+Cada celda se compara con una referencia exportadora: la producción doméstica ICIO del bloque repartida según el peso de la industria en las exportaciones del país dentro del bloque,
+\begin{equation}
+R_{cit} = Q_{cBt}\,\frac{X_{cit}}{X_{cBt}}.
+\end{equation}
+Ambas cifras de exportación proceden de la ITPD-E, por lo que las reexportaciones se compensan. Un valor observado con $D_{cit} < \varphi\, R_{cit}$ se trata como laguna y se imputa; no se usa como ancla ni en los cocientes medianos. Simétricamente, ningún valor imputado puede quedar por debajo de $\varphi\, R_{ci}$ (calculado con el peso exportador 2016--2022, para evitar saltos entre años). Se fija $\varphi = 0{,}10$, próximo al percentil 10 de $D/R$ entre las celdas observadas de grandes exportadores (mediana 0,70). El criterio afecta al 4,6\,\% de los valores domésticos observados en 2009--2022 (entre el 1,7\,\% y el 2,5\,\% de las importaciones mundiales cada año) y no altera el error fuera de muestra de las reglas (\cref{tab:diag-validacion}).
+
+\subsection{Ajustes de coherencia}
+Tras la imputación, cinco ajustes garantizan la coherencia entre años y con los totales ICIO; cada celda conserva su valor y su regla previos para asegurar la trazabilidad:
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+    \item \textbf{Salvaguarda de la regla a.} Si la regla a aleja la cuota doméstica más de 30 puntos porcentuales del valor observado más próximo, o da un valor más de cinco veces mayor o menor, toda la serie país-industria adopta el nivel de la observación más próxima.
+    \item \textbf{Empalme entre reglas.} Cuando una serie alterna años con y sin historia propia, los segundos se reescalan para enlazar con el año más próximo basado en historia propia, conservando su propia dinámica.
+    \item \textbf{Tope de magnitud.} Ningún valor de la regla b supera 1,5 veces el mayor valor observado de la industria en cualquier país (cuando hay al menos diez países observados), salvo para los tres mayores exportadores mundiales.
+    \item \textbf{Topes de bloque.} Ninguna industria imputada supera $1{,}5\,\kappa_B\, Q_{cBt}$; si la suma de valores observados e imputados del bloque supera $2\,\kappa_B\, Q_{cBt}$, la parte imputada sin historia propia se reduce con un factor constante por país-bloque (mínimo del 25\,\%).
+    \item \textbf{Suelo de coherencia exportadora.} Ningún valor imputado queda por debajo de $0{,}10\,R_{ci}$.
+\end{enumerate}
+
+\subsection{Validación}
+El \cref{tab:diag-validacion} recoge el error fuera de muestra de las reglas seleccionadas. Se ocultan los valores domésticos observados de 2016--2021, se reconstruyen y el error se mide sobre la cuota doméstica del suministro, $\sigma = D/(D+M)$, ponderada por importaciones, que es el componente del índice afectado por la diagonal. Las reglas basadas en medianas entre países excluyen al país que se predice, y el modelo logit se valida con grupos de países no usados en la estimación.
+
+\begin{table}[!t]
+\caption{Validación fuera de muestra de las reglas de imputación (2016--2021)}\label{tab:diag-validacion}
+\centering
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}Xrr@{}}
+\toprule
+\textbf{Regla} & \textbf{Celdas} & \textbf{Error en $\sigma$ (pp)} \\
+\midrule
+a: historia propia, tres anclas, inverso de la distancia & 23.081 & 2,39 \\
+\quad con anclas creíbles y suelo de coherencia exportadora & 22.303 & 2,42 \\
+\quad arrastrando el último nivel (referencia) & 23.081 & 3,18 \\
+a-ROW: historia propia, dinámica del resto del mundo & 10.316 & 4,31 \\
+b: cociente mediano de los demás países & 23.642 & 9,65 \\
+\quad agricultura / manufacturas / minería y energía / servicios & & 16,1 / 12,4 / 11,2 / 2,3 \\
+b-export: estructura exportadora del país (industrias sin ninguna observación) & 23.371 & 12,37 \\
+\quad estructura exportadora mundial (descartada) & 20.166 & 22,09 \\
+e+país: modelo logit con efecto país (fuera de la ICIO) & 9.583 & 14,07 \\
+Cuota doméstica mediana de la industria (descartada) & 9.702 & 29,61 \\
+\bottomrule
+\end{tabularx}
+\par\smallskip\parbox{\linewidth}{\footnotesize Error: error absoluto medio en la cuota doméstica del suministro, ponderado por importaciones, en puntos porcentuales.}
+\end{table}
+
+La historia propia sigue siendo preferible a la regla entre países incluso cuando la observación más próxima tiene seis o siete años (errores de 5,0 y 8,7 puntos, frente a 10,3 y 16,1 de la regla b), lo que respalda la ventana de siete años.
+
+\subsection{Controles de calidad}
+Cada celda imputada supera siete controles con umbrales fijados de antemano: validez; coherencia de la suma del bloque con $\kappa_B\,Q_{cBt}$; cociente frente a la observación propia más próxima; continuidad interanual; cambio de la cuota doméstica respecto a la observación más próxima; verosimilitud de la cuota doméstica frente a los percentiles 1--99 observados en la industria; y magnitud respecto al mayor valor observado. Una desviación solo cuenta si el valor de referencia alternativo movería la cuota doméstica al menos cinco puntos porcentuales. Entre el 0,4\,\% y el 0,9\,\% de las importaciones imputadas quedan en la categoría roja cada año; todas esas celdas tienen una decisión documentada (por ejemplo, el mayor productor mundial de la industria o un cambio real de la producción ICIO) y ninguna queda pendiente.
+
+\subsection{Integración en el índice}
+El comercio doméstico se incorpora en un único punto, justo después de leer la ITPD-E y antes de construir las matrices; en la versión UE, antes de agregar los 27 Estados miembros, de modo que el suministro doméstico de la UE incluye el comercio doméstico de cada miembro y el comercio intra-UE. Solo se añaden filas diagonales para países e industrias ya presentes en los datos, de modo que el conjunto de países e industrias no cambia; los residuos poco creíbles se sustituyen en su lugar. El umbral de relevancia $\theta$ del cálculo (0,5\,\% del total de la columna) no se modifica; con el suministro doméstico completo, ese total incluye la producción doméstica, como ya ocurría en las celdas observadas.
+
+\subsection{Actualización y revisiones}\label{subsec:revisiones}
+El valor doméstico de un año se apoya en los años vecinos: la regla a se ancla en las observaciones más próximas, anteriores o posteriores; el cociente de la regla b usa una ventana de tres años; y algunos parámetros estructurales (los pesos exportadores, la cuota doméstica energética y $\kappa_B$) se estiman sobre una ventana de calibración, 2016--2022. Para que la serie publicada sea estable, la ventana de calibración forma parte de la versión de la metodología y no se reestima al añadir años. Cuando se dispone de los datos del año $t$, el índice se calcula para $t$ y se recalcula para $t-1$, que deja de ser el extremo de la serie; los años anteriores conservan los valores publicados. Como ocurre con el PIB y otras estadísticas económicas, las cifras de los dos últimos años son, por tanto, provisionales. Una simulación que añade 2022 a una serie que terminaba en 2021 respalda esta regla: con los parámetros fijos, cambia en torno al 1\,\% de las importaciones mundiales en 2016--2020, con un efecto despreciable en la cuota doméstica ponderada por importaciones (como máximo 0,02 puntos), mientras que en 2021 cambia el 4\,\%. La serie completa solo se recalcula y publica como nueva versión cuando cambia la metodología o cuando una nueva edición de la ITPD-E o de la ICIO revisa años pasados. Un año entra en el índice solo cuando la ICIO lo cubre.
+
+\subsection{Limitaciones}
+La regla b, la menos precisa, se aplica a cerca de un tercio de las importaciones mundiales, con errores de 16 puntos en agricultura y 12 en manufacturas, pero solo 2 en servicios. Las industrias sin ningún comercio doméstico observado dependen de supuestos estructurales (error de 12 puntos, y de hasta 27 en exportadores marginales). Los países que ensamblan exportaciones con insumos importados de la misma industria (comercio de procesamiento) muestran una dependencia alta de sus proveedores aunque sean grandes exportadores; es un rasgo de los datos de comercio por industria, no de la imputación. Por último, los últimos años de la ICIO incluyen estimaciones de la OCDE, cuyo efecto queda acotado por la salvaguarda de la regla a.
+
 \section{Análisis de Centralidad: Índice de Hub Global (HG) / Global Hub Score (GHS)}
 
 La identificación de intermediarios críticos es una de las mayores contribuciones del IDEE. Los países que actúan como "conectores" en las redes comerciales pueden amplificar las crisis. Este indicador de centralidad estructural se denomina indistintamente \textbf{Índice de Hub Global (HG)} en la versión en español del portal web o \textbf{Global Hub Score (GHS)} en su versión en inglés.

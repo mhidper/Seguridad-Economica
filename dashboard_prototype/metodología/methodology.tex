@@ -195,7 +195,7 @@ Our approach stands out for three key advantages: (1) identification of hidden s
 
 \subsection{Mathematical Formulation}
 The total dependency $\text{DT}_{ij}$ of an importer $j$ on an exporter $i$ is defined as the sum of direct and indirect dependency.
-We consider the normalized trade matrix $\mathbf{T}$, where each element $T_{ab} = x_{ab} / S_b$ represents the fraction of $b$'s supply that comes directly from $a$.
+We consider the normalized trade matrix $\mathbf{T}$, where each element $T_{ab} = x_{ab} / S_b$ represents the fraction of $b$'s supply that comes directly from $a$, and $S_b$ is $b$'s total supply of the industry: domestic production sold in $b$ plus imports (Section~\ref{subsec:data}).
 The strength of a trade path $p = (i, k_1, \ldots, k_{\ell-1}, j)$ of length $\ell$ is calculated as the product of the dependencies along its edges:
 \begin{equation}
 F(p) = \prod_{(a,b) \in \text{edges}(p)} T_{ab} = T_{ik_1} \cdot T_{k_1k_2} \cdots T_{k_{\ell-1}j}
@@ -222,6 +222,32 @@ To convert the network of trade dependencies into an operational measure of econ
     \end{equation}
     where $V_{js}$ is the vulnerability of country $j$ in sector $s$, and $w_{js}$ is the share of sector $s$ in $j$'s input imports. The final index is normalized in a range from 0 to 1, where 1 represents the maximum relative systemic vulnerability.
 \end{enumerate}
+
+\subsection{Data and Domestic Supply}\label{subsec:data}
+The index is computed from the ITPD-E database (release 3) of the U.S. International Trade Commission (USITC), which covers 170 industries and 236 economies and reports both international and domestic trade, the latter defined as production minus exports. The supply of country $b$ in an industry is the sum of its domestic production and its imports:
+\begin{equation}
+S_b = x_{bb} + \sum_{a \neq b} x_{ab}.
+\end{equation}
+
+The database omits domestic production when production statistics, which are published with a lag, are missing. Cells with this information account for 55\% of world imports in 2015, 40\% in 2021 and barely 1\% in 2022. Without it, the denominator would shrink to imports and a large producer would appear fully dependent on its main supplier. Missing domestic production is therefore completed with that of the OECD Inter-Country Input-Output tables (ICIO), which measure the same concept from national accounts, keeping the 170 industries and all countries. The rules, in order of preference, are:
+\begin{itemize}
+    \item \textbf{Own history:} the ratio between the country's observed value (up to seven years before or after) and its ICIO production in the sector is applied to ICIO production in the current year.
+    \item \textbf{Cross-country reference:} if the country has no history, the median ratio of other countries is used.
+    \item \textbf{Export structure:} for industries without data in any country, ICIO production of the sector is allocated according to the industry's weight in the country's exports.
+    \item \textbf{Domestic-share model:} for economies not covered by the ICIO.
+    \item \textbf{Energy statistics:} for crude oil, gas and refining in producers not covered by the ICIO (Iraq, Algeria, Kuwait, Oman, Venezuela, among others), production is taken from the Energy Institute's \textit{Statistical Review of World Energy}.
+\end{itemize}
+Observed values are kept, except unreliable residuals (when declared production barely exceeds exports), which are treated as gaps. The rules were chosen by hiding observed values and measuring the error made when reconstructing them: 2.4 points in the domestic share of supply with own history and 9.7 without it. They are complemented by adjustments for consistency over time and with ICIO totals, and by seven quality controls. The definition of the index and the rest of the computation are unchanged.
+
+\subsection{Data Updates and Revisions}\label{subsec:revisions}
+The index is updated once a year, when the sources release a new year. As with other economic statistics, such as GDP, the most recent figures are provisional:
+\begin{itemize}
+    \item \textbf{What changes in each update.} The new year is added and the previous year is revised. The revision is needed because missing domestic production in a given year is estimated partly with information from the surrounding years; while a year is the last one in the series, it has neighbours on one side only.
+    \item \textbf{What does not change.} Earlier years keep their published values. The parameters used to calibrate the estimation (computed over 2016--2022) are part of the methodology and are not re-estimated when years are added. In a simulation that added 2022 to a series ending in 2021, this rule limited the changes in 2016--2020 to about 1\% of trade, with no noticeable effect on the results; re-estimating the parameters would have modified about 5\% of trade in every year.
+    \item \textbf{When the whole series is revised.} Only when the methodology changes or when the sources (the ITPD-E or the OECD tables) correct past years substantially. The full series is then released as a new version, with a note comparing both.
+    \item \textbf{Coverage.} A year enters the index only once the OECD input-output tables are available for that year.
+\end{itemize}
+Figures for the two latest years of the series should therefore be read as provisional.
 
 \subsection{Computational Implementation and Practical Considerations}
 The practical application to real data poses significant computational challenges due to the exponential growth of potential paths. Our implementation incorporates optimization strategies:
