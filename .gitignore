@@ -108,3 +108,5 @@ docs/produccion_domestica/
 metodología/METODOLOGIA_PRODUCCION_DOMESTICA.md
 # «aux» es un nombre reservado en Windows: git no puede versionar esta carpeta (pendiente: renombrarla)
 data/aux/
+# Conversación de trabajo con Claude (interna: no se publica)
+conversaciones antygravity/Produccion domestica, pipeline y migracion (Claude) 14-16 de octubre 2026.md

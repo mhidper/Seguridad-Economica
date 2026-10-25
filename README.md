@@ -1,8 +1,20 @@
 # 📊 IDEE — Índice de Dependencia Económica Elcano
 **Real Instituto Elcano**  
-> Última actualización: 03/03/2026 — *Versión Multi-año Unificada (V2.1 - Radar de Riesgo Oculto)*
+> Última actualización: 15/10/2026 — *Versión 3: producción doméstica completada y pipeline único de cálculo*
 
 Análisis de dependencias económicas en cadenas de suministro globales. El **IDEE** cuantifica la vulnerabilidad de las economías midiendo dependencias directas e indirectas en el comercio bilateral por industria, en un contexto de fragmentación geoeconómica.
+
+> [!IMPORTANT]
+> **Novedades de la versión 3 (octubre de 2026)**
+> - **Producción doméstica completada.** La base de comercio ITPD-E no publica la producción doméstica de muchos países e
+>   industrias, sobre todo en los años recientes (en 2022 falta en el 99 % del comercio). Sin ella, el suministro de un
+>   país se reducía a sus importaciones y grandes productores aparecían como plenamente dependientes. Desde esta
+>   versión, la producción doméstica que falta se completa con las tablas input-output de la OCDE (ICIO) y, para el
+>   petróleo y el gas de países fuera de ellas, con el *Statistical Review of World Energy*. Ver «Nivel 0» y la
+>   metodología (`metodología/paper/methodology.tex`, sección *Data and Domestic Supply*).
+> - **Pipeline único** (`pipeline/pipeline.py`): encadena todo el cálculo y decide qué hay que rehacer.
+> - **Política de revisiones**: cada actualización calcula el año nuevo y revisa el anterior; los demás años no cambian.
+> - La serie publicada es 2016-2022 (global y UE). La columna `year` es numérica en todos los ficheros de `historico/`.
 
 ---
 
@@ -53,14 +65,16 @@ El índice se construye siguiendo un proceso de tres etapas:
 
 ### 3. Jerarquía de Procesos y Flujo de Datos
 
-El proyecto sigue una estructura de transformación en tres niveles, asegurando que los cálculos macroeconómicos complejos se conviertan en información visual fluida:
+El proyecto sigue una estructura de transformación por niveles, asegurando que los cálculos macroeconómicos complejos se conviertan en información visual fluida. Desde la versión 3, el nivel 0 completa la producción doméstica antes del motor y `pipeline/pipeline.py` encadena los niveles 0 a 2:
 
 ```mermaid
 graph TD
+    Z[<b>DIAGONAL:</b> imputacion/] -->|Producción doméstica completa| A
     A[<b>MOTOR:</b> 00_dependency.ipynb] -->|Genera PKL masivo| B[<b>ARQUITECTO:</b> idc_architect.py]
     B -->|Genera Parquet estructurado| C[<b>OPTIMIZADOR:</b> build_fragmented.py]
     C -->|Genera JSON ultra-ligeros| D[<b>DASHBOARD:</b> index.html]
     
+    style Z fill:#f8f9fa,stroke:#1f3b64,stroke-width:2px,color:#000
     style A fill:#f8f9fa,stroke:#1f3b64,stroke-width:2px,color:#000
     style B fill:#f8f9fa,stroke:#1f3b64,stroke-width:2px,color:#000
     style C fill:#f8f9fa,stroke:#1f3b64,stroke-width:2px,color:#000
@@ -71,9 +85,31 @@ graph TD
 > **Paso 0: Preparación de Datos (Herramienta Auxiliar no Web)**
 > El script `notebooks/00_data_processing.ipynb` **no forma parte de este pipeline de producción**. Es una herramienta auxiliar para Data Science e investigación que consolida los archivos `.csv.gz` brutos (2001-2022) en un único archivo global `dependencies_full.parquet`. Su propósito es facilitar el análisis exploratorio ad-hoc y reducir drásticamente el peso en RAM al realizar consultas con Pandas.
 
+#### ▶️ Ejecución recomendada: el pipeline
+Todo el cálculo (niveles 0 a 2 y la verificación) se lanza con una sola orden desde la raíz del repositorio, con el
+entorno `dependencias` activado:
+
+```powershell
+python herramientas\comprobar_entorno.py                  # comprobación previa: debe terminar en TODO CORRECTO
+python pipeline\pipeline.py                               # modo plan: dice qué haría y por qué, sin ejecutar nada
+python pipeline\pipeline.py --ejecutar                    # ejecuta lo necesario
+python pipeline\pipeline.py --ejecutar --anios 2022 --rehacer-anios 2022   # repite un año concreto
+```
+
+El pipeline guarda una huella de cada fuente, script y salida (`pipeline/estado.json`) y solo rehace lo que ha
+cambiado. Se detiene si faltan fuentes, si la diagonal no supera sus controles de calidad o si una ejecución del motor
+no es válida. Cada ejecución deja un registro en `pipeline/registro/`.
+
+#### **Nivel 0: Producción doméstica (diagonal)**
+*   **Scripts:** `imputacion/` (orden: `00` → `01` → `02` → `02b` → `04` → `04b` → `05` → `06`; los `03*` son pruebas de validación).
+*   **Fuentes:** ITPD-E R03 (`data/raw/ITP/`), tablas ICIO de la OCDE 2006-2022 (`data/raw/ICIO/`) y *Statistical Review of World Energy* (`data/raw/`).
+*   **Salida:** `data/processed/diagonal/diagonal_{año}.parquet`, con la producción doméstica de cada país e industria y la regla que la originó (`fuente`).
+*   **Proceso:** se conserva la producción doméstica observada en la ITPD-E (salvo residuos poco creíbles, cuando la producción declarada apenas supera a las exportaciones); la que falta se estima con la producción doméstica de la ICIO, que mide el mismo concepto, mediante reglas elegidas por validación fuera de muestra; después se aplican ajustes de coherencia y controles de calidad. Detalle en la metodología.
+*   **Enganche con el motor:** `idee_diagonal.py` añade la diagonal a los datos del motor justo después de leer la ITPD-E (y antes de agregar la UE27 en la versión UE). Está encendido por defecto; `IDEE_DIAGONAL=0` lo apaga para reproducir la versión anterior.
+
 #### **Nivel 1: El Cerebro (Motor de Cálculo)**
-*   **Script:** `notebooks/analysis/00_dependency.ipynb`
-*   **Acción:** Abrir el Notebook y ejecutar todas las celdas. **Importante:** Cambiar la variable `anio` en la celda de configuración (celda 3) para procesar el año deseado (ej: 2015).
+*   **Script:** `notebooks/analysis/00_dependency.ipynb` (y `00_dependency_ue.ipynb` para la versión UE).
+*   **Acción:** Lo lanza el pipeline. Para un año suelto: `python herramientas\ejecutar_motor.py 2022 global` (o `ue`), que ejecuta el notebook sin editarlo y valida que la diagonal se aplicó y que no hubo errores capturados.
 *   **Proceso Interno (Deep Dive):** 
 
     1. **Normalización ITP (Big Data Optimization)**: 
@@ -204,7 +240,7 @@ classDiagram
 #### **Nivel 2: El Arquitecto (Estructuración y Refinamiento Analytics)**
 
 *   **Script:** `notebooks/analysis/idc_architect.py`
-*   **Acción:** Ejecutar en terminal: `py notebooks/analysis/idc_architect.py [AÑO]` (ej: `py notebooks/analysis/idc_architect.py 2015` o `py notebooks/analysis/idc_architect.py 2015 2016 2017`).
+*   **Acción:** Lo lanza el pipeline. A mano: `python notebooks/analysis/idc_architect.py 2022 2022_UE`.
 *   **Proceso Interno (Ingeniería de Datos):**
     El Nivel 1 genera un archivo inmenso y complejo (`.pkl`). El "Arquitecto" actúa como una fase de destilación de datos (*Data Distillation*), procesando ese diccionario profundo para construir tablas analíticas (*Tidy Data*) listas para el consumo estadístico y visual:
 
@@ -486,9 +522,27 @@ El sistema actual utiliza una carga diferida (*lazy loading*) para manejar el vo
 
 ---
 
+## 🔄 Actualización anual y política de revisiones
+
+La producción doméstica de un año se estima en parte con la información de los años vecinos. Para que la serie
+publicada sea estable:
+
+-   Los parámetros de calibración de la diagonal (ventana 2016-2022) forman parte de la versión de la metodología y no
+    se reestiman al añadir años.
+-   Cada actualización calcula el año nuevo y recalcula el anterior, que deja de ser el último de la serie; los años
+    anteriores conservan sus valores publicados. Las cifras de los dos últimos años son, por tanto, provisionales.
+-   La serie completa solo se recalcula, como versión nueva, cuando cambia la metodología o cuando las fuentes
+    revisan años pasados.
+-   Un año entra en el índice solo cuando la OCDE ha publicado su tabla ICIO.
+
+Versiones publicadas: la etiqueta `v1-sin-diagonal` conserva la serie anterior a la versión 3.
+
+---
+
 ## 🛠️ Requisitos Técnicos
 
--   **Python 3.10+ (usar `py` en Windows)**
+-   **Entorno conda `dependencias`** (Python 3.12, con GPU): es el que usan el motor y el pipeline. Comandos con `python` dentro de ese entorno.
+-   **Paquetes clave:** pandas, numpy, dask, torch, pyarrow 21, openpyxl, nbformat, nbclient e ipykernel.
 -   **Lanzar Dashboard Local:** `py -m http.server 8000` (desde `dashboard_prototype`)
 -   **GPU NVIDIA:** Altamente recomendada para el motor de cálculo (`00_dependency.ipynb`).
 -   **Dependencias Core:** pandas, numpy, torch, plotly, pyarrow (para manejo de Parquet).

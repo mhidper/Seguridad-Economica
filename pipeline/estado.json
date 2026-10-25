@@ -9,6 +9,17 @@
   },
   "icio": {
    "entradas": {
+    "data/raw/ICIO/1995_SML.csv": "8b9525b31a5c0789",
+    "data/raw/ICIO/1996_SML.csv": "f2a68720a92467e7",
+    "data/raw/ICIO/1997_SML.csv": "a9eb5f4e49b868d7",
+    "data/raw/ICIO/1998_SML.csv": "067c1d14f31fbd32",
+    "data/raw/ICIO/1999_SML.csv": "b4a6f472c1c3bf1a",
+    "data/raw/ICIO/2000_SML.csv": "69588ad3fa417181",
+    "data/raw/ICIO/2001_SML.csv": "32ac43e3487b0ae0",
+    "data/raw/ICIO/2002_SML.csv": "0b9e56d56d748481",
+    "data/raw/ICIO/2003_SML.csv": "33ad588f4fdfa5e2",
+    "data/raw/ICIO/2004_SML.csv": "4b04800337d093ca",
+    "data/raw/ICIO/2005_SML.csv": "428dbf542e5b4633",
     "data/raw/ICIO/2006_SML.csv": "f45e25d6caf22620",
     "data/raw/ICIO/2007_SML.csv": "ed6fc96e6ba9f0fe",
     "data/raw/ICIO/2008_SML.csv": "ac157cb1252ca3f0",
@@ -84,7 +95,7 @@
  },
  "motor": {
   "2016|global": {
-   "diagonal": "7ca1cd42f9c3e0db",
+   "diagonal": "7753d9b004e86e1e",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -95,7 +106,7 @@
    "fecha": "registrado"
   },
   "2016|ue": {
-   "diagonal": "7ca1cd42f9c3e0db",
+   "diagonal": "7753d9b004e86e1e",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -106,7 +117,7 @@
    "fecha": "registrado"
   },
   "2017|global": {
-   "diagonal": "53750e28c1810835",
+   "diagonal": "0fa67d5f1406bbfc",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -117,7 +128,7 @@
    "fecha": "registrado"
   },
   "2017|ue": {
-   "diagonal": "53750e28c1810835",
+   "diagonal": "0fa67d5f1406bbfc",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -128,7 +139,7 @@
    "fecha": "registrado"
   },
   "2018|global": {
-   "diagonal": "61111421e14bdfa5",
+   "diagonal": "f8b1628f6feb984e",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -139,7 +150,7 @@
    "fecha": "registrado"
   },
   "2018|ue": {
-   "diagonal": "61111421e14bdfa5",
+   "diagonal": "f8b1628f6feb984e",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -150,7 +161,7 @@
    "fecha": "registrado"
   },
   "2019|global": {
-   "diagonal": "a0aad4dc5ef03cc9",
+   "diagonal": "32ee5f4555184bde",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -161,7 +172,7 @@
    "fecha": "registrado"
   },
   "2019|ue": {
-   "diagonal": "a0aad4dc5ef03cc9",
+   "diagonal": "32ee5f4555184bde",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -172,7 +183,7 @@
    "fecha": "registrado"
   },
   "2020|global": {
-   "diagonal": "b6151c367dfda36b",
+   "diagonal": "adfd721c586bc1af",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -183,7 +194,7 @@
    "fecha": "registrado"
   },
   "2020|ue": {
-   "diagonal": "b6151c367dfda36b",
+   "diagonal": "adfd721c586bc1af",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -194,7 +205,7 @@
    "fecha": "registrado"
   },
   "2021|global": {
-   "diagonal": "f55ddc78abce2541",
+   "diagonal": "f96a02b213714551",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -205,7 +216,7 @@
    "fecha": "registrado"
   },
   "2021|ue": {
-   "diagonal": "f55ddc78abce2541",
+   "diagonal": "f96a02b213714551",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -216,7 +227,7 @@
    "fecha": "registrado"
   },
   "2022|global": {
-   "diagonal": "9fee215f4114c734",
+   "diagonal": "9e169fe56b59e830",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -224,11 +235,10 @@
     "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
     "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
    },
-   "fecha": "2026-10-15 22:01",
-   "minutos": 14.3
+   "fecha": "registrado"
   },
   "2022|ue": {
-   "diagonal": "9fee215f4114c734",
+   "diagonal": "9e169fe56b59e830",
    "codigo": {
     "idee_diagonal.py": "6e126b95c7ea2a40",
     "idee_paths.py": "9747c2de4d7d67d0",
@@ -236,8 +246,7 @@
     "notebooks/analysis/00_dependency_ue.ipynb": "c0d43db1d1d909b9",
     "herramientas/ejecutar_motor.py": "3fd456a8f12b2516"
    },
-   "fecha": "2026-10-15 22:11",
-   "minutos": 9.9
+   "fecha": "registrado"
   }
  },
  "arquitecto": {
@@ -281,7 +290,7 @@
    "codigo": {
     "notebooks/analysis/idc_architect.py": "b9981967d7577314"
    },
-   "fecha": "2026-10-15 22:14"
+   "fecha": "registrado"
   }
  }
 }
