@@ -57,7 +57,7 @@ def process_year(year):
         hubs["freq_norm"] = hubs["frequency_total"] / max_f if max_f > 0 else 0
         hubs["strength_norm"] = hubs["strength_total"] / max_s if max_s > 0 else 0
         hubs["global_score"] = (0.4 * hubs["freq_norm"]) + (0.6 * hubs["strength_norm"])
-        hubs["global_rank"] = hubs["global_score"].rank(ascending=False, method='min').astype(int)
+        hubs["global_rank"] = hubs["global_score"].rank(ascending=False, method='min').astype("int32")
         hubs = hubs.sort_values("global_score", ascending=False)
         hubs["year"] = year
 
@@ -93,7 +93,7 @@ def process_year(year):
             group["strength_norm"] = group["strength"] / max_s if max_s > 0 else 0
             group["hub_score"] = (0.4 * group["freq_norm"]) + (0.6 * group["strength_norm"])
             group = group.sort_values("hub_score", ascending=False)
-            group["hub_rank"] = group["hub_score"].rank(ascending=False, method='min').astype(int)
+            group["hub_rank"] = group["hub_score"].rank(ascending=False, method='min').astype("int32")
             return group
             
         df_hubs_sector = df_hubs_sector.groupby("industry", group_keys=False).apply(norm_and_score)
@@ -291,9 +291,11 @@ def process_year(year):
     
     profiles = pd.concat([profiles_vul, profiles_imp], axis=1).fillna(0).reset_index()
     profiles["year"] = year
-    profiles["global_rank"] = profiles["vulnerability"].rank(ascending=False).astype(int)
+    profiles["global_rank"] = profiles["vulnerability"].rank(ascending=False).astype("int32")
 
     # 6. GUARDAR RESULTADOS OFICIALES
+    # Las columnas de rango se fijan a int32 (astype arriba): es el esquema publicado; con numpy >= 2 en Windows
+    # astype(int) daría int64 y cambiaría el tipo de columna que reciben los entregables (29-10-2026).
     hubs.to_parquet(output_dir / f"hubs_{year}.parquet", index=False)
     df_hubs_sector.to_parquet(output_dir / f"hubs_sector_{year}.parquet", index=False)
     df_critical.to_parquet(output_dir / f"critical_{year}.parquet", index=False)
